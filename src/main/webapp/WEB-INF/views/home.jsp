@@ -46,7 +46,7 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">심심할때 하는 퀴즈</p>
+                        <p class="text-white mb-5">심심할때 하는 퀴즈</p>
                         <a class="btn btn-primary btn-xl" href="#about">퀴즈 시작하기</a>
                     </div>
                 </div>
