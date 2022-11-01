@@ -3,6 +3,8 @@
  */
 $(function() {
 	$('#loginB').click(function(e) {
+		e.stopPropagation();
+
 		$('#mainlogin').removeClass('mlhidden');
 		$('#mainlogin2').removeClass('mlhidden');
 
@@ -18,12 +20,14 @@ $(function() {
 		});
 	});
 
-	$('#mainlogin').click(function() {
-		
+	$('.mlcheck').click(function(e) {
+		e.stopPropagation();
 		$('#mainlogin').addClass('mlhidden');
 		$('#mainlogin2').addClass('mlhidden');
 		
 		$('#mainlogin2').html('');
+		
+		return false;
 	});
 });
 
