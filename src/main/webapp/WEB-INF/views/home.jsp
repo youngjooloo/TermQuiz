@@ -20,6 +20,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/home/css/styles.css" rel="stylesheet" />
+        <link href="resources/home/css/main.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -32,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">퀴즈</a></li>
                         <li class="nav-item"><a class="nav-link" href="boardlist">게시판</a></li>
                         <li class="nav-item"><a class="nav-link" href="qnaboardlist">건의사항</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">로그인</a></li>
                     </ul>
                 </div>
             </div>
@@ -249,12 +250,22 @@
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer>
+        
+        <div id="mainlogin" class="mlhidden">
+			
+		</div>
+		<div id="mainlogin2" class="mlhidden">
+		
+		</div>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
+        <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>
+        <script src="resources/home/js/main.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

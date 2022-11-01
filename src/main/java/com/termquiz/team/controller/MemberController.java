@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 	
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/mloginf")
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
     	mv.setViewName("member/login");
