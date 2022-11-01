@@ -33,7 +33,14 @@
                         <li class="nav-item"><a class="nav-link" href="#about">퀴즈</a></li>
                         <li class="nav-item"><a class="nav-link" href="boardlist">게시판</a></li>
                         <li class="nav-item"><a class="nav-link" href="qnaboardlist">건의사항</a></li>
-                        <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">로그인</a></li>
+        
+                        <c:if test="${empty loginID}">
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">로그인</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">내 정보</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
@@ -258,18 +265,11 @@
 		
 		</div>
         
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

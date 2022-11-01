@@ -21,13 +21,11 @@ $(function() {
 	});
 
 	$('.mlcheck').click(function(e) {
-		e.stopPropagation();
 		$('#mainlogin').addClass('mlhidden');
 		$('#mainlogin2').addClass('mlhidden');
 		
 		$('#mainlogin2').html('');
 		
-		return false;
 	});
 });
 
