@@ -16,7 +16,7 @@
 <body>
 <div class="main">
         <div class="container">
-            <form action="join" method="POST" class="appointment-form" id="appointment-form">
+            <form action="mjoin" method="POST" class="appointment-form" id="appointment-form">
                 <h2>Term Quiz on a Bus</h2>
                 <div class="form-group-1">
                     <input type="email" class="joininput" name="email" id="email" placeholder="Email" required onclick="this.value='';" />
@@ -24,11 +24,11 @@
                     <input type="password" class="joininput" name="password" id="password" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" />
                     <input type="password" class="joininput" id="password2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
                     <input type="text" class="joininput" name="name" id="name" placeholder="Name" required onclick="this.value='';"/>
-                    <input type="number" class="joininput" oninput="numcheck(this);" name="phone_number" id="phone_number" placeholder="Phone Number" maxlength="11" required onclick="this.value='';"/>
+                    <input type="number" class="joininput" oninput="numcheck(this);" name="phoneNumber" id="phone_number" placeholder="Phone Number" maxlength="11" required onclick="this.value='';"/>
                    	<div id="socialnf">
-	                    <input type="number" class="joininput" oninput="numcheck(this);" name="socialnumf" id="socialnumf" maxlength="6" placeholder="Social Number" required onclick="this.value='';"/>
+	                    <input type="number" class="joininput" oninput="numcheck(this);" name="scNumF" id="socialnumf" maxlength="6" placeholder="Social Number" required onclick="this.value='';"/>
 	                    <p>&nbsp;&mdash;&nbsp;</p> 	                
-    	                <input type="number" class="joininput" oninput="numcheck(this);" name="socialnuml" id="socialnuml" maxlength="1" required onclick="this.value='';"/>
+    	                <input type="number" class="joininput" oninput="numcheck(this);" name="scNumL" id="socialnuml" maxlength="1" required onclick="this.value='';"/>
     	                <input id="socialnumb" value="******" disabled="disabled"/>
                    	</div>
                 </div>

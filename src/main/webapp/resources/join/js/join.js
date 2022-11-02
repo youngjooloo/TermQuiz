@@ -2,31 +2,34 @@
 
 $(function(){
 		$('.joininput').keydown(function(e){
-			
 			if ( e.which==13 ) {
 				e.preventDefault();
-				if(e.target.id == 'password'){
-					let passcheck = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z].{8,20}$/;
-					if(e.target.value.match(passcheck)){
-						$('#submit').click();
-					}else{
-						e.target.value = '';
-						e.target.placeholder = '패턴에 맞게 작성하세요 (숫자, 영문자 포함, 8글자 이상, 20글자 이하)';
-					}
-				}else{
-					$('#submit').click();
+				$('#submit').click();
+			}
+		});
+		
+		$('#password').focusout(function(){
+			let passcheck = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z].{8,20}$/;
+			let pw = $('#password').val();
+			if(pw != ''){
+				if(!pw.match(passcheck)){
+					$('#password').val('');
+					$('#password').attr('placeholder','패턴에 맞게 작성하세요 (숫자, 영문자 포함, 8글자 이상, 20글자 이하)');
+					$('#password').focus();
 				}
 			}
 		});
 		
 		$('#password2').focusout(function(){
-			if($('#password').val() == $('#password2').val()){
-				$('#submit').click();
-			}else{
-				$('#password').val('');
-				$('#password2').val('');
-				$('#password2').attr('placeholder','비밀번호가 다릅니다');
-				$('#password').focus();
+			let pw1 = $('#password').val();
+			let pw2 = $('#password2').val();
+			if(!(pw1 == '' && pw2 == '')){
+				if(!(pw1 == pw2)){
+					$('#password').val('');
+					$('#password2').val('');
+					$('#password2').attr('placeholder','비밀번호가 다릅니다');
+					$('#password').focus();
+				}
 			}
 		});
 		

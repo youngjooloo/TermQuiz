@@ -17,7 +17,8 @@
 		
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:com/termquiz/team/mapperInterface/*.xml"/>
 	</bean>
 
-	<mybatis-spring:scan base-package="mapperInterface"/>
+	<mybatis-spring:scan base-package="com.termquiz.team.mapperInterface"/>
 </beans>
