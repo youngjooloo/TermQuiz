@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+head {
+	display: none;
+}
+
+body {
+	display: block;
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: 맑은 고딕;
+	font-weight: 400;
+	color: black;	
+	-webkit-text-size-adjust: none;
+}
+
+/*==================================  */
+
+.main_container {
+	position: relative;
+	width: 100%
+}
+
+.main_inner_container {
+    min-width: 1400px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box
+}
+
+/*==================================  */
+
+header{
+	height: 107px;
+	overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-width: 1400px;
+    width: 100%;
+    padding-top: 28px;
+    box-sizing: border-box;
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+}
+
+.inner_head{
+	position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    min-height: 59px;
+    margin: 0 auto;
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+.inner_head_title {
+	float: left;
+	margin-right: 170px;
+}
+
+.header_div_a {
+	display: block;
+	width: 135px;
+	height: 60px;
+}
+
+.main_content {
+    background-color: #f7f7f7;
+    margin: 22px 0 82px;
+}
+
+.qna_section1_div {
+	padding: 74px 80px 52px;
+}
+
+
+.qna_section1_intro {
+	font-size: 18px;
+    line-height: 1.56;
+}
+
+.qna_section1_p {
+	font-size: 16px;
+    margin: 17px 0 7px;
+}
+
+.desc_intro{
+    max-width: 1010px;
+    margin: 0 auto;
+}
+
+.txt_cno {
+	width: 60px;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.txt_id {
+	width: 150px;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.txt_title {
+	width: 350px;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.txt_date {
+		width: 250px;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: end;
+}
+
+.wrap_info{
+	max-width: 1250px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px 80px 0;
+}
+
+.list_invest {
+	list-style: none;
+}
+
+.list_invest li {
+	    line-height: 56px;
+    border-radius: 50px;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 10px;
+    padding: 21px 30px 21px 39px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
