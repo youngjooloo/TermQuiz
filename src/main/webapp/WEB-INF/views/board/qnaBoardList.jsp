@@ -13,10 +13,9 @@
 			<header>
 				<div class="inner_head">
 					<h1 class="inner_head_title">
-					<a class="header_div_a" href=""><img src="../images/aaa.gif"></a>
+					<a class="header_div_a" href=""><img src="images/aaa.gif"></a>
 					</h1>
 				</div>
-			<!-- nav는 형한테 질문 예정  -->
 			</header>
 				<article>
 					<section class="main_content">
@@ -33,7 +32,7 @@
 							<span class="txt_cno">번호</span>
 							<span class="txt_id">작성자</span>
 							<span class="txt_title">제목</span>
-							<span class="txt_date">등록 일시</span>
+							<span class="txt_date">작성일시</span>
 						</div>
 						
 					<section>
@@ -41,16 +40,34 @@
 						<div class="wrap_info">
 							<ul class="list_invest">
 								<li>
+									<a href="" target="_blank" class="link_invest">
+										<span class="list_cno">1</span>
+										<span class="list_name">텀퀴즈</span>
+										<strong class="list_title">test</strong>
+										<span class="list-date">현재 시간</span>
+										<span class="ico_arr">
+											<span class="ico_disclosure"></span>
+										</span>
+									</a>
 								</li>
 							</ul>
-							<div>
-								<a>paging numdber</a>
+							<div class="wrap_paging">
+								<a href="js참고" class="paging_num_on">
+									<span class="screen_out">현재 페이지</span>
+									 1 
+								</a>
 							</div>
 						</div>
 					</section>
 				</article>
+				<div class="pad"></div>
 			<footer>
-			
+				<div class="inner_footer">
+					<h2 class="screen_out">서비스 이용정보</h2>
+					<small class="txt_copyright">
+						Copyright Termquiz All rights reserved.
+					</small>
+				</div>
 			</footer>
 		</div>	
 	</div>
