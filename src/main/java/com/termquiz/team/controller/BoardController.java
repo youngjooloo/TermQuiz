@@ -15,13 +15,13 @@ public class BoardController {
 
     	mv.setViewName("/board/boardList");
     	return mv;
-	}
+	} //boardlist
 	
 	@RequestMapping(value = "/qnaboardlist")
 	public ModelAndView qnaBoardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
     	mv.setViewName("/board/qnaBoardList");
     	return mv;
-	}
+	} //qnaboardlist
 	
-}
+} //boardcontroller
