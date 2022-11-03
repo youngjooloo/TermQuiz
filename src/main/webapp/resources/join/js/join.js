@@ -8,6 +8,31 @@ $(function(){
 			}
 		});
 		
+		$('#email').focusout(function(){
+			let emailCheck = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+			let email = $('#email').val();
+			if(email != ''){
+				if(!email.match(emailCheck)){
+					$('#email').val('');
+					$('#email').attr('placeholder','이메일을 제대로 입력하세요');
+					$('#email').focus();
+				}
+			}
+		});
+		
+		
+		$('#nickname').focusout(function(){
+			let nicknameCheck = /^[가-힣|a-z|A-Z|0-9|]+$/;
+			let nickname = $('#nickname').val();
+			if(nickname != ''){
+				if(!nickname.match(nicknameCheck)){
+					$('#nickname').val('');
+					$('#nickname').attr('placeholder','한글, 영문자, 숫자만 작성 가능');
+					$('#nickname').focus();
+				}
+			}
+		});
+		
 		$('#password').focusout(function(){
 			let passcheck = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z].{8,20}$/;
 			let pw = $('#password').val();
@@ -29,6 +54,18 @@ $(function(){
 					$('#password2').val('');
 					$('#password2').attr('placeholder','비밀번호가 다릅니다');
 					$('#password').focus();
+				}
+			}
+		});
+		
+		$('#name').focusout(function(){
+			let nameCheck = /^[가-힣|a-z|A-Z|]+$/;
+			let name = $('#name').val();
+			if(name != ''){
+				if(!name.match(nameCheck)){
+					$('#name').val('');
+					$('#name').attr('placeholder','한글, 영문자만 작성 가능');
+					$('#name').focus();
 				}
 			}
 		});
