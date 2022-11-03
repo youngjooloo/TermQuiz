@@ -53,7 +53,7 @@ public class MemberController {
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		
 		if (service.insert(vo) > 0) {
-			
+			mv.addObject("join", true);
 		} else {
 			uri = "member/join";
 		}

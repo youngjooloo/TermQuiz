@@ -262,9 +262,11 @@
 		</div>
 		<div id="mainlogin2" class="mlhidden">
 		</div>
-		<div id="afterJoin">
-			<span id="ajText">회원가입 성공</span>
-			<button type="button" id="ajBtn">확인</button>
+		
+		<div id="afterJoin" class="ajhidden">
+			<h4 class="ajText">회원가입 성공</h4>
+			<h4 class="ajText" id="ajText2">로그인 후 이용</h4>
+			<button type="button" class="submit" id="ajBtn">확인</button>
 		</div>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

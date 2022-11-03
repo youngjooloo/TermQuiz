@@ -25,7 +25,23 @@ $(function() {
 		$('#mainlogin2').addClass('mlhidden');
 		
 		$('#mainlogin2').html('');
-		
 	});
+
+	
 });
 
+$(document).ready(function(){
+	console.log("join");	
+	joinCheck();
+});
+
+function joinCheck(){
+	let url = window.location.href;
+	let urloj = new URL(url);
+	let check = urloj.searchParams;
+	let join = check.get('join');
+	console.log(join);	
+}
+
+
+	
