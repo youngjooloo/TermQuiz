@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Creative - Start Bootstrap Theme</title>
+        <title>Term Quiz on a Bus</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -259,10 +259,12 @@
         </footer>
         
         <div id="mainlogin" class="mlhidden mlcheck">
-			
 		</div>
 		<div id="mainlogin2" class="mlhidden">
-		
+		</div>
+		<div id="afterJoin">
+			<span id="ajText">회원가입 성공</span>
+			<button type="button" id="ajBtn">확인</button>
 		</div>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
