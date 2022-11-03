@@ -8,7 +8,7 @@ public class MemberVO {
 	private String nickname;
 	private String password;
 	private String name;
-	private int phoneNumber;
+	private long phoneNumber;
 	private int scNumF;
 	private int scNumL;
 	private int totalScore;

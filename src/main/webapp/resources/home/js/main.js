@@ -26,21 +26,29 @@ $(function() {
 		
 		$('#mainlogin2').html('');
 	});
+	
+	$('#ajBtn').click(function(){
+		$('#afterJoin').addClass('ajhidden');
+		$('#loginB').click();
+	});
 
 	
 });
 
 $(document).ready(function(){
-	console.log("join");	
 	joinCheck();
 });
 
 function joinCheck(){
-	let url = window.location.href;
-	let urloj = new URL(url);
-	let check = urloj.searchParams;
-	let join = check.get('join');
-	console.log(join);	
+	const url = window.location.href;
+	const urloj = new URL(url);
+	const check = urloj.searchParams;
+	const join = check.get('join');
+	
+	if(join){
+		$('#afterJoin').removeClass('ajhidden');
+		history.replaceState({}, null, location.pathname);
+	}
 }
 
 

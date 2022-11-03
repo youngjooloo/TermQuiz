@@ -258,16 +258,24 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer>
         
-        <div id="mainlogin" class="mlhidden mlcheck">
-		</div>
-		<div id="mainlogin2" class="mlhidden">
-		</div>
+        <div id="mainlogin" class="mlhidden mlcheck"></div>
+		<div id="mainlogin2" class="mlhidden"></div>
 		
-		<div id="afterJoin" class="ajhidden">
-			<h4 class="ajText">회원가입 성공</h4>
-			<h4 class="ajText" id="ajText2">로그인 후 이용</h4>
-			<button type="button" class="submit" id="ajBtn">확인</button>
-		</div>
+<!-- 		<div id="afterJoin" class="ajhidden"> -->
+<!-- 			<h4 class="ajText">회원가입 성공</h4> -->
+<!-- 			<h4 class="ajText" id="ajText2">로그인 후 이용</h4> -->
+<!-- 			<button type="button" id="ajBtn">확인</button> -->
+<!-- 		</div> -->
+		
+      <div id="afterJoin">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+              <h2 class="fw-bold mb-2 text-uppercase">Success</h2>
+              <p class="text-white-50 mb-5">Use after login</p>
+              <button class="btn btn-outline-light btn-lg px-5" type="button" id="ajBtn">Login</button>
+          </div>
+        </div>
+      </div>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>

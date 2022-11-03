@@ -48,7 +48,7 @@ public class MemberController {
 		
 		String uri = "redirect:home";
 		
-		vo.toString();
+		System.out.println(vo.getName());
 		
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		
