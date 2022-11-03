@@ -54,10 +54,21 @@
 					</div>
 
 					<div class="text-center p-t-50">
+					</div>
+					<div class="text-center p-t-50">
+						<span class="txt1">
+							forgot password?
+						</span>
+						&nbsp;
+						<a class="txt2" href="mjoinf">
+							Find Password
+						</a>
+						<br>
+						<br>
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-
+						&nbsp;
 						<a class="txt2" href="mjoinf">
 							Sign Up
 						</a>

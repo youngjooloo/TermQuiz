@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-submit">
                     <button type="submit" name="submit" id="submit" class="submit" onClick="return agreecheck();">Sign Up</button>
-                    <button type="reset" id="reset" class="submit">Reset</button>
+                    <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
                 </div>
             </form>
         </div>
