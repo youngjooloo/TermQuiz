@@ -31,19 +31,19 @@
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
-* {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
+/* * { */
+/* 	margin: 0px;  */
+/* 	padding: 0px;  */
+/* 	box-sizing: border-box; */
+/* } */
 
-body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
-}
+/* body, html { */
+/* 	height: 100%; */
+/* 	font-family: Poppins-Regular, sans-serif; */
+/* } */
 
 /*---------------------------------------------*/
-a {
+.limiter a {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
@@ -55,11 +55,11 @@ a {
   -moz-transition: all 0.4s;
 }
 
-a:focus {
+.limiter a:focus {
 	outline: none !important;
 }
 
-a:hover {
+.limiter a:hover {
 	text-decoration: none;
   color: #6a7dfe;
   color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
@@ -81,14 +81,14 @@ p {
 	margin: 0px;
 }
 
-ul, li {
+.limiter ul, li {
 	margin: 0px;
 	list-style-type: none;
 }
 
 
 /*---------------------------------------------*/
-input {
+.limiter input {
 	outline: none;
 	border: none;
 }

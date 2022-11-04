@@ -50,9 +50,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#about">Quiz</a></li>
+					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
-					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">QnA</a></li>
 
 					<c:if test="${empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="javascript:;"
