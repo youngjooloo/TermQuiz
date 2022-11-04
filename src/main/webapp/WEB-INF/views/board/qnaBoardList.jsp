@@ -68,6 +68,7 @@
 		</div>
 	</nav>
 
+<!-- 1차 수정 -->
 	<article class="articleA">
 		<section class="main_content">
 			<div class="qna_section1_div">
