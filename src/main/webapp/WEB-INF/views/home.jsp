@@ -23,6 +23,8 @@
         <link href="resources/home/css/main.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+    	<div id="mainlogin" class="mlhidden mlcheck"></div>
+		<div id="mainlogin2" class="mlhidden"></div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -115,8 +117,7 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer>
         
-        <div id="mainlogin" class="mlhidden mlcheck"></div>
-		<div id="mainlogin2" class="mlhidden"></div>
+        
 		
       <div id="afterJoin" class="ajhidden">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -133,6 +134,5 @@
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

@@ -50,6 +50,10 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+	
+	$('header').click(function(e){
+		console.log('qwqe');
+	});
 
     // Activate SimpleLightbox plugin for portfolio items
     new SimpleLightbox({

@@ -44,6 +44,6 @@
 
 #startBtn{
 	position: absolute;
-    bottom: 10%;
-    transform: translate(-50%, 0);
+    bottom: 100px;
+    transform: translate(-43%, -82%);
 }

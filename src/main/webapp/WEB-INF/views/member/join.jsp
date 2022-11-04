@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
+    <link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -17,7 +18,7 @@
 <div class="main">
         <div class="container">
             <form action="mjoin" method="POST" class="appointment-form" id="appointment-form">
-                <h2>Term Quiz on a Bus</h2>
+                <h2>Term Quiz on a Bus Sign Up</h2>
                 <div class="form-group-1">
                     <input type="email" class="joininput" name="email" id="email" placeholder="Email" required onclick="this.value='';" />
                     <input type="text" class="joininput" name="nickname" id="nickname" placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required onclick="this.value='';" />
