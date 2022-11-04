@@ -62,4 +62,18 @@ public class MemberController {
     	mv.setViewName(uri);
     	return mv;
 	}
+	
+	@RequestMapping(value = "/mdetailf")
+	public ModelAndView mdefailf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+    	mv.setViewName("member/mDetail");
+    	return mv;
+	}
+	
+	@RequestMapping(value = "/mdetailup", method = RequestMethod.POST)
+	public ModelAndView mdetailup(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+    	mv.setViewName("redirect:home");
+    	return mv;
+	}
 }

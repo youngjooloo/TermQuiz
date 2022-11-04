@@ -40,7 +40,7 @@ list-type-ulli, ul {
   /* IE9 Compat Modes */
   src: local("Roboto Slab Bold"), local("RobotoSlab-Bold"), url("../fonts/roboto-slab/roboto-slab-v7-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-slab/roboto-slab-v7-latin-700.woff2") format("woff2"), url("../fonts/roboto-slab/roboto-slab-v7-latin-700.woff") format("woff"), url("../fonts/roboto-slab/roboto-slab-v7-latin-700.ttf") format("truetype"), url("../fonts/roboto-slab/roboto-slab-v7-latin-700.svg#RobotoSlab") format("svg");
   /* Legacy iOS */ }
-a:focus, a:active {
+.main a:focus, .main a:active {
   text-decoration: none;
   outline: none;
   transition: all 300ms ease 0s;
@@ -146,7 +146,7 @@ body {
   position: relative; 
   }
 
-.container {
+.main .container {
   width: 586px;
   background: #fff;
   margin-left: 165px;
@@ -243,18 +243,18 @@ input[type=checkbox]:not(old):checked + label > span:before {
   .submit:hover {
     background: #3a518d; }
 
-ul {
+.main ul {
   background: 0 0;
   z-index: 9; }
 
-ul li {
+.main ul li {
   padding: 3px 0px;
   z-index: 2;
   color: #999; }
-  ul li:last-child {
+ .main  ul li:last-child {
     border-bottom: 1px solid #ebebeb; }
 
-ul li:not(.init) {
+.main ul li:not(.init) {
   display: none;
   background: #fff;
   color: #222;
@@ -263,15 +263,15 @@ ul li:not(.init) {
   border-right: 1px solid #ebebeb;
   border-top: 1px solid #ebebeb; }
 
-ul li:not(.init):hover, ul li.selected:not(.init) {
+.main ul li:not(.init):hover, ul li.selected:not(.init) {
   background: #4966b1;
   color: #fff; }
 
-li.init {
+.main li .init {
   cursor: pointer;
   position: relative;
   border-bottom: 2px solid #ebebeb; }
-  li.init:after {
+ .main  li.init:after {
     position: absolute;
     right: 0;
     top: 50%;
@@ -314,10 +314,10 @@ li.init {
   z-index: 9; }
 
 @media screen and (max-width: 1024px) {
-  .container {
+ .main  .container {
     margin: 0 auto; } }
 @media screen and (max-width: 768px) {
-  .container {
+  .main .container {
     width: calc( 100% - 30px);
     max-width: 100%; } }
 @media screen and (max-width: 480px) {
@@ -372,7 +372,7 @@ li.init {
 	background-color: #1a1a1a;
 }
 
-.container{
+.main .container{
 	margin: auto;	
 }
 

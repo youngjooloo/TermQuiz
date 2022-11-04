@@ -241,7 +241,7 @@ header{
     height: 18px;
     vertical-align: middle;
     display: inline-block;
-    background: url(/images/arrowright.png) no-repeat 0 0;
+    background: url(../images/arrowright.png) no-repeat 0 0;
     overflow: hidden;
     font-size: 0;
     line-height: 0;

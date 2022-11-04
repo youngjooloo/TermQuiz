@@ -41,3 +41,9 @@
 .ajhidden{
 	display:none;
 }
+
+#startBtn{
+	position: absolute;
+    bottom: 100px;
+    transform: translate(-43%, -82%);
+}

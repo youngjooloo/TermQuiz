@@ -7,7 +7,7 @@
 <title>LogIn</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="resources/login/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="resources/login/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/login/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -40,7 +40,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="pass" autoComplete="off">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
@@ -54,10 +54,21 @@
 					</div>
 
 					<div class="text-center p-t-50">
+					</div>
+					<div class="text-center p-t-50">
+						<span class="txt1">
+							forgot password?
+						</span>
+						&nbsp;
+						<a class="txt2" href="mjoinf">
+							Find Password
+						</a>
+						<br>
+						<br>
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-
+						&nbsp;
 						<a class="txt2" href="mjoinf">
 							Sign Up
 						</a>
