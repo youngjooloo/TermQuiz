@@ -87,6 +87,7 @@
 				<tr>
 					<th scope="col" class="quizNo">No</th>
 					<th scope="col" class="quizHint">Hint</th>
+					<th scope="col" class="quizSolve">Solve</th>
 					<th scope="col" class="quizStart">Start</th>
 				</tr>
 			</thead>
@@ -94,6 +95,7 @@
 				<tr class="quizRow">
 					<th scope="row" class="quizNo">1</th>
 					<td class="quizHint">Mark</td>
+					<td class="quizSolve">Solved</td>
 					<td class="quizStart">
 						<button type="button" class="btn btn-primary btn-m">Start</button>
 					</td>
@@ -114,5 +116,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/quiz/js/quizList.js"></script>
 </body>
 </html>

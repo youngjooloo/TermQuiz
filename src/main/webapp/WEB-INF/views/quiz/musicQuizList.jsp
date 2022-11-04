@@ -88,13 +88,15 @@
 				<tr>
 					<th scope="col" class="quizNo">No</th>
 					<th scope="col" class="quizHint">Hint</th>
+					<th scope="col" class="quizSolve">Solve</th>
 					<th scope="col" class="quizStart">Start</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="quizRow">
+				<tr class="quizRow" id="1">
 					<th scope="row" class="quizNo">1</th>
 					<td class="quizHint">Mark</td>
+					<td class="quizSolve">Solved</td>
 					<td class="quizStart">
 						<button type="button" class="btn btn-primary btn-m">Start</button>
 					</td>

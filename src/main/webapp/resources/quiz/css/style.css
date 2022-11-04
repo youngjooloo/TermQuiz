@@ -34,7 +34,12 @@ section{
 }
 
 .quizHint{
-	width: 70%;
+	width: 50%;
+	border-right: 1px white solid;
+}
+
+.quizSolve{
+	width: 20%;
 	border-right: 1px white solid;
 }
 

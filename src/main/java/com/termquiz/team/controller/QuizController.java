@@ -26,5 +26,13 @@ public class QuizController {
     	mv.setViewName("/quiz/musicQuizList");
     	return mv;
 	}
+
+	@RequestMapping(value = "/quizdetail")
+	public ModelAndView quizdetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		
+		mv.setViewName("/quiz/quizDetail");
+		return mv;
+	}
 	
+
 }
