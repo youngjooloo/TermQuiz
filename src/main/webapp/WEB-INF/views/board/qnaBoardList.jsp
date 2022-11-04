@@ -68,32 +68,36 @@
 		</div>
 	</nav>
 
-	<article>
+	<article class="articleA">
 		<section class="main_content">
 			<div class="qna_section1_div">
 				<h4 class="qna_section1_intro">QnA</h4>
 				<p class="qna_section1_p">
-					lorem ipsumlorem ipsumlorem ipsum <br> lorem ipsumlorem
-					ipsumlorem ipsumlorem ipsum
+					궁금한 부분이 있으면 글을 남겨주세요!
 				</p>
 			</div>
 		</section>
 
 		<div class="desc_intro">
 			<span class="txt_cno">번호</span> <span class="txt_id">작성자</span> <span
-				class="txt_title">제목</span> <span class="txt_date">작성일시</span>
+				class="txt_title">제목</span> <span class="txt_date">작성 일시</span>
 		</div>
 
 		<section>
 
 			<div class="wrap_info">
 				<ul class="list_invest">
-					<li><a href="" target="_blank" class="link_invest"> <span
-							class="list_cno">1</span> <span class="list_name">텀퀴즈</span> <strong
-							class="list_title">test</strong> <span class="list-date">현재
-								시간</span> <span class="ico_arr"> <span class="ico_disclosure"></span>
-						</span>
-					</a></li>
+					<li>
+					<a href="" class="link_invest" id="qnalistA">
+					<span class="list_cno">1</span>
+					<span class="list_name">텀퀴즈</span> 
+					<strong class="list_title">test</strong>
+					<span class="list-date">현재 시간</span>
+					<span class="ico_arr"> 
+						<span class="ico_disclosure"></span>
+					</span>
+					</a>
+					</li>
 				</ul>
 				<div class="wrap_paging">
 					<a href="js참고" class="paging_num_on"> <span class="screen_out">현재
@@ -103,7 +107,13 @@
 			</div>
 		</section>
 	</article>
-	<div class="pad"></div>
+	<div class="btn_container">
+		<div class="btn_right">
+    		<button type="button" class="btn black mr5" onclick="home">[Home]</button>
+    		<button type="button" class="btn black" onclick="board/boardDetail;">[글 등록]</button>
+		</div>
+    </div>
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
