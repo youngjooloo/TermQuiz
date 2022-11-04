@@ -16,14 +16,14 @@ public class QuizController {
 	@RequestMapping(value = "/moviequiz")
 	public ModelAndView moviequiz(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
-    	mv.setViewName("/quiz/quizList");
+    	mv.setViewName("/quiz/movieQuizList");
     	return mv;
 	}
 	
 	@RequestMapping(value = "/musicquiz")
 	public ModelAndView musicquiz(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
-    	mv.setViewName("/quiz/quizList");
+    	mv.setViewName("/quiz/musicQuizList");
     	return mv;
 	}
 	

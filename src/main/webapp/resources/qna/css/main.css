@@ -149,6 +149,11 @@ header{
 
 /*==================================  */
 /* qna 리스트 구성품  */
+
+#qnalistA{
+	display: flex;
+}
+
 .wrap_info{
 	max-width: 1250px;
     margin: 0 auto;
