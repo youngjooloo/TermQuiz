@@ -5,22 +5,16 @@
 	padding: 0;
 }
 
-head {
-	display: none;
-}
-
 body {
 	display: block;
 	font-size: 14px;
 	line-height: 1.5;
 	font-family: 맑은 고딕;
 	font-weight: 400;
-	color: black;	
-	-webkit-text-size-adjust: none;
+	color: black;
+	width: 100vw;
+	height: 100vh;	
 }
-
-
-
 
 /*=================================  */
 /* article */
@@ -251,29 +245,4 @@ articleA {
 .btn_right {
 	float: right;
 	margin-right: 75px;
-}
-
-/*==================================  */
-/*  footer */
-
-footer {
-	background-color: #f7f7f7;
-	display: block;
-}
-
-.inner_footer {
-	position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 32px 80px 41px;
-    box-sizing: border-box;
-}
-
-.txt_copyright {
-	position: absolute;
-    top: 41px;
-    left: 80px;
-    font-size: 12px;
-    line-height: 14px;
-    color: #333;
 }

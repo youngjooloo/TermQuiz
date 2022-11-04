@@ -80,8 +80,10 @@
 		</section>
 
 		<div class="desc_intro">
-			<span class="txt_cno">번호</span> <span class="txt_id">작성자</span> <span
-				class="txt_title">제목</span> <span class="txt_date">작성 일시</span>
+			<span class="txt_cno">번호</span>
+			<span class="txt_id">작성자</span> 
+			<span class="txt_title">제목</span>
+			<span class="txt_date">작성 일시</span>
 		</div>
 
 		<section>
@@ -101,8 +103,9 @@
 					</li>
 				</ul>
 				<div class="wrap_paging">
-					<a href="js참고" class="paging_num_on"> <span class="screen_out">현재
-							페이지</span> 1
+					<a href="js참고" class="paging_num_on"> 
+					<span class="screen_out">현재 페이지</span> 
+					1
 					</a>
 				</div>
 			</div>
@@ -114,7 +117,6 @@
     		<button type="button" class="btn black" onclick="board/boardDetail;">[글 등록]</button>
 		</div>
     </div>
-
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
