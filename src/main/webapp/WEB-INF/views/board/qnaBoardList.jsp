@@ -41,7 +41,7 @@
 		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
 		id="mainNav">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand " href="#page-top">Term Quiz on a Bus</a>
+			<a class="navbar-brand " href="home">Term Quiz on a Bus</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -52,7 +52,7 @@
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">QnA</a></li>
+					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="javascript:;"
@@ -68,20 +68,22 @@
 		</div>
 	</nav>
 
-	<article>
+<!-- 1차 수정 -->
+	<article class="articleA">
 		<section class="main_content">
 			<div class="qna_section1_div">
 				<h4 class="qna_section1_intro">QnA</h4>
 				<p class="qna_section1_p">
-					lorem ipsumlorem ipsumlorem ipsum <br> lorem ipsumlorem
-					ipsumlorem ipsumlorem ipsum
+					궁금한 부분이 있으면 글을 남겨주세요!
 				</p>
 			</div>
 		</section>
 
 		<div class="desc_intro">
-			<span class="txt_cno">번호</span> <span class="txt_id">작성자</span> <span
-				class="txt_title">제목</span> <span class="txt_date">작성일시</span>
+			<span class="txt_cno">번호</span>
+			<span class="txt_id">작성자</span> 
+			<span class="txt_title">제목</span>
+			<span class="txt_date">작성 일시</span>
 		</div>
 
 		<section>
@@ -89,28 +91,31 @@
 			<div class="wrap_info">
 				<ul class="list_invest">
 					<li>
-					<a href="" target="_blank" class="link_invest" id="qnalistA">
-					 <span class="list_cno">1</span> 
-					 <span class="list_name">텀퀴즈</span> 
-					 <strong class="list_title">test</strong> 
-					 <span class="list-date">현재 시간</span> 
-					 <span class="ico_arr"> <span class="ico_disclosure"></span></span>
+					<a href="" class="link_invest" id="qnalistA">
+					<span class="list_cno">1</span>
+					<span class="list_name">텀퀴즈</span> 
+					<strong class="list_title">test</strong>
+					<span class="list-date">현재 시간</span>
+					<span class="ico_arr"> 
+						<span class="ico_disclosure"></span>
+					</span>
 					</a>
 					</li>
 				</ul>
 				<div class="wrap_paging">
-					<a href="js참고" class="paging_num_on"> <span class="screen_out">현재
-							페이지</span> 1
+					<a href="js참고" class="paging_num_on"> 
+					<span class="screen_out">현재 페이지</span> 
+					1
 					</a>
 				</div>
 			</div>
 		</section>
 	</article>
-	<div class="pad"></div>
-	
-	<footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
-    </footer>
+	<div class="btn_container">
+		<div class="btn_right">
+    		<button type="button" class="btn black" onclick="location.href='home'">[글 등록]</button>
+		</div>
+    </div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

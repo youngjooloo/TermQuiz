@@ -74,40 +74,40 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-6 col-sm-6">
-                        <a class="portfolio-box" href="moviequiz" >
+                        <div class="portfolio-box" onclick='location.href="moviequiz";' >
                             <img class="img-fluid" src="resources/home/assets/img/portfolio/thumbnails/movie.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Movie</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
-                        <a class="portfolio-box" href="musicquiz" >
+                        <div class="portfolio-box" onclick='location.href="musicquiz";' >
                             <img class="img-fluid" src="resources/home/assets/img/portfolio/thumbnails/music.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Music</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
-                        <a class="portfolio-box" href="javascript:;" title="Project Name">
+                        <div class="portfolio-box" >
                             <img class="img-fluid" src="resources/home/assets/img/portfolio/thumbnails/game.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Game</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
-                        <a class="portfolio-box" href="javascript:;" title="Project Name">
+                        <div class="portfolio-box">
                             <img class="img-fluid" src="resources/home/assets/img/portfolio/thumbnails/book.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Book</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
