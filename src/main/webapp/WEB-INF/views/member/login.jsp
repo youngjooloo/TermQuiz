@@ -34,7 +34,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" autoComplete="off">
+						<input class="input100" type="password" name="password" autoComplete="off">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
