@@ -27,31 +27,32 @@
             
             <div class="form-group-1">
   				<label for="email" class="label-agree-term">Email</label>          
-                <input type="email" class="joininput" name="email" id="email" required readonly />
+                <input type="email" class="joininput" name="email" id="email" value="${user.email}" required readonly />
 
   				<label for="nickname" class="label-agree-term">Nickname</label>          
-                <input type="text" class="joininput" name="nickname" id="nickname"
+                <input type="text" class="joininput" name="nickname" id="nickname" value="${user.nickname}"
                     placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 
   				<label for="password" class="label-agree-term">Password</label>          
-                <input type="password" class="joininput" name="password" id="password"
+                <input type="password" class="joininput" name="password" id="password" value="${user.password}
                     placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required autoComplete="off" />
 
   				<label for="name" class="label-agree-term">Name</label>          
-                <input type="text" class="joininput" name="name" id="name" required readonly />
+                <input type="text" class="joininput" name="name" id="name" value="${user.name}"  required readonly />
 
   				<label for="phone_number" class="label-agree-term">Phone Number</label>          
                 <input type="number" class="joininput" oninput="numcheck(this);" name="phoneNumber" id="phone_number"
+                value="${user.phoneNumber}"
                     placeholder="Phone Number" maxlength="11" required />
 
   				<label class="label-agree-term">Social Number</label>          
                 <div id="socialnf" class="label-agree-term">
-                    <input type="number" class="joininput" name="scNumF" id="socialnumf" maxlength="6" required
+                    <input type="number" class="joininput" name="scNumF" id="socialnumf" value="${user.scNumF}" maxlength="6" required
                         readonly />
 
                     <p>&nbsp;&mdash;&nbsp;</p>
 
-                    <input type="number" class="joininput" name="scNumL" id="socialnuml" maxlength="1" required
+                    <input type="number" class="joininput" name="scNumL" id="socialnuml"  value="${user.scNumL}"  maxlength="1" required
                         readonly />
 
                     <input id="socialnumb" value="******" disabled="disabled" />
