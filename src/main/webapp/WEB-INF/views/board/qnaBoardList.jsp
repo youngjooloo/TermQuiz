@@ -84,10 +84,10 @@
 			<span class="txt_id">작성자</span> 
 			<span class="txt_title">제목</span>
 			<span class="txt_date">작성 일시</span>
+			<span class="txt_ico"></span>
 		</div>
 
 		<section>
-
 			<div class="wrap_info">
 				<ul class="list_invest">
 					<li>
