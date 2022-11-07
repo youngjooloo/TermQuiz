@@ -36,8 +36,18 @@ $(function() {
 });
 
 $(document).ready(function(){
+	loginCheck();
 	joinCheck();
 });
+
+function loginCheck(){
+	const url = new URL(window.location.href);
+	const check = url.searchParams;
+	
+	if(check.get('login')){
+		$('#loginB').click();
+	}
+}
 
 function joinCheck(){
 	const url = window.location.href;
@@ -50,6 +60,7 @@ function joinCheck(){
 		history.replaceState({}, null, location.pathname);
 	}
 }
+
 
 
 	
