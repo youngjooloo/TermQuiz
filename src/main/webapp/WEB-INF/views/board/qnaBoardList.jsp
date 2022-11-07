@@ -60,8 +60,7 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -84,6 +83,7 @@
 			<span class="txt_id">작성자</span> 
 			<span class="txt_title">제목</span>
 			<span class="txt_date">작성 일시</span>
+			<span class="txt_ico"></span>
 		</div>
 
 		<section>

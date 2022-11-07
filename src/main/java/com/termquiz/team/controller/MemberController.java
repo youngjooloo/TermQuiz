@@ -95,7 +95,6 @@ public class MemberController {
 		} else {
 			uri = "member/join";
 		}
-
 		
     	mv.setViewName(uri);
     	return mv;
@@ -103,7 +102,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "/mdetail")
 	public ModelAndView mdefailf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,MemberVO vo) {
-         
 		
 		HttpSession session = request.getSession(false);
 		
@@ -136,16 +134,11 @@ public class MemberController {
 		mv.setViewName(uri);
 		return mv;
 	} //mdetail
-		
-	
 	
 	@RequestMapping(value = "/mdetailup", method = RequestMethod.POST)
 	public ModelAndView mdetailup(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,MemberVO vo) {
-        
-		
 
 		String uri = "/member/mDetail";
-		
 		
         vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		
@@ -157,11 +150,14 @@ public class MemberController {
 			mv.addObject("message", "~~ 회원정보 수정 실패, 다시 하세요 ~~");
 		}
 		
-		
-		
-		
-		
     	mv.setViewName(uri);
+    	return mv;
+	}
+	
+	@RequestMapping(value = "/changepwf")
+	public ModelAndView changepwf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		
+    	mv.setViewName("member/changePW");
     	return mv;
 	}
 }

@@ -54,7 +54,7 @@
 							forgot password?
 						</span>
 						&nbsp;
-						<a class="txt2" href="mjoinf">
+						<a class="txt2" href="javascript:;">
 							Find Password
 						</a>
 						<br>
