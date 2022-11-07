@@ -34,7 +34,7 @@
                     placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 
   				<label for="password" class="label-agree-term">Password</label>          
-                <input type="password" class="joininput" name="password" id="password" value="${user.password}
+                <input type="password" class="joininput" name="password" id="password" value="${loginPW}"
                     placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required autoComplete="off" />
 
   				<label for="name" class="label-agree-term">Name</label>          

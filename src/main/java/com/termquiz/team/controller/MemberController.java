@@ -43,23 +43,35 @@ public class MemberController {
       vo = service.selectOne(vo);
 
       if (vo != null) {   // email 확인
-//         
-//         vo.getPassword().equals(password)
-         if (passwordEncoder.matches(password, vo.getPassword())) {   // email이 일치하면 password 확인
-            request.getSession().setAttribute("loginID", email);
-            request.getSession().setAttribute("loginPW", password);
-            url = "home";
+    	  System.out.println(vo.getNickname());
+    	  if (passwordEncoder.matches(password, vo.getPassword())) {   // email이 일치하면 password 확인\
+    		  request.getSession().setAttribute("loginID", email);
+    		  request.getSession().setAttribute("loginPW", password);
+    		  request.getSession().setAttribute("nick", vo.getNickname());
+    		  url = "home";
             
          } else {   // password 오류
-            mv.addObject("message", "Password 오류");
+        	 mv.addObject("message", "Password 오류");
          }
       } else {   // email 오류
-         mv.addObject("message", "E-mail 오류");
+    	  mv.addObject("message", "E-mail 오류");
       }
 
       mv.setViewName(url);
       return mv;
 	
+	}
+	
+	@RequestMapping(value = "/mlogout")
+	public ModelAndView mlogout(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		mv.addObject("message", "로그아웃 되었습니다");
+		
+    	mv.setViewName("redirect:home");
+    	return mv;
 	}
 	
 	@RequestMapping(value = "/mjoinf")
@@ -123,7 +135,7 @@ public class MemberController {
 		}
 		mv.setViewName(uri);
 		return mv;
-	} //mdetailf
+	} //mdetail
 		
 	
 	
@@ -143,14 +155,13 @@ public class MemberController {
 		    mv.addObject("user",vo); 
 		}else {
 			mv.addObject("message", "~~ 회원정보 수정 실패, 다시 하세요 ~~");
-			uri = "/member/updateForm";
 		}
 		
 		
 		
 		
 		
-    	mv.setViewName("redirect:home");
+    	mv.setViewName(uri);
     	return mv;
 	}
 }

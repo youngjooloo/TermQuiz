@@ -8,7 +8,6 @@
     	select * from member where email=#{email}
     </select>
 	
-	
 	<insert id="insert">
 		insert into
 		member(email,nickname,password,name,phoneNumber,scNumF,scNumL)
