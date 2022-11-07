@@ -6,4 +6,8 @@ public interface MemberService {
 
 	int insert(MemberVO vo);
 
+	MemberVO selectOne(MemberVO vo);
+
+	int update(MemberVO vo);
+
 }
