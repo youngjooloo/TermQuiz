@@ -17,11 +17,6 @@ public class BoardController {
     	return mv;
 	}
 	
-	@RequestMapping(value = "/qnaboardlist")
-	public ModelAndView qnaBoardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-
-    	mv.setViewName("/board/qnaBoardList");
-    	return mv;
-	}
+	
 	
 }

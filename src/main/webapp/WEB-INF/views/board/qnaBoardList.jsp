@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA</title>
+<title>QnA detail</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -60,52 +60,49 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
 					</c:if>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-<!-- 1차 수정 -->
-	<article class="articleA">
-		<section class="main_content">
-			<div class="qna_section1_div">
-				<h4 class="qna_section1_intro">QnA</h4>
-				<p class="qna_section1_p">
-					궁금한 부분이 있으면 글을 남겨주세요!
-				</p>
-			</div>
-		</section>
+	<!-- 1차 수정 -->
+	<header class="main_content">
+		<div class="qna_section1_div">
+			<h4 class="qna_section1_intro">QnA</h4>
+			<p class="qna_section1_p">궁금한 부분이 있으면 글을 남겨주세요!</p>
+		</div>
+	</header>
 
+	<article class="articleA">
 		<div class="desc_intro">
+<<<<<<< HEAD
 			<span class="txt_cno">번호</span>
 			<span class="txt_id">작성자</span> 
 			<span class="txt_title">제목</span>
 			<span class="txt_date">작성 일시</span>
 			<span class="txt_ico"></span>
+=======
+			<span class="txt_cno">번호</span> <span class="txt_id">작성자</span> <span
+				class="txt_title">제목</span> <span class="txt_date">작성 일시</span> <span
+				class="txt_ico"></span>
+>>>>>>> HiKim
 		</div>
 
 		<section>
 			<div class="wrap_info">
 				<ul class="list_invest">
-					<li>
-					<a href="" class="link_invest" id="qnalistA">
-					<span class="list_cno">1</span>
-					<span class="list_name">텀퀴즈</span> 
-					<strong class="list_title">test</strong>
-					<span class="list-date">현재 시간</span>
-					<span class="ico_arr"> 
-						<span class="ico_disclosure"></span>
-					</span>
-					</a>
-					</li>
+					<li><a href="" class="link_invest" id="qnalistA"> <span
+							class="list_cno">1</span> <span class="list_name">텀퀴즈</span> <strong
+							class="list_title">test</strong> <span class="list-date">현재
+								시간</span> <span class="ico_arr"> <span class="ico_disclosure"></span>
+						</span>
+					</a></li>
 				</ul>
 				<div class="wrap_paging">
-					<a href="js참고" class="paging_num_on"> 
-					<span class="screen_out">현재 페이지</span> 
-					1
+					<a href="js참고" class="paging_num_on"> <span class="screen_out">현재
+							페이지</span> 1
 					</a>
 				</div>
 			</div>
@@ -113,9 +110,17 @@
 	</article>
 	<div class="btn_container">
 		<div class="btn_right">
-    		<button type="button" class="btn black" onclick="location.href='home'">[글 등록]</button>
+			<button type="button" class="btn black"
+				onclick="location.href='home'">[글 등록]</button>
 		</div>
-    </div>
+	</div>
+
+	<footer class="bg-light py-5">
+		<div class="container px-4 px-lg-5">
+			<div class="small text-center text-muted">Copyright &copy; 2022
+				- Company Name</div>
+		</div>
+	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

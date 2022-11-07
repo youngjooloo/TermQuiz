@@ -10,5 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class QnaController {
 	
+	@RequestMapping(value = "/qnaboardlist")
+	public ModelAndView qnaBoardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+    	mv.setViewName("/board/qnaBoardList");
+    	return mv;
+	}
 	
+	@RequestMapping(value = "/qnadetail")
+	public ModelAndView qnadetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+    	mv.setViewName("/board/qnaDetail");
+    	return mv;
+	}
 }
