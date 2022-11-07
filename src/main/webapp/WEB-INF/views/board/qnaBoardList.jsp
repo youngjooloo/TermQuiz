@@ -31,7 +31,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
-<link href="resources/qna/css/main.css" rel="stylesheet" />
+<link href="resources/board/css/main.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -41,7 +41,7 @@
 		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
 		id="mainNav">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand " href="#page-top">Term Quiz on a Bus</a>
+			<a class="navbar-brand " href="home">Term Quiz on a Bus</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -50,7 +50,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#about">Quiz</a></li>
+					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
@@ -67,57 +67,94 @@
 			</div>
 		</div>
 	</nav>
-
-<!-- 1차 수정 -->
-	<article class="articleA">
-		<section class="main_content">
-			<div class="qna_section1_div">
-				<h4 class="qna_section1_intro">QnA</h4>
-				<p class="qna_section1_p">
-					궁금한 부분이 있으면 글을 남겨주세요!
-				</p>
-			</div>
-		</section>
-
-		<div class="desc_intro">
-			<span class="txt_cno">번호</span>
-			<span class="txt_id">작성자</span> 
-			<span class="txt_title">제목</span>
-			<span class="txt_date">작성 일시</span>
+	
+	<header class="board_container">
+		<div class="board_container_div">
+			<h3 class="board_container_intro"><b>QnA</b></h3>
+			<p class="board_container_p">
+				궁금했던 질문을 관리자에게 질문하세요!
+			</p>
 		</div>
+	</header>
+	
+	<section class="notice">
+	  <!-- board list area -->
+	    <div id="board-list">
+	        <div class="container">
+	            <table class="board-table">
+	                <thead>
+	                <tr>
+	                    <th scope="col" class="th-num">번호</th>
+	                    <th scope="col" class="th-id">작성자</th>
+	                    <th scope="col" class="th-title">제목</th>
+	                    <th scope="col" class="th-date">등록일</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                <tr>
+	                    <td>1</td>
+	                    <td>작성자 1</td>
+	                    <th>
+	                      <a href="#!">게시글 1</a>
+	                      <p>테스트</p>
+	                    </th>
+	                    <td>2022.11.07</td>
+	                </tr>
+	
+	                <tr>
+	                   <td>2</td>
+	                    <td>작성자 2</td>
+	                    <th>
+	                      <a href="#!">게시글 2</a>
+	                      <p>테스트</p>
+	                    </th>
+	                    <td>2022.11.07</td>
+	                </tr>
+	
+	                <tr>
+	                    <td>3</td>
+	                    <td>작성자 3</td>
+	                    <th>
+	                      <a href="#!">게시글 3</a>
+	                      <p>테스트</p>
+	                    </th>
+	                    <td>2022.11.07</td>
+	                </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	    
+	    <!-- 페이징  -->
+	    <div class="wrap_paging">
+		<a href="" class="paging_num_on"> 
+		<span class="screen_out">현재 페이지</span> 
+		1
+		</a>
+		 <button type="button" class="btn_insert" onclick="board/boardDetail;">글 등록</button>
+	   </div>
+	</section>
+	    <!-- board seach area -->
+	    <div id="board-search">
+	        <div class="container">
+	            <div class="search-window">
+	                <form action="">
+	                    <div class="search-wrap">
+	                        <label for="search" class="blind">QNA 내용 검색</label>
+	                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+	                        <button type="submit" class="btn btn-dark">검색</button>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
 
-		<section>
-
-			<div class="wrap_info">
-				<ul class="list_invest">
-					<li>
-					<a href="" class="link_invest" id="qnalistA">
-					<span class="list_cno">1</span>
-					<span class="list_name">텀퀴즈</span> 
-					<strong class="list_title">test</strong>
-					<span class="list-date">현재 시간</span>
-					<span class="ico_arr"> 
-						<span class="ico_disclosure"></span>
-					</span>
-					</a>
-					</li>
-				</ul>
-				<div class="wrap_paging">
-					<a href="js참고" class="paging_num_on"> 
-					<span class="screen_out">현재 페이지</span> 
-					1
-					</a>
-				</div>
-			</div>
-		</section>
-	</article>
-	<div class="btn_container">
-		<div class="btn_right">
-    		<button type="button" class="btn black mr5" onclick="home">[Home]</button>
-    		<button type="button" class="btn black" onclick="board/boardDetail;">[글 등록]</button>
-		</div>
-    </div>
-
+	
+	<!-- Footer-->
+    <footer class="bg-light py-5">
+    	<div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
+    </footer>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script

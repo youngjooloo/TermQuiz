@@ -105,7 +105,7 @@ section.notice {
 }
 
 .board-table .th-id {
-	width: 15%;
+	width: 10%;
 }
 
 .board-table .th-title {
@@ -113,7 +113,11 @@ section.notice {
 }
 
 .board-table .th-date {
-  width: 25%;
+  width: 20%;
+}
+
+.board-table .th-cnt {
+	width: 10%
 }
 
 .board-table th, .board-table td {
