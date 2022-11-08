@@ -1,7 +1,44 @@
 @charset "UTF-8";
 
 table {
+	margin: 10px auto;
 	width: 80%;
-	margin: auto;
-	border: 1px solid black;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+	background-color: #55608f;
+}
+
+thead tr th:first-child{
+	width: 10%
+}
+
+thead tr th:nth-child(2) {
+	width: 20%
+}
+
+thead tr th:last-child{
+	width: 20%
+}
+
+tbody td {
+	color: black;
+}
+
+#adminAnswer {
+	background-color: #c8d2ff;
+}
+
+article{
+	flex : 1;
 }

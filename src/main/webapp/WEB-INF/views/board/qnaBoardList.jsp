@@ -67,94 +67,87 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<header class="board_container">
 		<div class="board_container_div">
-			<h3 class="board_container_intro"><b>QnA</b></h3>
-			<p class="board_container_p">
-				궁금했던 질문을 관리자에게 질문하세요!
-			</p>
+			<h3 class="board_container_intro">
+				<b>QnA</b>
+			</h3>
+			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>
 	</header>
-	
-	<section class="notice">
-	  <!-- board list area -->
-	    <div id="board-list">
-	        <div class="container">
-	            <table class="board-table">
-	                <thead>
-	                <tr>
-	                    <th scope="col" class="th-num">번호</th>
-	                    <th scope="col" class="th-id">작성자</th>
-	                    <th scope="col" class="th-title">제목</th>
-	                    <th scope="col" class="th-date">등록일</th>
-	                </tr>
-	                </thead>
-	                <tbody>
-	                <tr>
-	                    <td>1</td>
-	                    <td>작성자 1</td>
-	                    <th>
-	                      <a href="#!">게시글 1</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                </tr>
-	
-	                <tr>
-	                   <td>2</td>
-	                    <td>작성자 2</td>
-	                    <th>
-	                      <a href="#!">게시글 2</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>3</td>
-	                    <td>작성자 3</td>
-	                    <th>
-	                      <a href="#!">게시글 3</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                </tr>
-	                </tbody>
-	            </table>
-	        </div>
-	    </div>
-	    
-	    <!-- 페이징  -->
-	    <div class="wrap_paging">
-		<a href="" class="paging_num_on"> 
-		<span class="screen_out">현재 페이지</span> 
-		1
-		</a>
-		 <button type="button" class="btn_insert" onclick="board/boardDetail;">글 등록</button>
-	   </div>
-	</section>
-	    <!-- board seach area -->
-	    <div id="board-search">
-	        <div class="container">
-	            <div class="search-window">
-	                <form action="">
-	                    <div class="search-wrap">
-	                        <label for="search" class="blind">QNA 내용 검색</label>
-	                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-	                        <button type="submit" class="btn btn-dark">검색</button>
-	                    </div>
-	                </form>
-	            </div>
-	        </div>
-	    </div>
 
-	
+	<section class="notice">
+		<!-- board list area -->
+		<div id="board-list">
+			<table class="board-table">
+				<thead>
+					<tr>
+						<th scope="col" class="th-num">번호</th>
+						<th scope="col" class="th-id">작성자</th>
+						<th scope="col" class="th-title">제목</th>
+						<th scope="col" class="th-date">등록일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>작성자 1</td>
+						<th><a href="#!">게시글 1</a>
+							<p>테스트</p></th>
+						<td>2022.11.07</td>
+					</tr>
+
+					<tr>
+						<td>2</td>
+						<td>작성자 2</td>
+						<th><a href="#!">게시글 2</a>
+							<p>테스트</p></th>
+						<td>2022.11.07</td>
+					</tr>
+
+					<tr>
+						<td>3</td>
+						<td>작성자 3</td>
+						<th><a href="#!">게시글 3</a>
+							<p>테스트</p></th>
+						<td>2022.11.07</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 페이징  -->
+		<div class="wrap_paging">
+			<a href="" class="paging_num_on"> <span class="screen_out">현재
+					페이지</span> 1
+			</a>
+			<button type="button" class="btn_insert" onclick="board/boardDetail;">글
+				등록</button>
+		</div>
+		<!-- board seach area -->
+		<div id="board-search">
+			<div class="search-window">
+				<form action="">
+					<div class="search-wrap">
+						<label for="search" class="blind">QNA 내용 검색</label> <input
+							id="search" type="search" name="" placeholder="검색어를 입력해주세요."
+							value="">
+						<button type="submit" class="btn btn-dark">검색</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
 	<!-- Footer-->
-    <footer class="bg-light py-5">
-    	<div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
-    </footer>
-	
+	<footer class="bg-light py-5">
+		<div class="container px-4 px-lg-5">
+			<div class="small text-center text-muted">Copyright &copy; 2022
+				- Company Name</div>
+		</div>
+	</footer>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script
