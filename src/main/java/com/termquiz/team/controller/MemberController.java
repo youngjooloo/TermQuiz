@@ -36,7 +36,7 @@ public class MemberController {
 //      request 처리
       String email = request.getParameter("email");
       String password = request.getParameter("password");
-      String url = "member/login";
+      String url = "redirect:home?relogin=1";
       
 //      service 처리
       vo.setEmail(email);
