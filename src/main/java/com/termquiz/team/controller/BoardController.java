@@ -16,5 +16,12 @@ public class BoardController {
 		mv.setViewName("/board/boardList");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/boarddetail")
+	public ModelAndView boarddetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+		mv.setViewName("/board/boardDetail");
+		return mv;
+	}
 
 }// BoardController
