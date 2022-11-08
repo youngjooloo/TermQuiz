@@ -11,8 +11,8 @@ public class MemberVO {
 	private String phoneNumber;
 	private String scNumF;
 	private String scNumL;
+	private boolean adminRight;
 	private int totalScore;
 	private int movieScore;
 	private int musicScore;
-	
 }

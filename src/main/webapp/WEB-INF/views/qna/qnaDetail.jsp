@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA</title>
+<title>QnA Detail</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -94,10 +94,20 @@
 				</tr>
 				<tr>
 					<th>Answer</th>
-					<td colspan="3" id="adminAnswer">Content</td>
+					<td colspan="3" id="adminAnswer">
+						<c:if test="admin">
+							<form action="qnaanswer" method="post">
+								<textarea></textarea>
+							</form>
+						</c:if>
+					</td>
 				</tr>
 			</tbody>
 		</table>
+		
+		<div class="wrap_paging">
+			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
+		</div>
 	</article>
 
 	<footer class="bg-light py-5">

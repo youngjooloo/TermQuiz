@@ -48,6 +48,8 @@ public class MemberController {
     		  request.getSession().setAttribute("loginID", email);
     		  request.getSession().setAttribute("loginPW", password);
     		  request.getSession().setAttribute("nick", vo.getNickname());
+    		  request.getSession().setAttribute("admin", vo.isAdminRight());
+    		  
     		  url = "home";
             
          } else {   // password 오류

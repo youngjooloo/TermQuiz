@@ -1,4 +1,4 @@
- package com.termquiz.team.controller;
+package com.termquiz.team.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,19 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BoardController {
-	
+
 	@RequestMapping(value = "/boardlist")
-	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+	public ModelAndView boardlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
-    	mv.setViewName("/board/boardList");
-    	return mv;
+		mv.setViewName("/board/boardList");
+		return mv;
 	}
-	
-	@RequestMapping(value = "/boarddetail")
-	public ModelAndView boarddetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
-    	mv.setViewName("/board/boardDetail");
-    	return mv;
-	}
-	
-}
+}// BoardController

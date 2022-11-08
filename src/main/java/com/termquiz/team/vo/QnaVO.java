@@ -1,17 +1,13 @@
 package com.termquiz.team.vo;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data
 public class QnaVO {
-	private int qnano;
-	private String qnaid;
-	private String qnatitle;
-	private String qnacontent;
-	private String answer;
-	private Date qnatime;
-	
-	
+	private int qnaNo;
+	private String qnaId;
+	private String qnaTitle;
+	private String qnaContent;
+	private String qnaAnswer;
+	private String qnaTime;
 }
