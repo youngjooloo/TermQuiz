@@ -44,6 +44,7 @@ public class QnaController {
 		vo.setQnaNo(qno);
 		
 		vo = service.selectOne(vo);
+		
 		if (vo != null) {
 			mv.addObject("qna", vo);
 		} else {

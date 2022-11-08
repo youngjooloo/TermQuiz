@@ -56,13 +56,13 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					</c:if>
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -81,24 +81,31 @@
 		<table>
 			<thead>
 				<tr>
-					<th>No</th>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Time</th>
+					<th>No.${qna.qnaNo}</th>
+					<th>${qna.qnaId}</th>
+					<th>${qna.qnaTitle}</th>
+					<th>${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th>Question</th>
-					<td colspan="3" id="userQuestion">Content</td>
+					<td colspan="3" id="userQuestion">${qna.qnaContent}</td>
 				</tr>
 				<tr>
 					<th>Answer</th>
 					<td colspan="3" id="adminAnswer">
-						<c:if test="admin">
-							<form action="qnaanswer" method="post">
-								<textarea></textarea>
-							</form>
+						<c:if test="${not empty qna.qnaAnswer}">
+							<b> ${qna.qnaAnswer}</b>
+							<button class="btn_answer answer_modify" type="button">Modify</button>
+						</c:if>
+						<c:if test="${empty qna.qnaAnswer}">
+							<c:if test="${admin}">
+								<form action="qnaanswer" method="post" id="qnaAnswer">
+									<textarea name="qnaAnswer" required></textarea>
+									<button class="btn_answer" type="submit">Submit</button>
+								</form>
+							</c:if>
 						</c:if>
 					</td>
 				</tr>

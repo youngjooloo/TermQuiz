@@ -57,13 +57,13 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					</c:if>
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 						<th>No</th>
 						<th>ID : ${nick}</th>
 						<th id="insertTitle">Title :&nbsp;
-							<input type="text" name="qnaTitle">
+							<input type="text" name="qnaTitle" required>
 						</th>
 						<th></th>
 					</tr>
@@ -95,7 +95,7 @@
 					<tr>
 						<th>Question</th>
 						<td colspan="3" id="userQuestion">
-							<textarea id="qnaContent" name="qnaContent"></textarea>
+							<textarea id="qnaContent" name="qnaContent" required></textarea>
 						</td>
 					</tr>
 				</tbody>

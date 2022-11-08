@@ -55,14 +55,13 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
-					</c:if>
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
