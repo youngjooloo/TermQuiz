@@ -1,7 +1,5 @@
 package com.termquiz.team.vo;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data
@@ -11,7 +9,5 @@ public class QnaVO {
 	private String qnaTitle;
 	private String qnaContent;
 	private String qnaAnswer;
-	private Date qnaTime;
-	
-	
+	private String qnaTime;
 }

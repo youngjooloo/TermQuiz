@@ -20,6 +20,7 @@ body {
     background-color: #000000e6;
     margin: 0 auto;
     min-width: max-content;
+    border-radius: 0 0 10px 10px;
 }
 
 .board_container_intro {
@@ -263,5 +264,14 @@ section.notice {
 	right: 8%;
 	width: 60px;
 	height: 32px;
+}
+
+.btn_insert:hover{
+	color:#ff8000;	
+}
+
+.board-table tbody tr:hover{
+	background-color: #dfdfdf;
+	cursor: pointer;
 }
 
