@@ -249,9 +249,11 @@ section.notice {
 
 /* button */
 .btn_insert {
-	background-color: white;
 	position: absolute;
 	right: 100px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
 }
 
 footer {
