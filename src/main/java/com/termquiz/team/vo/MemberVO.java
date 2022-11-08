@@ -8,9 +8,9 @@ public class MemberVO {
 	private String nickname;
 	private String password;
 	private String name;
-	private long phoneNumber;
-	private int scNumF;
-	private int scNumL;
+	private String phoneNumber;
+	private String scNumF;
+	private String scNumL;
 	private int totalScore;
 	private int movieScore;
 	private int musicScore;
