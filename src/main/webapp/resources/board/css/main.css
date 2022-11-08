@@ -9,13 +9,16 @@ body {
 	color: black;
 	width: 100vw;
 	height: 100vh;	
+	display: flex;
+	flex-direction: column;	
 }
 
 /* board_container (회색 배경) */
 .board_container {
+	width:90%;
     padding: 150px 0px 5px 70px;
-    background-color: black;
-    margin: 0px 80px 0;
+    background-color: #000000e6;
+    margin: 0 auto;
     min-width: max-content;
 }
 
@@ -38,6 +41,9 @@ table {
 }
 section.notice {
   padding: 80px 0 40px 0;
+  flex: 1;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .page-title h3 {
@@ -105,7 +111,7 @@ section.notice {
 }
 
 .board-table .th-id {
-	width: 15%;
+	width: 10%;
 }
 
 .board-table .th-title {
@@ -113,7 +119,11 @@ section.notice {
 }
 
 .board-table .th-date {
-  width: 25%;
+  width: 20%;
+}
+
+.board-table .th-cnt {
+	width: 10%
 }
 
 .board-table th, .board-table td {
@@ -213,7 +223,7 @@ section.notice {
 .wrap_paging {
 	display: block;
 	text-align: center;
-	padding-top: 20px;
+	padding: 20px 0;
 	position: relative;
 }
 
@@ -245,11 +255,13 @@ section.notice {
 
 /* button */
 .btn_insert {
-	background-color: white;
+	background-color: #373737;
+	color:#fff;
+	border-radius:5px;
+	border:none;
 	position: absolute;
-	right: 100px;
+	right: 8%;
+	width: 60px;
+	height: 32px;
 }
 
-footer {
-	margin-top: 150px;
-}

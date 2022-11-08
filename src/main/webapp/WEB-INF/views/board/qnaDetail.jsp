@@ -31,7 +31,8 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
-<link href="resources/qna/css/main.css" rel="stylesheet" />
+<link href="resources/board/css/main.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -66,27 +67,45 @@
 			</div>
 		</div>
 	</nav>
-	
-	<header class="main_content">
-		<div class="qna_section1_div">
-			<h4 class="qna_section1_intro">QnA</h4>
-			<p class="qna_section1_p">
-				궁금한 부분이 있으면 글을 남겨주세요!
-			</p>
+
+	<header class="board_container">
+		<div class="board_container_div">
+			<h3 class="board_container_intro">
+				QnA
+			</h3>
+			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>
 	</header>
-	
-	<article class="articleA">
 
+	<article>
 		<table>
-		
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Question</th>
+					<td colspan="3" id="userQuestion">Content</td>
+				</tr>
+				<tr>
+					<th>Answer</th>
+					<td colspan="3" id="adminAnswer">Content</td>
+				</tr>
+			</tbody>
 		</table>
-
 	</article>
-	
+
 	<footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
-    </footer>
+		<div class="container px-4 px-lg-5">
+			<div class="small text-center text-muted">Copyright &copy; 2022
+				- Company Name</div>
+		</div>
+	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
