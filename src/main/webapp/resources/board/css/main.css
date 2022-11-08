@@ -255,23 +255,15 @@ section.notice {
 
 /* button */
 .btn_insert {
-<<<<<<< HEAD
-=======
 	background-color: #373737;
 	color:#fff;
 	border-radius:5px;
 	border:none;
->>>>>>> branch 'master' of https://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@github.com/Seungzoo/TermQuiz
 	position: absolute;
-<<<<<<< HEAD
 	right: 100px;
-	background-color: black;
-	color: white;
 	border-radius: 5px;
-=======
 	right: 8%;
 	width: 60px;
 	height: 32px;
->>>>>>> branch 'master' of https://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@github.com/Seungzoo/TermQuiz
 }
 
