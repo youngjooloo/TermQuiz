@@ -32,6 +32,7 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/main.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -79,7 +80,24 @@
 	<article class="articleA">
 
 		<table>
-		
+			<thead>
+				<tr>
+					<th>QnA No</th>
+					<th>ID</th>
+					<th>Time</th>
+				</tr>
+				<tr>
+					<th colspan="3">Title</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="3">Content</td>
+				</tr>
+				<tr>
+					<td colspan="3">Answer</td>
+				</tr>
+			</tbody>
 		</table>
 
 	</article>
