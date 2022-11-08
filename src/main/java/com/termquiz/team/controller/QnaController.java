@@ -1,6 +1,8 @@
 package com.termquiz.team.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.termquiz.team.service.QnaService;
@@ -42,8 +45,6 @@ public class QnaController {
 		
 		vo = service.selectOne(vo);
 		if (vo != null) {
-			if ("U".equals(request.getParameter("jCode")))
-				uri = "/qna/qnaupdate";
 			mv.addObject("qna", vo);
 		} else {
 			mv.addObject("message", "~~ 글번호에 해당하는 자료가 없습니다. ~~");
@@ -53,4 +54,31 @@ public class QnaController {
 		return mv;
 
 	}// qnadetail
+	
+	@RequestMapping(value = "/qnainsertf")
+	public ModelAndView qnainsertf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+		mv.setViewName("/qna/qnaInsertf");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/qnainsert", method = RequestMethod.POST)
+	public ModelAndView qnainsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+
+		String uri = "qnainsertf";
+		Date nowDate = new Date();
+		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
+		String today = (simple.format(nowDate)).toString();
+	
+		String qnaId = (String)request.getSession().getAttribute("nick");
+		
+		vo.setQnaId(qnaId);
+		vo.setQnaTime(today);
+		if(service.insert(vo) > 0) {
+			uri = "redirect:qnaboardlist";
+		}		
+		
+		mv.setViewName(uri);
+		return mv;
+	}
 }

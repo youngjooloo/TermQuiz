@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#qnaContent{
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border: none;
+	resize: none;
+}
+
+#userQuestion{
+	padding: 1px;
+}
+
+#insertTitle{
+	display: flex;
+}
+#insertTitle input {
+	flex: 1;
+}
+
+.qnaContent{
+	margin: 10px;
+}
+
+.btn_insertf{
+	background-color: #373737;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 50px;
+    margin: 0 30px;
+}
+
+.btn_insertf:hover{
+	color: yellow;
+}

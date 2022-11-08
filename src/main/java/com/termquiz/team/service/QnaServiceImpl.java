@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.termquiz.team.mapperInterface.QnaMapper;
-
 import com.termquiz.team.vo.QnaVO;
 
 @Service
@@ -19,14 +17,17 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public List<QnaVO> selectList() {
 		
-	return dao.selectList();
+		return dao.selectList();
 	}
 
     @Override
-    public QnaVO selectOne(QnaVO VO) {
+    public QnaVO selectOne(QnaVO vo) {
 	
-	return dao.selectOne(VO);
+    	return dao.selectOne(vo);
     }
 
-
+    @Override
+    public int insert(QnaVO vo) {
+    	return dao.insert(vo);
+    }
 }

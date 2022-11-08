@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA Detail</title>
+<title>QnA Insert</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,6 +33,7 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -78,36 +79,33 @@
 	</header>
 
 	<article>
-		<table>
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Time</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Question</th>
-					<td colspan="3" id="userQuestion">Content</td>
-				</tr>
-				<tr>
-					<th>Answer</th>
-					<td colspan="3" id="adminAnswer">
-						<c:if test="admin">
-							<form action="qnaanswer" method="post">
-								<textarea></textarea>
-							</form>
-						</c:if>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<div class="wrap_paging">
-			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
-		</div>
+		<form action="qnainsert" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>ID : ${nick}</th>
+						<th id="insertTitle">Title :&nbsp;
+							<input type="text" name="qnaTitle">
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Question</th>
+						<td colspan="3" id="userQuestion">
+							<textarea id="qnaContent" name="qnaContent"></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="wrap_paging">
+				<button type="submit" class="btn_insertf">Submit</button>
+				<button type="button" class="btn_insertf" onclick="javascript:history.go(-1);">Back</button>
+			</div>
+		</form>
 	</article>
 
 	<footer class="bg-light py-5">

@@ -8,11 +8,8 @@ public interface QnaService {
 
 	List<QnaVO> selectList();
 
-	QnaVO selectOne(QnaVO VO);
+	QnaVO selectOne(QnaVO vo);
 	
-	
-	
-	
-	
+	int insert(QnaVO vo);
 	
 }

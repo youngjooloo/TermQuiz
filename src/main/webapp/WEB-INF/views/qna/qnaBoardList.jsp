@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA</title>
+<title>QnA List</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -60,8 +60,7 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -111,10 +110,10 @@
 
 		<!-- 페이징  -->
 		<div class="wrap_paging">
-			<a href="" class="paging_num_on"> <span class="screen_out">현재
-					페이지</span> 1
+			<a href="" class="paging_num_on"> 
+				<span class="screen_out">현재페이지</span> 1
 			</a>
-			<button type="button" class="btn_insert" onclick="board/boardDetail;">글
+			<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
 				등록</button>
 		</div>
 		<!-- board seach area -->
