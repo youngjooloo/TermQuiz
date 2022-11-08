@@ -1,4 +1,4 @@
-package com.termquiz.team.controller;
+ package com.termquiz.team.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +17,11 @@ public class BoardController {
     	return mv;
 	}
 	
-	
+	@RequestMapping(value = "/boarddetail")
+	public ModelAndView boarddetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+    	mv.setViewName("/board/boardDetail");
+    	return mv;
+	}
 	
 }

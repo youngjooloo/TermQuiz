@@ -80,7 +80,6 @@
 	<section class="notice">
 	  <!-- board list area -->
 	    <div id="board-list">
-	        <div class="container">
 	            <table class="board-table">
 	                <thead>
 	                <tr>
@@ -126,7 +125,6 @@
 	                </tr>
 	                </tbody>
 	            </table>
-	        </div>
 	    </div>
 	    
 	    <!-- 페이징  -->
@@ -137,10 +135,8 @@
 		</a>
 		 <button type="button" class="btn_insert" onclick="board/boardDetail;">글 등록</button>
 	   </div>
-	</section>
 	    <!-- board seach area -->
 	    <div id="board-search">
-	        <div class="container">
 	            <div class="search-window">
 	                <form action="">
 	                    <div class="search-wrap">
@@ -149,9 +145,9 @@
 	                        <button type="submit" class="btn btn-dark">검색</button>
 	                    </div>
 	                </form>
-	            </div>
 	        </div>
 	    </div>
+	</section>
 
 	
 	<!-- Footer-->
