@@ -94,7 +94,7 @@
 	                    <td>1</td>
 	                    <td>작성자 1</td>
 	                    <th>
-	                      <a href="../board/boradDetail.jsp">게시글 1</a>
+	                      <a href="boarddetail">게시글 1</a>
 	                      <p>테스트</p>
 	                    </th>
 	                    <td>2022.11.07</td>
