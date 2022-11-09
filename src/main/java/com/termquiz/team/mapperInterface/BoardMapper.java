@@ -9,4 +9,6 @@ public interface BoardMapper {
 	List<BoardVO> selectList();
 
 	BoardVO selectOne(BoardVO vo);
+
+	int countUp(BoardVO vo);
 }

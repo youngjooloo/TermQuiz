@@ -9,5 +9,7 @@ public interface BoardService {
 	List<BoardVO> selectList();
 
 	BoardVO selectOne(BoardVO vo);
+	
+	int countUp(BoardVO vo);
 
 }

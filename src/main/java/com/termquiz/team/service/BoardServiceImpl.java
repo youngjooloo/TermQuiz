@@ -27,6 +27,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.selectOne(vo);
 	}
 
+	@Override
+	public int countUp(BoardVO vo) {
+		return dao.countUp(vo);
+	}
 
 
 } //class
