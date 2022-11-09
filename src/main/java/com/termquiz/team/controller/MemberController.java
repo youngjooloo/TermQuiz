@@ -36,19 +36,18 @@ public class MemberController {
 //      request 처리
       String email = request.getParameter("email");
       String password = request.getParameter("password");
-      String url = "redirect:home?relogin=1";
+      String url = "member/login";
       
 //      service 처리
       vo.setEmail(email);
       vo = service.selectOne(vo);
 
       if (vo != null) {   // email 확인
+    	  System.out.println(vo.getNickname());
     	  if (passwordEncoder.matches(password, vo.getPassword())) {   // email이 일치하면 password 확인\
     		  request.getSession().setAttribute("loginID", email);
     		  request.getSession().setAttribute("loginPW", password);
     		  request.getSession().setAttribute("nick", vo.getNickname());
-    		  request.getSession().setAttribute("admin", vo.isAdminRight());
-    		  
     		  url = "home";
             
          } else {   // password 오류
@@ -86,6 +85,8 @@ public class MemberController {
 	public ModelAndView mjoin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
 		
 		String uri = "redirect:home";
+		
+		System.out.println(vo.getName());
 		
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		
@@ -158,29 +159,5 @@ public class MemberController {
 		
     	mv.setViewName("member/changePW");
     	return mv;
-	}
-	
-	@RequestMapping(value = "/emailcheck", method = RequestMethod.POST)
-	public ModelAndView emailcheck (HttpServletRequest request, HttpServletResponse response,ModelAndView mv ,MemberVO vo) {
-		
-		mv = new ModelAndView("jsonView");
-		
-		int dup = service.emailCheck(vo);
-		
-		mv.addObject("dup",dup);
-		
-		return mv;
-	}
-	
-	@RequestMapping(value = "/nicknamecheck", method = RequestMethod.POST)
-	public ModelAndView nicknamecheck (HttpServletRequest request, HttpServletResponse response,ModelAndView mv ,MemberVO vo) {
-		
-		mv = new ModelAndView("jsonView");
-		
-		int dup = service.nicknameCheck(vo);
-		
-		mv.addObject("dup",dup);
-		
-		return mv;
 	}
 }
