@@ -43,7 +43,6 @@ public class MemberController {
       vo = service.selectOne(vo);
 
       if (vo != null) {   // email 확인
-    	  System.out.println(vo.getNickname());
     	  if (passwordEncoder.matches(password, vo.getPassword())) {   // email이 일치하면 password 확인\
     		  request.getSession().setAttribute("loginID", email);
     		  request.getSession().setAttribute("loginPW", password);
@@ -87,8 +86,6 @@ public class MemberController {
 	public ModelAndView mjoin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
 		
 		String uri = "redirect:home";
-		
-		System.out.println(vo.getName());
 		
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		
@@ -161,5 +158,29 @@ public class MemberController {
 		
     	mv.setViewName("member/changePW");
     	return mv;
+	}
+	
+	@RequestMapping(value = "/emailcheck", method = RequestMethod.POST)
+	public ModelAndView emailcheck (HttpServletRequest request, HttpServletResponse response,ModelAndView mv ,MemberVO vo) {
+		
+		mv = new ModelAndView("jsonView");
+		
+		int dup = service.emailCheck(vo);
+		
+		mv.addObject("dup",dup);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "/nicknamecheck", method = RequestMethod.POST)
+	public ModelAndView nicknamecheck (HttpServletRequest request, HttpServletResponse response,ModelAndView mv ,MemberVO vo) {
+		
+		mv = new ModelAndView("jsonView");
+		
+		int dup = service.nicknameCheck(vo);
+		
+		mv.addObject("dup",dup);
+		
+		return mv;
 	}
 }

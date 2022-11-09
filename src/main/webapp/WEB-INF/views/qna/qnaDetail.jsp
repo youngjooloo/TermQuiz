@@ -82,9 +82,9 @@
 			<thead>
 				<tr>
 					<th>No.${qna.qnaNo}</th>
-					<th>${qna.qnaId}</th>
-					<th>${qna.qnaTitle}</th>
-					<th>${qna.qnaTime}</th>
+					<th>ID : ${qna.qnaId}</th>
+					<th>Title : ${qna.qnaTitle}</th>
+					<th>Time : ${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -97,7 +97,9 @@
 					<td colspan="3" id="adminAnswer">
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
-							<button class="btn_answer answer_modify" type="button">Modify</button>
+							<c:if test="${admin}">
+								<button class="btn_answer answer_modify" type="button">Modify</button>
+							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
@@ -131,5 +133,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	
 </body>
 </html>

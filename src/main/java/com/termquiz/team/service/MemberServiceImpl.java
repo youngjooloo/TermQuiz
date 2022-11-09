@@ -28,5 +28,16 @@ public class MemberServiceImpl implements MemberService {
 	
 		return dao.update(vo);
 	}
+	
+	@Override
+	public int emailCheck(MemberVO vo) {
+
+		return dao.emailCheck(vo);
+	}
+	
+	@Override
+	public int nicknameCheck(MemberVO vo) {
+		return dao.nicknameCheck(vo);
+	}
 
 }

@@ -2,10 +2,11 @@
 
 article{
 	flex : 1;
+	margin: 80px 0 ;
 }
 
 table {
-	margin: 10px auto;
+	margin: 0 auto;
 	width: 90%;
 	border-collapse: collapse;
 	overflow: hidden;

@@ -9,5 +9,9 @@ public interface MemberService {
 	MemberVO selectOne(MemberVO vo);
 
 	int update(MemberVO vo);
+	
+	int emailCheck(MemberVO vo);
 
+	int nicknameCheck(MemberVO vo);
+	
 }

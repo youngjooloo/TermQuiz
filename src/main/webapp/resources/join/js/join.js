@@ -10,13 +10,15 @@ $(function() {
 	});
 
 	$('#email').focusout(function() {
-		let emailCheck = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		let emailCheck = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*.[a-zA-z]{2,3}$/;
 		let email = $('#email').val();
 		if (email != '') {
 			if (!email.match(emailCheck)) {
 				$('#email').val('');
 				$('#email').attr('placeholder', '이메일을 제대로 입력하세요');
 				$('#email').focus();
+			}else{
+				emailDupCheck();
 			}
 		}
 	});
@@ -30,6 +32,8 @@ $(function() {
 				$('#nickname').val('');
 				$('#nickname').attr('placeholder', '한글, 영문자, 숫자만 작성 가능');
 				$('#nickname').focus();
+			}else{
+				nicknameDupCheck();
 			}
 		}
 	});
@@ -135,4 +139,43 @@ function agreecheck() {
 	} else {
 		$('#agreecheck').text("");
 	}
+}
+
+function emailDupCheck(){
+	$.ajax({
+		type: 'POST',
+		url: 'emailcheck',
+		dataType : 'JSON',
+		data: {
+			'email' : $('#email').val()
+		},
+		success: function(result) {
+			if(result.dup != 0){
+				$('#email').val('');
+				$('#email').attr('placeholder','중복된 이메일입니다');								
+				$('#email').focus();
+			}
+		},
+	});
+}
+
+function nicknameDupCheck(){
+	$.ajax({
+		type: 'POST',
+		url: 'nicknamecheck',
+		dataType : 'JSON',
+		data: {
+			'nickname' : $('#nickname').val()
+		},
+		success: function(result) {
+			if(result.dup != 0){
+				$('#nickname').val('');
+				$('#nickname').attr('placeholder','중복된 닉네임입니다');								
+				$('#nickname').focus();
+			}
+		},
+		error: function(){
+			console.log("on");
+		}
+	});
 }

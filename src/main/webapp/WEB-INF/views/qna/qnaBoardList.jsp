@@ -90,7 +90,7 @@
 				</thead>
 				<tbody>
 					<c:forEach var="qnaList" items="${qna}">
-						<tr>
+						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}">
 							<td>${qnaList.qnaNo}</td>						
 							<td>${qnaList.qnaId}</td>						
 							<td>${qnaList.qnaTitle} 
@@ -146,5 +146,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/qna/js/qnaDetail.js"></script>
 </body>
 </html>
