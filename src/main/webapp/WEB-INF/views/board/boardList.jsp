@@ -101,27 +101,6 @@
 	                    <td>1</td>
 	                </tr>
 	
-	                <tr>
-	                   <td>2</td>
-	                    <td>작성자 2</td>
-	                    <th>
-	                      <a href="#!">게시글 2</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                    <td>2</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>3</td>
-	                    <td>작성자 3</td>
-	                    <th>
-	                      <a href="#!">게시글 3</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                    <td>3</td>
-	                </tr>
 	                </tbody>
 	            </table>
 	    </div>
