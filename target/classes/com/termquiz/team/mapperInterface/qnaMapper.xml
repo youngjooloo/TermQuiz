@@ -14,4 +14,10 @@
 		select * from qna where qnaNo=#{qnaNo}
 	</select>
 	
+	<insert id="insert">
+		insert into
+		qna(qnaId, qnaTitle, qnaContent, qnaTime)
+		values(#{qnaId},#{qnaTitle},#{qnaContent},#{qnaTime})
+	</insert>
+	
 </mapper>
