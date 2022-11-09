@@ -55,14 +55,13 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
-					</c:if>
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -95,34 +94,13 @@
 	                    <td>1</td>
 	                    <td>작성자 1</td>
 	                    <th>
-	                      <a href="#!">게시글 1</a>
+	                      <a href="boarddetail">게시글 1</a>
 	                      <p>테스트</p>
 	                    </th>
 	                    <td>2022.11.07</td>
 	                    <td>1</td>
 	                </tr>
 	
-	                <tr>
-	                   <td>2</td>
-	                    <td>작성자 2</td>
-	                    <th>
-	                      <a href="#!">게시글 2</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                    <td>2</td>
-	                </tr>
-	
-	                <tr>
-	                    <td>3</td>
-	                    <td>작성자 3</td>
-	                    <th>
-	                      <a href="#!">게시글 3</a>
-	                      <p>테스트</p>
-	                    </th>
-	                    <td>2022.11.07</td>
-	                    <td>3</td>
-	                </tr>
 	                </tbody>
 	            </table>
 	    </div>

@@ -32,6 +32,11 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    	
+                    	<c:if test="${admin}">
+	                        <li class="nav-item"><a class="nav-link" href="javascript:;">Members</a></li>
+                    	</c:if>
+                    
                         <li class="nav-item"><a class="nav-link" href="#about">Quiz</a></li>
                         <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
                         <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>

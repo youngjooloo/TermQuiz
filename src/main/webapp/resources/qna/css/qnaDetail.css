@@ -1,11 +1,17 @@
 @charset "UTF-8";
 
+article{
+	flex : 1;
+	margin: 80px 0 ;
+}
+
 table {
-	margin: 10px auto;
-	width: 80%;
+	margin: 0 auto;
+	width: 90%;
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
 }
 
 th, td {
@@ -35,10 +41,51 @@ tbody td {
 	color: black;
 }
 
-#adminAnswer {
-	background-color: #c8d2ff;
+#userQuestion{
+	height: 300px;
 }
 
-article{
-	flex : 1;
+#adminAnswer {
+	height: 100px;
+	background-color: #c8d2ff;
+	position: relative;
+}
+
+
+.btn_detail {
+	background-color: #373737;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	width: 60px;
+	height: 32px;
+}
+
+#qnaAnswer{
+	display:flex;
+	height: 100%;
+}
+#qnaAnswer textarea {
+	resize: none;
+	flex:1;
+	padding: 10px;
+}
+
+.btn_answer {
+	min-width: 10%;
+	background-color: #373737;
+	color:#fff;
+	border-radius:10px;
+	border:none;
+}
+
+.btn_answer:hover{
+	color:#ff8000;	
+}
+
+.answer_modify{
+	position: absolute;
+	right:0;
+	top:0;
+	height: 100%;
 }

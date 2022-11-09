@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA</title>
+<title>QnA List</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -32,7 +32,6 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
-<link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -56,13 +55,13 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					</c:if>
+    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                        </c:if>
+        
+                        <c:if test="${not empty loginID}">
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                   </c:if>
 				</ul>
 			</div>
 		</div>
@@ -71,35 +70,68 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				QnA
+				<b>QnA</b>
 			</h3>
 			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>
 	</header>
 
-	<article>
-		<table>
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Time</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Question</th>
-					<td colspan="3" id="userQuestion">Content</td>
-				</tr>
-				<tr>
-					<th>Answer</th>
-					<td colspan="3" id="adminAnswer">Content</td>
-				</tr>
-			</tbody>
-		</table>
-	</article>
+	<section class="notice">
+		<!-- board list area -->
+		<div id="board-list">
+			<table class="board-table">
+				<thead>
+					<tr>
+						<th scope="col" class="th-num">번호</th>
+						<th scope="col" class="th-id">작성자</th>
+						<th scope="col" class="th-title">제목</th>
+						<th scope="col" class="th-date">등록일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="qnaList" items="${qna}">
+						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}">
+							<td>${qnaList.qnaNo}</td>						
+							<td>${qnaList.qnaId}</td>						
+							<td>${qnaList.qnaTitle} 
+								<c:if test="${not empty qnaList.qnaAnswer }">
+									<b>&nbsp;[답변 완료]</b>
+								</c:if>
+								<c:if test="${empty qnaList.qnaAnswer }">
+									<b>&nbsp;[미답변]</b>
+								</c:if>
+							</td>						
+							<td>${qnaList.qnaTime}</td>						
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 
+		<!-- 페이징  -->
+		<div class="wrap_paging">
+			<a href="" class="paging_num_on"> 
+				<span class="screen_out">현재페이지</span> 1
+			</a>
+			<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
+				등록</button>
+		</div>
+		<!-- board seach area -->
+		<div id="board-search">
+			<div class="search-window">
+				<form action="">
+					<div class="search-wrap">
+						<label for="search" class="blind">QNA 내용 검색</label> <input
+							id="search" type="search" name="" placeholder="검색어를 입력해주세요."
+							value="">
+						<button type="submit" class="btn btn-dark">검색</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer-->
 	<footer class="bg-light py-5">
 		<div class="container px-4 px-lg-5">
 			<div class="small text-center text-muted">Copyright &copy; 2022
@@ -114,5 +146,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/qna/js/qnaDetail.js"></script>
 </body>
 </html>

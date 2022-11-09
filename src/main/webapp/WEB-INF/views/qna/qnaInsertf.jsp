@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>자유게시판</title>
+<title>QnA Insert</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -32,7 +32,8 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
-<link href="resources/board/css/boardDetail.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -62,7 +63,7 @@
                         <c:if test="${not empty loginID}">
 	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
 	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
-                   </c:if>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -71,44 +72,40 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<b>자유게시판</b>
+				QnA
 			</h3>
-			<p class="board_container_p">자유롭게 적어주세요!</p>
+			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>
 	</header>
 
 	<article>
-		<table class="content_table">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>작성자</th>
-					<th>제목</th>
-					<th>작성 일자</th>
-					<th>조회 수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>내용</th>
-					<td colspan="4" class="content_area">
-						Content
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<table class="answer_table">
-			<tr>
-				<th>댓글</th>
-				<td colspan="4" >
-					<textarea name="answer" id="answer_area"></textarea>
-					<input type="submit" class="btn_submit" value="등록하기">
-				</td>
-			</tr>
-		</table>
-		
-		
+		<form action="qnainsert" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>ID : ${nick}</th>
+						<th id="insertTitle">Title :&nbsp;
+							<input type="text" name="qnaTitle" required>
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Question</th>
+						<td colspan="3" id="userQuestion">
+							<textarea id="qnaContent" name="qnaContent" required></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="wrap_paging">
+				<button type="submit" class="btn_insertf">Submit</button>
+				<button type="button" class="btn_insertf" onclick="javascript:history.go(-1);">Back</button>
+			</div>
+		</form>
 	</article>
 
 	<footer class="bg-light py-5">

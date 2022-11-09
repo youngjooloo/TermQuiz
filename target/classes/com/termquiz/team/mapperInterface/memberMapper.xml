@@ -18,6 +18,14 @@
     	update member set  nickname=#{nickname} , password=#{password},name=#{name},
    		phoneNumber=#{phoneNumber}, scNumF=#{scNumF} , scNumL=#{scNumL}  where email=#{email}
     </update>
+    
+    <select id="emailCheck" parameterType="com.termquiz.team.vo.MemberVO" resultType="int">
+    	select count(*) from member where email=#{email}
+    </select>
+    
+    <select id="nicknameCheck" parameterType="com.termquiz.team.vo.MemberVO" resultType="int">
+    	select count(*) from member where nickname=#{nickname}
+    </select>
 
 
 </mapper>
