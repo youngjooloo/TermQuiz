@@ -48,7 +48,6 @@ function loginCheck(){
 	const url = new URL(window.location.href);
 	const check = url.searchParams;
 	const relogin = check.get("relogin");
-	console.log(relogin);
 	if(relogin){
 		$('#loginB').click();
 	}

@@ -144,8 +144,10 @@
 					<font color="Gray">&nbsp;&gt;&nbsp;</font>
 				</c:otherwise>
 			</c:choose>
-			<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
-				등록</button>
+			<c:if test="${not empty loginID}">
+				<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
+					등록</button>
+			</c:if>
 		</div>
 		<!-- board seach area -->
 		<div id="board-search">

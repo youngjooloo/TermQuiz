@@ -109,11 +109,44 @@
 
 		<!-- 페이징  -->
 		<div class="wrap_paging">
-			<a href="" class="paging_num_on"> <span class="screen_out">현재
-					페이지</span> 1
-			</a>
-			<button type="button" class="btn_insert" onclick="board/boardDetail;">글
-				등록</button>
+			<c:choose>
+				<c:when test="${maker.prev && maker.spageNo>1}">
+
+					<a href="qnaboardcrilist${maker.searchQuery(1)}">FP</a>&nbsp;
+					<a href="qnaboardcrilist${maker.searchQuery(maker.spageNo-1)}">&lt;</a>&nbsp;&nbsp; 
+				</c:when>
+				<c:otherwise>
+					<font color="Gray">&nbsp;&lt;&nbsp;&nbsp;</font>
+				</c:otherwise>
+			</c:choose>
+
+			<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+			   	<c:if test="${i==maker.currPage}">
+					 <a href="qnaboardlist">
+						<span class="screen_out">현재페이지</span>${i}
+					 </a>
+					
+		       	</c:if>
+			    <c:if test="${i !=maker.currPage}">
+			        <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
+			        ${i}
+			        </a>
+			    </c:if>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${maker.next && maker.epageNo>0}">
+					
+					<a href="qnaboardlist${maker.searchQuery(maker.epageNo+1)}">&nbsp;&gt;</a>
+					<a href="qnaboardlist${maker.searchQuery(maker.lastPageNo)}">&nbsp;LP</a>
+				</c:when>
+				<c:otherwise>
+					<font color="Gray">&nbsp;&gt;&nbsp;</font>
+				</c:otherwise>
+			</c:choose>
+			<c:if test="${not empty loginID }">
+				<button type="button" class="btn_insert" onclick="board/boardDetail;">글
+					등록</button>
+			</c:if>
 		</div>
 		<!-- board seach area -->
 		<div id="board-search">
