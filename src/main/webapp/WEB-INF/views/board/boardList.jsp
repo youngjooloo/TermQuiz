@@ -92,8 +92,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="blist" items="${board}">
-						<tr class="">
+					<c:forEach var="blist" items="${boardList}">
+						<tr class="board_list" id="bno&#61;${blist.bno }">
 							<td>${blist.bno}</td>
 							<td>${blist.bid}</td>
 							<td>${blist.btitle}</td>
@@ -144,7 +144,7 @@
 				</c:otherwise>
 			</c:choose>
 			<c:if test="${not empty loginID }">
-				<button type="button" class="btn_insert" onclick="board/boardDetail;">글
+				<button type="button" class="btn_insert" onclick="location.href='boardinsertf'">글
 					등록</button>
 			</c:if>
 		</div>
@@ -185,5 +185,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/board/js/boardDetail.js"></script>
 </body>
 </html>

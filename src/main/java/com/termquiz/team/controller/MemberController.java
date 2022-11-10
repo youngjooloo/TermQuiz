@@ -43,6 +43,10 @@ public class MemberController {
 		thisUrl = thisUrl.split("/")[thisUrl.split("/").length-1];
 		String url = "home";
 		
+		if (thisUrl == "team" || "team".endsWith(thisUrl)) {
+			thisUrl = "home";
+		}
+		
 		if(!thisUrl.contains("relogin")) {
 			if (thisUrl.contains("?")) {
 				url = "redirect:"+thisUrl+"&relogin=1";

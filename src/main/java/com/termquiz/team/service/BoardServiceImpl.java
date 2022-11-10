@@ -18,13 +18,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> searchList(PageNation cri) {
-		
 		return dao.searchList(cri);
 	}
 	
 	@Override
 	public int searchCount(PageNation cri) {
-		
 		return dao.searchCount(cri);
 	}
 

@@ -32,9 +32,9 @@
 	</sql>
 	
 	<select id="searchList" resultType="com.termquiz.team.vo.BoardVO">
-		select bNo,bTime,bTitle,bContent
+		select bNo,bId,bTime,bTitle,bContent,bcount
 		from board 
-		where ( bNo>0
+		where ( bno>0
 		<include refid="search"></include>
 		order by bNo desc, bTime desc
 		limit #{sno}, #{rowsPerPage}
@@ -42,12 +42,18 @@
 	
 	<select id="searchCount" resultType="int">
 		select count(*) from board
-		where (  bNo>0 <include refid="search"></include>
+		where (  bno>0 <include refid="search"></include>
 	</select>
 
-	<select id="selectOne" resultType="com.termquiz.team.vo.QnaVO">
-		select * from board where bNo=#{bNo}
+	<select id="selectOne" resultType="com.termquiz.team.vo.BoardVO">
+		select * from board where bno=#{bno}
 	</select>
+	
+	<update id="countUp">
+		update board 
+		set bcount = bcount + 1 
+		where bno=#{bno};
+	</update>
 	
 	<insert id="insert">
 		insert into

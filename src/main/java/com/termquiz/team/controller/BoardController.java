@@ -38,9 +38,8 @@ public class BoardController {
 	public ModelAndView boarddetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo) {
 		
 		String uri = "/board/boardDetail";
-		int bno = Integer.parseInt((String)request.getParameter("bNo"));
+		int bno = Integer.parseInt((String)request.getParameter("bno"));
 		vo.setBno(bno);
-		
 		vo = service.selectOne(vo);
 		
 		if (vo != null) {

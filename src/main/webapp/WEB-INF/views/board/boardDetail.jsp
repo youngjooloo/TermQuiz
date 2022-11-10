@@ -81,18 +81,18 @@
 		<table class="content_table">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>작성자</th>
-					<th>제목</th>
-					<th>작성 일자</th>
-					<th>조회 수</th>
+					<th>번호 : ${board.bno}</th>
+					<th>작성자 : ${board.bid}</th>
+					<th>제목 : ${board.btitle}</th>
+					<th>작성 일자 : ${board.btime}</th>
+					<th>조회 수 : ${board.bcount}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th>내용</th>
 					<td colspan="4" class="content_area">
-						Content
+						${board.bcontent}
 					</td>
 				</tr>
 			</tbody>

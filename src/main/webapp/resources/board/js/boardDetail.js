@@ -1,7 +1,7 @@
 
 $(function(){
-   $('.board_list').click(function(e){
+   $('.board_list').click(function(){
       location.href=`boarddetail?${this.id}`;
-         });
+    });
 });
 
