@@ -39,17 +39,17 @@ public class BoardController {
 		
 		String uri = "/board/boardDetail";
 		int bno = Integer.parseInt((String)request.getParameter("bNo"));
-		vo.setBNo(bno);
+		vo.setBno(bno);
 		
 		vo = service.selectOne(vo);
 		
 		if (vo != null) {
 
 			String loginID = (String) request.getSession().getAttribute("loginID");
-			if (!vo.getBId().equals(loginID) && !"U".equals(request.getParameter("jCode"))) {
+			if (!vo.getBid().equals(loginID) && !"U".equals(request.getParameter("jCode"))) {
 
 				if (service.countUp(vo) > 0) {
-					if (service.countUp(vo)>0) {vo.setBCount(vo.getBCount() + 1);}
+					if (service.countUp(vo)>0) {vo.setBcount(vo.getBcount() + 1);}
 				}
 
 				if ("U".equals(request.getParameter("jCode"))) {
@@ -59,7 +59,7 @@ public class BoardController {
 				mv.addObject("board", vo);
 
 			} else {
-				mv.addObject("message", "~~ 湲�踰덊샇�뿉 �빐�떦�븯�뒗 �옄猷뚭� �뾾�뒿�땲�떎. ~~");
+				mv.addObject("message", "");
 			}
 
 		}

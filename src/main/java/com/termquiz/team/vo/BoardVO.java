@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class BoardVO {
-	private int bNo;			
-	private String bId;			
-	private String bTitle;		
-	private String bContent;	
-	private Date bTime;			
-	private int bCount;
+	private int bno;			
+	private String bid;			
+	private String btitle;		
+	private String bcontent;	
+	private Date btime;			
+	private int bcount;
 }

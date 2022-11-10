@@ -3,7 +3,8 @@
  */
 
 $(function(){
-	$('.qna_list').click(function(e){
-		location.href = `qnadetail?${this.id}`;
+	$('.answer_modify').click(function(e){
+		location.href = `qnaanswerdelete?${this.id}`;
 	});
+	
 });

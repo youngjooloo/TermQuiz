@@ -12,4 +12,7 @@ public interface QnaService {
 	
 	int insert(QnaVO vo);
 	
+	int qnaAnswer(QnaVO vo);
+
+	int qnaAnswerDelete(QnaVO vo);
 }

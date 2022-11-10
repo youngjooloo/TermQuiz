@@ -20,4 +20,12 @@
 		values(#{qnaId},#{qnaTitle},#{qnaContent},#{qnaTime})
 	</insert>
 	
+	<update id="qnaAnswer">
+		update qna set qnaAnswer=#{qnaAnswer} where qnaNo=#{qnaNo}
+	</update>
+
+	<update id="qnaAnswerDelete">
+		update qna set qnaAnswer=null where qnaNo=#{qnaNo}
+	</update>
+	
 </mapper>

@@ -82,4 +82,32 @@ public class QnaController {
 		mv.setViewName(uri);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/qnaanswer")
+	public ModelAndView qnaanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+
+		String uri = "qnadetail";
+		
+		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
+		if( service.qnaAnswer(vo) > 0) {
+			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+		}
+		
+		mv.setViewName(uri);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/qnaanswerdelete")
+	public ModelAndView qnaanswerdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+		
+		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
+		String uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+
+		service.qnaAnswerDelete(vo);
+		
+		mv.setViewName(uri);
+		return mv;
+	}
+	
+	
 }

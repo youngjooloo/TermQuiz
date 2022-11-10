@@ -71,18 +71,6 @@ tbody td {
 	padding: 10px;
 }
 
-.btn_answer {
-	min-width: 10%;
-	background-color: #373737;
-	color:#fff;
-	border-radius:10px;
-	border:none;
-}
-
-.btn_answer:hover{
-	color:#ff8000;	
-}
-
 .answer_modify{
 	position: absolute;
 	right:0;

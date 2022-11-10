@@ -146,6 +146,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
-	<script src="resources/qna/js/qnaDetail.js"></script>
+	<script src="resources/qna/js/qnaList.js"></script>
 </body>
 </html>

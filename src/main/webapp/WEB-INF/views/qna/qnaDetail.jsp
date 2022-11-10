@@ -98,12 +98,14 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<button class="btn_answer answer_modify" type="button">Modify</button>
+								<div>
+									<button class="btn_detail" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
+								</div>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
-								<form action="qnaanswer" method="post" id="qnaAnswer">
+								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
 									<textarea name="qnaAnswer" required></textarea>
 									<button class="btn_answer" type="submit">Submit</button>
 								</form>
@@ -133,6 +135,7 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/qna/js/qnaDetail.js"></script>
 	
 </body>
 </html>

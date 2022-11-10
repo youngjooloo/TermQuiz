@@ -30,4 +30,14 @@ public class QnaServiceImpl implements QnaService {
     public int insert(QnaVO vo) {
     	return dao.insert(vo);
     }
+    
+    @Override
+    public int qnaAnswer(QnaVO vo) {
+    	return dao.qnaAnswer(vo);
+    }
+    
+    @Override
+    public int qnaAnswerDelete(QnaVO vo) {
+    	return dao.qnaAnswerDelete(vo);
+    }
 }

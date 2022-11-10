@@ -11,4 +11,8 @@ public interface QnaMapper {
 	QnaVO selectOne(QnaVO vo);
 	
 	int insert(QnaVO vo);
+
+	int qnaAnswer(QnaVO vo);
+
+	int qnaAnswerDelete(QnaVO vo);
 }
