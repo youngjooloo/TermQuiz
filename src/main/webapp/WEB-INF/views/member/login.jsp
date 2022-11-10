@@ -67,6 +67,7 @@
 							Sign Up
 						</a>
 					</div>
+					<input type="text" name="thisUrl" value="${thisUrl}"  id="urlInput">
 				</form>
 			</div>
 		</div>
@@ -74,6 +75,7 @@
 	
 
 	<div id="dropDownSelect1"></div>
+	
 	
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/login/js/main.js"></script>

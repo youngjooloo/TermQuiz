@@ -1,9 +1,7 @@
 package com.termquiz.team.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.service.QnaService;
 import com.termquiz.team.vo.QnaVO;
 
@@ -25,16 +24,17 @@ public class QnaController {
 	QnaService service;
 	
 	@RequestMapping(value = "/qnaboardlist")
-	public ModelAndView qnaboardlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
-		List<QnaVO> list = new ArrayList<QnaVO>();
-		list = service.selectList();
-		if (list != null) {
-			mv.addObject("qna", list);
-		}
-		mv.setViewName("/qna/qnaBoardList");
-		return mv;
+	public ModelAndView qnaboardlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,PageNation maker) {
+		maker.setSnoEno();
+		
+		mv.addObject("qna", service.searchList(maker));
+		maker.setTotalRowsCount((service.searchCount(maker)));
 
-	}// qnaboardlist
+		mv.addObject("maker", maker);
+		mv.setViewName("qna/qnaBoardList");
+	 return mv;
+    	
+	}//qnapagenation
 
 	@RequestMapping(value = "/qnadetail")
 	public ModelAndView qnadetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
@@ -47,8 +47,12 @@ public class QnaController {
 		
 		if (vo != null) {
 			mv.addObject("qna", vo);
+		
+			if ("U".equals(request.getParameter("jCode"))){
+				uri = "qna/qnaUpdate";
+			}
 		} else {
-			mv.addObject("message", "~~ 글번호에 해당하는 자료가 없습니다. ~~");
+			uri = "qnaboardlist";
 		}
 
 		mv.setViewName(uri);
@@ -109,5 +113,22 @@ public class QnaController {
 		return mv;
 	}
 	
-	
+	@RequestMapping(value = "/qnaupdate", method = RequestMethod.POST)
+	public ModelAndView qnaupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+
+		String uri = "qna/qnaUpdate";
+		
+		QnaVO vo2 = new QnaVO();
+		vo2.setQnaNo(vo.getQnaNo());
+		service.selectOne(vo2);
+		vo2.setQnaTitle(vo.getQnaTitle());
+		vo2.setQnaContent(vo.getQnaContent());
+		
+		if(service.qnaUpdate(vo2)>0) {
+			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+		}
+		
+		mv.setViewName(uri);
+		return mv;
+	}
 }

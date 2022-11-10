@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.mapperInterface.BoardMapper;
 import com.termquiz.team.vo.BoardVO;
-import com.termquiz.team.vo.QnaVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -16,12 +16,18 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardMapper dao;
 
-	// ** selectList
 	@Override
-	public List<BoardVO> selectList() {
-		return dao.selectList();
+	public List<BoardVO> searchList(PageNation cri) {
+		
+		return dao.searchList(cri);
 	}
-	// ** selectOne
+	
+	@Override
+	public int searchCount(PageNation cri) {
+		
+		return dao.searchCount(cri);
+	}
+
 	@Override
 	public BoardVO selectOne(BoardVO vo) {
 		return dao.selectOne(vo);
@@ -30,6 +36,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int countUp(BoardVO vo) {
 		return dao.countUp(vo);
+	}
+	
+	@Override
+	 public int insert(BoardVO vo) {
+	    return dao.insert(vo);
 	}
 
 

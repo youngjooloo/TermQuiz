@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA Detail</title>
+<title>Board Insert</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,6 +33,7 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/board/css/boardInsert.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -71,57 +72,40 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<a href="qnaboardlist">QnA</a>
+				<a href="boardlist">자유게시판</a>
 			</h3>
-			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
+			<p class="board_container_p">자유롭게 적어주세요!</p>
 		</div>
 	</header>
 
 	<article>
-		<table>
-			<thead>
-				<tr>
-					<th>No.${qna.qnaNo}</th>
-					<th>ID : ${qna.qnaId}</th>
-					<th>Title : ${qna.qnaTitle}</th>
-					<th>Time : ${qna.qnaTime}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Question</th>
-					<td colspan="3" id="userQuestion">${qna.qnaContent}</td>
-				</tr>
-				<tr>
-					<th>Answer</th>
-					<td colspan="3" id="adminAnswer">
-						<c:if test="${not empty qna.qnaAnswer}">
-							<b> ${qna.qnaAnswer}</b>
-							<c:if test="${admin}">
-								<div>
-									<button class="btn_detail" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
-								</div>
-							</c:if>
-						</c:if>
-						<c:if test="${empty qna.qnaAnswer}">
-							<c:if test="${admin}">
-								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" required></textarea>
-									<button class="btn_answer" type="submit">Submit</button>
-								</form>
-							</c:if>
-						</c:if>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<div class="wrap_paging">
-			<c:if test="${qna.qnaId == nick }">
-				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
-			</c:if>
-			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
-		</div>
+		<form action="boardinsert" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>ID : ${nick}</th>
+						<th id="insertTitle">Title :&nbsp;
+							<input type="text" name="btitle" required>
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Content</th>
+						<td colspan="3" id="userContent">
+							<textarea id="bContent" name="bcontent" required></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="wrap_paging">
+				<button type="submit" class="btn_insertf">Submit</button>
+				<button type="button" class="btn_insertf" onclick="javascript:history.go(-1);">Back</button>
+			</div>
+		</form>
 	</article>
 
 	<footer class="bg-light py-5">
@@ -138,7 +122,5 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
-	<script src="resources/qna/js/qnaDetail.js"></script>
-	
 </body>
 </html>

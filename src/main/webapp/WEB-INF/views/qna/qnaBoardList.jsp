@@ -70,7 +70,7 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<b>QnA</b>
+				<a href="qnaboardlist">QnA</a>
 			</h3>
 			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>
@@ -110,23 +110,59 @@
 
 		<!-- 페이징  -->
 		<div class="wrap_paging">
-			<a href="" class="paging_num_on"> 
-				<span class="screen_out">현재페이지</span> 1
-			</a>
+			<c:choose>
+				<c:when test="${maker.prev && maker.spageNo>1}">
+
+					<a href="qnaboardcrilist${maker.searchQuery(1)}">FP</a>&nbsp;
+					<a href="qnaboardcrilist${maker.searchQuery(maker.spageNo-1)}">&lt;</a>&nbsp;&nbsp; 
+				</c:when>
+				<c:otherwise>
+					<font color="Gray">&nbsp;&lt;&nbsp;&nbsp;</font>
+				</c:otherwise>
+			</c:choose>
+
+			<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+			   	<c:if test="${i==maker.currPage}">
+					 <a href="qnaboardlist">
+						<span class="screen_out">현재페이지</span>${i}
+					 </a>
+					
+		       	</c:if>
+			    <c:if test="${i !=maker.currPage}">
+			        <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
+			        ${i}
+			        </a>
+			    </c:if>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${maker.next && maker.epageNo>0}">
+					
+					<a href="qnaboardlist${maker.searchQuery(maker.epageNo+1)}">&nbsp;&gt;</a>
+					<a href="qnaboardlist${maker.searchQuery(maker.lastPageNo)}">&nbsp;LP</a>
+				</c:when>
+				<c:otherwise>
+					<font color="Gray">&nbsp;&gt;&nbsp;</font>
+				</c:otherwise>
+			</c:choose>
 			<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
 				등록</button>
 		</div>
 		<!-- board seach area -->
 		<div id="board-search">
 			<div class="search-window">
-				<form action="">
-					<div class="search-wrap">
-						<label for="search" class="blind">QNA 내용 검색</label> <input
-							id="search" type="search" name="" placeholder="검색어를 입력해주세요."
-							value="">
-						<button type="submit" class="btn btn-dark">검색</button>
-					</div>
-				</form>
+				<div class="search-wrap">
+					<select   class="search-wrap"  name="searchType" id="searchType">
+						<option value="n"${maker.searchType==null ? 'selected' : ''}></option>
+						<option value="all"${maker.searchType=='all' ? 'selected' : ''}>전체</option>
+						<option value="t"${maker.searchType=='t' ? 'selected' : ''}>제목</option>
+						<option value="c"${maker.searchType=='c' ? 'selected' : ''}>내용</option>
+						<option value="a"${maker.searchType=='a' ? 'selected' : ''}>답변</option>
+					</select>
+					<label for="search" class="blind">QNA 내용 검색</label> <input
+						id="keyword" type="search" name="keyword" placeholder="검색어를 입력해주세요."
+						value="${maker.keyword}">
+					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>					
+				</div>
 			</div>
 		</div>
 	</section>
@@ -147,5 +183,22 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaList.js"></script>
+	
+	<script>
+		$(function() {
+		
+			$('#searchType').change(function() {
+				if ($(this).val() == 'n')
+					$('#keyword').val('');
+			});
+	
+			$('#searchBtn').click(
+				function() {
+					self.location = "qnaboardlist" + "${maker.makeQuery(1)}"
+						+ "&searchType=" + $('#searchType').val()
+						+ "&keyword=" + $('#keyword').val()
+				}); //click
+		}); //ready
+	</script>
 </body>
 </html>

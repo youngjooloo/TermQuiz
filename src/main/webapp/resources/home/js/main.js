@@ -7,10 +7,14 @@ $(function() {
 
 		$('#mainlogin').removeClass('mlhidden');
 		$('#mainlogin2').removeClass('mlhidden');
-
+		
 		$.ajax({
 			type: 'Get',
 			url: 'mloginf',
+			dataType: "text",
+			data:{
+				'thisUrl' : window.location.href
+			},
 			success: function(resultPage) {
 				$('#mainlogin2').html(resultPage);
 			},
@@ -43,8 +47,9 @@ $(document).ready(function(){
 function loginCheck(){
 	const url = new URL(window.location.href);
 	const check = url.searchParams;
-	
-	if(check.get('login')){
+	const relogin = check.get("relogin");
+	console.log(relogin);
+	if(relogin){
 		$('#loginB').click();
 	}
 }

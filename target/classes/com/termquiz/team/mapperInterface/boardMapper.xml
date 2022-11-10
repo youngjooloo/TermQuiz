@@ -4,14 +4,55 @@
 
 <mapper namespace="com.termquiz.team.mapperInterface.BoardMapper">
 	
-	<select id="selectList" resultType="com.termquiz.team.vo.BoardVO">
-		select bNo, bId, bTitle, bTime, bCount
+<sql id="search">
+		<if test="keyword!=null">
+			<bind name="keyVal" value="'%'+keyword+'%'" />
+		</if>
+		<choose>
+			<when test="searchType=='all'.toString()">
+				and bId like #{keyVal}
+				or bTitle like #{keyVal}
+				or bTime  like #{keyVal} )
+			</when>
+			<when test="searchType=='i'.toString()">
+				and  bId like #{keyVal} )
+			</when>
+			<when test="searchType=='t'.toString()">
+				and bTitle like #{keyVal} )
+			</when>
+			<when test="searchType=='c'.toString()">
+				and bContent like #{keyVal} )
+			</when>
+			<when test="searchType=='cc'.toString()">
+				and bId  like #{keyVal}
+				or bTitle like #{keyVal} )
+			</when>
+			<otherwise> )</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="searchList" resultType="com.termquiz.team.vo.BoardVO">
+		select bNo,bTime,bTitle,bContent
 		from board 
-		order by bNo desc
+		where ( bNo>0
+		<include refid="search"></include>
+		order by bNo desc, bTime desc
+		limit #{sno}, #{rowsPerPage}
+	</select>
+	
+	<select id="searchCount" resultType="int">
+		select count(*) from board
+		where (  bNo>0 <include refid="search"></include>
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.QnaVO">
 		select * from board where bNo=#{bNo}
 	</select>
+	
+	<insert id="insert">
+		insert into
+		board(bno, bid, btitle, bcontent, btime)
+		values(#{bno},#{bid},#{btitle},#{bcontent},#{btime})
+	</insert>
 	
 </mapper>

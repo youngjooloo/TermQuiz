@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.mapperInterface.QnaMapper;
 import com.termquiz.team.vo.QnaVO;
 
@@ -15,14 +16,19 @@ public class QnaServiceImpl implements QnaService {
 	QnaMapper dao;
 	
 	@Override
-	public List<QnaVO> selectList() {
+	public List<QnaVO> searchList(PageNation cri) {
 		
-		return dao.selectList();
+	   return dao.searchList(cri);
+	}
+	
+	@Override
+	public int searchCount(PageNation cri) {
+		
+		return dao.searchCount(cri);
 	}
 
     @Override
     public QnaVO selectOne(QnaVO vo) {
-	
     	return dao.selectOne(vo);
     }
 
@@ -39,5 +45,10 @@ public class QnaServiceImpl implements QnaService {
     @Override
     public int qnaAnswerDelete(QnaVO vo) {
     	return dao.qnaAnswerDelete(vo);
+    }
+    
+    @Override
+    public int qnaUpdate(QnaVO vo) {
+    	return dao.qnaUpdate(vo);
     }
 }

@@ -489,5 +489,9 @@ iframe {
   }
 }
 
+#urlInput{
+	display: none;
+}
+
 
 

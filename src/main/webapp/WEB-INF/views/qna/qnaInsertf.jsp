@@ -72,7 +72,7 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				QnA
+				<a href="qnaboardlist">QnA</a>
 			</h3>
 			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
 		</div>

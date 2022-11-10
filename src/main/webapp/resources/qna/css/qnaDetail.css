@@ -77,3 +77,7 @@ tbody td {
 	top:0;
 	height: 100%;
 }
+
+#qnaNoH{
+	display: none;
+}

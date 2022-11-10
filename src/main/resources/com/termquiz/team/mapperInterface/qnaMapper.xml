@@ -4,10 +4,41 @@
 
 <mapper namespace="com.termquiz.team.mapperInterface.QnaMapper">
 	
-	<select id="selectList" resultType="com.termquiz.team.vo.QnaVO">
-		select qnaNo, qnaId, qnaTitle, qnaTime, qnaAnswer 
-		from qna 
-		order by qnaNo desc
+	<sql id="search">
+	<if test="keyword!=null">
+		<bind name="keyVal" value="'%'+keyword+'%'"/>
+	</if>
+	<choose>
+		<when test="searchType=='all'.toString()">
+			and qnaTitle like #{keyVal} 
+			or qnaContent like #{keyVal}
+			or qnaAnswer like #{keyVal} )
+		</when>
+		<when test="searchType=='t'.toString()">
+			and qnaTitle like #{keyVal} )
+		</when>
+		<when test="searchType=='c'.toString()">
+			and qnaContent like #{keyVal} )
+		</when>
+		<when test="searchType=='a'.toString()">
+			and qnaAnswer like #{keyVal} )
+		</when>
+		<otherwise> )</otherwise>
+	</choose>
+	</sql>
+	
+	<select id="searchList" resultType="com.termquiz.team.vo.QnaVO">
+		select qnaNo,qnaId,qnaTitle,qnaTime,qnaAnswer
+		from qna
+		where ( qnaNo>0
+		<include refid="search"></include>
+		order by qnaNo desc, qnaTime desc
+		limit #{sno}, #{rowsPerPage}
+	</select>
+	
+	<select id="searchCount" resultType="int">
+		select count(*) from qna
+		where ( qnaNo>0 <include refid="search"></include>
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.QnaVO">
@@ -26,6 +57,12 @@
 
 	<update id="qnaAnswerDelete">
 		update qna set qnaAnswer=null where qnaNo=#{qnaNo}
+	</update>
+
+	<update id="qnaUpdate">
+		update qna 
+		set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent} 
+		where qnaNo=#{qnaNo}
 	</update>
 	
 </mapper>

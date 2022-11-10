@@ -72,7 +72,7 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<b>자유게시판</b>
+				<a href="boardlist">자유게시판</a>
 			</h3>
 			<p class="board_container_p">자유롭게 적어주세요!</p>
 		</div>
@@ -118,14 +118,20 @@
 		<!-- board seach area -->
 		<div id="board-search">
 			<div class="search-window">
-				<form action="">
-					<div class="search-wrap">
-						<label for="search" class="blind">자유게시판 내용 검색</label> <input
-							id="search" type="search" name="" placeholder="검색어를 입력해주세요."
-							value="">
-						<button type="submit" class="btn btn-dark">검색</button>
-					</div>
-				</form>
+				<div class="search-wrap">
+				<select class="search-wrap" name="searchType" id="searchType">
+					<option value="n" ${maker.searchType==null ? 'selected' : ''}></option>
+					<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
+					<option value="i" ${maker.searchType=='i' ? 'selected' : ''}>작성자</option>
+					<option value="t" ${maker.searchType=='t' ? 'selected' : ''}>제목</option>
+					<option value="c" ${maker.searchType=='c' ? 'selected' : ''}>내용</option>
+					<option value="cc" ${maker.searchType=='cc' ? 'selected' : ''}>댓글</option>
+				</select>
+					<label for="search" class="blind">자유게시판 내용 검색</label> <input
+						id="keyword" type="search" name="keyword"
+						placeholder="검색어를 입력해주세요." value="${maker.keyword}">
+					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>
+				</div>
 			</div>
 		</div>
 	</section>

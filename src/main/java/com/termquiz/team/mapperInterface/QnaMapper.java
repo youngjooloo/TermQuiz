@@ -2,11 +2,14 @@ package com.termquiz.team.mapperInterface;
 
 import java.util.List;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.vo.QnaVO;
 
 public interface QnaMapper {
 
-	List<QnaVO> selectList();
+	List<QnaVO> searchList(PageNation cri);
+	
+	int searchCount(PageNation cri);
 
 	QnaVO selectOne(QnaVO vo);
 	
@@ -15,4 +18,6 @@ public interface QnaMapper {
 	int qnaAnswer(QnaVO vo);
 
 	int qnaAnswerDelete(QnaVO vo);
+
+	int qnaUpdate(QnaVO vo);
 }

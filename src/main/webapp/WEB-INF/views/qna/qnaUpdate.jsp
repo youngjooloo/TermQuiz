@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA Detail</title>
+<title>QnA Update</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,6 +33,8 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -78,50 +80,39 @@
 	</header>
 
 	<article>
+	<form action="qnaupdate" method="post">
 		<table>
 			<thead>
 				<tr>
-					<th>No.${qna.qnaNo}</th>
+					<th>No.${qna.qnaNo}
+						<input id="qnaNoH" type="number" name="qnaNo" value="${qna.qnaNo}" readonly>
+					</th>
 					<th>ID : ${qna.qnaId}</th>
-					<th>Title : ${qna.qnaTitle}</th>
+					<th>Title :&nbsp;
+						<input type="text" name="qnaTitle" value="${qna.qnaTitle}" required>
+					</th>
 					<th>Time : ${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th>Question</th>
-					<td colspan="3" id="userQuestion">${qna.qnaContent}</td>
+					<td colspan="3" id="userQuestion">
+						<textarea id="qnaContent" name="qnaContent" required>${qna.qnaContent}</textarea>
+					</td>
 				</tr>
 				<tr>
 					<th>Answer</th>
-					<td colspan="3" id="adminAnswer">
-						<c:if test="${not empty qna.qnaAnswer}">
-							<b> ${qna.qnaAnswer}</b>
-							<c:if test="${admin}">
-								<div>
-									<button class="btn_detail" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
-								</div>
-							</c:if>
-						</c:if>
-						<c:if test="${empty qna.qnaAnswer}">
-							<c:if test="${admin}">
-								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" required></textarea>
-									<button class="btn_answer" type="submit">Submit</button>
-								</form>
-							</c:if>
-						</c:if>
-					</td>
+					<td colspan="3" id="adminAnswer"></td>
 				</tr>
 			</tbody>
 		</table>
 		
 		<div class="wrap_paging">
-			<c:if test="${qna.qnaId == nick }">
-				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
-			</c:if>
+			<button type="submit" class="btn_detail">Modify</button>
 			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
 		</div>
+	</form>
 	</article>
 
 	<footer class="bg-light py-5">

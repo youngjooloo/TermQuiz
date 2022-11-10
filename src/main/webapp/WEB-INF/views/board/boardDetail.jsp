@@ -71,7 +71,7 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<b>자유게시판</b>
+				<a href="boardlist">자유게시판</a>
 			</h3>
 			<p class="board_container_p">자유롭게 적어주세요!</p>
 		</div>
@@ -102,12 +102,13 @@
 			<tr>
 				<th>댓글</th>
 				<td colspan="4" >
-					<textarea name="answer" id="answer_area"></textarea>
-					<input type="submit" class="btn_submit" value="등록하기">
+					<form action="url">
+						<textarea name="answer" id="answer_area"></textarea>
+						<input type="submit" class="btn_submit" value="등록하기">
+					</form>
 				</td>
 			</tr>
 		</table>
-		
 		
 	</article>
 
