@@ -33,6 +33,8 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/boardDetail.css" rel="stylesheet" />
+<link href="resources/common/css/textarea.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -114,8 +116,10 @@
 					<th>${bcomments.bcId}</th>
 					<td>${bcomments.bcomment}</td>
 					<td>${bcomments.bcommentTime}<br><br>
-						<input type="button" class="btn_answerlist" id="first_btn" value="수정">
-						<input type="button" class="btn_answerlist" id="second_btn" value="삭제">
+						<c:if test="${bcomments.bcId == nick}">
+							<input type="button" class="btn_answerlist" id="first_btn" value="수정">
+							<input type="button" class="btn_answerlist second_btn" value="삭제" onclick="location.href='bcommentdelete?bno=${board.bno}&bcno=${bcomments.bcNo}'">
+						</c:if>
 					</td>
 				</tr>
 			</c:forEach>
@@ -126,9 +130,10 @@
 				<table class="answer_table">
 					<tr>
 						<th>${nick}</th>
-						<td>
-							<textarea rows = "5" cols = "50" name="bcomment" id="answer_area"></textarea>
-							<input type="submit" class="btn_submit" value="등록하기">
+						<td id="userContent">
+							<textarea name="bcomment" id="answer_area" maxlength="150" required></textarea>
+							<p class="bdtextCount"></p>
+							<input type="submit" class="btn_submit" value="등록">
 						</td>
 					</tr>
 				</table>
@@ -155,5 +160,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>

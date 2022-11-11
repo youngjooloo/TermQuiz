@@ -25,4 +25,6 @@ public interface BoardService {
 	List<BoardCommentsVO> commentList(BoardCommentsVO cvo);
 
 	int rinsert(BoardCommentsVO cvo);
+	
+	int bcommentdelete(BoardCommentsVO cvo);
 }

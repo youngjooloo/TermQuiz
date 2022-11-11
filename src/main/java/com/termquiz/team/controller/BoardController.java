@@ -71,7 +71,6 @@ public class BoardController {
 			cvoList = service.commentList(cvo);
 			
 			mv.addObject("commentList",cvoList);
-			System.out.println(cvo);
 			
 		} else {
 			mv.addObject("message", "");
@@ -100,6 +99,10 @@ public class BoardController {
 		
 		vo.setBid(bid);
 		vo.setBtime(today);
+		
+		String content = vo.getBcontent().replace("\r\n","<br>");
+		vo.setBcontent(content);
+		
 		if(service.insert(vo) > 0) {
 			uri = "redirect:boardlist";
 		}		
@@ -114,7 +117,10 @@ public class BoardController {
 
 		int bno = Integer.parseInt((String)request.getParameter("bno"));
 		vo.setBno(bno);
-		mv.addObject("board", vo);
+		
+		String content = vo.getBcontent().replace("\r\n","<br>");
+		vo.setBcontent(content);
+		
 		if (service.update(vo) > 0) {
 			mv.addObject("message", "~~ 글 수정 성공 ~~");
 			uri = "redirect:boarddetail?bno=" + vo.getBno();
@@ -158,6 +164,9 @@ public class BoardController {
 		String today = (simple.format(nowDate)).toString();
 		cvo.setBcommentTime(today);
 		
+		String comment = cvo.getBcomment().replace("\r\n","<br>");
+		cvo.setBcomment(comment);
+		
 		// 2. Service 처리
 		if ( service.rinsert(cvo)>0 ) {
 			rttr.addFlashAttribute("message", "댓글 등록 성공");
@@ -170,5 +179,16 @@ public class BoardController {
 		mv.setViewName(uri);
 		return mv;
 	} //rinsert	
+	
+	@RequestMapping(value = "/bcommentdelete")
+	public ModelAndView bcommentdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardCommentsVO cvo) {
+		int bcno = Integer.parseInt((String)request.getParameter("bcno"));
+		int bno = Integer.parseInt((String)request.getParameter("bno"));
+		cvo.setBcNo(bcno);
+		service.bcommentdelete(cvo);
+		
+		mv.setViewName("redirect:boarddetail?bno="+bno);
+		return mv;
+	}
 
 }

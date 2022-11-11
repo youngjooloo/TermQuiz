@@ -75,10 +75,12 @@ table {
 }
 
 .btn_submit {
-	background-color: black;
+	width:50px;
+	background-color: #373737;
 	color: white;
 	border-radius: 5px;
 	float: right;
+	border:none;
 }
 
 
@@ -134,10 +136,11 @@ article{
 }
 
 .btn_answerlist {
-	background-color: black;
+	background-color: #373737;
     color: white;
     border-radius: 5px;
     width: 50px;
+    border: none;
 }
 
 .answer_list .comments_List{

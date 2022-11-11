@@ -26,4 +26,5 @@ public interface BoardMapper {
 
 	int rinsert(BoardCommentsVO cvo);
 	
+	int bcommentdelete(BoardCommentsVO cvo);
 }

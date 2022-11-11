@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+#userContent{
+	position: relative;
+}
+
+.textCount{
+	position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 10px;
+    opacity: 0.5;
+}
+
+.bdtextCount{
+	position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    right: 20px;
+    opacity: 0.5;
+    color: black;
+}

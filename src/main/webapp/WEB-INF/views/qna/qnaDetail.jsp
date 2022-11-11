@@ -33,6 +33,8 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/common/css/textarea.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -104,7 +106,7 @@
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" required></textarea>
+									<textarea name="qnaAnswer" maxlength="150" required></textarea>
 									<button class="btn_answer" type="submit">Submit</button>
 								</form>
 							</c:if>
@@ -140,6 +142,6 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaDetail.js"></script>
-	
+	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>

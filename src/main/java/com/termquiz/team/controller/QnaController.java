@@ -83,6 +83,10 @@ public class QnaController {
 		
 		vo.setQnaId(qnaId);
 		vo.setQnaTime(today);
+		
+		String content = vo.getQnaContent().replace("\r\n","<br>");
+		vo.setQnaContent(content);
+		
 		if(service.insert(vo) > 0) {
 			uri = "redirect:qnaboardlist";
 		}		
@@ -97,6 +101,10 @@ public class QnaController {
 		String uri = "qnadetail";
 		
 		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
+		
+		String content = vo.getQnaAnswer().replace("\r\n","<br>");
+		vo.setQnaAnswer(content);
+		
 		if( service.qnaAnswer(vo) > 0) {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
 		}

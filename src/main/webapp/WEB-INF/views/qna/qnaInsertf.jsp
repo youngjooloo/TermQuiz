@@ -34,6 +34,8 @@
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
+<link href="resources/common/css/textarea.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -86,7 +88,7 @@
 						<th>No</th>
 						<th>ID : ${nick}</th>
 						<th id="insertTitle">Title :&nbsp;
-							<input type="text" name="qnaTitle" maxlength="100" required>
+							<input type="text" name="qnaTitle" maxlength="50" required>
 						</th>
 						<th></th>
 					</tr>
@@ -95,7 +97,8 @@
 					<tr>
 						<th>Question</th>
 						<td colspan="3" id="userQuestion">
-							<textarea id="qnaContent" name="qnaContent" required></textarea>
+							<textarea id="qnaContent" name="qnaContent"  maxlength="500" required></textarea>
+							<p class="bdtextCount"></p>
 						</td>
 					</tr>
 				</tbody>
@@ -122,5 +125,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>
