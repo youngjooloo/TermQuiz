@@ -59,6 +59,7 @@ tbody td {
 	border:none;
 	width: 60px;
 	height: 32px;
+	margin: 0 1%;
 }
 
 #qnaAnswer{
@@ -71,13 +72,27 @@ tbody td {
 	padding: 10px;
 }
 
-.answer_modify{
-	position: absolute;
-	right:0;
-	top:0;
-	height: 100%;
-}
-
 #qnaNoH{
 	display: none;
+}
+
+.qnaWrap{
+	width: 90%;
+	text-align: right;
+	margin: 0 auto;
+}
+
+.answerBtn{
+	position: absolute;
+	right:0;
+}
+
+.btn_answer{
+	background-color: #373737;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	width: 60px;
+	height: 32px;
+	margin: auto 1%;
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.termquiz.team.common.PageNation;
 import com.termquiz.team.mapperInterface.BoardMapper;
+import com.termquiz.team.vo.BoardCommentsVO;
 import com.termquiz.team.vo.BoardVO;
 
 @Service
@@ -40,6 +41,25 @@ public class BoardServiceImpl implements BoardService {
 	 public int insert(BoardVO vo) {
 	    return dao.insert(vo);
 	}
-
+	
+	@Override
+	public int delete(BoardVO vo) {
+		return dao.delete(vo);
+	}
+	
+	@Override
+	public int update(BoardVO vo) {
+		return dao.update(vo);
+	}
+	
+	@Override
+	public List<BoardCommentsVO> commentList(BoardCommentsVO cvo) {	
+		return dao.commentList(cvo);
+	}
+	
+	@Override
+	public int rinsert(BoardCommentsVO cvo) {
+		return dao.rinsert(cvo);
+	}
 
 } //class

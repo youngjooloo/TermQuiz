@@ -83,8 +83,8 @@
 				<tr>
 					<th>번호 : ${board.bno}</th>
 					<th>작성자 : ${board.bid}</th>
-					<th>제목 : ${board.btitle}</th>
-					<th>작성 일자 : ${board.btime}</th>
+					<th>${board.btitle}</th>
+					<th>${board.btime}</th>
 					<th>조회 수 : ${board.bcount}</th>
 				</tr>
 			</thead>
@@ -98,17 +98,46 @@
 			</tbody>
 		</table>
 		
-		<table class="answer_table">
-			<tr>
-				<th>댓글</th>
-				<td colspan="4" >
-					<form action="url">
-						<textarea name="answer" id="answer_area"></textarea>
-						<input type="submit" class="btn_submit" value="등록하기">
-					</form>
-				</td>
-			</tr>
+		<div class="wrap_paging boardWrap">
+			<c:if test="${board.bid == nick || admin}">
+				<button type="button" class="btn_detail" onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
+			</c:if>
+			<c:if test="${board.bid == nick || admin}">
+				<button type="button" class="btn_detail" onclick="location.href='boarddelete?bno=${board.bno}'">Delete</button>
+			</c:if>
+			<button type="button" class="btn_detail" onclick="location.href='boardlist'">Back</button>
+		</div>
+		
+		<table class="answer_list">
+			<c:forEach var="bcomments" items="${commentList}">
+				<tr class="comments_List">
+					<th>${bcomments.bcId}</th>
+					<td>${bcomments.bcomment}</td>
+					<td>${bcomments.bcommentTime}<br><br>
+						<input type="button" class="btn_answerlist" id="first_btn" value="수정">
+						<input type="button" class="btn_answerlist" id="second_btn" value="삭제">
+					</td>
+				</tr>
+			</c:forEach>
 		</table>
+		
+		<c:if test="${not empty nick }">
+			<form action="rinsert?bno=${board.bno}" method = "post">
+				<table class="answer_table">
+					<tr>
+						<th>${nick}</th>
+						<td>
+							<textarea rows = "5" cols = "50" name="bcomment" id="answer_area"></textarea>
+							<input type="submit" class="btn_submit" value="등록하기">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</c:if>
+		
+		<div class="wrap_paging boardWrap">
+			<button type="button" class="btn_detail" onclick="location.href='boardlist'">Back</button>
+		</div>
 		
 	</article>
 

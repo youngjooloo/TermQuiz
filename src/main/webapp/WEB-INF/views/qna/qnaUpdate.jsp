@@ -88,10 +88,10 @@
 						<input id="qnaNoH" type="number" name="qnaNo" value="${qna.qnaNo}" readonly>
 					</th>
 					<th>ID : ${qna.qnaId}</th>
-					<th>Title :&nbsp;
-						<input type="text" name="qnaTitle" value="${qna.qnaTitle}" required>
+					<th>
+						<input type="text" id="btitle" name="qnaTitle" value="${qna.qnaTitle}" maxlength="100" required>
 					</th>
-					<th>Time : ${qna.qnaTime}</th>
+					<th> ${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>

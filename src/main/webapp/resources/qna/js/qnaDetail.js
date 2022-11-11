@@ -3,7 +3,7 @@
  */
 
 $(function(){
-	$('.answer_modify').click(function(e){
+	$('.answerBtn').click(function(){
 		location.href = `qnaanswerdelete?${this.id}`;
 	});
 	

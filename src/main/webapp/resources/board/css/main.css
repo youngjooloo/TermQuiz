@@ -229,17 +229,6 @@ section.notice {
 	position: relative;
 }
 
-.paging_num_on {
-	background-color: #333;
-    border-radius: 16px;
-    color: #fff;
-    display: inline-block;
-    width: 32px;
-    line-height: 32px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-}
 
 .screen_out {
 	position: absolute;
@@ -261,10 +250,11 @@ section.notice {
 	color:#fff;
 	border-radius:5px;
 	border:none;
-	position: absolute;
-	right: 100px;
 	border-radius: 5px;
+	position: absolute;
 	right: 8%;
+	top: 50%;
+    transform: translateY(-50%);
 	width: 60px;
 	height: 32px;
 }
@@ -286,3 +276,58 @@ header div h3 a:hover{
 	color: white;	
 }
 
+.boardNumBox{
+	width: 160px;
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.boardNumBox a{
+	display: inline-block;
+	width: 32px;
+}
+
+.boardBtnBox{
+	display: inline-flex;
+}
+
+
+.boardBtnLeft,
+.boardBtnRight{
+	display:inline-flex;
+	align-items:center;
+	width:50px; 
+}
+
+.boardBtnLeft{
+	justify-content: left;
+}
+
+.boardBtnRight{
+	justify-content: right;
+}
+
+.pageBtn{
+	flex:1;
+}
+
+.wrap_paging .boardBtnBox a{
+	text-decoration: none;
+	color:black;
+}
+
+.wrap_paging .boardBtnBox a:hover {
+    color: #f4623a;
+}
+
+.wrap_paging .boardBtnBox .boardNumBox .paging_num_on {
+	background-color: #333;
+    border-radius: 16px;
+    color: #fff;
+    line-height: 32px;
+}
+
+.wrap_paging .boardBtnBox .boardNumBox .paging_num_on:hover{
+    color: #f4623a;
+}

@@ -85,8 +85,8 @@
 					<tr>
 						<th>No</th>
 						<th>ID : ${nick}</th>
-						<th id="insertTitle">Title :&nbsp;
-							<input type="text" name="btitle" required>
+						<th>Title :&nbsp;
+							<input type="text" name="btitle" id="btitle" maxlength="100" required>
 						</th>
 						<th></th>
 					</tr>

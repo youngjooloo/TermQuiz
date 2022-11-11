@@ -26,6 +26,10 @@ public class QnaController {
 	@RequestMapping(value = "/qnaboardlist")
 	public ModelAndView qnaboardlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,PageNation maker) {
 		maker.setSnoEno();
+		if(request.getParameter("rowsPerPage") != null) {
+			int rpp = Integer.parseInt(request.getParameter("rowsPerPage"));
+			maker.setRowsPerPage(rpp);
+		}
 		
 		mv.addObject("qna", service.searchList(maker));
 		maker.setTotalRowsCount((service.searchCount(maker)));

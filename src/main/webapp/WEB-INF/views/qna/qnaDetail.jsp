@@ -83,8 +83,8 @@
 				<tr>
 					<th>No.${qna.qnaNo}</th>
 					<th>ID : ${qna.qnaId}</th>
-					<th>Title : ${qna.qnaTitle}</th>
-					<th>Time : ${qna.qnaTime}</th>
+					<th>${qna.qnaTitle}</th>
+					<th>${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -98,9 +98,7 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<div>
-									<button class="btn_detail" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
-								</div>
+								<button class="btn_detail answerBtn" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
@@ -116,11 +114,14 @@
 			</tbody>
 		</table>
 		
-		<div class="wrap_paging">
-			<c:if test="${qna.qnaId == nick }">
+		<div class="wrap_paging qnaWrap">
+			<c:if test="${qna.qnaId == nick && empty qna.qnaAnswer}">
 				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
-			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
+			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
+				<button type="button" class="btn_detail" onclick="location.href='qnadelete&qnaNo=${qna.qnaNo}'">Delete</button>
+			</c:if>
+			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
 	</article>
 

@@ -151,13 +151,17 @@ public class MemberController {
 			MemberVO vo) {
 
 		String uri = "/member/mDetail";
-
-		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
-
+		
+		MemberVO vo2 = new MemberVO();
+		vo2.setEmail(vo.getEmail());
+		vo2 = service.selectOne(vo2);
+		vo.setPassword(vo2.getPassword());
+		
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
 			mv.addObject("message", "~~ 회원정보 수정 성공 ~~");
 			mv.addObject("user", vo);
+			uri = "redirect:mdetail";
 		} else {
 			mv.addObject("message", "~~ 회원정보 수정 실패, 다시 하세요 ~~");
 		}

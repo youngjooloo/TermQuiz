@@ -41,7 +41,7 @@
                 <input type="email" class="joininput" name="email" id="email" value="${user.email}" required readonly />
 
   				<label for="nickname" class="label-agree-term">Nickname</label> 
-                <input type="text" class="joininput" name="nickname" id="nickname" value="${user.nickname}"
+                <input type="text" class="joininput nickname" name="nickname" id="${user.nickname}" value="${user.nickname}"
                     placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 
   				<label for="" class="label-agree-term">Password</label>          
@@ -80,5 +80,6 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
+	<script src="resources/memberDetail/js/detailUpdate.js"></script>
 </body>
 </html>

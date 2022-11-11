@@ -41,3 +41,7 @@ article {
 .btn_insertf:hover{
 	color: yellow;
 }
+
+#btitle{
+	width:85%;
+}

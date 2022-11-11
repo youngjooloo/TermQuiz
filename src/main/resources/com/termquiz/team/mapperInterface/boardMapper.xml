@@ -61,4 +61,21 @@
 		values(#{bno},#{bid},#{btitle},#{bcontent},#{btime})
 	</insert>
 	
+	<update id="update">
+		update board set btitle=#{btitle},
+		bcontent=#{bcontent} where bno=#{bno}
+	</update>
+	
+	<delete id="delete">
+		delete from board where bno=#{bno}
+	</delete>
+	
+	<select id="commentList" resultType="com.termquiz.team.vo.BoardCommentsVO">
+		select * from bcomments where bno=#{bno}
+	</select>
+	
+	<insert id="rinsert">
+		insert into bcomments(bno,bcId,bcomment,bcommentTime,root) 
+		values(#{bno},#{bcId},#{bcomment},#{bcommentTime},#{bcNo})
+	</insert>	
 </mapper>
