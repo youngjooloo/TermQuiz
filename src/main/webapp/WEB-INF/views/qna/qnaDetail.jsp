@@ -106,7 +106,8 @@
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" maxlength="150" required></textarea>
+									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required></textarea>
+									<p class="bdtextCount"></p>
 									<button class="btn_answer" type="submit">Submit</button>
 								</form>
 							</c:if>

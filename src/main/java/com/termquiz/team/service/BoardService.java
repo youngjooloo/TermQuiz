@@ -27,4 +27,6 @@ public interface BoardService {
 	int rinsert(BoardCommentsVO cvo);
 	
 	int bcommentdelete(BoardCommentsVO cvo);
+	
+	int bcommentupdate(BoardCommentsVO cvo);
 }

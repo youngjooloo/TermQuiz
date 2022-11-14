@@ -110,30 +110,39 @@
 			<button type="button" class="btn_detail" onclick="location.href='boardlist'">Back</button>
 		</div>
 		
-		<table class="answer_list">
-			<c:forEach var="bcomments" items="${commentList}">
-				<tr class="comments_List">
-					<th>${bcomments.bcId}</th>
-					<td>${bcomments.bcomment}</td>
-					<td>${bcomments.bcommentTime}<br><br>
-						<c:if test="${bcomments.bcId == nick}">
-							<input type="button" class="btn_answerlist" id="first_btn" value="수정">
-							<input type="button" class="btn_answerlist second_btn" value="삭제" onclick="location.href='bcommentdelete?bno=${board.bno}&bcno=${bcomments.bcNo}'">
-						</c:if>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
+		<c:if test="${not empty commentList }">
+			<table class="answer_list">
+				<c:forEach var="bcomments" items="${commentList}">
+					<tr class="comments_List">
+						<th>${bcomments.bcId}</th>
+						<td class="bcommentP">
+							<p class="contentp">${bcomments.bcomment}</p>
+							<form action="bcommentupdate?bno&#61;${board.bno}&amp;bcNo&#61;${bcomments.bcNo}" class="bcUpdateF formHidden" id="bc${bcomments.bcNo }" method="post">
+								<textarea name="bcomment" class="answer_area2" maxlength="150" required>${bcomments.bcomment}</textarea>
+								<p class="bdtextCount2"></p>
+								<input type="button" class="btn_submit upBtn" value="등록">
+							</form>
+						</td>
+						<td>${bcomments.bcommentTime}<br><br>
+							<c:if test="${bcomments.bcId == nick}">
+								<input type="button" class="btn_answerlist first_btn" id="bcNo&#61;${bcomments.bcNo }" value="수정">
+								<input type="button" class="btn_answerlist second_btn" value="삭제" onclick="location.href='bcommentdelete?bno=${board.bno}&bcno=${bcomments.bcNo}'">
+							</c:if>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</c:if>
 		
 		<c:if test="${not empty nick }">
-			<form action="rinsert?bno=${board.bno}" method = "post">
+			<form action="rinsert?bno=${board.bno}" method = "post" id="answerForm">
 				<table class="answer_table">
 					<tr>
 						<th>${nick}</th>
 						<td id="userContent">
 							<textarea name="bcomment" id="answer_area" maxlength="150" required></textarea>
 							<p class="bdtextCount"></p>
-							<input type="submit" class="btn_submit" value="등록">
+							<input type="button" class="btn_submit" onclick="trimCheck();" value="등록">
 						</td>
 					</tr>
 				</table>
@@ -160,6 +169,7 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/board/js/boardDetail.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>

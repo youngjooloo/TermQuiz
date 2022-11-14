@@ -82,4 +82,10 @@
 	<delete id="bcommentdelete">
 		delete from bcomments where bcno=#{bcNo}
 	</delete>	
+   
+   <update id="bcommentupdate">
+      update bcomments set
+      bcomment=#{bcomment} where bcno=#{bcNo}
+   </update>	
+	
 </mapper>

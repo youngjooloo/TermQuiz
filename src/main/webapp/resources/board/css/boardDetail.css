@@ -145,5 +145,8 @@ article{
 
 .answer_list .comments_List{
 	border-bottom:5px #55608f solid;
-	
+}
+
+.bcUpdateF button{
+	margin:10px;
 }

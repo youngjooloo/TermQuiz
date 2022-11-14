@@ -66,5 +66,10 @@ public class BoardServiceImpl implements BoardService {
 	public int bcommentdelete(BoardCommentsVO cvo) {
 		return dao.bcommentdelete(cvo);
 	}
+	
+	@Override
+	public int bcommentupdate(BoardCommentsVO cvo) {
+		return dao.bcommentupdate(cvo);
+	}
 
 } //class
