@@ -60,8 +60,8 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+						<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -87,19 +87,75 @@
 				<tr>
 					<th scope="col" class="quizNo">No</th>
 					<th scope="col" class="quizHint">Hint</th>
-					<th scope="col" class="quizSolve">Solve</th>
+					<th scope="col" class="quizSolve">Score</th>
 					<th scope="col" class="quizStart">Start</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="quizRow">
-					<th scope="row" class="quizNo">1</th>
-					<td class="quizHint">Mark</td>
-					<td class="quizSolve">Solved</td>
-					<td class="quizStart">
-						<button type="button" class="btn btn-primary btn-m">Start</button>
-					</td>
-				</tr>
+				<c:forEach var="movie" items="${movieq}">
+					<tr class="quizRow">
+						<th scope="row" class="quizNo">No.${movie.movieqNo}</th>
+						<td class="quizHint">
+							<div class="hintDiv">
+								<c:if test="${movie.score == 0}">
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 10}">
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 7}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 5}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 3}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 2}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${movie.score == 1}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+								</c:if>
+							</div>
+						</td>
+						<td class="quizSolve">
+							${movie.score}
+						</td>
+						<td class="quizStart">
+							<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}'">Start</button>
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</section>

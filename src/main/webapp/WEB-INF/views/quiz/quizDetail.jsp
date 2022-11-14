@@ -41,7 +41,8 @@
                         </c:if>
         
                         <c:if test="${not empty loginID}">
-	                        <li class="nav-item"><a class="nav-link" href="mdetail">My Info</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+							<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
                         </c:if>
                     </ul>
                 </div>

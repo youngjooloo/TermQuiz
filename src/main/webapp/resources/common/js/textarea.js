@@ -20,7 +20,7 @@ $('#bContent').keyup(function() {
 $('#bContent').keydown(function() {
 	var rows = $('#bContent').val().split('\n').length;
 	var maxRows = 10;
-	if (rows > maxRows) {
+	if (rows >= maxRows) {
 		alert('10줄 까지만 가능합니다');
 		modifiedText = $('#bContent').val().split("\n").slice(0, maxRows);
 		$('#bContent').val(modifiedText.join("\n"));
@@ -50,7 +50,7 @@ $('#answer_area').keyup(function() {
 $('#answer_area').keydown(function() {
 	var rows = $('#answer_area').val().split('\n').length;
 	var maxRows = 3;
-	if (rows > maxRows) {
+	if (rows >= maxRows) {
 		alert('3줄 까지만 가능합니다');
 		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
 		$('#answer_area').val(modifiedText.join("\n"));
@@ -80,7 +80,7 @@ $('#qnaContent').keyup(function() {
 $('#qnaContent').keydown(function() {
 	var rows = $('#answer_area').val().split('\n').length;
 	var maxRows = 10;
-	if (rows > maxRows) {
+	if (rows >= maxRows) {
 		alert('10줄 까지만 가능합니다');
 		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
 		$('#answer_area').val(modifiedText.join("\n"));
@@ -109,7 +109,7 @@ $('#qnaAnswer').keyup(function() {
 $('#qnaAnswer').keydown(function() {
 	var rows = $('#answer_area').val().split('\n').length;
 	var maxRows = 3;
-	if (rows > maxRows) {
+	if (rows >= maxRows) {
 		alert('3줄 까지만 가능합니다');
 		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
 		$('#answer_area').val(modifiedText.join("\n"));
@@ -139,7 +139,7 @@ $('.answer_area2').keyup(function() {
 $('.answer_area2').keydown(function() {
 	var rows = $('.answer_area2').val().split('\n').length;
 	var maxRows = 3;
-	if (rows > maxRows) {
+	if (rows >= maxRows) {
 		alert('3줄 까지만 가능합니다');
 		modifiedText = $('.answer_area2').val().split("\n").slice(0, maxRows);
 		$('.answer_area2').val(modifiedText.join("\n"));
