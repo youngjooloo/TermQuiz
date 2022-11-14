@@ -106,31 +106,31 @@
 								</c:if>
 								<c:if test="${movie.score == 10}">
 									<div class="hintBox bBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
 								</c:if>
 								<c:if test="${movie.score == 7}">
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox bBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
 								</c:if>
 								<c:if test="${movie.score == 5}">
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox bBox"></div>							
-									<div class="hintBox wBox"></div>							
-									<div class="hintBox wBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
 								</c:if>
 								<c:if test="${movie.score == 3}">
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox rBox"></div>							
 									<div class="hintBox bBox"></div>							
-									<div class="hintBox wBox"></div>							
+									<div class="hintBox bBox"></div>							
 								</c:if>
 								<c:if test="${movie.score == 2}">
 									<div class="hintBox rBox"></div>							
@@ -152,7 +152,12 @@
 							${movie.score}
 						</td>
 						<td class="quizStart">
-							<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}'">Start</button>
+							<c:if test="${movie.score == 0}">
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}'">Start</button>
+							</c:if>
+							<c:if test="${movie.score != 0}">
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}&answer=1'">Answer</button>
+							</c:if>							
 						</td>
 					</tr>
 				</c:forEach>
