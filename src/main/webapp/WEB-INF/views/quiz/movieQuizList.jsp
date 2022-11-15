@@ -153,10 +153,10 @@
 						</td>
 						<td class="quizStart">
 							<c:if test="${movie.score == 0}">
-								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}'">Start</button>
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&qNo=${movie.movieqNo}'">Start</button>
 							</c:if>
 							<c:if test="${movie.score != 0}">
-								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&movieqNo=${movie.movieqNo}&answer=1'">Answer</button>
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&qNo=${movie.movieqNo}'">Answer</button>
 							</c:if>							
 						</td>
 					</tr>

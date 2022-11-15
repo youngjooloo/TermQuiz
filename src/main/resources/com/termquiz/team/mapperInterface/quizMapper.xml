@@ -4,15 +4,31 @@
 
 <mapper namespace="com.termquiz.team.mapperInterface.QuizMapper">
 	
-	<select id="quizList" resultType="com.termquiz.team.vo.QuizVO">
-		select movieqNo from movieq;
+	<select id="movieQuizList" resultType="com.termquiz.team.vo.MovieQuizVO">
+		select movieqNo from movieq
 	</select>
 	
-	<select id="loginQuizList" resultType="com.termquiz.team.vo.QuizVO">
+	<select id="movieLoginQuizList" resultType="com.termquiz.team.vo.MovieQuizVO">
 		select mq.movieqNo, ms.movieqId, ms.score 
 		FROM movieq as mq left join movies as ms
 		on mq.movieqNo = ms.movieqNo and 
-		ms.movieqId = #{movieqId};
+		ms.movieqId = #{movieqId}
 	</select>
 	
+	<select id="movieMaxNo" resultType="int">
+		select max(movieqNo) from movieq
+	</select>
+	
+	<insert id="movieQuizInsert">
+		insert into 
+		movieq(movieqAnswer,movieqHint1,movieqHint2,movieqHint3,movieqHint4,movieqHint5)
+		values(#{movieqAnswer},#{movieqHint1},#{movieqHint2},#{movieqHint3},#{movieqHint4},#{movieqHint5})
+	</insert>
+	
+	<select id="movieQuizDetail" resultType="com.termquiz.team.vo.MovieQuizVO">
+		select movieqNo, movieqAnswer, movieqHint1, movieqHint2, movieqHint3, movieqHint4, movieqHint5
+		from movieq
+		where movieqNo = #{movieqNo} 
+		
+	</select>
 </mapper>

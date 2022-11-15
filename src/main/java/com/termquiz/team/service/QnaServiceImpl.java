@@ -51,4 +51,8 @@ public class QnaServiceImpl implements QnaService {
     public int qnaUpdate(QnaVO vo) {
     	return dao.qnaUpdate(vo);
     }
+    @Override
+    public int qnadelete(QnaVO vo) {
+    	return dao.qnadelete(vo);
+    }
 }

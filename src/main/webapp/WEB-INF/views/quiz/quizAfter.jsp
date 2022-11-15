@@ -53,67 +53,41 @@
         
 		<main>
 			<section id="startPage" class="quizDetail">	
-				
 				<button class="btn btn-primary btn-m" id="startBtn">Start</button>
 			</section>
 			
 			<section id="hint1" class="quizDetail"> 
-				${quiz.movieqNo}
-				${quiz.movieqAnswer}
-				<div class="hintBox">
-					<img alt="hint1" src="${quiz.movieqHint1}">
+				<div>
+					<button type="button" id="next1Btn" class="btn btn-primary btn-m">Next</button>
 				</div>
-				
-				<form action="quizanswer?score=10" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
-					<button type="button" id="hint1Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
-				</form>
 			</section>
 
 			<section id="hint2" class="quizDetail"> 
-				<div class="hintBox">
-					<img alt="hint2" src="${quiz.movieqHint2}">
+				<div>
+					<button type="button" id="before2Btn" class="btn btn-primary btn-m">before</button>
+					<button type="button" id="next2Btn" class="btn btn-primary btn-m">Next</button>
 				</div>
-				
-				<form action="quizanswer?score=7" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
-					<button type="button" id="hint2Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
-				</form>
 			</section>
 
 			<section id="hint3" class="quizDetail"> 
-				<div class="hintBox">
-					<img alt="hint3" src="${quiz.movieqHint3}">
+				<div>
+					<button type="button" id="before3Btn" class="btn btn-primary btn-m">before</button>
+					<button type="button" id="next3Btn" class="btn btn-primary btn-m">Next</button>
 				</div>
-				
-				<form action="quizanswer?score=5" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
-					<button type="button"  id="hint3Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
-				</form>
 			</section>
 
 			<section id="hint4" class="quizDetail"> 
-				<div class="hintBox">
-					<audio controls="controls">
-						<source src="${quiz.movieqHint4}">
-					</audio>
+				<div>
+					<button type="button" id="before4Btn" class="btn btn-primary btn-m">before</button>
+					<button type="button" id="next4Btn" class="btn btn-primary btn-m">Next</button>
 				</div>
-			
-				<form action="quizanswer?score=3" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
-					<button type="button" id="hint4Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
-				</form>
 			</section>
 
-			<section id="hint5" class="quizDetail">
-				<div class="hintBox">
-					<img alt="hint5" src="${quiz.movieqHint5}">
+			<section id="hint5" class="quizDetail"> 
+				<div>
+					<button type="button" id="before5Btn" class="btn btn-primary btn-m">before</button>
+					<button type="button" id="next5Btn" class="btn btn-primary btn-m">Next</button>
 				</div>
-				 
-				<form action="quizanswer?score=2" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
-					<button type="button" id="hint5Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
-				</form>
 			</section>
 			
 			<section id="answer" class="quizDetail"> 

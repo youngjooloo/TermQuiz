@@ -2,10 +2,17 @@ package com.termquiz.team.service;
 
 import java.util.List;
 
+import com.termquiz.team.vo.MovieQuizVO;
 import com.termquiz.team.vo.QuizVO;
 
 public interface QuizService {
-	List<QuizVO> quizList(QuizVO vo);
+	List<MovieQuizVO> movieQuizList(MovieQuizVO vo);
 
-	List<QuizVO> loginQuizList(QuizVO vo);
+	List<MovieQuizVO> movieLoginQuizList(MovieQuizVO vo);
+	
+	int movieMaxNo();
+	
+	int movieQuizInsert(QuizVO vo);
+	
+	MovieQuizVO movieQuizDetail(MovieQuizVO vo);
 }

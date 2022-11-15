@@ -80,7 +80,6 @@ public class MemberController {
 		if (session != null) {
 			session.invalidate();
 		}
-		mv.addObject("message", "로그아웃 되었습니다");
 
 		mv.setViewName("redirect:home");
 		return mv;
@@ -122,7 +121,6 @@ public class MemberController {
 			if (session != null && session.getAttribute("loginID") != null)
 				vo.setEmail((String) session.getAttribute("loginID"));
 			else {
-				request.setAttribute("message", "=> 출력할 id 없음, 로그인후 이용하세요 ~~");
 				mv.setViewName("home");
 				return mv;
 			}
@@ -139,9 +137,7 @@ public class MemberController {
 			// ** Update 요청이면 updateForm.jsp 로
 			if ("U".equals(request.getParameter("jCode")))
 				uri = "/member/updateForm";
-		} else { // 없는 ID
-			mv.addObject("message", "~~ " + request.getParameter("id") + "님의 자료는 존재하지 않습니다 ~~");
-		}
+		} 
 		mv.setViewName(uri);
 		return mv;
 	} // mdetail
@@ -159,12 +155,9 @@ public class MemberController {
 		
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
-			mv.addObject("message", "~~ 회원정보 수정 성공 ~~");
 			mv.addObject("user", vo);
 			uri = "redirect:mdetail";
-		} else {
-			mv.addObject("message", "~~ 회원정보 수정 실패, 다시 하세요 ~~");
-		}
+		} 
 
 		mv.setViewName(uri);
 		return mv;
