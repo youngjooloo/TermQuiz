@@ -26,15 +26,19 @@ main{
 
 #startBtn,
 #endBtn{
-	position: absolute;
-	top:80%;
-	left:50%;
-	transform: translate(-50%,-50%);
 	width: 200px;
     height: 80px;
     border-radius: 20px;
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
+}
+
+#startBtn{
+	position: absolute;
+	top:80%;
+	left:50%;
+	transform: translate(-50%,-50%);
 }
 
 .quizDetail answerBox{
@@ -68,13 +72,23 @@ main{
 	transform: translate(-50%,-50%);
 }
 
+.hintBox audio{
+	width:60%;
+	position: absolute;
+	top:50%;
+	transform: translate(-50%,-50%);
+}
 
 .answerForm{
+	display: flex;
+}
+
+.answerForm,
+#endBtn{
 	position: fixed;
 	top:95%;
 	left:50%;
 	transform: translate(-50%,-100%);
-	display: flex;
 	transition : all 0;
 	z-index: 5;
 }

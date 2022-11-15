@@ -34,6 +34,7 @@ $(function() {
 	$('#hint3Btn, .h4Box, #before5Btn, #next3Btn').click(function() {
 		$('#hint4').css("top", '400%');
 		$('.h4Box').removeClass('hiddenBox');
+		$('#movieBgm').trigger("play");
 		location.href = '#hint4';
 	});
 	
@@ -45,6 +46,7 @@ $(function() {
 	
 	$('#hint5Btn, #next5Btn').click(function() {
 		$('#answer').css("top", '600%');
+		$('#endBtn').removeClass("hiddenBox");
 		location.href = '#answer';
 	});
 	

@@ -94,7 +94,7 @@
 
 			<section id="hint4" class="quizDetail"> 
 				<div class="hintBox">
-					<audio controls="controls">
+					<audio id="movieBgm" controls="controls">
 						<source src="${quiz.movieqHint4}">
 					</audio>
 				</div>
@@ -117,7 +117,7 @@
 			</section>
 			
 			<section id="answer" class="quizDetail"> 
-				<button type="button" id="endBtn" class="btn btn-primary btn-m endBtn" >List</button>
+				<button type="button" id="endBtn" class="btn btn-primary btn-m endBtn hiddenBox" >List</button>
 			</section>
 			
 			<div class="moveBox hiddenBox">
