@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body{
+	position: relative;
+	background-color: black;
+}
+
+.quizDetail{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	background-color: black;
+}
+
+#startPage{
+	z-index: 1;
+	background: url("../img/quizBack.png") no-repeat center/100%;
+}
+
+#startBtn,
+#endBtn{
+	position: absolute;
+	top:80%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.answerForm{
+	position: absolute;
+	top:80%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}

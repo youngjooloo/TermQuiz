@@ -4,6 +4,7 @@ table {
 	margin: 10px auto;
 	width: 90%;
 	border-collapse: collapse;
+	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -57,7 +58,7 @@ table {
 
 .answer_table {
 	height: 120px;
-	margin: 150px auto;
+	margin: 50px auto 0;
 }
 
 .answer_table th {
@@ -74,14 +75,78 @@ table {
 }
 
 .btn_submit {
-	background-color: black;
+	width:50px;
+	background-color: #373737;
 	color: white;
 	border-radius: 5px;
 	float: right;
+	border:none;
 }
 
 
 article{
 	flex : 1;
 	margin-top: 50px;
+}
+
+.btn_detail {
+	background-color: #373737;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	width: 60px;
+	height: 32px;
+	margin: 0 1%;
+}
+
+.boardWrap{
+	width: 90%;
+	text-align: right;
+	margin: 0 auto;
+}
+
+#btitle{
+	width: 100%;
+}
+
+
+.answer_list th {
+	width: 10%;
+	background-color: #55608f;
+	 color: #fff;
+	 text-align: center;
+	 padding: 15px;
+}
+
+.answer_list td:nth-child(2) {
+	padding: 15px;
+	color: black;
+}
+
+.answer_list td:last-child {
+	width: 170px;
+	text-align: center;
+	color: black;
+}
+
+.answer_list {
+	width: 90%;
+	height: 100px;
+	padding: 15px;
+}
+
+.btn_answerlist {
+	background-color: #373737;
+    color: white;
+    border-radius: 5px;
+    width: 50px;
+    border: none;
+}
+
+.answer_list .comments_List{
+	border-bottom:5px #55608f solid;
+}
+
+.bcUpdateF input{
+	margin:10px;
 }

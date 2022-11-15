@@ -3,11 +3,12 @@ package com.termquiz.team.service;
 import java.util.List;
 
 import com.termquiz.team.common.PageNation;
+import com.termquiz.team.vo.BoardCommentsVO;
 import com.termquiz.team.vo.BoardVO;
 
 public interface BoardService {
 	
-	List <BoardVO> searchList(PageNation cri);//common==searchCriteria
+	List <BoardVO> searchList(PageNation cri);
 	
 	int searchCount(PageNation cri);
 
@@ -16,5 +17,16 @@ public interface BoardService {
 	int countUp(BoardVO vo);
 
 	int insert(BoardVO vo);
+	
+	int update(BoardVO vo);
+	
+	int delete(BoardVO vo);
+	
+	List<BoardCommentsVO> commentList(BoardCommentsVO cvo);
 
+	int rinsert(BoardCommentsVO cvo);
+	
+	int bcommentdelete(BoardCommentsVO cvo);
+	
+	int bcommentupdate(BoardCommentsVO cvo);
 }

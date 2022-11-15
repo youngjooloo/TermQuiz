@@ -4,13 +4,9 @@ package com.termquiz.team.common;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import lombok.Data;
 
-
-import lombok.Getter;
-import lombok.ToString;
-
-@ToString
-@Getter
+@Data
 public class PageNation {
     
 	private int rowsPerPage; 
@@ -27,17 +23,10 @@ public class PageNation {
 	private String searchType;
 	private String keyword;
 	
-	
-	
 	public PageNation() {
 		this.rowsPerPage = 5;
 		this.currPage = 1;
 	}
-
-	
-	
-	
-	
 	
 	public void setCurrPage(int currPage) {
 		if (currPage > 1)
@@ -45,7 +34,6 @@ public class PageNation {
 		else
 			this.currPage = 1;
 	}
-
 
 	public void setRowsPerPage(int rowsPerPage) {
 		if (rowsPerPage > 5 && rowsPerPage <= 50)
@@ -61,8 +49,6 @@ public class PageNation {
 		this.sno = (this.currPage - 1) * this.rowsPerPage; // MySql
 
 	}// criteria
-
-
 
 	// 2) totalRowCount
 	public void setTotalRowsCount(int totalRowsCount) {
@@ -98,25 +84,13 @@ public class PageNation {
 		return uriComponents.toString();
 	}
 
-
-
-
-
-
 	public void setSearchType(String searchType) {
 		this.searchType = searchType;
 	}
 
-
-
-
-
-
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
-	
 
   }//common
 

@@ -10,6 +10,7 @@
 
 #userQuestion{
 	padding: 1px;
+	position: relative;
 }
 
 #insertTitle{
@@ -35,4 +36,8 @@
 
 .btn_insertf:hover{
 	color: yellow;
+}
+
+#btitle{
+	width:100%;
 }

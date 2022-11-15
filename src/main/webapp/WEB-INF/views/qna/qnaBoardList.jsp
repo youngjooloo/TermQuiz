@@ -55,13 +55,15 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
-                        </c:if>
-        
-                        <c:if test="${not empty loginID}">
-	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
-                   </c:if>
+						<li class="nav-item"><a class="nav-link" href="javascript:;"
+							id="loginB">LogIn</a></li>
+					</c:if>
+
+					<c:if test="${not empty loginID}">
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+						<li class="nav-item"><a class="nav-link" href="mlogout">Log
+								Out</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -91,17 +93,16 @@
 				<tbody>
 					<c:forEach var="qnaList" items="${qna}">
 						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}">
-							<td>${qnaList.qnaNo}</td>						
-							<td>${qnaList.qnaId}</td>						
-							<td>${qnaList.qnaTitle} 
-								<c:if test="${not empty qnaList.qnaAnswer }">
+							<td>${qnaList.qnaNo}</td>
+							<td>${qnaList.qnaId}</td>
+							<td>${qnaList.qnaTitle}<c:if
+									test="${not empty qnaList.qnaAnswer }">
 									<b>&nbsp;[답변 완료]</b>
-								</c:if>
-								<c:if test="${empty qnaList.qnaAnswer }">
+								</c:if> <c:if test="${empty qnaList.qnaAnswer }">
 									<b>&nbsp;[미답변]</b>
 								</c:if>
-							</td>						
-							<td>${qnaList.qnaTime}</td>						
+							</td>
+							<td>${qnaList.qnaTime}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -110,60 +111,60 @@
 
 		<!-- 페이징  -->
 		<div class="wrap_paging">
-			<c:choose>
-				<c:when test="${maker.prev && maker.spageNo>1}">
-
-					<a href="qnaboardcrilist${maker.searchQuery(1)}">FP</a>&nbsp;
-					<a href="qnaboardcrilist${maker.searchQuery(maker.spageNo-1)}">&lt;</a>&nbsp;&nbsp; 
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">&nbsp;&lt;&nbsp;&nbsp;</font>
-				</c:otherwise>
-			</c:choose>
-
-			<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
-			   	<c:if test="${i==maker.currPage}">
-					 <a href="qnaboardlist">
-						<span class="screen_out">현재페이지</span>${i}
-					 </a>
+			<div class="boardBtnBox">
+				<div class="boardBtnLeft">
+					<c:if test="${maker.prev && maker.spageNo>1}">
+						<a href="qnaboardlist${maker.searchQuery(1)}">&Lt;</a>
+					</c:if>
 					
-		       	</c:if>
-			    <c:if test="${i !=maker.currPage}">
-			        <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
-			        ${i}
-			        </a>
-			    </c:if>
-			</c:forEach>
-			<c:choose>
-				<c:when test="${maker.next && maker.epageNo>0}">
+					<c:if test="${maker.prev}" >
+						<a href="qnaboardlist${maker.searchQuery(maker.spageNo-1)}" class="pageBtn">&lt;</a>
+					</c:if>
+				</div>
+				
+				<div class="boardNumBox" >
+					<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+					   	<c:if test="${i==maker.currPage}">
+							 <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
+								<span class="screen_out">현재페이지</span>${i}
+							 </a>
+							
+				       	</c:if>
+					    <c:if test="${i !=maker.currPage}">
+					        <a href="qnaboardlist${maker.searchQuery(i)}" >${i}</a>
+					    </c:if>
+					</c:forEach>
+				</div> 
+				
+				<div class="boardBtnRight">
+					<c:if test="${maker.next}">
+						<a href="qnaboardlist${maker.searchQuery(maker.epageNo+1)}" class="pageBtn">&gt;</a>
+					</c:if>
 					
-					<a href="qnaboardlist${maker.searchQuery(maker.epageNo+1)}">&nbsp;&gt;</a>
-					<a href="qnaboardlist${maker.searchQuery(maker.lastPageNo)}">&nbsp;LP</a>
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">&nbsp;&gt;&nbsp;</font>
-				</c:otherwise>
-			</c:choose>
+					<c:if test="${maker.next && maker.epageNo>0}">
+						<a href="qnaboardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
+					</c:if>
+				</div>
+			</div>
 			<c:if test="${not empty loginID}">
-				<button type="button" class="btn_insert" onclick="location.href='qnainsertf';">글
-					등록</button>
+				<button type="button" class="btn_insert"
+					onclick="location.href='qnainsertf';">글 등록</button>
 			</c:if>
 		</div>
 		<!-- board seach area -->
 		<div id="board-search">
 			<div class="search-window">
 				<div class="search-wrap">
-					<select   class="search-wrap"  name="searchType" id="searchType">
-						<option value="n"${maker.searchType==null ? 'selected' : ''}></option>
-						<option value="all"${maker.searchType=='all' ? 'selected' : ''}>전체</option>
-						<option value="t"${maker.searchType=='t' ? 'selected' : ''}>제목</option>
-						<option value="c"${maker.searchType=='c' ? 'selected' : ''}>내용</option>
-						<option value="a"${maker.searchType=='a' ? 'selected' : ''}>답변</option>
-					</select>
-					<label for="search" class="blind">QNA 내용 검색</label> <input
-						id="keyword" type="search" name="keyword" placeholder="검색어를 입력해주세요."
-						value="${maker.keyword}">
-					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>					
+					<select class="search-wrap" name="searchType" id="searchType">
+						<option value="n" ${maker.searchType==null ? 'selected' : ''}>검색 조건</option>
+						<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
+						<option value="t" ${maker.searchType=='t' ? 'selected' : ''}>제목</option>
+						<option value="c" ${maker.searchType=='c' ? 'selected' : ''}>내용</option>
+						<option value="a" ${maker.searchType=='a' ? 'selected' : ''}>답변</option>
+					</select> <label for="search" class="blind">QNA 내용 검색</label> <input
+						id="keyword" type="search" name="keyword"
+						placeholder="검색어를 입력해주세요." value="${maker.keyword}">
+					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>
 				</div>
 			</div>
 		</div>
@@ -185,21 +186,22 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaList.js"></script>
-	
+
 	<script>
 		$(function() {
-		
+
 			$('#searchType').change(function() {
 				if ($(this).val() == 'n')
 					$('#keyword').val('');
 			});
-	
+
 			$('#searchBtn').click(
-				function() {
-					self.location = "qnaboardlist" + "${maker.makeQuery(1)}"
-						+ "&searchType=" + $('#searchType').val()
-						+ "&keyword=" + $('#keyword').val()
-				}); //click
+					function() {
+						self.location = "qnaboardlist"
+								+ "${maker.makeQuery(1)}" + "&searchType="
+								+ $('#searchType').val() + "&keyword="
+								+ $('#keyword').val()
+					}); //click
 		}); //ready
 	</script>
 </body>

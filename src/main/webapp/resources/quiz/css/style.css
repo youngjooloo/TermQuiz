@@ -61,3 +61,28 @@ section{
 	background-color: rgb(100, 100, 100);
 	transition:all 0.5s;
 }
+
+.hintDiv{
+	display: flex;
+	justify-content: center;
+}
+
+.hintBox {
+	display:inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	margin: 0 10px;
+}
+
+.wBox{
+	background-color: white;
+}
+
+.bBox{
+	background-color: blue;	
+}
+
+.rBox{
+	background-color: red;
+}

@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Quiz List</title>
+        <title>Quiz Detail</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -21,6 +21,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/home/css/styles.css" rel="stylesheet" />
         <link href="resources/home/css/main.css" rel="stylesheet" />
+        <link href="resources/quiz/css/quizDetail.css" rel="stylesheet" />
     </head>
     <body id="page-top">
     	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -28,11 +29,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand " href="#page-top">Term Quiz on a Bus</a>
+                <a class="navbar-brand " href="home">Term Quiz on a Bus</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
                         <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
                         <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
         
@@ -41,15 +42,58 @@
                         </c:if>
         
                         <c:if test="${not empty loginID}">
-	                        <li class="nav-item"><a class="nav-link" href="mdetail">My Info</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+							<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
                         </c:if>
                     </ul>
                 </div>
             </div>
         </nav>
         
-        
-        
+		<main>
+			<section id="startPage" class="quizDetail">	
+				<button id="startBtn">Start</button>
+			</section>
+			
+			<section id="hint1" class="quizDetail"> 
+				<form action="" class="answerForm">
+					<input type="text" required>
+					<button type="button" id="hint1Btn" class="hintBtn">Submit</button>
+				</form>
+			</section>
+
+			<section id="hint2" class="quizDetail"> 
+				<form action="" class="answerForm">
+					<input type="text" required>
+					<button type="button" id="hint2Btn" class="hintBtn">Submit</button>
+				</form>
+			</section>
+
+			<section id="hint3" class="quizDetail"> 
+				<form action="" class="answerForm">
+					<input type="text" required>
+					<button type="button" id="hint3Btn" class="hintBtn">Submit</button>
+				</form>
+			</section>
+
+			<section id="hint4" class="quizDetail"> 
+				<form action="" class="answerForm">
+					<input type="text" required>
+					<button type="button" id="hint4Btn" class="hintBtn">Submit</button>
+				</form>
+			</section>
+
+			<section id="hint5" class="quizDetail"> 
+				<form action="" class="answerForm">
+					<input type="text" required>
+					<button type="button" id="hint5Btn" class="hintBtn">Submit</button>
+				</form>
+			</section>
+			
+			<section id="answer" class="quizDetail"> 
+				<button type="button" id="endBtn">List</button>
+			</section>
+		</main>        
         
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
@@ -59,5 +103,6 @@
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
+        <script src="resources/quiz/js/quizDetail.js"></script>
     </body>
 </html>

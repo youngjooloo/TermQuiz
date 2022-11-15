@@ -109,40 +109,41 @@
 
 		<!-- 페이징  -->
 		<div class="wrap_paging">
-			<c:choose>
-				<c:when test="${maker.prev && maker.spageNo>1}">
-
-					<a href="qnaboardcrilist${maker.searchQuery(1)}">FP</a>&nbsp;
-					<a href="qnaboardcrilist${maker.searchQuery(maker.spageNo-1)}">&lt;</a>&nbsp;&nbsp; 
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">&nbsp;&lt;&nbsp;&nbsp;</font>
-				</c:otherwise>
-			</c:choose>
-
-			<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
-			   	<c:if test="${i==maker.currPage}">
-					 <a href="qnaboardlist">
-						<span class="screen_out">현재페이지</span>${i}
-					 </a>
+			<div class="boardBtnBox">
+				<div class="boardBtnLeft">
+					<c:if test="${maker.prev && maker.spageNo>1}">
+						<a href="boardlist${maker.searchQuery(1)}">&Lt;</a>
+					</c:if>
 					
-		       	</c:if>
-			    <c:if test="${i !=maker.currPage}">
-			        <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
-			        ${i}
-			        </a>
-			    </c:if>
-			</c:forEach>
-			<c:choose>
-				<c:when test="${maker.next && maker.epageNo>0}">
+					<c:if test="${maker.prev}" >
+						<a href="boardlist${maker.searchQuery(maker.spageNo-1)}" class="pageBtn">&lt;</a>
+					</c:if>
+				</div>
+				
+				<div class="boardNumBox" >
+					<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+					   	<c:if test="${i==maker.currPage}">
+							 <a href="boardlist${maker.searchQuery(i)}" class="paging_num_on">
+								<span class="screen_out">현재페이지</span>${i}
+							 </a>
+							
+				       	</c:if>
+					    <c:if test="${i !=maker.currPage}">
+					        <a href="boardlist${maker.searchQuery(i)}" >${i}</a>
+					    </c:if>
+					</c:forEach>
+				</div> 
+				
+				<div class="boardBtnRight">
+					<c:if test="${maker.next}">
+						<a href="boardlist${maker.searchQuery(maker.epageNo+1)}" class="pageBtn">&gt;</a>
+					</c:if>
 					
-					<a href="qnaboardlist${maker.searchQuery(maker.epageNo+1)}">&nbsp;&gt;</a>
-					<a href="qnaboardlist${maker.searchQuery(maker.lastPageNo)}">&nbsp;LP</a>
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">&nbsp;&gt;&nbsp;</font>
-				</c:otherwise>
-			</c:choose>
+					<c:if test="${maker.next && maker.epageNo>0}">
+						<a href="boardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
+					</c:if>
+				</div>
+			</div>
 			<c:if test="${not empty loginID }">
 				<button type="button" class="btn_insert" onclick="location.href='boardinsertf'">글
 					등록</button>
@@ -153,7 +154,7 @@
 			<div class="search-window">
 				<div class="search-wrap">
 				<select class="search-wrap" name="searchType" id="searchType">
-					<option value="n" ${maker.searchType==null ? 'selected' : ''}></option>
+					<option value="n" ${maker.searchType==null ? 'selected' : ''}>검색 조건</option>
 					<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
 					<option value="i" ${maker.searchType=='i' ? 'selected' : ''}>작성자</option>
 					<option value="t" ${maker.searchType=='t' ? 'selected' : ''}>제목</option>
@@ -186,5 +187,22 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/board/js/boardDetail.js"></script>
+	<script>
+		$(function() {
+
+			$('#searchType').change(function() {
+				if ($(this).val() == 'n')
+					$('#keyword').val('');
+			});
+
+			$('#searchBtn').click(
+					function() {
+						self.location = "boardlist"
+								+ "${maker.makeQuery(1)}" + "&searchType="
+								+ $('#searchType').val() + "&keyword="
+								+ $('#keyword').val()
+					}); //click
+		}); //ready
+	</script>
 </body>
 </html>

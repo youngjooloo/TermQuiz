@@ -34,6 +34,7 @@
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
+<link href="resources/common/css/textarea.css" rel="stylesheet" />
 
 </head>
 <body id="page-top">
@@ -88,17 +89,18 @@
 						<input id="qnaNoH" type="number" name="qnaNo" value="${qna.qnaNo}" readonly>
 					</th>
 					<th>ID : ${qna.qnaId}</th>
-					<th>Title :&nbsp;
-						<input type="text" name="qnaTitle" value="${qna.qnaTitle}" required>
+					<th>
+						<input type="text" id="btitle" name="qnaTitle" value="${qna.qnaTitle}" maxlength="50" required>
 					</th>
-					<th>Time : ${qna.qnaTime}</th>
+					<th> ${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th>Question</th>
 					<td colspan="3" id="userQuestion">
-						<textarea id="qnaContent" name="qnaContent" required>${qna.qnaContent}</textarea>
+						<textarea id="qnaContent" name="qnaContent" maxlength="500" required>${qna.qnaContent}</textarea>
+						<p class="bdtextCount"></p>
 					</td>
 				</tr>
 				<tr>
@@ -130,6 +132,6 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaDetail.js"></script>
-	
+	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>

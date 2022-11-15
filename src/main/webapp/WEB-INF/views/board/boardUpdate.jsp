@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>QnA Insert</title>
+<title>Board Insert</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,7 +33,7 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
-<link href="resources/qna/css/qnaInsert.css" rel="stylesheet" />
+<link href="resources/board/css/boardInsert.css" rel="stylesheet" />
 <link href="resources/common/css/textarea.css" rel="stylesheet" />
 
 </head>
@@ -74,31 +74,31 @@
 	<header class="board_container">
 		<div class="board_container_div">
 			<h3 class="board_container_intro">
-				<a href="qnaboardlist">QnA</a>
+				<a href="boardlist">자유게시판</a>
 			</h3>
-			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
+			<p class="board_container_p">자유롭게 적어주세요!</p>
 		</div>
 	</header>
 
 	<article>
-		<form action="qnainsert" method="post">
+		<form action="boardupdate?bno=${board.bno}" method="post">
 			<table>
 				<thead>
 					<tr>
-						<th>No</th>
+						<th>No.${board.bno}</th>
 						<th>ID : ${nick}</th>
-						<th id="insertTitle">Title :&nbsp;
-							<input type="text" name="qnaTitle" maxlength="50" required>
+						<th id="insertTitle">
+							<input type="text" name="btitle" required maxlength="50" value="${board.btitle }">
 						</th>
-						<th></th>
+						<th>${board.btime}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th>Question</th>
-						<td colspan="3" id="userQuestion">
-							<textarea id="qnaContent" name="qnaContent"  maxlength="500" required></textarea>
-							<p class="bdtextCount"></p>
+						<th>Content</th>
+						<td colspan="3" id="userContent">
+							<textarea id="bContent" name="bcontent" maxlength="500" required>${board.bcontent }</textarea>
+							<p class="textCount"></p>
 						</td>
 					</tr>
 				</tbody>

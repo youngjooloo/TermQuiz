@@ -26,6 +26,10 @@ public class QnaController {
 	@RequestMapping(value = "/qnaboardlist")
 	public ModelAndView qnaboardlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,PageNation maker) {
 		maker.setSnoEno();
+		if(request.getParameter("rowsPerPage") != null) {
+			int rpp = Integer.parseInt(request.getParameter("rowsPerPage"));
+			maker.setRowsPerPage(rpp);
+		}
 		
 		mv.addObject("qna", service.searchList(maker));
 		maker.setTotalRowsCount((service.searchCount(maker)));
@@ -79,6 +83,10 @@ public class QnaController {
 		
 		vo.setQnaId(qnaId);
 		vo.setQnaTime(today);
+		
+		String content = vo.getQnaContent().replace("\r\n","<br>");
+		vo.setQnaContent(content);
+		
 		if(service.insert(vo) > 0) {
 			uri = "redirect:qnaboardlist";
 		}		
@@ -93,6 +101,10 @@ public class QnaController {
 		String uri = "qnadetail";
 		
 		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
+		
+		String content = vo.getQnaAnswer().replace("\r\n","<br>");
+		vo.setQnaAnswer(content);
+		
 		if( service.qnaAnswer(vo) > 0) {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
 		}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.termquiz.team.mapperInterface.QuizMapper">
+	
+	<select id="quizList" resultType="com.termquiz.team.vo.QuizVO">
+		select movieqNo from movieq;
+	</select>
+	
+	<select id="loginQuizList" resultType="com.termquiz.team.vo.QuizVO">
+		select mq.movieqNo, ms.movieqId, ms.score 
+		FROM movieq as mq left join movies as ms
+		on mq.movieqNo = ms.movieqNo and 
+		ms.movieqId = #{movieqId};
+	</select>
+	
+</mapper>

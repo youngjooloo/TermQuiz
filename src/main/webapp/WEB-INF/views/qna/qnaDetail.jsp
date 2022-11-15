@@ -33,6 +33,8 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
 <link href="resources/qna/css/qnaDetail.css" rel="stylesheet" />
+<link href="resources/common/css/textarea.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -83,8 +85,8 @@
 				<tr>
 					<th>No.${qna.qnaNo}</th>
 					<th>ID : ${qna.qnaId}</th>
-					<th>Title : ${qna.qnaTitle}</th>
-					<th>Time : ${qna.qnaTime}</th>
+					<th>${qna.qnaTitle}</th>
+					<th>${qna.qnaTime}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -98,15 +100,14 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<div>
-									<button class="btn_detail" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
-								</div>
+								<button class="btn_detail answerBtn" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" required></textarea>
+									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required></textarea>
+									<p class="bdtextCount"></p>
 									<button class="btn_answer" type="submit">Submit</button>
 								</form>
 							</c:if>
@@ -116,11 +117,14 @@
 			</tbody>
 		</table>
 		
-		<div class="wrap_paging">
-			<c:if test="${qna.qnaId == nick }">
+		<div class="wrap_paging qnaWrap">
+			<c:if test="${qna.qnaId == nick && empty qna.qnaAnswer}">
 				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
-			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
+			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
+				<button type="button" class="btn_detail" onclick="location.href='qnadelete&qnaNo=${qna.qnaNo}'">Delete</button>
+			</c:if>
+			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
 	</article>
 
@@ -139,6 +143,6 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaDetail.js"></script>
-	
+	<script src="resources/common/js/textarea.js"></script>
 </body>
 </html>
