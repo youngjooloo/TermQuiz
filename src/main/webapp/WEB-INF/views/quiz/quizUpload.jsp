@@ -32,7 +32,7 @@
 			<form action="quizupload" method="POST" enctype="multipart/form-data" class="appointment-form" id="appointment-form">
 				<h2>Quiz Upload</h2>
 				<div class="form-group-1">
-					<select name="quizType" required>
+					<select id="quizType" name="quizType" required>
 				 		<option disabled selected value="">Quiz Type</option>
 				 		<option value="movie">Movie</option>
 				 		<option value="music">Music</option>					 		
@@ -42,19 +42,19 @@
 					
 					<input name="answer" type="text" placeholder="Answer" required>
 					
-					<label for="hint1">Hint1 - Scene</label>
+					<label for="hint1">Hint1</label>
 					<input name="hint1up" id="hint1" multiple="multiple" type="file" required>
 					
-					<label for="hint2">Hint2 - Cast</label>
+					<label for="hint2">Hint2</label>
 					<input name="hint2up" id="hint2" multiple="multiple" type="file" required>
 					
-					<label for="hint3">Hint3 - Line</label>
+					<label for="hint3">Hint3</label>
 					<input name="hint3up" id="hint3" multiple="multiple" type="file" required>
 					
-					<label for="hint4">Hint4 - BGM</label>
+					<label for="hint4">Hint4</label>
 					<input name="hint4up" id="hint4" multiple="multiple" type="file" required>
 					
-					<label for="hint5">Hint5 - Poster</label>
+					<label for="hint5">Hint5</label>
 					<input name="hint5up" id="hint5" multiple="multiple" type="file" required>
 				</div>
 				
@@ -71,6 +71,7 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
+	<script src="resources/quiz/js/quizUpload.js"></script>
 
 </body>
 </html>

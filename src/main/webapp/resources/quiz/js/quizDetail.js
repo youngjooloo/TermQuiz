@@ -2,12 +2,6 @@
  * 
  */
 
-const urlStr = window.location.href;
-	const url = new URL(urlStr);
-	const urlParams = url.searchParams;
-	const type = urlParams.get('type');
-	const quizNo = urlParams.get('qNo');
-
 $(function() {
 	$('main').on('scroll touchmove mousewheel', function(e) {
 		e.preventDefault();
@@ -23,10 +17,11 @@ $(function() {
 	});
 
 	$('#startBtn').click(function() {
-		$('.quizDetail').removeClass('hiddenBtn');
+		$('#startBtn').addClass('hiddenBox');
 		$('.moveBox').removeClass('hiddenBox');
 		$('#hint1Btn').parent().removeClass('hiddenBtn');
 		$('#hint1').css("top", '100%');
+		$('#hint1').removeClass('hiddenBtn');
 		$('.h1Box').removeClass('hiddenBox');
 		location.href = '#hint1';
 	});
@@ -47,6 +42,11 @@ $(function() {
 			location.href = '#' + url;
 		}
 	});
+	
+	$('.h4Box').click(function(){
+		$('#movieBgm').trigger('play');
+	});
+	
 });
 
 
@@ -61,9 +61,9 @@ function justAnswer(e) {
 }
 
 function loginAnswer(e) {
-	const answer = $(e).prev().val();
-	const quizAnswer = $('.answerBox').children('p').html();
-	const correct = answer == quizAnswer;
+	let answer =(($(e).prev().val()).toLowerCase()).replaceAll(" ","");
+	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ","");
+	const correct = quizAnswer.includes(answer);
 	if (correct) {
 		trueAnswer();
 	}else{
@@ -73,7 +73,6 @@ function loginAnswer(e) {
 }
 
 function anwerSubmit(e,correct) {
-
 	const urlStr = window.location.href;
 	const url = new URL(urlStr);
 	const urlParams = url.searchParams;
@@ -108,7 +107,9 @@ function trueAnswer() {
 	$('#hint5').css("top", '500%');
 	$('#answer').css("top", '600%');
 	$('.innerBox').removeClass('hiddenBox');
+	$('.quizDetail ').removeClass("hiddenBtn");
 	$('#endBtn').removeClass("hiddenBox");
+	$('#correctBox').html("정답입니다!");
 	location.href = '#answer';
 }
 
@@ -120,28 +121,35 @@ function falseAnswer(e) {
 			$('#hint2Btn').parent().removeClass('hiddenBtn');
 			$('.h2Box').removeClass('hiddenBox');
 			$('#hint2').css("top", '200%');
+			$('#hint2').removeClass('hiddenBtn');
 			location.href = '#hint2'
 			break;
 		case 'hint2Btn':
 			$('#hint3Btn').parent().removeClass('hiddenBtn');
 			$('.h3Box').removeClass('hiddenBox');
 			$('#hint3').css("top", '300%');
+			$('#hint3').removeClass('hiddenBtn');
 			location.href = '#hint3'
 			break;
 		case 'hint3Btn':
 			$('#hint4Btn').parent().removeClass('hiddenBtn');
 			$('.h4Box').removeClass('hiddenBox');
 			$('#hint4').css("top", '400%');
+			$('#hint4').removeClass('hiddenBtn');
+			$('#movieBgm').trigger('play');
 			location.href = '#hint4'
 			break;
 		case 'hint4Btn':
 			$('#hint5Btn').parent().removeClass('hiddenBtn');
 			$('.h5Box').removeClass('hiddenBox');
 			$('#hint5').css("top", '500%');
+			$('#hint5').removeClass('hiddenBtn');
 			location.href = '#hint5'
 			break;
 		default:
 			$('#answer').css("top", '600%');
+			$('#answer').removeClass('hiddenBtn');
+			$('.aBox').removeClass('hiddenBox');
 			$('#endBtn').removeClass("hiddenBox");
 			location.href = '#answer'
 			break;
