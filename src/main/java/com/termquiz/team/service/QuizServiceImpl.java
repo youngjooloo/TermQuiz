@@ -47,4 +47,9 @@ public class QuizServiceImpl implements QuizService {
 	public MovieQuizVO movieQuizDetail(MovieQuizVO vo) {
 		return mapper.movieQuizDetail(vo);
 	}
+	
+	@Override
+	public int movieScoreInsert(MovieQuizVO vo) {
+		return mapper.movieScoreInsert(vo);
+	}
 }

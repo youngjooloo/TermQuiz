@@ -57,66 +57,68 @@
 				<button class="btn btn-primary btn-m" id="startBtn">Start</button>
 			</section>
 			
-			<section id="hint1" class="quizDetail"> 
-				${quiz.movieqNo}
-				${quiz.movieqAnswer}
+			<section id="hint1" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img alt="hint1" src="${quiz.movieqHint1}">
 				</div>
 				
-				<form action="quizanswer?score=10" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
+				<form action="quizanswer?score=10" class="answerForm hiddenBtn" onsubmit="return false;">
+					<input name="quizAnswer" type="text" placeholder="Answer" required>
 					<button type="button" id="hint1Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
 				</form>
 			</section>
 
-			<section id="hint2" class="quizDetail"> 
+			<section id="hint2" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img alt="hint2" src="${quiz.movieqHint2}">
 				</div>
 				
-				<form action="quizanswer?score=7" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
+				<form action="quizanswer?score=7" class="answerForm hiddenBtn" onsubmit="return false;">
+					<input name="quizAnswer" type="text" placeholder="Answer" required>
 					<button type="button" id="hint2Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
 				</form>
 			</section>
 
-			<section id="hint3" class="quizDetail"> 
+			<section id="hint3" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img alt="hint3" src="${quiz.movieqHint3}">
 				</div>
 				
-				<form action="quizanswer?score=5" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
+				<form action="quizanswer?score=5" class="answerForm hiddenBtn" onsubmit="return false;">
+					<input name="quizAnswer" type="text" placeholder="Answer" required>
 					<button type="button"  id="hint3Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
 				</form>
 			</section>
 
-			<section id="hint4" class="quizDetail"> 
+			<section id="hint4" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<audio id="movieBgm" controls="controls">
 						<source src="${quiz.movieqHint4}">
 					</audio>
 				</div>
 			
-				<form action="quizanswer?score=3" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
+				<form action="quizanswer?score=3" class="answerForm hiddenBtn" onsubmit="return false;">
+					<input name="quizAnswer" type="text" placeholder="Answer" required>
 					<button type="button" id="hint4Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
 				</form>
 			</section>
 
-			<section id="hint5" class="quizDetail">
+			<section id="hint5" class="quizDetail hiddenBtn">
 				<div class="hintBox">
 					<img alt="hint5" src="${quiz.movieqHint5}">
 				</div>
 				 
-				<form action="quizanswer?score=2" class="answerForm hiddenBox">
-					<input type="text" placeholder="Answer" required>
+				<form action="quizanswer?score=2" class="answerForm hiddenBtn" onsubmit="return false;">
+					<input name="quizAnswer" type="text" placeholder="Answer" required>
 					<button type="button" id="hint5Btn" class="hintBtn btn btn-primary btn-m">Submit</button>
 				</form>
 			</section>
 			
-			<section id="answer" class="quizDetail"> 
+			<section id="answer" class="quizDetail hiddenBtn"> 
+				<div class="answerBox">
+					<p id="${quiz.movieqNo}">${quiz.movieqAnswer}</p>
+				</div>		
+				
 				<button type="button" id="endBtn" class="btn btn-primary btn-m endBtn hiddenBox" >List</button>
 			</section>
 			
@@ -134,5 +136,21 @@
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
         <script src="resources/quiz/js/quizDetail.js"></script>
+        
+        <c:if test="${empty nick}">
+        	<script type="text/javascript">
+        		$(".hintBtn").click(function(){
+	        		justAnswer(this)
+        		});
+        	</script>
+        </c:if>
+        <c:if test="${not empty nick}">
+        	<script type="text/javascript">
+        		$(".hintBtn").click(function(){
+	        		loginAnswer(this)
+        		});
+        	</script>
+        </c:if>
+        
     </body>
 </html>

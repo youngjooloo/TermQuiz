@@ -37,7 +37,6 @@ public class QuizController {
 		if (login != null) {
 			vo.setMovieqId(login);
 			list = service.movieLoginQuizList(vo);
-			System.out.println(list);
 		}else {
 			list = service.movieQuizList(vo);
 		}
@@ -106,61 +105,35 @@ public class QuizController {
 		File f1 = new File(realPath);
 		if (!f1.exists()) {
 			f1.mkdir();
-			
 		}
 		
-		MultipartFile hint1up = vo.getHint1up();
-		MultipartFile hint2up = vo.getHint2up();
-		MultipartFile hint3up = vo.getHint3up();
-		MultipartFile hint4up = vo.getHint4up();
-		MultipartFile hint5up = vo.getHint5up();
+		MultipartFile[] hintUp = new MultipartFile[4];
 		
-		String hint1;
-		String hint2;
-		String hint3;
-		String hint4;
-		String hint5;
-
-		String hint1url = "resources/quizhint/" + type + "/" + hintPath + "/";
-		String hint2url = "resources/quizhint/" + type + "/" + hintPath + "/";
-		String hint3url = "resources/quizhint/" + type + "/" + hintPath + "/";
-		String hint4url = "resources/quizhint/" + type + "/" + hintPath + "/";
-		String hint5url = "resources/quizhint/" + type + "/" + hintPath + "/";
+		hintUp[0] = vo.getHint1up();
+		hintUp[1] = vo.getHint2up();
+		hintUp[2] = vo.getHint3up();
+		hintUp[3] = vo.getHint4up();
+		hintUp[4] = vo.getHint5up();
 		
-		if (hint1up != null && !hint1up.isEmpty()) {
-			hint1 = realPath + hint1up.getOriginalFilename(); // 경로완성
-			hint1up.transferTo(new File(hint1)); // Image저장
-			hint1url = "resources/quizhint/" + type + "/" + hintPath + "/" + hint1up.getOriginalFilename();
+		String[] hint = new String[4];
+		String[] hintUrl = new String[4];
+		
+		for (int i = 0; i < hintUrl.length; i++) {
+			hintUrl[i] = "resources/quizhint/" + type + "/" + hintPath + "/";
 		}
-		vo.setHint1(hint1url);
 		
-		if (hint2up != null && !hint2up.isEmpty()) {
-			hint2 = realPath + hint2up.getOriginalFilename(); // 경로완성
-			hint2up.transferTo(new File(hint2)); // Image저장
-			hint2url = "resources/quizhint/" + type + "/" + hintPath + "/" + hint2up.getOriginalFilename();
+		for (int i = 0; i < hintUrl.length; i++) {
+			if (hintUp[i] != null && !hintUp[i].isEmpty()) {
+				hint[i] = realPath + hintUp[i].getOriginalFilename(); // 경로완성
+				hintUp[i].transferTo(new File(hint[i])); // Image저장
+				hintUrl[i] = "resources/quizhint/" + type + "/" + hintPath + "/" + hintUp[i].getOriginalFilename();
+			}
 		}
-		vo.setHint2(hint2url);
-		
-		if (hint3up != null && !hint3up.isEmpty()) {
-			hint3 = realPath + hint3up.getOriginalFilename(); // 경로완성
-			hint3up.transferTo(new File(hint3)); // Image저장
-			hint3url = "resources/quizhint/" + type + "/" + hintPath + "/" + hint3up.getOriginalFilename();
-		}
-		vo.setHint3(hint3url);
-		
-		if (hint4up != null && !hint4up.isEmpty()) {
-			hint4 = realPath + hint4up.getOriginalFilename(); // 경로완성
-			hint4up.transferTo(new File(hint4)); // Image저장
-			hint4url = "resources/quizhint/" + type + "/" + hintPath + "/" + hint4up.getOriginalFilename();
-		}
-		vo.setHint4(hint4url);
-		
-		if (hint5up != null && !hint5up.isEmpty()) {
-			hint5 = realPath + hint5up.getOriginalFilename(); // 경로완성
-			hint5up.transferTo(new File(hint5)); // Image저장
-			hint5url = "resources/quizhint/" + type + "/" + hintPath + "/" + hint5up.getOriginalFilename();
-		}
-		vo.setHint5(hint5url);
+		vo.setHint1(hintUrl[0]);
+		vo.setHint2(hintUrl[1]);
+		vo.setHint3(hintUrl[2]);
+		vo.setHint4(hintUrl[3]);
+		vo.setHint5(hintUrl[4]);
 		
 		if (type == "movie" || "movie".equals(type)) {
 			if (service.movieQuizInsert(vo)>0) {
@@ -171,6 +144,37 @@ public class QuizController {
 		}
 		
     	mv.setViewName("redirect:home");
+    	return mv;
+	}
+	
+	@RequestMapping(value = "/quizanswer")
+	public ModelAndView quizanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		mv = new ModelAndView("jsonView");
+		System.out.println("qq");
+		String id = (String)request.getSession().getAttribute("nick");
+		String type = (String)request.getParameter("quizType");
+		int quizNo = Integer.parseInt((String)request.getParameter("quizNo"));
+		int score = Integer.parseInt((String)request.getParameter("score"));
+		boolean correct = (String)request.getParameter("quizCorrect") == "true";
+		if (score == 2 && !correct) {
+			score = 1;
+		}
+		
+		if (type == "movie") {
+			MovieQuizVO vo = new MovieQuizVO();
+			vo.setMovieqId(id);
+			vo.setMovieqNo(quizNo);
+			vo.setScore(score);
+			if (service.movieScoreInsert(vo)>0) {
+				System.out.println("T");
+			}else {
+				System.out.println("F");
+			}
+		}else {
+			
+		}
+		
+    	mv.setViewName("home");
     	return mv;
 	}
 
