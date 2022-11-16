@@ -15,4 +15,6 @@ public interface QuizService {
 	int movieQuizInsert(QuizVO vo);
 	
 	MovieQuizVO movieQuizDetail(MovieQuizVO vo);
+	
+	int movieScoreInsert(MovieQuizVO vo);
 }

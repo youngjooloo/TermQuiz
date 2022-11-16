@@ -75,6 +75,9 @@
 	</select>
 	
 	<insert id="rinsert">
+		<selectKey keyProperty="bcNo" resultType="int" order="BEFORE">
+			select IFNULL(max(bcNo),0)+1 from bcomments
+		</selectKey>
 		insert into bcomments(bno,bcId,bcomment,bcommentTime,root) 
 		values(#{bno},#{bcId},#{bcomment},#{bcommentTime},#{bcNo})
 	</insert>

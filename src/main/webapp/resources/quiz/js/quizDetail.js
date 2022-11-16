@@ -2,109 +2,149 @@
  * 
  */
 
+const urlStr = window.location.href;
+	const url = new URL(urlStr);
+	const urlParams = url.searchParams;
+	const type = urlParams.get('type');
+	const quizNo = urlParams.get('qNo');
 
 $(function() {
 	$('main').on('scroll touchmove mousewheel', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-    });
-	
-	$('#startBtn, .h1Box, #before2Btn').click(function() {
-		if($('.moveBox').hasClass('hiddenBox')){
-			$('.moveBox').removeClass('hiddenBox');
+		e.preventDefault();
+		e.stopPropagation();
+		return false;
+	});
+
+	$('input').keydown(function(e) {
+		if (e.which == 13) {
+			e.preventDefault();
+			$(this).next().click();
 		}
+	});
+
+	$('#startBtn').click(function() {
+		$('.quizDetail').removeClass('hiddenBtn');
+		$('.moveBox').removeClass('hiddenBox');
+		$('#hint1Btn').parent().removeClass('hiddenBtn');
 		$('#hint1').css("top", '100%');
 		$('.h1Box').removeClass('hiddenBox');
 		location.href = '#hint1';
 	});
-	
-	$('#hint1Btn, .h2Box, #before3Btn, #next1Btn').click(function() {
-		$('#hint2').css("top", '200%');
-		$('.h2Box').removeClass('hiddenBox');
-		location.href = '#hint2';
-	});
-	
-	$('#hint2Btn, .h3Box, #before4Btn, #next2Btn').click(function() {
-		$('#hint3').css("top", '300%');
-		$('.h3Box').removeClass('hiddenBox');
-		location.href = '#hint3';
-	});
-	
-	$('#hint3Btn, .h4Box, #before5Btn, #next3Btn').click(function() {
-		$('#hint4').css("top", '400%');
-		$('.h4Box').removeClass('hiddenBox');
-		$('#movieBgm').trigger("play");
-		location.href = '#hint4';
-	});
-	
-	$('#hint4Btn, .h5Box, #next4Btn').click(function() {
-		$('#hint5').css("top", '500%');
-		$('.h5Box').removeClass('hiddenBox');
-		location.href = '#hint5';
-	});
-	
-	$('#hint5Btn, #next5Btn').click(function() {
-		$('#answer').css("top", '600%');
-		$('#endBtn').removeClass("hiddenBox");
-		location.href = '#answer';
-	});
-	
+
 	$('.endBtn').click(function() {
 		const urlStr = window.location.href;
 		const url = new URL(urlStr);
 		const urlParams = url.searchParams;
 		const type = urlParams.get('type');
-		
-		location.href = type+'quiz';
+
+		location.href = type + 'quiz';
 	});
-	
-	$('#startBtn').click(function(){
-		$('#hint1Btn').parent().removeClass('hiddenBox');
-	});
-	
-	$('#hint1Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint2Btn').parent().removeClass('hiddenBox');
-	});
-	
-	$('#hint1Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint2Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint1Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint2Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint1Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint2Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint2Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint3Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint3Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint4Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint4Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
-		$('#hint5Btn').parent().removeClass('hiddenBox');
-	});
-	$('#hint5Btn').click(function(){
-		$(this).parent().addClass('hiddenBox');
+
+	$(window).resize(function() {
+		const urlStr = window.location.href;
+		if (urlStr.includes('#')) {
+			const url = urlStr.split('#')[1];
+			location.href = '#' + url;
+		}
 	});
 });
 
-$(window).resize(function() { 
-	const urlStr = window.location.href;
-	if(urlStr.includes('#')){
-		const url = urlStr.split('#')[1];
-		location.href = '#'+url;
+
+function justAnswer(e) {
+	const answer = $(e).prev().val();
+	const quizAnswer = $('.answerBox').children('p').html();
+	if (answer == quizAnswer) {
+		trueAnswer();
+	} else {
+		falseAnswer(e);
 	}
-});
-//
-//window.document.oncontextmenu = new Function("return false");
-//window.document.onselectstart = new Function("return false");
-//window.document.ondragstart = new Function("return false");
+}
+
+function loginAnswer(e) {
+	const answer = $(e).prev().val();
+	const quizAnswer = $('.answerBox').children('p').html();
+	const correct = answer == quizAnswer;
+	if (correct) {
+		trueAnswer();
+	}else{
+		falseAnswer(e);
+	}
+	anwerSubmit(e,correct)
+}
+
+function anwerSubmit(e,correct) {
+
+	const urlStr = window.location.href;
+	const url = new URL(urlStr);
+	const urlParams = url.searchParams;
+	const type = urlParams.get('type');
+	const no = urlParams.get('qNo');
+	const formAction = $(e).parent().attr("action");
+	
+	const params = {
+		quizType : type,
+		quizNo : no,
+		quizCorrect : correct
+	};
+	
+	$.ajax({
+		tpye : "POST",
+		url : formAction,
+		data : params,
+		success : function(){
+			console.log('success');
+		},
+		error : function(){
+			console.log('false');
+		}
+	});
+}
+
+function trueAnswer() {
+	$('.answerForm').addClass('hiddenBtn');
+	$('#hint2').css("top", '200%');
+	$('#hint3').css("top", '300%');
+	$('#hint4').css("top", '400%');
+	$('#hint5').css("top", '500%');
+	$('#answer').css("top", '600%');
+	$('.innerBox').removeClass('hiddenBox');
+	$('#endBtn').removeClass("hiddenBox");
+	location.href = '#answer';
+}
+
+function falseAnswer(e) {
+	$('.answerForm').addClass('hiddenBtn');
+
+	switch (e.id) {
+		case 'hint1Btn':
+			$('#hint2Btn').parent().removeClass('hiddenBtn');
+			$('.h2Box').removeClass('hiddenBox');
+			$('#hint2').css("top", '200%');
+			location.href = '#hint2'
+			break;
+		case 'hint2Btn':
+			$('#hint3Btn').parent().removeClass('hiddenBtn');
+			$('.h3Box').removeClass('hiddenBox');
+			$('#hint3').css("top", '300%');
+			location.href = '#hint3'
+			break;
+		case 'hint3Btn':
+			$('#hint4Btn').parent().removeClass('hiddenBtn');
+			$('.h4Box').removeClass('hiddenBox');
+			$('#hint4').css("top", '400%');
+			location.href = '#hint4'
+			break;
+		case 'hint4Btn':
+			$('#hint5Btn').parent().removeClass('hiddenBtn');
+			$('.h5Box').removeClass('hiddenBox');
+			$('#hint5').css("top", '500%');
+			location.href = '#hint5'
+			break;
+		default:
+			$('#answer').css("top", '600%');
+			$('#endBtn').removeClass("hiddenBox");
+			location.href = '#answer'
+			break;
+	}
+}
+

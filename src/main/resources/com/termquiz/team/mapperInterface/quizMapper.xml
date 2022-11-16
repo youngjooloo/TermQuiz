@@ -29,6 +29,11 @@
 		select movieqNo, movieqAnswer, movieqHint1, movieqHint2, movieqHint3, movieqHint4, movieqHint5
 		from movieq
 		where movieqNo = #{movieqNo} 
-		
 	</select>
+	
+	<insert id="movieScoreInsert">
+		insert into
+		movies(MovieqNo,MovieqId,score)
+		values(#{MovieqNo},#{MovieqId},#{score})
+	</insert>
 </mapper>
