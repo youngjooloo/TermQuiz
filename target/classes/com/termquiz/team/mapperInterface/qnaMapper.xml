@@ -65,4 +65,7 @@
 		where qnaNo=#{qnaNo}
 	</update>
 	
+	<delete id="qnadelete">
+    	delete from qna where qnaNo=#{qnaNo}
+    </delete>
 </mapper>

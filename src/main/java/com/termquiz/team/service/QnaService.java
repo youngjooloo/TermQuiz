@@ -20,4 +20,6 @@ public interface QnaService {
 	int qnaAnswerDelete(QnaVO vo);
 
 	int qnaUpdate(QnaVO vo);
+	
+	int qnadelete(QnaVO vo);
 }

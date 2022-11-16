@@ -126,10 +126,7 @@ public class BoardController {
 		vo.setBcontent(content);
 
 		if (service.update(vo) > 0) {
-			mv.addObject("message", "~~ 글 수정 성공 ~~");
 			uri = "redirect:boarddetail?bno=" + vo.getBno();
-		} else {
-			mv.addObject("message", "~~ 글 수정 실패, 다시 하세요 ~~");
 		}
 
 		mv.setViewName(uri);
@@ -145,9 +142,7 @@ public class BoardController {
 		vo.setBno(bno);
 
 		if (service.delete(vo) > 0) {
-			rttr.addFlashAttribute("message", "~~ 글 삭제 성공 ~~");
 		} else {
-			rttr.addFlashAttribute("message", "~~ 글 삭제 실패, 다시 시도하세요 ~~");
 			uri = "redirect:/boarddetail?bno=" + vo.getBno();
 		}
 
@@ -174,10 +169,7 @@ public class BoardController {
 
 		// 2. Service 처리
 		if (service.rinsert(cvo) > 0) {
-			rttr.addFlashAttribute("message", "댓글 등록 성공");
 			uri = "redirect:boarddetail?bno=" + cvo.getBno();
-		} else {
-			mv.addObject("message", "댓글 등록 실패, 다시 시도하세요.");
 		}
 
 		// 3. 결과(ModelAndView) 전달
@@ -211,9 +203,7 @@ public class BoardController {
 		String bcomment = cvo.getBcomment().replace("\r\n", "<br>");
 		cvo.setBcomment(bcomment);
 
-		if (service.bcommentupdate(cvo) > 0) {
-			mv.addObject("message", "~~ 댓글 수정 성공 ~~");
-		} 
+		service.bcommentupdate(cvo);
 
 		mv.setViewName(uri);
 		return mv;

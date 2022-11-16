@@ -20,4 +20,6 @@ public interface QnaMapper {
 	int qnaAnswerDelete(QnaVO vo);
 
 	int qnaUpdate(QnaVO vo);
+	
+	int qnadelete(QnaVO vo);
 }

@@ -143,4 +143,20 @@ public class QnaController {
 		mv.setViewName(uri);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/qnadelete")
+	public ModelAndView qnadelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+		
+		String uri = "qna/qnadetail";
+
+	    int qno=Integer.parseInt((String)request.getParameter("qnaNo"));
+	    vo.setQnaNo(qno);
+	      
+	    if(service.qnadelete(vo)>0) {
+	    	uri = "redirect:qnaboardlist";
+	    }
+
+	    mv.setViewName(uri);
+	    return mv;
+	}
 }

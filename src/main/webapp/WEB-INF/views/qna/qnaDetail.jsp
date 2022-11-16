@@ -122,7 +122,7 @@
 				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
 			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
-				<button type="button" class="btn_detail" onclick="location.href='qnadelete&qnaNo=${qna.qnaNo}'">Delete</button>
+				<button type="button" class="btn_detail" onclick="location.href='qnadelete?qnaNo=${qna.qnaNo}'">Delete</button>
 			</c:if>
 			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
