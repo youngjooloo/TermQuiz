@@ -4,7 +4,8 @@
 
 $(function() {
 	$('main').ready(function() {
-		$('.moveBox, .answerAfterBox, .innerBox').removeClass('hiddenBox');
+		$('.moveBox, .answerAfterBox, .innerBox' ).removeClass('hiddenBox');
+		$('.quizDetail' ).removeClass('hiddenBtn');
 		$('#hint1').css("top", '100%')
 		$('#hint2').css("top", '200%');
 		$('#hint3').css("top", '300%');

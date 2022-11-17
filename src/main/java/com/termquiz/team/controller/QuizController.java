@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.termquiz.team.service.QuizService;
 import com.termquiz.team.vo.MovieQuizVO;
+import com.termquiz.team.vo.MusicQuizVO;
 import com.termquiz.team.vo.QuizVO;
 
 /**
@@ -47,7 +48,20 @@ public class QuizController {
 	}
 
 	@RequestMapping(value = "/musicquiz")
-	public ModelAndView musicquiz(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+	public ModelAndView musicquiz(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			MusicQuizVO vo) {
+		String login = (String) request.getSession().getAttribute("nick");
+
+		List<MusicQuizVO> list = new ArrayList<MusicQuizVO>();
+
+		if (login != null) {
+			vo.setMusicqId(login);
+			list = service.musicLoginQuizList(vo);
+		} else {
+			list = service.musicQuizList(vo);
+		}
+
+		mv.addObject("musicq", list);
 		mv.setViewName("/quiz/musicQuizList");
 		return mv;
 	}
@@ -71,6 +85,17 @@ public class QuizController {
 			vo.setHint5(vo2.getMovieqHint5());
 			mv.addObject("quiz", vo);
 		} else if (type == "music" || "music".equals(type)) {
+			MusicQuizVO vo2 = new MusicQuizVO();
+			vo2.setMusicqNo(qno);
+			vo2 = service.musicQuizDetail(vo2);
+			
+			vo.setAnswer(vo2.getMusicqAnswer());
+			vo.setHint1(vo2.getMusicqHint1());
+			vo.setHint2(vo2.getMusicqHint2());
+			vo.setHint3(vo2.getMusicqHint3());
+			vo.setHint4(vo2.getMusicqHint4());
+			vo.setHint5(vo2.getMusicqHint5());
+			mv.addObject("quiz", vo);
 		} else {
 		}
 
@@ -97,6 +122,17 @@ public class QuizController {
 			vo.setHint5(vo2.getMovieqHint5());
 			mv.addObject("quiz", vo);
 		} else if (type == "music" || "music".equals(type)) {
+			MusicQuizVO vo2 = new MusicQuizVO();
+			vo2.setMusicqNo(qno);
+			vo2 = service.musicQuizDetail(vo2);
+
+			vo.setAnswer(vo2.getMusicqAnswer());
+			vo.setHint1(vo2.getMusicqHint1());
+			vo.setHint2(vo2.getMusicqHint2());
+			vo.setHint3(vo2.getMusicqHint3());
+			vo.setHint4(vo2.getMusicqHint4());
+			vo.setHint5(vo2.getMusicqHint5());
+			mv.addObject("quiz", vo);
 		} else {
 		}
 
@@ -122,7 +158,10 @@ public class QuizController {
 			if (service.movieMaxNo() > 0) {
 				quizNo = service.movieMaxNo() + 1;
 			}
-		} else if (type == "music") {
+		} else if ("music".equals(type)) {
+			if (service.musicMaxNo() > 0) {
+				quizNo = service.musicMaxNo() + 1;
+			}
 		}
 
 		String hintPath = type + quizNo;
@@ -170,9 +209,9 @@ public class QuizController {
 		if (type == "movie" || "movie".equals(type)) {
 			if (service.movieQuizInsert(vo) > 0) {
 			}
-		} else {
-//			MusicQuizVO vo2 = service.musicQuizInsert(vo);
-//			mv.addObject("quiz", vo2);
+		} else if (type == "music" || "music".equals(type)) {
+			if (service.musicQuizInsert(vo) > 0) {
+			}
 		}
 
 		mv.setViewName("redirect:home");
@@ -190,7 +229,7 @@ public class QuizController {
 		if (!correct) {
 			score = 1;
 		}
-
+		
 		if ("movie".equals(type)) {
 			MovieQuizVO vo = new MovieQuizVO();
 			vo.setMovieqId(id);
@@ -200,6 +239,16 @@ public class QuizController {
 				service.movieScoreUpdate(vo);
 			} else {
 				service.movieScoreInsert(vo);
+			}
+		}else if("music".equals(type)) {
+			MusicQuizVO vo = new MusicQuizVO();
+			vo.setMusicqId(id);
+			vo.setMusicqNo(quizNo);
+			vo.setScore(score);
+			if (service.musicScore(vo) > 0) {
+				service.musicScoreUpdate(vo);
+			} else {
+				service.musicScoreInsert(vo);
 			}
 		}
 		mv.setViewName("home");
