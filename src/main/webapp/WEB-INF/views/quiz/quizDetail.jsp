@@ -53,13 +53,12 @@
         
 		<main>
 			<section id="startPage" class="quizDetail">	
-				
-				<button class="btn btn-primary btn-m" id="startBtn">Start</button>
+				<button class="btn btn-primary btn-m answerStart" id="startBtn">Start</button>
 			</section>
 			
 			<section id="hint1" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint1" src="${quiz.movieqHint1}">
+					<img alt="hint1" src="${quiz.hint1}">
 				</div>
 				
 				<form action="quizanswer?score=10" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -70,7 +69,7 @@
 
 			<section id="hint2" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint2" src="${quiz.movieqHint2}">
+					<img alt="hint2" src="${quiz.hint2}">
 				</div>
 				
 				<form action="quizanswer?score=7" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -81,7 +80,7 @@
 
 			<section id="hint3" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint3" src="${quiz.movieqHint3}">
+					<img alt="hint3" src="${quiz.hint3}">
 				</div>
 				
 				<form action="quizanswer?score=5" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -93,7 +92,7 @@
 			<section id="hint4" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<audio id="movieBgm" controls="controls">
-						<source src="${quiz.movieqHint4}">
+						<source src="${quiz.hint4}">
 					</audio>
 				</div>
 			
@@ -105,7 +104,7 @@
 
 			<section id="hint5" class="quizDetail hiddenBtn">
 				<div class="hintBox">
-					<img alt="hint5" src="${quiz.movieqHint5}">
+					<img alt="hint5" src="${quiz.hint5}">
 				</div>
 				 
 				<form action="quizanswer?score=2" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -116,18 +115,20 @@
 			
 			<section id="answer" class="quizDetail hiddenBtn"> 
 				<div class="answerBox">
-					<p id="${quiz.movieqNo}">${quiz.movieqAnswer}</p>
+					<p id="correctBox">정답은?</p>
+					<p id="correctAnswer">${quiz.answer}</p>
 				</div>		
 				
 				<button type="button" id="endBtn" class="btn btn-primary btn-m endBtn hiddenBox" >List</button>
 			</section>
 			
 			<div class="moveBox hiddenBox">
-				<div class="innerBox h1Box hiddenBox">1</div>				
-				<div class="innerBox h2Box hiddenBox">2</div>				
-				<div class="innerBox h3Box hiddenBox">3</div>				
-				<div class="innerBox h4Box hiddenBox">4</div>				
-				<div class="innerBox h5Box hiddenBox">5</div>				
+				<a href="#hint1" class="innerBox h1Box hiddenBox">1</a>				
+				<a href="#hint2" class="innerBox h2Box hiddenBox">2</a>				
+				<a href="#hint3" class="innerBox h3Box hiddenBox">3</a>				
+				<a href="#hint4" class="innerBox h4Box hiddenBox">4</a>				
+				<a href="#hint5" class="innerBox h5Box hiddenBox">5</a>				
+				<a href="#answer" class="innerBox aBox hiddenBox">A</a>			
 			</div>
 		</main>        
         

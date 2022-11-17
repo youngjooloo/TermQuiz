@@ -31,9 +31,21 @@
 		where movieqNo = #{movieqNo} 
 	</select>
 	
+	<select id="movieScore" resultType="int">
+		select count(score) from movies
+		where movieqNo=#{movieqNo} and movieqId=#{movieqId}
+	</select>
+	
 	<insert id="movieScoreInsert">
 		insert into
-		movies(MovieqNo,MovieqId,score)
-		values(#{MovieqNo},#{MovieqId},#{score})
+		movies(movieqNo,movieqId,score)
+		values(#{movieqNo},#{movieqId},#{score})
 	</insert>
+	
+	<update id="movieScoreUpdate">
+		update movies
+		set score = #{score}
+		where movieqNo = #{movieqNo} and movieqId = #{movieqId}
+	</update>
+	
 </mapper>

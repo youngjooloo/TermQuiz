@@ -15,5 +15,9 @@ public interface QuizMapper {
 	
 	MovieQuizVO movieQuizDetail(MovieQuizVO vo);
 	
+	int movieScore(MovieQuizVO vo);
+
 	int movieScoreInsert(MovieQuizVO vo);
+
+	int movieScoreUpdate(MovieQuizVO vo);
 }
