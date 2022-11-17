@@ -65,7 +65,7 @@ public class BoardController {
 				uri = "/board/boardUpdate";
 			}
 			mv.addObject("board", vo);
-
+			
 			cvo.setBno(vo.getBno());
 
 			List<BoardCommentsVO> cvoList = new ArrayList<BoardCommentsVO>();

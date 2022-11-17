@@ -88,19 +88,80 @@
 				<tr>
 					<th scope="col" class="quizNo">No</th>
 					<th scope="col" class="quizHint">Hint</th>
-					<th scope="col" class="quizSolve">Solve</th>
+					<th scope="col" class="quizSolve">Score</th>
 					<th scope="col" class="quizStart">Start</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="quizRow" id="1">
-					<th scope="row" class="quizNo">1</th>
-					<td class="quizHint">Mark</td>
-					<td class="quizSolve">Solved</td>
-					<td class="quizStart">
-						<button type="button" class="btn btn-primary btn-m">Start</button>
-					</td>
-				</tr>
+				<c:forEach var="music" items="${musicq}">
+					<tr class="quizRow">
+						<th scope="row" class="quizNo">No.${music.movieqNo}</th>
+						<td class="quizHint">
+							<div class="hintDiv">
+								<c:if test="${music.score == 0}">
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+									<div class="hintBox wBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 10}">
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 7}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 5}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 3}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 2}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox bBox"></div>							
+								</c:if>
+								<c:if test="${music.score == 1}">
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+									<div class="hintBox rBox"></div>							
+								</c:if>
+							</div>
+						</td>
+						<td class="quizSolve">
+							${music.score}
+						</td>
+						<td class="quizStart">
+							<c:if test="${music.score == 0}">
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&qNo=${movie.movieqNo}'">Start</button>
+							</c:if>
+							<c:if test="${music.score != 0}">
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizafter?type=movie&qNo=${movie.movieqNo}'">Answer</button>
+							</c:if>							
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</section>
@@ -117,5 +178,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
+	<script src="resources/quiz/js/quizList.js"></script>
 </body>
 </html>

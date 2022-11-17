@@ -58,7 +58,10 @@
 			
 			<section id="hint1" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint1" src="${quiz.hint1}">
+					<img class="hintImg hiddenBtn" alt="hint1" src="${quiz.hint1}">
+					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+						<source src="${quiz.hint1}">
+					</audio>
 				</div>
 				
 				<form action="quizanswer?score=10" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -69,7 +72,10 @@
 
 			<section id="hint2" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint2" src="${quiz.hint2}">
+					<img class="hintImg hiddenBtn" alt="hint2" src="${quiz.hint2}">
+					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+						<source src="${quiz.hint2}">
+					</audio>
 				</div>
 				
 				<form action="quizanswer?score=7" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -80,7 +86,10 @@
 
 			<section id="hint3" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<img alt="hint3" src="${quiz.hint3}">
+					<img class="hintImg hiddenBtn" alt="hint3" src="${quiz.hint3}">
+					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+						<source src="${quiz.hint3}">
+					</audio>
 				</div>
 				
 				<form action="quizanswer?score=5" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -91,7 +100,8 @@
 
 			<section id="hint4" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
-					<audio id="movieBgm" controls="controls">
+					<img class="hintImg hiddenBtn" alt="hint4" src="${quiz.hint4}">
+					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint4}">
 					</audio>
 				</div>
@@ -104,7 +114,10 @@
 
 			<section id="hint5" class="quizDetail hiddenBtn">
 				<div class="hintBox">
-					<img alt="hint5" src="${quiz.hint5}">
+					<img class="hintImg hiddenBtn" alt="hint5" src="${quiz.hint5}">
+					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+						<source src="${quiz.hint5}">
+					</audio>
 				</div>
 				 
 				<form action="quizanswer?score=2" class="answerForm hiddenBtn" onsubmit="return false;">
@@ -138,20 +151,55 @@
         <script src="resources/home/js/main.js"></script>
         <script src="resources/quiz/js/quizDetail.js"></script>
         
-        <c:if test="${empty nick}">
+		<c:if test="${empty nick}">
         	<script type="text/javascript">
-        		$(".hintBtn").click(function(){
-	        		justAnswer(this)
+        		$(".hintBtn").click(function(e){
+        			let answerSubmit = $(e).prev().val();
+        			if (answerSubmit.length>0) {
+	        			justAnswer(this)
+					}
         		});
         	</script>
         </c:if>
         <c:if test="${not empty nick}">
         	<script type="text/javascript">
-        		$(".hintBtn").click(function(){
-	        		loginAnswer(this)
+        		$(".hintBtn").click(function(e){
+        			let answerSubmit = $(e).prev().val();
+        			if (answerSubmit.length>0) {
+    	    			loginAnswer(this)
+					}
         		});
         	</script>
         </c:if>
         
+        <script type="text/javascript">
+        	let inputType = ["${quiz.hint1}","${quiz.hint2}","${quiz.hint3}","${quiz.hint4}","${quiz.hint5}"];
+			for (var i = 0; i < inputType.length; i++) {
+				inputType[i] = inputType[i].split(".")[1];
+				inputType[i] = inputType[i].toLowerCase();
+				
+				let imgType = document.getElementsByClassName("hintImg");
+				let audioType = document.getElementsByClassName("hintAudio")
+				
+				switch (inputType[i]) {
+					case "img": 
+					case "jpg": 
+					case "jpeg": 
+					case "gif": 
+					case "png":
+						inputType[i] = "typeI"
+						break;
+					case "mp3":
+						inputType[i] = "typeA"
+						break;
+				}
+				
+				if (inputType[i] == "typeI") {
+					imgType[i].classList.remove("hiddenBtn");
+				}else if (inputType[i] == "typeA") {
+					audioType[i].classList.remove("hiddenBtn");
+				}
+			}    
+		</script>
     </body>
 </html>

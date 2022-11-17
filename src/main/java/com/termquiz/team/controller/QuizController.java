@@ -71,6 +71,10 @@ public class QuizController {
 			vo.setHint5(vo2.getMovieqHint5());
 			mv.addObject("quiz", vo);
 		} else if (type == "music" || "music".equals(type)) {
+			
+			
+			
+			
 		} else {
 		}
 
@@ -190,7 +194,7 @@ public class QuizController {
 		if (!correct) {
 			score = 1;
 		}
-
+		
 		if ("movie".equals(type)) {
 			MovieQuizVO vo = new MovieQuizVO();
 			vo.setMovieqId(id);
@@ -201,6 +205,8 @@ public class QuizController {
 			} else {
 				service.movieScoreInsert(vo);
 			}
+		}else if("music".equals(type)) {
+			
 		}
 		mv.setViewName("home");
 		return mv;
