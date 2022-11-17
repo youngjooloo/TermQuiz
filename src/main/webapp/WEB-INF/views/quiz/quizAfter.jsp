@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Quiz Detail</title>
+        <title>Quiz After</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -53,53 +53,58 @@
         
 		<main>
 			<section id="startPage" class="quizDetail">	
-				<button class="btn btn-primary btn-m" id="startBtn">Start</button>
 			</section>
 			
 			<section id="hint1" class="quizDetail"> 
-				<div>
-					<button type="button" id="next1Btn" class="btn btn-primary btn-m">Next</button>
+				<div class="hintBox">
+					<img alt="hint1" src="${quiz.hint1}">
 				</div>
 			</section>
 
 			<section id="hint2" class="quizDetail"> 
-				<div>
-					<button type="button" id="before2Btn" class="btn btn-primary btn-m">before</button>
-					<button type="button" id="next2Btn" class="btn btn-primary btn-m">Next</button>
+				<div class="hintBox">
+					<img alt="hint2" src="${quiz.hint2}">
 				</div>
 			</section>
 
 			<section id="hint3" class="quizDetail"> 
-				<div>
-					<button type="button" id="before3Btn" class="btn btn-primary btn-m">before</button>
-					<button type="button" id="next3Btn" class="btn btn-primary btn-m">Next</button>
+				<div class="hintBox">
+					<img alt="hint3" src="${quiz.hint3}">
 				</div>
 			</section>
 
 			<section id="hint4" class="quizDetail"> 
-				<div>
-					<button type="button" id="before4Btn" class="btn btn-primary btn-m">before</button>
-					<button type="button" id="next4Btn" class="btn btn-primary btn-m">Next</button>
+				<div class="hintBox">
+					<audio id="movieBgm" controls="controls">
+						<source src="${quiz.hint4}">
+					</audio>
 				</div>
 			</section>
 
-			<section id="hint5" class="quizDetail"> 
-				<div>
-					<button type="button" id="before5Btn" class="btn btn-primary btn-m">before</button>
-					<button type="button" id="next5Btn" class="btn btn-primary btn-m">Next</button>
+			<section id="hint5" class="quizDetail">
+				<div class="hintBox">
+					<img alt="hint5" src="${quiz.hint5}">
 				</div>
 			</section>
 			
 			<section id="answer" class="quizDetail"> 
-				<button type="button" id="endBtn" class="btn btn-primary btn-m endBtn" >List</button>
+				<div class="answerBox">
+					<p>정답은?</p>
+					<p>${quiz.answer}</p>
+				</div>			
 			</section>
 			
+			<div class="answerAfterBox hiddenBox">
+				<button type="button" id="listBtn" class="btn btn-primary btn-m endBtn" >List</button>
+			</div>
+			
 			<div class="moveBox hiddenBox">
-				<div class="innerBox h1Box hiddenBox">1</div>				
-				<div class="innerBox h2Box hiddenBox">2</div>				
-				<div class="innerBox h3Box hiddenBox">3</div>				
-				<div class="innerBox h4Box hiddenBox">4</div>				
-				<div class="innerBox h5Box hiddenBox">5</div>				
+				<a href="#hint1" class="innerBox h1Box hiddenBox">1</a>				
+				<a href="#hint2" class="innerBox h2Box hiddenBox">2</a>				
+				<a href="#hint3" class="innerBox h3Box hiddenBox">3</a>				
+				<a href="#hint4" class="innerBox h4Box hiddenBox">4</a>				
+				<a href="#hint5" class="innerBox h5Box hiddenBox">5</a>				
+				<a href="#answer" class="innerBox aBox hiddenBox">A</a>			
 			</div>
 		</main>        
         
@@ -108,5 +113,24 @@
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
         <script src="resources/quiz/js/quizDetail.js"></script>
+        <script src="resources/quiz/js/quizAfter.js"></script>
+        
+        <c:if test="${empty nick}">
+        	<script type="text/javascript">
+        		$(".hintBtn").click(function(){
+	        		justAnswer(this)
+        		});
+        	</script>
+        </c:if>
+        <c:if test="${not empty nick}">
+        	<script type="text/javascript">
+        		$(".hintBtn").click(function(){
+	        		loginAnswer(this)
+        		});
+        	</script>
+        </c:if>
+        
     </body>
 </html>
+
+

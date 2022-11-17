@@ -65,6 +65,8 @@ main{
 }
 
 .hintBox img{
+	min-width: 50%;
+	min-height: 50%;
 	max-width: 80%;
 	max-height: 80%;
 	position: absolute;
@@ -106,7 +108,6 @@ main{
 	visibility: hidden;
 }
 
-
 .moveBox{
 	position: fixed;
 	right: 0;
@@ -119,7 +120,7 @@ main{
 	border-radius: 10px;
 	transition: all 1s;
 	width: 50px;
-	height: 250px;
+	height: 300px;
 }
 
 .hiddenBox{
@@ -134,11 +135,56 @@ main{
 	background-color: black;
 	margin: 10px;
 	border-radius: 10px;
-	transition: all 3s;
+	transition: all 1s;
 	cursor: pointer;
 	color: white;
 	text-align: center;
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 30px;
+    text-decoration: none
 }
+a.innerBox:hover{
+	color:#999999;
+}
+
+.aBox{
+	background-color: #0033bb;
+}
+
+.answerAfterBox{
+	position:fixed;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%,-100%);
+	display: flex;
+	z-index: 6;
+}
+
+.answerAfterBox button{
+	margin: 0 10px;
+	width: 100px;	
+}
+
+
+.answerBox{
+	width:100%;
+	height:80%;
+	background: url("../img/answerBoard.png") no-repeat center/cover;	
+	display: flex;
+	flex-direction: column;
+	justify-content: center
+}
+
+.answerBox p {
+	text-align: center;
+}
+
+.answerBox p:first-child {
+	font-size: max(15px, 4vw);
+}
+.answerBox p:last-child {
+	font-weight: bold;
+	font-size: max(15px, 7vw);
+}
+

@@ -39,7 +39,6 @@ public class QuizServiceImpl implements QuizService {
 		vo2.setMovieqHint4(vo.getHint4());
 		vo2.setMovieqHint5(vo.getHint5());
 		
-		System.out.println(vo2);
 		return mapper.movieQuizInsert(vo2);
 	}
 	
@@ -49,7 +48,18 @@ public class QuizServiceImpl implements QuizService {
 	}
 	
 	@Override
+	public int movieScore(MovieQuizVO vo) {
+		return mapper.movieScore(vo);
+	}
+	
+	@Override
 	public int movieScoreInsert(MovieQuizVO vo) {
 		return mapper.movieScoreInsert(vo);
 	}
+	
+	@Override
+	public int movieScoreUpdate(MovieQuizVO vo) {
+		return mapper.movieScoreUpdate(vo);
+	}
+
 }
