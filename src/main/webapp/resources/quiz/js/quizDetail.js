@@ -23,6 +23,7 @@ $(function() {
 		$('#hint1').css("top", '100%');
 		$('#hint1').removeClass('hiddenBtn');
 		$('.h1Box').removeClass('hiddenBox');
+		audioOn(1);
 		location.href = '#hint1';
 	});
 
@@ -43,10 +44,12 @@ $(function() {
 		}
 	});
 	
-	$('.h4Box').click(function(){
-		$('#movieBgm').trigger('play');
+	$('.innerBox').click(function(){
+		let playNo = $(this).html();
+		playNo *= 1;
+		audioOn(playNo);
 	});
-	
+
 });
 
 
@@ -61,40 +64,38 @@ function justAnswer(e) {
 }
 
 function loginAnswer(e) {
-	let answer =(($(e).prev().val()).toLowerCase()).replaceAll(" ","");
-	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ","");
+	let answer = (($(e).prev().val()).toLowerCase()).replaceAll(" ", "");
+	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ", "");
 	const correct = quizAnswer.includes(answer);
 	if (correct) {
 		trueAnswer();
-	}else{
+	} else {
 		falseAnswer(e);
 	}
-	anwerSubmit(e,correct)
+	anwerSubmit(e, correct)
 }
 
-function anwerSubmit(e,correct) {
+function anwerSubmit(e, correct) {
 	const urlStr = window.location.href;
 	const url = new URL(urlStr);
 	const urlParams = url.searchParams;
 	const type = urlParams.get('type');
 	const no = urlParams.get('qNo');
 	const formAction = $(e).parent().attr("action");
-	
+
 	const params = {
-		quizType : type,
-		quizNo : no,
-		quizCorrect : correct
+		quizType: type,
+		quizNo: no,
+		quizCorrect: correct
 	};
-	
+
 	$.ajax({
-		tpye : "POST",
-		url : formAction,
-		data : params,
-		success : function(){
-			console.log('success');
+		tpye: "POST",
+		url: formAction,
+		data: params,
+		success: function() {
 		},
-		error : function(){
-			console.log('false');
+		error: function() {
 		}
 	});
 }
@@ -122,6 +123,7 @@ function falseAnswer(e) {
 			$('.h2Box').removeClass('hiddenBox');
 			$('#hint2').css("top", '200%');
 			$('#hint2').removeClass('hiddenBtn');
+			audioOn(2);
 			location.href = '#hint2'
 			break;
 		case 'hint2Btn':
@@ -129,6 +131,7 @@ function falseAnswer(e) {
 			$('.h3Box').removeClass('hiddenBox');
 			$('#hint3').css("top", '300%');
 			$('#hint3').removeClass('hiddenBtn');
+			audioOn(3);
 			location.href = '#hint3'
 			break;
 		case 'hint3Btn':
@@ -136,7 +139,7 @@ function falseAnswer(e) {
 			$('.h4Box').removeClass('hiddenBox');
 			$('#hint4').css("top", '400%');
 			$('#hint4').removeClass('hiddenBtn');
-			$('#movieBgm').trigger('play');
+			audioOn(4);
 			location.href = '#hint4'
 			break;
 		case 'hint4Btn':
@@ -144,6 +147,7 @@ function falseAnswer(e) {
 			$('.h5Box').removeClass('hiddenBox');
 			$('#hint5').css("top", '500%');
 			$('#hint5').removeClass('hiddenBtn');
+			audioOn(5);
 			location.href = '#hint5'
 			break;
 		default:
@@ -155,4 +159,45 @@ function falseAnswer(e) {
 			break;
 	}
 }
+
+function audioOn(no) {
+	audioOff()
+	
+	let audio;
+	
+	switch (no) {
+		case 1:
+			audio = $('#hintAudio1');
+			break;
+		case 2:
+			audio = $('#hintAudio2');
+			break;
+		case 3:
+			audio = $('#hintAudio3');
+			break;
+		case 4: 
+			audio = $('#hintAudio4');
+			break;
+		case 5:
+			audio = $('#hintAudio5');
+			break;
+		default :
+			break;
+	};
+	
+	if(!$(audio).hasClass("hiddenBtn")){
+		$(audio).trigger('play');
+	}
+}
+function audioOff(){
+	let audioNo = [$('#hintAudio1'),$('#hintAudio2'),$('#hintAudio3'),$('#hintAudio4'),$('#hintAudio5')];
+	
+	for(var i = 0; i < audioNo.length; ++i ){
+		let check = $(audioNo[i]).get(0).paused;
+		if(!check){
+			$(audioNo[i]).trigger('pause');
+		}
+	}
+}
+
 

@@ -7,11 +7,17 @@ $(function(){
 		let labels = $('label').get();
 		if(this.value == "movie"){
 			console.log("t");
-			labels[0].innerText = "Hint1 - Scene";
-			labels[1].innerText = "Hint2 - Cast";
-			labels[2].innerText = "Hint3 - Line";
-			labels[3].innerText = "Hint4 - BGM";
-			labels[4].innerText = "Hint5 - Poster";
+			labels[0].innerText = "Hint1 ex) Scene";
+			labels[1].innerText = "Hint2 ex) Cast";
+			labels[2].innerText = "Hint3 ex) Line";
+			labels[3].innerText = "Hint4 ex) BGM";
+			labels[4].innerText = "Hint5 ex) Poster";
+		}else if(this.value == "music"){
+			labels[0].innerText = "Hint1 ex) Intro";
+			labels[1].innerText = "Hint2 ex) Music Video Scene";
+			labels[2].innerText = "Hint3 ex) Info";
+			labels[3].innerText = "Hint4 ex) lyrics";
+			labels[4].innerText = "Hint5 ex) Singer";
 		}else{
 			labels[0].innerText = "Hint1";
 			labels[1].innerText = "Hint2";

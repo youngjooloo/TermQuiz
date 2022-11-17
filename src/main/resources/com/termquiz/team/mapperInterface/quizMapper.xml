@@ -15,7 +15,7 @@
 		ms.movieqId = #{movieqId}
 	</select>
 	
-	<select id="movieMaxNo" resultType="int">
+	<select id="movieMaxNo" resultType="Integer">
 		select max(movieqNo) from movieq
 	</select>
 	
@@ -46,6 +46,50 @@
 		update movies
 		set score = #{score}
 		where movieqNo = #{movieqNo} and movieqId = #{movieqId}
+	</update>
+	
+	<select id="musicQuizList" resultType="com.termquiz.team.vo.MusicQuizVO">
+		select musicqNo from musicq
+	</select>
+	
+	<select id="musicLoginQuizList" resultType="com.termquiz.team.vo.MusicQuizVO">
+		select mq.musicqNo, ms.musicqId, ms.score
+		FROM musicq as mq left join musics as ms
+		on mq.musicqNo = ms.musicqNo and 
+		ms.musicqId = #{musicqId}
+	</select>
+	
+	<select id="musicMaxNo" resultType="Integer">
+		select max(musicqNo) from musicq
+	</select>
+	
+	<insert id="musicQuizInsert">
+		insert into 
+		musicq(musicqAnswer,musicqHint1,musicqHint2,musicqHint3,musicqHint4,musicqHint5)
+		values(#{musicqAnswer},#{musicqHint1},#{musicqHint2},#{musicqHint3},#{musicqHint4},#{musicqHint5})
+	</insert>
+	
+	<select id="musicQuizDetail" resultType="com.termquiz.team.vo.MusicQuizVO">
+		select musicqNo, musicqAnswer, musicqHint1, musicqHint2, musicqHint3, musicqHint4, musicqHint5
+		from musicq
+		where musicqNo = #{musicqNo} 
+	</select>
+	
+	<select id="musicScore" resultType="int">
+		select count(score) from musics
+		where musicqNo=#{musicqNo} and musicqId=#{musicqId}
+	</select>
+	
+	<insert id="musicScoreInsert">
+		insert into
+		musics(musicqNo,musicqId,score)
+		values(#{musicqNo},#{musicqId},#{score})
+	</insert>
+	
+	<update id="musicScoreUpdate">
+		update musics
+		set score = #{score}
+		where musicqNo = #{musicqNo} and musicqId = #{mqId}
 	</update>
 	
 </mapper>

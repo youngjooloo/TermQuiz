@@ -57,7 +57,7 @@
 			<section id="hint1" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img class="hintImg hiddenBtn" alt="hint1" src="${quiz.hint1}">
-					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+					<audio id="hintAudio1" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint1}">
 					</audio>
 				</div>
@@ -66,7 +66,7 @@
 			<section id="hint2" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img class="hintImg hiddenBtn" alt="hint2" src="${quiz.hint2}">
-					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+					<audio id="hintAudio2" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint2}">
 					</audio>
 				</div>
@@ -75,7 +75,7 @@
 			<section id="hint3" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img class="hintImg hiddenBtn" alt="hint3" src="${quiz.hint3}">
-					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+					<audio id="hintAudio3" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint3}">
 					</audio>
 				</div>
@@ -84,7 +84,7 @@
 			<section id="hint4" class="quizDetail hiddenBtn"> 
 				<div class="hintBox">
 					<img class="hintImg hiddenBtn" alt="hint4" src="${quiz.hint4}">
-					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+					<audio id="hintAudio4" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint4}">
 					</audio>
 				</div>
@@ -93,7 +93,7 @@
 			<section id="hint5" class="quizDetail hiddenBtn">
 				<div class="hintBox">
 					<img class="hintImg hiddenBtn" alt="hint5" src="${quiz.hint5}">
-					<audio id="movieBgm" class="hintAudio hiddenBtn" controls="controls">
+					<audio id="hintAudio5" class="hintAudio hiddenBtn" controls="controls">
 						<source src="${quiz.hint5}">
 					</audio>
 				</div>

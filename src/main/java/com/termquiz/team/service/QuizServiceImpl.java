@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.termquiz.team.mapperInterface.QuizMapper;
 import com.termquiz.team.vo.MovieQuizVO;
+import com.termquiz.team.vo.MusicQuizVO;
 import com.termquiz.team.vo.QuizVO;
 
 @Service
@@ -26,7 +27,11 @@ public class QuizServiceImpl implements QuizService {
 	
 	@Override
 	public int movieMaxNo() {
-		return mapper.movieMaxNo();
+		Integer no = mapper.movieMaxNo();
+		if (no != null) {
+			return no.intValue();
+		}
+		return 0;
 	}
 	
 	@Override
@@ -60,6 +65,58 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public int movieScoreUpdate(MovieQuizVO vo) {
 		return mapper.movieScoreUpdate(vo);
+	}
+	
+	@Override
+	public List<MusicQuizVO> musicQuizList(MusicQuizVO vo) {
+		return mapper.musicQuizList(vo);
+	}
+	
+	@Override
+	public List<MusicQuizVO> musicLoginQuizList(MusicQuizVO vo) {
+		return mapper.musicLoginQuizList(vo);
+	}
+	
+	@Override
+	public int musicMaxNo() {
+		Integer no = mapper.musicMaxNo();
+		if (no != null) {
+			return no.intValue();
+		}
+		return 0;
+	}
+	
+	@Override
+	public int musicQuizInsert(QuizVO vo) {
+		MusicQuizVO vo2 = new MusicQuizVO();
+		vo2.setMusicqAnswer(vo.getAnswer());
+		vo2.setMusicqHint1(vo.getHint1());
+		vo2.setMusicqHint2(vo.getHint2());
+		vo2.setMusicqHint3(vo.getHint3());
+		vo2.setMusicqHint4(vo.getHint4());
+		vo2.setMusicqHint5(vo.getHint5());
+		
+		return mapper.musicQuizInsert(vo2);
+	}
+	
+	@Override
+	public MusicQuizVO musicQuizDetail(MusicQuizVO vo) {
+		return mapper.musicQuizDetail(vo);
+	}
+	
+	@Override
+	public int musicScore(MusicQuizVO vo) {
+		return mapper.musicScore(vo);
+	}
+	
+	@Override
+	public int musicScoreInsert(MusicQuizVO vo) {
+		return mapper.musicScoreInsert(vo);
+	}
+	
+	@Override
+	public int musicScoreUpdate(MusicQuizVO vo) {
+		return mapper.musicScoreUpdate(vo);
 	}
 
 }

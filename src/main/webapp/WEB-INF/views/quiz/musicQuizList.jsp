@@ -95,7 +95,7 @@
 			<tbody>
 				<c:forEach var="music" items="${musicq}">
 					<tr class="quizRow">
-						<th scope="row" class="quizNo">No.${music.movieqNo}</th>
+						<th scope="row" class="quizNo">No.${music.musicqNo}</th>
 						<td class="quizHint">
 							<div class="hintDiv">
 								<c:if test="${music.score == 0}">
@@ -154,10 +154,10 @@
 						</td>
 						<td class="quizStart">
 							<c:if test="${music.score == 0}">
-								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=movie&qNo=${movie.movieqNo}'">Start</button>
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizdetail?type=music&qNo=${music.musicqNo}'">Start</button>
 							</c:if>
 							<c:if test="${music.score != 0}">
-								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizafter?type=movie&qNo=${movie.movieqNo}'">Answer</button>
+								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizafter?type=music&qNo=${music.musicqNo}'">Answer</button>
 							</c:if>							
 						</td>
 					</tr>
