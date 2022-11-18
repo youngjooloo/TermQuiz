@@ -26,6 +26,37 @@
     <select id="nicknameCheck" parameterType="com.termquiz.team.vo.MemberVO" resultType="int">
     	select count(*) from member where nickname=#{nickname}
     </select>
+	
+	<update id="movieScoreUpdate">
+		update member
+		inner join (select movieqId, sum(score)	mvs from movies group by movieqId)
+		as mv set movieScore = mv.mvs
+		where movieqId = nickname
+	</update>
 
+	<update id="musicScoreUpdate">
+		update member
+		inner join (select musicqId, sum(score)	mss from musics group by musicqId)
+		as ms set musicScore = ms.mss
+		where musicqId = nickname
+	</update>
+
+	<update id="totalScoreUpdate">
+		update member
+		set totalScore = movieScore+musicScore
+	</update>
+
+	<select id="selectList"
+		resultType="com.termquiz.team.vo.MemberVO">
+		select email, nickname, name, phoneNumber, scNumF, scNumL,
+		totalScore, movieScore, musicScore, adminRight 
+		from member 
+		order by adminRight desc
+	</select>
+
+	<select id="rankingSort" resultType="com.termquiz.team.vo.MemberVO">
+		select nickname,movieScore,musicScore,totalScore from member
+		order by #{cname} #{adType}
+	</select>
 
 </mapper>

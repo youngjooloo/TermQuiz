@@ -1,5 +1,7 @@
 package com.termquiz.team.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,23 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int nicknameCheck(MemberVO vo) {
 		return dao.nicknameCheck(vo);
+	}
+	
+	@Override
+	public List<MemberVO> selectList() {
+		return dao.selectList();
+	}
+	
+	@Override
+	public void scoreUpdate(MemberVO vo) {
+		dao.movieScoreUpdate(vo);
+		dao.musicScoreUpdate(vo);
+		dao.totalScoreUpdate(vo);
+	}
+	
+	@Override
+	public List<MemberVO> rankingSort(MemberVO vo) {
+		return dao.rankingSort(vo);
 	}
 
 }

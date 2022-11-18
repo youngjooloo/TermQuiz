@@ -1,5 +1,8 @@
 package com.termquiz.team.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,36 +28,35 @@ public class MemberController {
 
 	@RequestMapping(value = "/mloginf")
 	public ModelAndView mloginf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-		String thisUrl =  request.getParameter("thisUrl");
+		String thisUrl = request.getParameter("thisUrl");
 		mv.addObject("thisUrl", thisUrl);
-		
+
 		mv.setViewName("member/login");
 		return mv;
 	}
 
 	@RequestMapping(value = "/mlogin", method = RequestMethod.POST)
-	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, 
-			ModelAndView mv, MemberVO vo) {
+	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
 
 //      request 처리
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String thisUrl = request.getParameter("thisUrl");
-		thisUrl = thisUrl.split("/")[thisUrl.split("/").length-1];
+		thisUrl = thisUrl.split("/")[thisUrl.split("/").length - 1];
 		String url = "home";
-		
+
 		if (thisUrl == "team" || "team".endsWith(thisUrl)) {
 			thisUrl = "home";
 		}
-		
-		if(!thisUrl.contains("relogin")) {
+
+		if (!thisUrl.contains("relogin")) {
 			if (thisUrl.contains("?")) {
-				url = "redirect:"+thisUrl+"&relogin=1";
-			}else {
-				url = "redirect:"+thisUrl+"?relogin=1";
+				url = "redirect:" + thisUrl + "&relogin=1";
+			} else {
+				url = "redirect:" + thisUrl + "?relogin=1";
 			}
 		}
-		
+
 //      service 처리
 		vo.setEmail(email);
 		vo = service.selectOne(vo);
@@ -65,7 +67,7 @@ public class MemberController {
 				request.getSession().setAttribute("loginPW", password);
 				request.getSession().setAttribute("nick", vo.getNickname());
 				request.getSession().setAttribute("admin", vo.isAdminRight());
-				url = "redirect:"+thisUrl;
+				url = "redirect:" + thisUrl;
 			}
 		}
 
@@ -137,7 +139,7 @@ public class MemberController {
 			// ** Update 요청이면 updateForm.jsp 로
 			if ("U".equals(request.getParameter("jCode")))
 				uri = "/member/updateForm";
-		} 
+		}
 		mv.setViewName(uri);
 		return mv;
 	} // mdetail
@@ -147,17 +149,17 @@ public class MemberController {
 			MemberVO vo) {
 
 		String uri = "/member/mDetail";
-		
+
 		MemberVO vo2 = new MemberVO();
 		vo2.setEmail(vo.getEmail());
 		vo2 = service.selectOne(vo2);
 		vo.setPassword(vo2.getPassword());
-		
+
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
 			mv.addObject("user", vo);
 			uri = "redirect:mdetail";
-		} 
+		}
 
 		mv.setViewName(uri);
 		return mv;
@@ -195,14 +197,14 @@ public class MemberController {
 
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/ranking")
 	public ModelAndView ranking(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
 		mv.setViewName("member/ranking");
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/memberlist")
 	public ModelAndView memberlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 
@@ -210,6 +212,58 @@ public class MemberController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/rankingajax")
+	public ModelAndView rankingajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			MemberVO vo) {
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		service.scoreUpdate(vo);
+		String cname = (String)request.getParameter("cname");
+		String adType = (String)request.getParameter("adType");
+		
+		
+		if (cname != null) {
+			vo.setCname(cname+"Score");
+		} else {
+			vo.setCname("totalScore");
+		}
 
-	
+		if (adType != null) {
+			vo.setAdType(adType);
+		} else {
+			vo.setAdType("desc");
+		}
+
+		list = service.rankingSort(vo);
+
+		if (list != null) {
+			mv.addObject("member", list);
+			mv.setViewName("member/rankingAjax");
+		}else {
+			mv.setViewName("home");
+		}
+		System.out.println(list);
+		
+
+		return mv;
+	}
+
+	@RequestMapping(value = "/memberlistajax")
+	public ModelAndView memberlistajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			MemberVO vo) {
+
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		service.scoreUpdate(vo);
+		list = service.selectList();
+
+		if (list != null) {
+			mv.addObject("member", list);
+			mv.setViewName("member/memberlistAjax");
+		}else {
+			mv.setViewName("home");
+		}
+
+		return mv;
+
+	}
+
 }

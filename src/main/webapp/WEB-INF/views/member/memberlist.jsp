@@ -9,17 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Member List</title>
 
-<link rel="icon" type="image/x-icon"
-	href="resources/home/assets/favicon.ico" />
-
-<!-- Font Icon -->
-<link rel="stylesheet"
-	href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-<!-- Main css -->
-<link rel="stylesheet" href="resources/home/css/main.css">
-<link rel="stylesheet" href="resources/home/css/styles.css">
-<link rel="stylesheet" href="resources/join/css/style.css">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="resources/home/assets/favicon.ico" />
+<!-- Bootstrap Icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+<!-- SimpleLightbox plugin CSS-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="resources/home/css/styles.css" rel="stylesheet" />
+<link href="resources/home/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -58,7 +59,9 @@
 	</div>
 
 	<!-- JS -->
-	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
-	<script src="resources/join/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/home/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/home/js/scripts.js"></script>
+    <script src="resources/home/js/main.js"></script>
 </body>
 </html>
