@@ -23,8 +23,6 @@
         <link href="resources/home/css/main.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-    	<div id="mainlogin" class="mlhidden mlcheck"></div>
-		<div id="mainlogin2" class="mlhidden"></div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -34,9 +32,13 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     	
                     	<c:if test="${admin}">
+	                        <li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
 	                        <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
                     	</c:if>
-                    
+                    	
+                    	<c:if test="${!admin }">
+	                        <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    	</c:if>
                         <li class="nav-item"><a class="nav-link" href="#about">Quiz</a></li>
                         <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
                         <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
@@ -125,16 +127,19 @@
         
         
 		
-      <div id="afterJoin" class="ajhidden">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
-              <h2 class="fw-bold mb-2 text-uppercase">Success</h2>
-              <p class="text-white-50 mb-5">Use after login</p>
-              <button class="btn btn-outline-light btn-lg px-5" type="button" id="ajBtn">Login</button>
-          </div>
-        </div>
-      </div>
-        
+	    <div id="afterJoin" class="ajhidden">
+	      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+	        <div class="card-body p-5 text-center">
+	            <h2 class="fw-bold mb-2 text-uppercase">Success</h2>
+	            <p class="text-white-50 mb-5">Use after login</p>
+	            <button class="btn btn-outline-light btn-lg px-5" type="button" id="ajBtn">Login</button>
+	        </div>
+	      </div>
+	    </div>
+	    
+	    <div id="mainlogin" class="mlhidden mlcheck"></div>
+		<div id="mainlogin2" class="mlhidden"></div>
+	        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>

@@ -21,17 +21,36 @@
 <link rel="stylesheet" href="resources/changePW/css/changePW.css">
 </head>
 <body>
-
-	<nav>
-		<a id="navHome" href="home#page-top">Term Quiz on a Bus</a>
-		<div id="navbarResponsive">
-			<a class="nav-link" href="home#about">Quiz</a> 
-			<a class="nav-link"	href="boardlist">Board</a> 
-			<a class="nav-link" href="qnaboardlist">QnA</a>
-			<a class="nav-link" href="mdetail">${nick}</a>
-	        <a class="nav-link" href="mlogout">Log Out</a>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand " href="home">Term Quiz on a Bus</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto my-2 my-lg-0">	
+					<c:if test="${admin}">
+	                	<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+                    </c:if>
+                    	
+                    <c:if test="${!admin }">
+	                     <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    </c:if>
+				
+					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
+					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
+					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
+	
 <div class="main" id="changeMain">
     <div class="container">
         <form action="mdetailup" method="POST" class="appointment-form" id="appointment-form">
