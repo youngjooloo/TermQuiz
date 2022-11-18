@@ -15,6 +15,7 @@
 	href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
+<link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 </head>
 <body>
@@ -35,7 +36,7 @@
 	                <li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 	                <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 	                <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-	                <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+	                <li class="nav-item"><a class="nav-link" href="home?relogin=1">LogIn</a></li>
 	            </ul>
 	        </div>
 	    </div>

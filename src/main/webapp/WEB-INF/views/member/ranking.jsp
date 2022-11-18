@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Change Password</title>
+<title>Ranking</title>
 
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -18,6 +18,7 @@
 
 <!-- Main css -->
 <link rel="stylesheet" href="resources/home/css/styles.css">
+<link rel="stylesheet" href="resources/home/css/main.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 <link rel="stylesheet" href="resources/changePW/css/changePW.css">
 </head>
@@ -45,38 +46,31 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+					<c:if test="${empty loginID}">
+	    	            <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+	                </c:if>
+	        
+	                <c:if test="${not empty loginID}">
+		                <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+		                <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+                   	</c:if>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	
-<div class="main" id="changeMain">
-    <div class="container">
-        <form action="mdetailup" method="POST" class="appointment-form" id="appointment-form">
-            <h2>Password Change</h2>
-            
-            <div class="form-group-1">
-  				
-  				<label for="password" class="label-agree-term">Current Password</label>          
-  				<input type="password" class="joininput" name="password" id="password" placeholder="Password (현재 비밀번호)" required onclick="this.value='';" autoComplete="off" />
-
-  				<label for="" class="label-agree-term">New Password</label>          
-  				<input type="password" class="joininput" name="newPassword" id="newPassword" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" />
-                <input type="password" class="joininput" id="newPassword2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
-            </div>
-            <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Modify</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
-            </div>
-        </form>
-    </div>
-
-</div>
-
+	<div class="main" id="changeMain">
+	    <div class="container">
+	    </div>
+	</div>
+	
+	
+	<div id="mainlogin" class="mlhidden mlcheck"></div>
+	<div id="mainlogin2" class="mlhidden"></div>
+	
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
+	<script src="resources/home/js/main.js"></script>
 	<script src="resources/join/js/main.js"></script>
 </body>
 </html>

@@ -17,6 +17,7 @@
 	href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
+<link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 </head>
 <body>
