@@ -37,8 +37,6 @@
 
 </head>
 <body id="page-top">
-	<div id="mainlogin" class="mlhidden mlcheck"></div>
-	<div id="mainlogin2" class="mlhidden"></div>
 	<!-- Navigation-->
 	<nav
 		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
@@ -53,6 +51,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
+					<c:if test="${admin}">
+	                	<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+                    </c:if>
+                    	
+                    <c:if test="${!admin }">
+	                     <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    </c:if>
+				
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
@@ -127,13 +134,17 @@
 			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
 	</article>
-
+	
 	<footer class="bg-light py-5">
 		<div class="container px-4 px-lg-5">
 			<div class="small text-center text-muted">Copyright &copy; 2022
 				- Company Name</div>
 		</div>
 	</footer>
+		
+	<div id="mainlogin" class="mlhidden mlcheck"></div>
+	<div id="mainlogin2" class="mlhidden"></div>
+	
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

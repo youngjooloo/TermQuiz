@@ -34,39 +34,39 @@
 <link href="resources/quiz/css/style.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-	<div id="mainlogin" class="mlhidden mlcheck"></div>
-	<div id="mainlogin2" class="mlhidden"></div>
 	<!-- Navigation-->
-	<nav
-		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
-		id="mainNav">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand " href="#page-top">Term Quiz on a Bus</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
-					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
-					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-
-					<c:if test="${empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="javascript:;"
-							id="loginB">LogIn</a></li>
-					</c:if>
-
-					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">My
-								Info</a></li>
-					</c:if>
-				</ul>
-			</div>
-		</div>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
+	    <div class="container px-4 px-lg-5">
+	        <a class="navbar-brand " href="home">Term Quiz on a Bus</a>
+	        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+	        <div class="collapse navbar-collapse" id="navbarResponsive">
+	            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+	            	
+	            	<c:if test="${admin}">
+	                    <li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+	            	</c:if>
+	            	
+	            	<c:if test="${!admin }">
+	                    <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+	            	</c:if>
+	                <li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
+	                <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
+	                <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+	
+	                <c:if test="${empty loginID}">
+	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+	                </c:if>
+	
+	                <c:if test="${not empty loginID}">
+	                    <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+	                </c:if>
+	            </ul>
+	        </div>
+	    </div>
 	</nav>
+
 
 	<header>
 		<div id="quizCategory">
@@ -172,6 +172,9 @@
 				- Company Name</div>
 		</div>
 	</footer>
+	
+	<div id="mainlogin" class="mlhidden mlcheck"></div>
+	<div id="mainlogin2" class="mlhidden"></div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -195,4 +195,21 @@ public class MemberController {
 
 		return mv;
 	}
+	
+	@RequestMapping(value = "/ranking")
+	public ModelAndView ranking(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+		mv.setViewName("member/ranking");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/memberlist")
+	public ModelAndView memberlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+
+		mv.setViewName("member/memberlist");
+		return mv;
+	}
+
+
+	
 }

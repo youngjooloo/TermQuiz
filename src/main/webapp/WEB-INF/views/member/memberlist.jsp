@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Change Password</title>
+<title>Member List</title>
 
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -17,9 +17,9 @@
 	href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
+<link rel="stylesheet" href="resources/home/css/main.css">
 <link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
-<link rel="stylesheet" href="resources/changePW/css/changePW.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -52,28 +52,10 @@
 		</div>
 	</nav>
 	
-<div class="main" id="changeMain">
-    <div class="container">
-        <form action="mdetailup" method="POST" class="appointment-form" id="appointment-form">
-            <h2>Password Change</h2>
-            
-            <div class="form-group-1">
-  				
-  				<label for="password" class="label-agree-term">Current Password</label>          
-  				<input type="password" class="joininput" name="password" id="password" placeholder="Password (현재 비밀번호)" required onclick="this.value='';" autoComplete="off" />
-
-  				<label for="" class="label-agree-term">New Password</label>          
-  				<input type="password" class="joininput" name="newPassword" id="newPassword" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" />
-                <input type="password" class="joininput" id="newPassword2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
-            </div>
-            <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Modify</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
-            </div>
-        </form>
-    </div>
-
-</div>
+	<div class="main" id="changeMain">
+    	<div class="container">
+   	 	</div>
+	</div>
 
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>

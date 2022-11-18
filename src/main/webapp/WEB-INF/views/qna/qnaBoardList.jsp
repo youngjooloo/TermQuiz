@@ -34,8 +34,6 @@
 <link href="resources/board/css/main.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-	<div id="mainlogin" class="mlhidden mlcheck"></div>
-	<div id="mainlogin2" class="mlhidden"></div>
 	<!-- Navigation-->
 	<nav
 		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
@@ -49,7 +47,16 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ms-auto my-2 my-lg-0">
+				<ul class="navbar-nav ms-auto my-2 my-lg-0">	
+					<c:if test="${admin}">
+	                	<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+                    </c:if>
+                    	
+                    <c:if test="${!admin }">
+	                     <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    </c:if>
+				
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
@@ -169,6 +176,9 @@
 			</div>
 		</div>
 	</section>
+	
+	<div id="mainlogin" class="mlhidden mlcheck"></div>
+	<div id="mainlogin2" class="mlhidden"></div>
 
 	<!-- Footer-->
 	<footer class="bg-light py-5">
