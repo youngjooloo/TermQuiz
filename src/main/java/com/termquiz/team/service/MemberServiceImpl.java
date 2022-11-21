@@ -58,5 +58,15 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> rankingSort(MemberVO vo) {
 		return dao.rankingSort(vo);
 	}
+	
+	@Override
+	public int addAdmin(MemberVO vo) {
+		return dao.addAdmin(vo);
+	}
+	
+	@Override
+	public int removeAdmin(MemberVO vo) {
+		return dao.removeAdmin(vo);
+	}
 
 }

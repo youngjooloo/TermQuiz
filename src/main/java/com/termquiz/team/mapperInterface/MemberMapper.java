@@ -25,4 +25,9 @@ public interface MemberMapper {
 	void totalScoreUpdate();
 	
 	List<MemberVO> rankingSort(MemberVO vo);
+	
+	int addAdmin(MemberVO vo);
+
+	int removeAdmin(MemberVO vo);
+	
 }

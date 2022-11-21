@@ -47,8 +47,7 @@
 	</update>
 
 	<select id="selectList" resultType="com.termquiz.team.vo.MemberVO">
-		select email, nickname, name, phoneNumber, scNumF, scNumL,
-		totalScore, movieScore, musicScore, adminRight 
+		select email, nickname, name, phoneNumber, scNumF, scNumL, adminRight 
 		from member 
 		order by adminRight desc
 	</select>
@@ -57,5 +56,17 @@
 		select nickname,movieScore,musicScore,totalScore from member
 		order by ${sortName} desc
 	</select>
+
+	<update id="addAdmin">
+		update member
+		set adminRight = 1
+		where nickname = #{nickname}
+	</update>
+	
+	<update id="removeAdmin">
+		update member
+		set adminRight = 0
+		where nickname = #{nickname}
+	</update>
 
 </mapper>

@@ -13,7 +13,7 @@
 	margin-top: 120px;	
 }
 
-#bodyUl,
+.bodyUl,
 #listHead {
 	display: flex;
 	align-items: center;
@@ -45,5 +45,21 @@
 }
 
 #listBody>li{
-	margin-bottom: 10px;
+	line-height : 50px;
+}
+
+.sort{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#listBody>li:first-child {
+	font-size: 1.4rem;
+	font-weight: bold;
+	border-top: 10px double black;
+	border-bottom: 10px double black;
+    border-radius: 10px;
+}
+#listBody>li:not(:first-child) {
+	border-bottom: 3px solid rgb(224, 224, 224);
 }

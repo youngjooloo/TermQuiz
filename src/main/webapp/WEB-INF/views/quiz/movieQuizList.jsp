@@ -149,7 +149,9 @@
 							</div>
 						</td>
 						<td class="quizSolve">
-							${movie.score}
+							<c:if test="${not empty nick}">
+								${movie.score}
+							</c:if>
 						</td>
 						<td class="quizStart">
 							<c:if test="${movie.score == 0}">

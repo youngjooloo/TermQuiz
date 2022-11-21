@@ -13,9 +13,12 @@
 <body>
 	<main>
 		<ul id="listBody">
-			<c:forEach var="memberList" items="${member}">
+			<c:forEach var="memberList" items="${member}" varStatus="status">
 				<li>
-					<ul id="bodyUl">
+					<ul class="bodyUl">
+						<li class="bodyList ListF">
+							<span>${status.count }</span>
+						</li>
 						<li class="bodyList ListF">
 							<span>${memberList.nickname }</span>
 						</li>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
-
+	<mvc:annotation-driven/>
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -39,6 +39,48 @@
 	
 	<context:component-scan base-package="com.termquiz.team, com.termquiz.team.controller, com.termquiz.team.service" />
 	
+	<!-- interceptor -->
+	<beans:bean id="loginInterceptor" class="com.termquiz.team.common.LoginInterceptor" />
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/boardinsertf"/>
+			<mvc:mapping path="/boardinsert"/>
+			<mvc:mapping path="/boardupdate"/>
+			<mvc:mapping path="/boarddelete"/>
+			<mvc:mapping path="/rinsert"/>
+			<mvc:mapping path="/bcommentdelete"/>
+			<mvc:mapping path="/bcommentupdate"/>
+			<mvc:mapping path="/mlogout"/>
+			<mvc:mapping path="/mdetail"/>
+			<mvc:mapping path="/mdetailup"/>
+			<mvc:mapping path="/changepwf"/>
+			<mvc:mapping path="/qnainsertf"/>
+			<mvc:mapping path="/qnainsert"/>
+			<mvc:mapping path="/qnaupdate"/>
+			<mvc:mapping path="/qnadelete"/>
+			<mvc:mapping path="/quizafter"/>
+			<mvc:mapping path="/quizanswer"/>
+			
+			<beans:ref bean="loginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<beans:bean id="AdminInterceptor" class="com.termquiz.team.common.AdminInterceptor" />
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/memberlist"/>
+			<mvc:mapping path="/qnaanswer"/>
+			<mvc:mapping path="/qnaanswerdelete"/>
+			<mvc:mapping path="/addadmin"/>
+			<mvc:mapping path="/removeadmin"/>
+			<mvc:mapping path="/quizuploadf"/>
+			<mvc:mapping path="/quizupload"/>
+			
+			<beans:ref bean="AdminInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
 	
 </beans:beans>

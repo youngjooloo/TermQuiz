@@ -77,8 +77,7 @@
 				deserunt dolore irure cillum aliqua et deserunt.</span>
 		</div>
 		<div>
-			<img alt="movie"
-				src="resources/home/assets/img/portfolio/thumbnails/music.jpg">
+			<img alt="music" src="resources/home/assets/img/portfolio/thumbnails/music.jpg">
 		</div>
 	</header>
 
@@ -150,7 +149,9 @@
 							</div>
 						</td>
 						<td class="quizSolve">
-							${music.score}
+							<c:if test="${not empty nick}">
+								${music.score}
+							</c:if>
 						</td>
 						<td class="quizStart">
 							<c:if test="${music.score == 0}">

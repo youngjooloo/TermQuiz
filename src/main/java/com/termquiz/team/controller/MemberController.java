@@ -205,13 +205,6 @@ public class MemberController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/memberlist")
-	public ModelAndView memberlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-
-		mv.setViewName("member/memberlist");
-		return mv;
-	}
-
 	@RequestMapping(value = "/rankingajax")
 	public ModelAndView rankingajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo) {
@@ -236,8 +229,8 @@ public class MemberController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/memberlistajax")
-	public ModelAndView memberlistajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+	@RequestMapping(value = "/memberlist")
+	public ModelAndView memberlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo) {
 
 		List<MemberVO> list = new ArrayList<MemberVO>();
@@ -246,13 +239,31 @@ public class MemberController {
 
 		if (list != null) {
 			mv.addObject("member", list);
-			mv.setViewName("member/memberlistAjax");
+			mv.setViewName("member/memberlist");
 		}else {
 			mv.setViewName("home");
 		}
 
 		return mv;
 
+	}
+	
+	@RequestMapping(value = "/addadmin")
+	public ModelAndView addadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+		vo.setNickname((String)request.getParameter("nickname"));
+		service.addAdmin(vo);
+		
+		mv.setViewName("redirect:memberlist");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/removeadmin")
+	public ModelAndView removeadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+		vo.setNickname((String)request.getParameter("nickname"));
+		service.removeAdmin(vo);
+
+		mv.setViewName("redirect:memberlist");
+		return mv;
 	}
 
 }

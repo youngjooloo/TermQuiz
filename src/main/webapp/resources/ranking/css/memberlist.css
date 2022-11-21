@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+main *{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+main{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 120px;	
+	background-color: white;
+	border-radius: 20px;
+	padding: 20px 0;
+}
+
+main ul {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+}
+
+main ul:not(:last-child){
+	border-bottom: 3px dashed black;
+}
+
+main ul li:not(:last-child){
+	border-right: 3px dashed black;
+}
+
+main ul li {
+	padding: 10px;
+	overflow-wrap: break-word;
+}
+
+.listTitle{
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+
+main ul li:first-child {
+	width: 30%;
+}
+
+main ul li:nth-child(2){
+	width: 15%;
+}
+
+main ul li:nth-child(3){
+	width: 10%;
+}
+
+main ul li:nth-child(4){
+	width: 15%;
+}
+
+main ul li:nth-child(5){
+	width: 15%;
+}
+
+main ul li:last-child {
+	width: 15%;
+}
+
+.removeAdmin,
+.addAdmin{
+	width: 80%;
+	background-color: black;
+	color: #c0c0c0;
+	border-radius: 10px; 
+}
+
+.removeAdmin:hover,
+.addAdmin:hover{
+	cursor: pointer;
+	color: white;
+}

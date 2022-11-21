@@ -21,6 +21,8 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
+<link href="resources/ranking/css/list.css" rel="stylesheet" />
+<link href="resources/ranking/css/memberlist.css" rel="stylesheet" />
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -53,15 +55,39 @@
 		</div>
 	</nav>
 	
-	<div class="main" id="changeMain">
-    	<div class="container">
-   	 	</div>
-	</div>
+	<main>
+    	<ul class="listTitle">
+    		<li>Email</li>
+    		<li>Nickname</li>
+    		<li>Name</li>
+    		<li>Phone Number</li>
+    		<li>Birthday</li>
+    		<li>Admin Right</li>
+    	</ul>
+    	<c:forEach var="list" items="${member}">
+    		<ul class="listBody">
+    			<li><span>${list.email}</span></li>
+    			<li><span>${list.nickname}</span></li>
+    			<li><span>${list.name}</span></li>
+    			<li><span>${list.phoneNumber}</span></li>
+    			<li><span>${list.scNumF}-${list.scNumL}</span></li>
+    			<li>
+    				<c:if test="${list.adminRight}">
+						<button id="${list.nickname}" class="removeAdmin">Remove</button>  
+    				</c:if>
+    				<c:if test="${!list.adminRight}">
+						<button id="${list.nickname}" class="addAdmin">Add</button>  
+    				</c:if>
+    			</li>
+    		</ul>
+    	</c:forEach>
+	</main>
 
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="resources/home/js/jquery-3.2.1.min.js"></script>
     <script src="resources/home/js/scripts.js"></script>
     <script src="resources/home/js/main.js"></script>
+    <script src="resources/ranking/js/memberList.js"></script>
 </body>
 </html>
