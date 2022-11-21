@@ -48,10 +48,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public void scoreUpdate(MemberVO vo) {
-		dao.movieScoreUpdate(vo);
-		dao.musicScoreUpdate(vo);
-		dao.totalScoreUpdate(vo);
+	public void scoreUpdate() {
+		dao.movieScoreUpdate();
+		dao.musicScoreUpdate();
+		dao.totalScoreUpdate();
 	}
 	
 	@Override

@@ -43,11 +43,10 @@
 
 	<update id="totalScoreUpdate">
 		update member
-		set totalScore = movieScore+musicScore
+		set totalScore = movieScore + musicScore
 	</update>
 
-	<select id="selectList"
-		resultType="com.termquiz.team.vo.MemberVO">
+	<select id="selectList" resultType="com.termquiz.team.vo.MemberVO">
 		select email, nickname, name, phoneNumber, scNumF, scNumL,
 		totalScore, movieScore, musicScore, adminRight 
 		from member 
@@ -56,7 +55,7 @@
 
 	<select id="rankingSort" resultType="com.termquiz.team.vo.MemberVO">
 		select nickname,movieScore,musicScore,totalScore from member
-		order by #{cname} #{adType}
+		order by ${sortName} desc
 	</select>
 
 </mapper>

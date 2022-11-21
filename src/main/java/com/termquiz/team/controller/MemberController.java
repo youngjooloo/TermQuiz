@@ -216,34 +216,23 @@ public class MemberController {
 	public ModelAndView rankingajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo) {
 		List<MemberVO> list = new ArrayList<MemberVO>();
-		service.scoreUpdate(vo);
-		String cname = (String)request.getParameter("cname");
-		String adType = (String)request.getParameter("adType");
+		service.scoreUpdate();
+		String sortName = (String)request.getParameter("sortName");
 		
-		
-		if (cname != null) {
-			vo.setCname(cname+"Score");
+		if (sortName != null) {
+			vo.setSortName(sortName+"Score");
 		} else {
-			vo.setCname("totalScore");
-		}
-
-		if (adType != null) {
-			vo.setAdType(adType);
-		} else {
-			vo.setAdType("desc");
+			vo.setSortName("totalScore");
 		}
 
 		list = service.rankingSort(vo);
-
 		if (list != null) {
 			mv.addObject("member", list);
 			mv.setViewName("member/rankingAjax");
 		}else {
 			mv.setViewName("home");
 		}
-		System.out.println(list);
 		
-
 		return mv;
 	}
 
@@ -252,7 +241,7 @@ public class MemberController {
 			MemberVO vo) {
 
 		List<MemberVO> list = new ArrayList<MemberVO>();
-		service.scoreUpdate(vo);
+		service.scoreUpdate();
 		list = service.selectList();
 
 		if (list != null) {

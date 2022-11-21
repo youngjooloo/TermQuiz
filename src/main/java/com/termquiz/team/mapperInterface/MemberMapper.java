@@ -18,11 +18,11 @@ public interface MemberMapper {
 	
 	List<MemberVO> selectList();
 	
-	void movieScoreUpdate(MemberVO vo);
+	void movieScoreUpdate();
 	
-	void musicScoreUpdate(MemberVO vo);
+	void musicScoreUpdate();
 	
-	void totalScoreUpdate(MemberVO vo);
+	void totalScoreUpdate();
 	
 	List<MemberVO> rankingSort(MemberVO vo);
 }

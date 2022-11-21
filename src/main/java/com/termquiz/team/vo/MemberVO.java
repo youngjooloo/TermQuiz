@@ -16,6 +16,5 @@ public class MemberVO {
 	private int movieScore;
 	private int musicScore;
 	
-	private String cname;
-	private String adType;
+	private String sortName;
 }

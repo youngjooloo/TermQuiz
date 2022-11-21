@@ -19,7 +19,7 @@ public interface MemberService {
 	
 	List<MemberVO> selectList();
 	
-	void scoreUpdate(MemberVO vo);
+	void scoreUpdate();
 	
 	List<MemberVO> rankingSort(MemberVO vo);
 	
