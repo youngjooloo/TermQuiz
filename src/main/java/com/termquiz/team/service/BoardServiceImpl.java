@@ -1,6 +1,5 @@
 package com.termquiz.team.service;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import com.termquiz.team.vo.BoardVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-	
+
 	@Autowired
 	BoardMapper dao;
 
@@ -21,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> searchList(PageNation cri) {
 		return dao.searchList(cri);
 	}
-	
+
 	@Override
 	public int searchCount(PageNation cri) {
 		return dao.searchCount(cri);
@@ -36,40 +35,50 @@ public class BoardServiceImpl implements BoardService {
 	public int countUp(BoardVO vo) {
 		return dao.countUp(vo);
 	}
-	
+
 	@Override
-	 public int insert(BoardVO vo) {
-	    return dao.insert(vo);
+	public int insert(BoardVO vo) {
+		return dao.insert(vo);
 	}
-	
+
 	@Override
 	public int delete(BoardVO vo) {
 		return dao.delete(vo);
 	}
-	
+
 	@Override
 	public int update(BoardVO vo) {
 		return dao.update(vo);
 	}
-	
+
 	@Override
-	public List<BoardCommentsVO> commentList(BoardCommentsVO cvo) {	
+	public List<BoardCommentsVO> commentList(BoardCommentsVO cvo) {
 		return dao.commentList(cvo);
 	}
-	
+
 	@Override
 	public int rinsert(BoardCommentsVO cvo) {
 		return dao.rinsert(cvo);
 	}
+
+	@Override
+	public int rrinsert(BoardCommentsVO cvo) {
+		return dao.rrinsert(cvo);
+	}
 	
+	@Override
+	public int stepUpdate(BoardCommentsVO cvo) {
+		return dao.stepUpdate(cvo);
+	}
+
 	@Override
 	public int bcommentdelete(BoardCommentsVO cvo) {
 		return dao.bcommentdelete(cvo);
 	}
-	
+
 	@Override
 	public int bcommentupdate(BoardCommentsVO cvo) {
 		return dao.bcommentupdate(cvo);
 	}
 
-} //class
+} // class

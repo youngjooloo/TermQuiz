@@ -3,8 +3,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.termquiz.team.mapperInterface.BoardMapper">
-	
-<sql id="search">
+
+	<sql id="search">
 		<if test="keyword!=null">
 			<bind name="keyVal" value="'%'+keyword+'%'" />
 		</if>
@@ -12,10 +12,11 @@
 			<when test="searchType=='all'.toString()">
 				and bId like #{keyVal}
 				or bTitle like #{keyVal}
-				or bTime  like #{keyVal} )
+				or
+				bTime like #{keyVal} )
 			</when>
 			<when test="searchType=='i'.toString()">
-				and  bId like #{keyVal} )
+				and bId like #{keyVal} )
 			</when>
 			<when test="searchType=='t'.toString()">
 				and bTitle like #{keyVal} )
@@ -24,71 +25,89 @@
 				and bContent like #{keyVal} )
 			</when>
 			<when test="searchType=='cc'.toString()">
-				and bId  like #{keyVal}
+				and bId like #{keyVal}
 				or bTitle like #{keyVal} )
 			</when>
 			<otherwise> )</otherwise>
 		</choose>
 	</sql>
-	
-	<select id="searchList" resultType="com.termquiz.team.vo.BoardVO">
+
+	<select id="searchList"
+		resultType="com.termquiz.team.vo.BoardVO">
 		select bNo,bId,bTime,bTitle,bContent,bcount
-		from board 
+		from board
 		where ( bno>0
 		<include refid="search"></include>
 		order by bNo desc, bTime desc
 		limit #{sno}, #{rowsPerPage}
 	</select>
-	
+
 	<select id="searchCount" resultType="int">
 		select count(*) from board
-		where (  bno>0 <include refid="search"></include>
+		where ( bno>0
+		<include refid="search"></include>
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.BoardVO">
-		select * from board where bno=#{bno}
+		select * from board where
+		bno=#{bno}
 	</select>
-	
+
 	<update id="countUp">
-		update board 
-		set bcount = bcount + 1 
+		update board
+		set bcount = bcount + 1
 		where bno=#{bno};
 	</update>
-	
+
 	<insert id="insert">
 		insert into
 		board(bno, bid, btitle, bcontent, btime)
 		values(#{bno},#{bid},#{btitle},#{bcontent},#{btime})
 	</insert>
-	
+
 	<update id="update">
 		update board set btitle=#{btitle},
 		bcontent=#{bcontent} where bno=#{bno}
 	</update>
-	
+
 	<delete id="delete">
 		delete from board where bno=#{bno}
 	</delete>
-	
+
 	<select id="commentList" resultType="com.termquiz.team.vo.BoardCommentsVO">
-		select * from bcomments where bno=#{bno}
+		SELECT * FROM termquiz.bcomments
+		order by root asc,(case when step = 0 then 1 else 2 end), step desc;
 	</select>
-	
-	<insert id="rinsert">
-		<selectKey keyProperty="bcNo" resultType="int" order="BEFORE">
-			select IFNULL(max(bcNo),0)+1 from bcomments
-		</selectKey>
-		insert into bcomments(bno,bcId,bcomment,bcommentTime,root) 
-		values(#{bno},#{bcId},#{bcomment},#{bcommentTime},#{bcNo})
-	</insert>
-	
+
 	<delete id="bcommentdelete">
 		delete from bcomments where bcno=#{bcNo}
-	</delete>	
-   
-   <update id="bcommentupdate">
-      update bcomments set
-      bcomment=#{bcomment} where bcno=#{bcNo}
-   </update>	
-	
+	</delete>
+
+	<update id="bcommentupdate">
+		update bcomments set
+		bcomment=#{bcomment} where
+		bcno=#{bcNo}
+	</update>
+
+	<insert id="rinsert">
+		<selectKey keyProperty="bcNo" resultType="int"
+			order="BEFORE">
+			select IFNULL(max(bcNo),0)+1 from bcomments
+		</selectKey>
+		insert into bcomments(bcNo,bno,bcId,bcomment,bcommentTime,root)
+		values(#{bcNo},#{bno},#{bcId},#{bcomment},#{bcommentTime},#{bcNo})
+	</insert>
+
+	<insert id="rrinsert">
+		insert into
+		bcomments(bno,bcId,bcomment,bcommentTime,root,step,indent)
+		values(#{bno},#{bcId},#{bcomment},#{bcommentTime},#{root},#{step},#{indent})
+	</insert>
+
+	<update id="stepUpdate">
+		update bcomments set step=step+1 where root=#{root}
+		and step >= #{step} and
+		root != bcNo
+	</update>
+
 </mapper>

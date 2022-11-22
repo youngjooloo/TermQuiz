@@ -68,5 +68,11 @@
 		set adminRight = 0
 		where nickname = #{nickname}
 	</update>
+	
+	<update id="changePW">
+		update member
+		set password = #{password}
+		where email = #{email}
+	</update>
 
 </mapper>

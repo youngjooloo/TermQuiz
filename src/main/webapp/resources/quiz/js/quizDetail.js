@@ -54,9 +54,10 @@ $(function() {
 
 
 function justAnswer(e) {
-	const answer = $(e).prev().val();
-	const quizAnswer = $('.answerBox').children('p').html();
-	if (answer == quizAnswer) {
+	let answer = (($(e).prev().val()).toLowerCase()).replaceAll(" ", "");
+	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ", "");
+	const correct = quizAnswer.includes(answer);
+	if (correct) {
 		trueAnswer();
 	} else {
 		falseAnswer(e);

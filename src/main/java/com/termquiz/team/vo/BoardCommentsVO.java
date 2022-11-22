@@ -8,5 +8,8 @@ public class BoardCommentsVO {
 	private int bno;			
 	private String bcId;			
 	private String bcomment;		
-	private String bcommentTime;	
+	private String bcommentTime;
+	private int root;
+	private int step;
+	private int indent;
 }

@@ -69,4 +69,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.removeAdmin(vo);
 	}
 
+	@Override
+	public int changePW(MemberVO vo) {
+		return dao.changePW(vo);
+	}
+	
 }

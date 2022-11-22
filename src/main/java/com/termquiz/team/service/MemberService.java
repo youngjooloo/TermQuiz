@@ -27,4 +27,6 @@ public interface MemberService {
 
 	int removeAdmin(MemberVO vo);
 	
+	int changePW(MemberVO vo);
+	
 }

@@ -1,0 +1,188 @@
+@charset "UTF-8";
+ 
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: 맑은 고딕;
+	font-weight: 400;
+	color: black;
+}
+
+.answer_list {
+	margin: 10px auto;
+	width: 90%;
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	padding: 0;
+}
+
+.reply{
+	margin: 100px auto 0;
+	width: 90%;
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	border-bottom:5px #55608f solid;
+	padding: 0;
+}
+
+.contentp {
+	margin: 0;
+	flex: 1;
+}
+
+.bcUpdateF {
+    padding: 5px;
+    width: 100%;
+}
+
+.comments_List {
+	display: flex;
+}
+
+.commentsId {
+	width: 10%;
+	background-color: #55608f;
+	 color: #fff;
+	 text-align: center;
+	 padding: 15px;
+	 display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment_area{
+	flex: 1;	
+}
+
+.bcommentP {
+	display: flex;
+	width: 100%;
+	padding: 15px;
+	flex-wrap: wrap;
+}
+
+.commentsTime {
+	width: 160px;
+	text-align: center;
+}
+
+.btn_detail {
+    background-color: #373737;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    width: 60px;
+    height: 32px;
+    margin: 0 1%;
+}
+
+.btn_div {
+	display: flex;
+	float: right;
+    margin: 0px 10px 5px;
+}
+
+.answer_table {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.answer_table li {
+	display: flex;
+	text-align: center;
+	background-color: #55608f;
+	width: 100%;
+    color: #fff;
+}
+
+#userContent {
+	width: 80%;
+}
+
+.modifyForm {
+	width: 100%;
+	border-bottom:5px #55608f solid;
+}
+
+.update_area {
+	width: 100%;
+    height: 80px;
+    resize: none;
+}
+
+#answer_area {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+
+
+.list_Form {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	border-bottom:5px #55608f solid;
+}
+
+.commentsTime_btn {
+	background-color: #373737;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    width: 45px;
+    height: 32px;
+    margin: 0 1%;
+}
+
+.reReply_area {
+	height: 100%;
+    width: 100%;
+    resize: none;
+    border-top:5px #55608f solid;
+}
+
+.reReplyForm {
+	margin: 0px auto;
+    width: 80%;
+}
+
+.btn_ist {
+	width:70px;
+	background-color: #373737;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	float: right;
+    margin: 5px 20px 5px 0;
+}
+
+.backBtn_div {
+	width: 90%;
+	margin: 100px auto;
+}
+
+.indent_1{
+	padding-left: 60px;
+}
+.indent_2{
+	padding-left: 120px;
+}
+.indent_3{
+	padding-left: 180px;
+}
+.indent_4{
+	padding-left: 240px;
+}

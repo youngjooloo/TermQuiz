@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Change Password</title>
+<title>Find Password</title>
 
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,20 +33,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">	
-					<c:if test="${admin}">
-	                	<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
-	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
-                    </c:if>
-                    	
-                    <c:if test="${!admin }">
-	                     <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
-                    </c:if>
-				
+					<li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -54,20 +44,19 @@
 	
 <div class="main" id="changeMain">
     <div class="container">
-        <form action="changepw" method="POST" class="appointment-form" id="appointment-form">
-            <h2>Password Change</h2>
+        <form action="sendverifynumber" method="POST" class="appointment-form" id="appointment-form">
+            <h2>Find Password</h2>
             
             <div class="form-group-1">
   				
-  				<label for="password" class="label-agree-term">Current Password</label>          
-  				<input type="password" class="joininput" name="password" id="password" placeholder="Password (현재 비밀번호)" required onclick="this.value='';" autoComplete="off" />
-
-  				<label for="" class="label-agree-term">New Password</label>          
-  				<input type="password" class="joininput" name="newPassword" id="newPassword" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" />
-                <input type="password" class="joininput" id="newPassword2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
+  				<label for="text" class="label-agree-term">Name</label>
+  				<input id="text" name=name required type="text" />
+  				
+  				<label for="email" class="label-agree-term">Email</label>
+  				<input id="email" name=email required type="email" />
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Modify</button>
+                <button type="submit" name="submit" id="submit" class="submit">Submit</button>
                 <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
             </div>
         </form>
@@ -78,5 +67,6 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
+	<script src="resources/findPW/js/findPW.js"></script>
 </body>
 </html>

@@ -150,15 +150,34 @@ public class BoardController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/rinsert", method = RequestMethod.POST)
+	@RequestMapping(value = "/commentlist")
+	public ModelAndView commentlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			 BoardCommentsVO cvo) {
+
+		String uri = "/board/boardCommentsList";
+		int bno = Integer.parseInt((String) request.getParameter("bno"));
+		
+		cvo.setBno(bno);
+		List<BoardCommentsVO> cvoList = new ArrayList<BoardCommentsVO>();
+
+		cvoList = service.commentList(cvo);
+		mv.addObject("commentList", cvoList);
+
+		mv.setViewName(uri);
+		return mv;
+	}
+
+
+	@RequestMapping(value = "/rinsert")
 	public ModelAndView rinsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			RedirectAttributes rttr, BoardCommentsVO cvo) {
 
-		String uri = "board/boardList";
-		int bno = Integer.parseInt((String) request.getParameter("bno"));
+		String uri = "board/boardDetail";
+		int bno = Integer.parseInt((String)request.getParameter("bno"));
+		
 		cvo.setBno(bno);
 		cvo.setBcId((String) request.getSession().getAttribute("nick"));
-
+		
 		Date nowDate = new Date();
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd H:m:s");
 		String today = (simple.format(nowDate)).toString();
@@ -166,17 +185,40 @@ public class BoardController {
 
 		String comment = cvo.getBcomment().replace("\r\n", "<br>");
 		cvo.setBcomment(comment);
-
-		// 2. Service 처리
-		if (service.rinsert(cvo) > 0) {
-			uri = "redirect:boarddetail?bno=" + cvo.getBno();
+		
+		int root = 0;
+		String rootCheck = (String) request.getParameter("root");
+		
+		if(rootCheck != null) {
+			root = Integer.parseInt(rootCheck);
 		}
 
+		if(root == 0) {
+			// 2. Service 처리
+			if (service.rinsert(cvo) > 0) {
+				uri = "redirect:boarddetail?bno=" + cvo.getBno();
+			}
+		}else {
+			
+		    cvo.setStep(cvo.getStep()+1);
+		    if(cvo.getIndent() < 3) {
+		    	cvo.setIndent(cvo.getIndent()+1);
+		    }
+		    service.stepUpdate(cvo);
+		    
+		    if (service.rrinsert(cvo)>0) {
+		    	rttr.addFlashAttribute("message", "답글 등록 성공");
+		    	uri = "redirect:boarddetail?bno=" + cvo.getBno();
+		    } else {
+		    	mv.addObject("message", "답글 등록 실패");
+		    	uri = "board/boarddetail?bno=" + cvo.getBno();
+		    }
+		}
 		// 3. 결과(ModelAndView) 전달
 		mv.setViewName(uri);
 		return mv;
 	} // rinsert
-
+	
 	@RequestMapping(value = "/bcommentdelete")
 	public ModelAndView bcommentdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			BoardCommentsVO cvo) {

@@ -1,18 +1,25 @@
 package com.termquiz.team.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.termquiz.team.service.MemberService;
@@ -23,6 +30,9 @@ public class MemberController {
 
 	@Autowired
 	MemberService service;
+	
+	@Autowired
+	JavaMailSenderImpl mailsender;
 
 	PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -158,7 +168,7 @@ public class MemberController {
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
 			mv.addObject("user", vo);
-			uri = "redirect:mdetail";
+			uri = "redirect:home";
 		}
 
 		mv.setViewName(uri);
@@ -167,40 +177,49 @@ public class MemberController {
 
 	@RequestMapping(value = "/changepwf")
 	public ModelAndView changepwf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-
 		mv.setViewName("member/changePW");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/changepw")
+	public ModelAndView changepw(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+		vo.setEmail((String)request.getSession().getAttribute("loginID"));
+		String oldPW = vo.getPassword();
+		String newPW = (String)request.getParameter("newPassword");
+		vo = service.selectOne(vo);
+		String uri = "redirect:mdetail";
+		
+		if (passwordEncoder.matches(oldPW,vo.getPassword())) {
+			vo.setPassword(passwordEncoder.encode(newPW));
+			service.changePW(vo);
+		}else {
+			uri = "redirect:home";
+		}
+		
+		mv.setViewName(uri);
 		return mv;
 	}
 
 	@RequestMapping(value = "/emailcheck", method = RequestMethod.POST)
 	public ModelAndView emailcheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo) {
-
 		mv = new ModelAndView("jsonView");
-
 		int dup = service.emailCheck(vo);
-
 		mv.addObject("dup", dup);
-
 		return mv;
 	}
 
 	@RequestMapping(value = "/nicknamecheck", method = RequestMethod.POST)
 	public ModelAndView nicknamecheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo) {
-
 		mv = new ModelAndView("jsonView");
-
 		int dup = service.nicknameCheck(vo);
-
 		mv.addObject("dup", dup);
-
 		return mv;
 	}
 
 	@RequestMapping(value = "/ranking")
 	public ModelAndView ranking(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-
 		mv.setViewName("member/ranking");
 		return mv;
 	}
@@ -243,9 +262,7 @@ public class MemberController {
 		}else {
 			mv.setViewName("home");
 		}
-
 		return mv;
-
 	}
 	
 	@RequestMapping(value = "/addadmin")
@@ -263,6 +280,83 @@ public class MemberController {
 		service.removeAdmin(vo);
 
 		mv.setViewName("redirect:memberlist");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/findpwf")
+	public ModelAndView findpwf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		mv.setViewName("member/findPW");
+		return mv;
+	}
+
+	@RequestMapping(value = "/sendverifynumber")
+	public ModelAndView authPW(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo,
+			ServletRequest session) throws Exception {
+		
+		String email = (String) request.getParameter("email");
+		String name = (String) request.getParameter("name");
+
+		vo = service.selectOne(vo);
+		if (vo != null) {
+			Random r = new Random();
+			int num = r.nextInt(999999); // 랜덤난수설정
+
+			if (vo.getName().equals(name)) {
+
+				session.setAttribute("email", vo.getEmail());
+
+				String setfrom = ""; // naver
+				String tomail = email; // 받는사람
+				String title = "비밀번호변경 인증 이메일 입니다";
+				String content = System.getProperty("line.separator") + "안녕하세요 회원님"
+						+ System.getProperty("line.separator") + "비밀번호찾기(변경) 인증번호는 " + num + " 입니다."
+						+ System.getProperty("line.separator");
+
+				try {
+					MimeMessage message = mailsender.createMimeMessage();
+					MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "utf-8");
+
+					messageHelper.setFrom(setfrom);
+					messageHelper.setTo(tomail);
+					messageHelper.setSubject(title);
+					messageHelper.setText(content);
+
+					mailsender.send(message);
+				} catch (Exception e) {
+				}
+				
+				mv.setViewName("member/authPW");
+				mv.addObject("num", num);
+
+			} else {
+				mv.setViewName("member/findPW");
+			}
+
+		}
+		return mv;
+	}// 인증번호발송
+
+	@RequestMapping(value = "/verifynumber", method = RequestMethod.POST)
+	public String verifynumber(@RequestParam(value = "verifynumber") String verifynumber,
+			@RequestParam(value = "num") String num) throws IOException {
+
+		if (verifynumber.equals(num)) {
+			return "member/newPW";
+		} else {
+			return "member/findPW";
+		}
+	} // 이메일 인증번호 확인
+
+	@RequestMapping(value = "/passwordupdate", method = RequestMethod.POST)
+	public ModelAndView passwordupdate(MemberVO vo, ModelAndView mv, HttpSession session) throws IOException {
+		
+		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
+		if (service.changePW(vo) > 0) {
+			mv.setViewName("redirect:home?relogin=1");
+		} else {
+			mv.setViewName("member/newPW");
+		}
+
 		return mv;
 	}
 

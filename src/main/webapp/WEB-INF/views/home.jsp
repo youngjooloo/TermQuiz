@@ -21,6 +21,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/home/css/styles.css" rel="stylesheet" />
         <link href="resources/home/css/main.css" rel="stylesheet" />
+        <link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -139,10 +140,30 @@
 	    
 	    <div id="mainlogin" class="mlhidden mlcheck"></div>
 		<div id="mainlogin2" class="mlhidden"></div>
+		
+<!-- 		<div class="alertBox noneBox"> -->
+<!-- 			<div class="messageBox"> -->
+<!-- 				Message -->
+<!-- 			</div> -->
+<!-- 			<div class="buttonBox"> -->
+<!-- 				<button type="button" id="altertBtn" value="true">확인</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+<!-- 		<div class="confirmBox noneBox"> -->
+<!-- 			<div class="messageBox"> -->
+<!-- 				Message -->
+<!-- 			</div> -->
+<!-- 			<div class="buttonBox"> -->
+<!-- 				<button type="button" id="confirmBtn" value="true">확인</button> -->
+<!-- 				<button type="button" id="confirmCancelBtn" value="false">취소</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 	        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>
         <script src="resources/home/js/main.js"></script>
+        <script src="resources/common/js/alertConfirm.js"></script>
     </body>
 </html>

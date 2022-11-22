@@ -131,7 +131,6 @@ article{
 
 .answer_list {
 	width: 90%;
-	height: 100px;
 	padding: 15px;
 }
 
@@ -143,10 +142,34 @@ article{
     border: none;
 }
 
-.answer_list .comments_List{
-	border-bottom:5px #55608f solid;
-}
-
 .bcUpdateF input{
 	margin:10px;
+}
+
+.btn_bcomments {
+    background-color: #373737;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    width: 60px;
+    height: 32px;
+    margin: 0 1%;
+}
+
+.bcommentsList {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.comments_Btn {
+	width: 90%;
+	margin: 50px auto;
+}
+
+.commentOn {
+	display: none;
+}
+
+#commentList{
+	float: left;	
 }
