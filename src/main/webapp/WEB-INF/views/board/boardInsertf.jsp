@@ -135,7 +135,6 @@
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
-	<script src="resources/common/js/alertConfirm.js"></script>
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

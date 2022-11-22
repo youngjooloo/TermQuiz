@@ -65,8 +65,7 @@
 
 					<c:if test="${not empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-						<li class="nav-item"><a class="nav-link" href="mlogout">Log
-								Out</a></li>
+						<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -109,8 +108,8 @@
 					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
 			</c:if>
 			<c:if test="${board.bid == nick || admin}">
-				<button type="button" class="btn_detail"
-					onclick="location.href='boarddelete?bno=${board.bno}'">Delete</button>
+				<button type="button" class="btn_detail confirmBtn"
+					id="boarddelete?bno=${board.bno}">Delete</button>
 			</c:if>
 			<button type="button" class="btn_detail"
 				onclick="location.href='boardlist'">Back</button>
@@ -154,7 +153,6 @@
 	<script src="resources/board/js/boardDetail.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
 	<script src="resources/board/js/bcommentsAjax.js"></script>
-	<script src="resources/common/js/alertConfirm.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<c:if test="${not empty alertMessage}">
@@ -168,6 +166,6 @@
 			});
 		</script>
 	</c:if>
-
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

@@ -4,5 +4,6 @@ $(function(){
 		location.href=`boarddetail?${this.id}`;
 	});
 	
+	
 });
 

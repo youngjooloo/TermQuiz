@@ -79,9 +79,9 @@
 		order by root asc,(case when step = 0 then 1 else 2 end), step desc;
 	</select>
 
-	<delete id="bcommentdelete">
-		delete from bcomments where bcno=#{bcNo}
-	</delete>
+	<update id="bcommentdelete">
+		update bcomments set bcomment = "삭제된 댓글입니다" where bcno=#{bcNo}
+	</update>
 
 	<update id="bcommentupdate">
 		update bcomments set

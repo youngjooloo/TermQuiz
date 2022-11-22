@@ -154,5 +154,18 @@
 	<script src="resources/home/js/main.js"></script>
 	<script src="resources/qna/js/qnaDetail.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<c:if test="${not empty alertMessage}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'success',
+				     title: '알림',
+				     text: '${alertMessage}',
+				 });
+			});
+		</script>
+	</c:if>
 </body>
 </html>
