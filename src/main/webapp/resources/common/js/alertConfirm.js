@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 $(function(){
 	$('#confirmBtn, #confirmCancelBtn, #alertBtn').click(function(e){
 		$(e.target).parents('.confirmBox, .alertBox').addClass('noneBox');
@@ -16,3 +12,7 @@ function alertBox(){
 function confirmBox(){
 	$('.confirmBox').removeClass('noneBox');
 };
+
+$(document).ready(function(){
+	$('.alertBox').removeClass('noneBox');
+});

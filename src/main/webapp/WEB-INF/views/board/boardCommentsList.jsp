@@ -70,5 +70,6 @@
 <script src="resources/board/js/commentUpdate.js"></script>
 <script src="resources/board/js/reReply.js"></script>
 <script src="resources/common/js/textarea.js"></script>
+
 </body>
 </html>

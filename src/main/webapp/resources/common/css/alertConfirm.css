@@ -2,7 +2,7 @@
 
 .alertBox.noneBox,
 .confirmBox.noneBox {
-	display: none;
+	visibility:hidden;
 	opacity: 0;
 }
 
@@ -20,7 +20,7 @@
 	text-align: center;
 	padding: 20px;
 	opacity: 1;
-	transition: all 0.1s;
+	transition: all 0.5s;
 }
 
 .messageBox {
@@ -28,6 +28,11 @@
 	height: 50%;
 	color: white;
 	flex: 1;
+	display: flex;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonBox button {
@@ -43,3 +48,4 @@
 .buttonBox button:hover {
 	background-color: #d9d9d9;
 }
+

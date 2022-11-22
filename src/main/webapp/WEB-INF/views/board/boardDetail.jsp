@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>자유게시판 </title>
+<title>자유게시판</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -35,7 +35,7 @@
 <link href="resources/board/css/boardDetail.css" rel="stylesheet" />
 <link href="resources/common/css/textarea.css" rel="stylesheet" />
 <link href="resources/board/css/bcList.css" rel="stylesheet" />
-
+<link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -59,13 +59,15 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
-                        </c:if>
-        
-                        <c:if test="${not empty loginID}">
-	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
-                   </c:if>
+						<li class="nav-item"><a class="nav-link" href="javascript:;"
+							id="loginB">LogIn</a></li>
+					</c:if>
+
+					<c:if test="${not empty loginID}">
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+						<li class="nav-item"><a class="nav-link" href="mlogout">Log
+								Out</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -94,42 +96,46 @@
 			<tbody>
 				<tr>
 					<th>내용</th>
-					<td colspan="4" class="content_area">
-						${board.bcontent}
-					</td>
+					<td colspan="4" class="content_area">${board.bcontent}</td>
 				</tr>
 			</tbody>
 		</table>
-		
+
 		<div class="wrap_paging boardWrap">
-			<button id="commentList" type="button" class="btn_bcomments" onclick="bcommentsList();">댓글</button>
+			<button id="commentList" type="button" class="btn_bcomments"
+				onclick="bcommentsList();">댓글</button>
 			<c:if test="${board.bid == nick || admin}">
-				<button type="button" class="btn_detail" onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
+				<button type="button" class="btn_detail"
+					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
 			</c:if>
 			<c:if test="${board.bid == nick || admin}">
-				<button type="button" class="btn_detail" onclick="location.href='boarddelete?bno=${board.bno}'">Delete</button>
+				<button type="button" class="btn_detail"
+					onclick="location.href='boarddelete?bno=${board.bno}'">Delete</button>
 			</c:if>
-			<button type="button" class="btn_detail" onclick="location.href='boardlist'">Back</button>
+			<button type="button" class="btn_detail"
+				onclick="location.href='boardlist'">Back</button>
 		</div>
-		
+
 		<div class="bcommentsList"></div>
 		<div id="resultArea2"></div>
-		
+
 		<c:if test="${not empty nick}">
-			<form action="rinsert?bno=${board.bno}" method = "post" id="answerForm">
+			<form action="rinsert?bno=${board.bno}" method="post" id="answerForm">
 				<ul class="reply">
 					<li class="comments_List">
 						<div class="commentsId">${nick}</div>
 						<div class="comment_area">
-							<textarea name="bcomment" id="answer_area" maxlength="150" required></textarea>
+							<textarea name="bcomment" id="answer_area" maxlength="150"
+								required></textarea>
 							<p class="bdtextCount2"></p>
-							<input type="button" class="btn_ist" onclick="trimCheck();" value="등록하기">
+							<input type="button" class="btn_ist" onclick="trimCheck();"
+								value="등록하기">
 						</div>
 					</li>
 				</ul>
 			</form>
-		</c:if>	
-	
+		</c:if>
+
 	</article>
 
 	<footer class="bg-light py-5">
@@ -138,7 +144,6 @@
 				- Company Name</div>
 		</div>
 	</footer>
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script
@@ -149,5 +154,20 @@
 	<script src="resources/board/js/boardDetail.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
 	<script src="resources/board/js/bcommentsAjax.js"></script>
+	<script src="resources/common/js/alertConfirm.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<c:if test="${not empty alertMessage}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'success',
+				     title: '알림',
+				     text: '${alertMessage}',
+				 });
+			});
+		</script>
+	</c:if>
+
 </body>
 </html>

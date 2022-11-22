@@ -44,3 +44,7 @@
 .formHidden{
 	display: none;
 }
+
+.bcommentP.formHidden{
+	display: none;
+}

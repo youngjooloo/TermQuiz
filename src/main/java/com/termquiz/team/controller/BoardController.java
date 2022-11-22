@@ -90,8 +90,8 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public ModelAndView boardinsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
-			BoardVO vo) {
+	public ModelAndView boardinsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, 
+			RedirectAttributes rttr,BoardVO vo) {
 
 		String uri = "boardinsertf";
 		Date nowDate = new Date();
@@ -108,6 +108,9 @@ public class BoardController {
 
 		if (service.insert(vo) > 0) {
 			uri = "redirect:boardlist";
+			rttr.addFlashAttribute("alertMessage", "글쓰기에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "글쓰기에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -116,7 +119,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/boardupdate", method = RequestMethod.POST)
 	public ModelAndView boardupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
-			BoardVO vo) {
+			RedirectAttributes rttr, BoardVO vo) {
 		String uri = "board/boardUpdate";
 
 		int bno = Integer.parseInt((String) request.getParameter("bno"));
@@ -127,6 +130,9 @@ public class BoardController {
 
 		if (service.update(vo) > 0) {
 			uri = "redirect:boarddetail?bno=" + vo.getBno();
+			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "글 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -142,8 +148,10 @@ public class BoardController {
 		vo.setBno(bno);
 
 		if (service.delete(vo) > 0) {
+			rttr.addFlashAttribute("alertMessage", "글 삭제에 성공하였습니다");
 		} else {
 			uri = "redirect:/boarddetail?bno=" + vo.getBno();
+			rttr.addFlashAttribute("alertMessage", "글 삭제에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);

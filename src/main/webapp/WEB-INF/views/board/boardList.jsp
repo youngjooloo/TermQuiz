@@ -32,39 +32,49 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
+<link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
-	    <div class="container px-4 px-lg-5">
-	        <a class="navbar-brand " href="home">Term Quiz on a Bus</a>
-	        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-	        <div class="collapse navbar-collapse" id="navbarResponsive">
-	            <ul class="navbar-nav ms-auto my-2 my-lg-0">
-	            	
-	            	<c:if test="${admin}">
-	                    <li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
-	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
-	            	</c:if>
-	            	
-	            	<c:if test="${!admin }">
-	                    <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
-	            	</c:if>
-	                <li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
-	                <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
-	                <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-	
-	                <c:if test="${empty loginID}">
-	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
-	                </c:if>
-	
-	                <c:if test="${not empty loginID}">
-	                    <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                    <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
-	                </c:if>
-	            </ul>
-	        </div>
-	    </div>
+	<nav
+		class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck"
+		id="mainNav">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand " href="home">Term Quiz on a Bus</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto my-2 my-lg-0">
+
+					<c:if test="${admin}">
+						<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+						<li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+					</c:if>
+
+					<c:if test="${!admin }">
+						<li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+					</c:if>
+					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
+					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
+					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+
+					<c:if test="${empty loginID}">
+						<li class="nav-item"><a class="nav-link" href="javascript:;"
+							id="loginB">LogIn</a></li>
+					</c:if>
+
+					<c:if test="${not empty loginID}">
+						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+						<li class="nav-item"><a class="nav-link" href="mlogout">Log
+								Out</a></li>
+					</c:if>
+				</ul>
+			</div>
+		</div>
 	</nav>
 
 
@@ -99,7 +109,7 @@
 							<td>${blist.btime}</td>
 							<td>${blist.bcount}</td>
 						</tr>
-					
+
 					</c:forEach>
 
 				</tbody>
@@ -113,54 +123,56 @@
 					<c:if test="${maker.prev && maker.spageNo>1}">
 						<a href="boardlist${maker.searchQuery(1)}">&Lt;</a>
 					</c:if>
-					
-					<c:if test="${maker.prev}" >
-						<a href="boardlist${maker.searchQuery(maker.spageNo-1)}" class="pageBtn">&lt;</a>
+
+					<c:if test="${maker.prev}">
+						<a href="boardlist${maker.searchQuery(maker.spageNo-1)}"
+							class="pageBtn">&lt;</a>
 					</c:if>
 				</div>
-				
-				<div class="boardNumBox" >
-					<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
-					   	<c:if test="${i==maker.currPage}">
-							 <a href="boardlist${maker.searchQuery(i)}" class="paging_num_on">
+
+				<div class="boardNumBox">
+					<c:forEach var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+						<c:if test="${i==maker.currPage}">
+							<a href="boardlist${maker.searchQuery(i)}" class="paging_num_on">
 								<span class="screen_out">현재페이지</span>${i}
-							 </a>
-							
-				       	</c:if>
-					    <c:if test="${i !=maker.currPage}">
-					        <a href="boardlist${maker.searchQuery(i)}" >${i}</a>
-					    </c:if>
+							</a>
+
+						</c:if>
+						<c:if test="${i !=maker.currPage}">
+							<a href="boardlist${maker.searchQuery(i)}">${i}</a>
+						</c:if>
 					</c:forEach>
-				</div> 
-				
+				</div>
+
 				<div class="boardBtnRight">
 					<c:if test="${maker.next}">
-						<a href="boardlist${maker.searchQuery(maker.epageNo+1)}" class="pageBtn">&gt;</a>
+						<a href="boardlist${maker.searchQuery(maker.epageNo+1)}"
+							class="pageBtn">&gt;</a>
 					</c:if>
-					
+
 					<c:if test="${maker.next && maker.epageNo>0}">
 						<a href="boardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
 					</c:if>
 				</div>
 			</div>
 			<c:if test="${not empty loginID }">
-				<button type="button" class="btn_insert" onclick="location.href='boardinsertf'">글
-					등록</button>
+				<button type="button" class="btn_insert"
+					onclick="location.href='boardinsertf'">글 등록</button>
 			</c:if>
 		</div>
 		<!-- board seach area -->
 		<div id="board-search">
 			<div class="search-window">
 				<div class="search-wrap">
-				<select class="search-wrap" name="searchType" id="searchType">
-					<option value="n" ${maker.searchType==null ? 'selected' : ''}>검색 조건</option>
-					<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
-					<option value="i" ${maker.searchType=='i' ? 'selected' : ''}>작성자</option>
-					<option value="t" ${maker.searchType=='t' ? 'selected' : ''}>제목</option>
-					<option value="c" ${maker.searchType=='c' ? 'selected' : ''}>내용</option>
-					<option value="cc" ${maker.searchType=='cc' ? 'selected' : ''}>댓글</option>
-				</select>
-					<label for="search" class="blind">자유게시판 내용 검색</label> <input
+					<select class="search-wrap" name="searchType" id="searchType">
+						<option value="n" ${maker.searchType==null ? 'selected' : ''}>검색
+							조건</option>
+						<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
+						<option value="i" ${maker.searchType=='i' ? 'selected' : ''}>작성자</option>
+						<option value="t" ${maker.searchType=='t' ? 'selected' : ''}>제목</option>
+						<option value="c" ${maker.searchType=='c' ? 'selected' : ''}>내용</option>
+						<option value="cc" ${maker.searchType=='cc' ? 'selected' : ''}>댓글</option>
+					</select> <label for="search" class="blind">자유게시판 내용 검색</label> <input
 						id="keyword" type="search" name="keyword"
 						placeholder="검색어를 입력해주세요." value="${maker.keyword}">
 					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>
@@ -168,7 +180,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
 	<div id="mainlogin2" class="mlhidden"></div>
 
@@ -179,6 +191,15 @@
 				- Company Name</div>
 		</div>
 	</footer>
+	
+	<c:if test="${not empty alertMessage}">
+		<div class="alertBox noneBox">
+			<div class="messageBox">${alertMessage}</div>
+			<div class="buttonBox">
+				<button type="button" id="alertBtn">확인</button>
+			</div>
+		</div>
+	</c:if>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -198,12 +219,24 @@
 
 			$('#searchBtn').click(
 					function() {
-						self.location = "boardlist"
-								+ "${maker.makeQuery(1)}" + "&searchType="
-								+ $('#searchType').val() + "&keyword="
-								+ $('#keyword').val()
+						self.location = "boardlist" + "${maker.makeQuery(1)}"
+								+ "&searchType=" + $('#searchType').val()
+								+ "&keyword=" + $('#keyword').val()
 					}); //click
 		}); //ready
 	</script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<c:if test="${not empty alertMessage}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'success',
+				     title: '알림',
+				     text: '${alertMessage}',
+				 });
+			});
+		</script>
+	</c:if>
 </body>
 </html>

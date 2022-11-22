@@ -141,15 +141,6 @@
 	    <div id="mainlogin" class="mlhidden mlcheck"></div>
 		<div id="mainlogin2" class="mlhidden"></div>
 		
-<!-- 		<div class="alertBox noneBox"> -->
-<!-- 			<div class="messageBox"> -->
-<!-- 				Message -->
-<!-- 			</div> -->
-<!-- 			<div class="buttonBox"> -->
-<!-- 				<button type="button" id="altertBtn" value="true">확인</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-		
 <!-- 		<div class="confirmBox noneBox"> -->
 <!-- 			<div class="messageBox"> -->
 <!-- 				Message -->
