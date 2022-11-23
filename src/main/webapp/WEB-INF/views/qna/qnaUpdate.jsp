@@ -66,7 +66,7 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 	                <c:if test="${not empty loginID}">
 		                <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-		                <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+		                <li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
                     </c:if>
 				</ul>
 			</div>
@@ -113,7 +113,7 @@
 		</table>
 		
 		<div class="wrap_paging">
-			<button type="submit" class="btn_detail">Modify</button>
+			<button type="submit" class="btn_detail confirmBtn2">Modify</button>
 			<button type="button" class="btn_detail" onclick="javascript:history.go(-1);">Back</button>
 		</div>
 	</form>
@@ -148,5 +148,7 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
+
 </body>
 </html>

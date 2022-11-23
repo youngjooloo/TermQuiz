@@ -72,7 +72,7 @@
 
 					<c:if test="${not empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-						<li class="nav-item"><a class="nav-link" href="mlogout">Log
+						<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log
 								Out</a></li>
 					</c:if>
 				</ul>
@@ -149,5 +149,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

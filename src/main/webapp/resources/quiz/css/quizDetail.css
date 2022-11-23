@@ -188,3 +188,10 @@ a.innerBox:hover{
 	font-size: max(15px, 7vw);
 }
 
+#correctAnswer{
+	max-width: 80%;
+    margin: 0 auto;
+    max-height: 60%;
+    overflow: scroll;
+    overflow-wrap: break-word; 
+}

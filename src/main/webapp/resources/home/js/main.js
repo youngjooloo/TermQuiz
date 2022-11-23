@@ -41,7 +41,6 @@ $(function() {
 
 $(document).ready(function(){
 	loginCheck();
-	joinCheck();
 });
 
 function loginCheck(){
@@ -50,18 +49,6 @@ function loginCheck(){
 	const relogin = check.get("relogin");
 	if(relogin){
 		$('#loginB').click();
-	}
-}
-
-function joinCheck(){
-	const url = window.location.href;
-	const urloj = new URL(url);
-	const check = urloj.searchParams;
-	const join = check.get('join');
-	
-	if(join){
-		$('#afterJoin').removeClass('ajhidden');
-		history.replaceState({}, null, location.pathname);
 	}
 }
 

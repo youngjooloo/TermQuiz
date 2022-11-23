@@ -27,7 +27,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand " href="#page-top">Term Quiz on a Bus</a>
+                <a class="navbar-brand " href="home">Term Quiz on a Bus</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -126,31 +126,9 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer>
         
-        
-		
-	    <div id="afterJoin" class="ajhidden">
-	      <div class="card bg-dark text-white" style="border-radius: 1rem;">
-	        <div class="card-body p-5 text-center">
-	            <h2 class="fw-bold mb-2 text-uppercase">Success</h2>
-	            <p class="text-white-50 mb-5">Use after login</p>
-	            <button class="btn btn-outline-light btn-lg px-5" type="button" id="ajBtn">Login</button>
-	        </div>
-	      </div>
-	    </div>
-	    
 	    <div id="mainlogin" class="mlhidden mlcheck"></div>
 		<div id="mainlogin2" class="mlhidden"></div>
 		
-<!-- 		<div class="confirmBox noneBox"> -->
-<!-- 			<div class="messageBox"> -->
-<!-- 				Message -->
-<!-- 			</div> -->
-<!-- 			<div class="buttonBox"> -->
-<!-- 				<button type="button" id="confirmBtn" value="true">확인</button> -->
-<!-- 				<button type="button" id="confirmCancelBtn" value="false">취소</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-	        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="resources/home/js/jquery-3.2.1.min.js"></script>
         <script src="resources/home/js/scripts.js"></script>

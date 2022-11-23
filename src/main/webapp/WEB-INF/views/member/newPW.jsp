@@ -55,7 +55,7 @@
             	<input id="password2" type="password">
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Submit</button>
+                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Submit</button>
                 <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
             </div>
         </form>
@@ -67,5 +67,19 @@
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
 	<script src="resources/findPW/js/findPW.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<c:if test="${not empty alertMessage}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'success',
+				     title: '알림',
+				     text: '${alertMessage}',
+				 });
+			});
+		</script>
+	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

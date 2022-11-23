@@ -19,6 +19,7 @@
 <!-- Main css -->
 <link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
+<link rel="stylesheet" href="resources/memberDetail/css/memberDetail.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -45,7 +46,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout ">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,8 +89,9 @@
 	                </div>
 	            </div>
 	            <div class="form-submit">
-	                <button type="submit" name="submit" id="submit" class="submit">Modify</button>
-	                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+	                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Modify</button>
+	                <button type="button" id="mdeletef" class="submit confirmBtn2">Delete</button>
+	                <button type="button" id="reset" class="submit" onclick="history.back();">Back</button>
 	            </div>
 	        </form>
 	    </div>
@@ -112,5 +114,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

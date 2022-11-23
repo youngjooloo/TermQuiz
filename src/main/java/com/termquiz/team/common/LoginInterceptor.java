@@ -16,8 +16,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter   {
 		if (session!=null && session.getAttribute("nick")!=null) {
 			return true;
 		}else {
-			request.setAttribute("message", "~~ 로그인 후 이용하세요 ~~");
-			response.sendRedirect("home");
+			response.sendRedirect("home?ic=1&relogin=1");
 			return false;
 		}
 	}

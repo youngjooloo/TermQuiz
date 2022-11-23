@@ -74,4 +74,13 @@ public class MemberServiceImpl implements MemberService {
 		return dao.changePW(vo);
 	}
 	
+	@Override
+	public int deleteMember(MemberVO vo) {
+		return dao.deleteMember(vo);
+	}
+	@Override
+	public int mdeletea(MemberVO vo) {
+		return dao.deleteMember(vo);
+	}
+	
 }

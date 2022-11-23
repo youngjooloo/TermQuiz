@@ -65,7 +65,7 @@
 
 					<c:if test="${not empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-						<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+						<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -104,8 +104,8 @@
 			<button id="commentList" type="button" class="btn_bcomments"
 				onclick="bcommentsList();">댓글</button>
 			<c:if test="${board.bid == nick || admin}">
-				<button type="button" class="btn_detail"
-					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
+				<button type="button" class="btn_detail confirmBtn2"
+					id="boarddetail?jCode=U&bno=${board.bno}">Modify</button>
 			</c:if>
 			<c:if test="${board.bid == nick || admin}">
 				<button type="button" class="btn_detail confirmBtn"

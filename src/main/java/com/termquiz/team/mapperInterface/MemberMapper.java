@@ -31,4 +31,6 @@ public interface MemberMapper {
 	int removeAdmin(MemberVO vo);
 	
 	int changePW(MemberVO vo);
+	
+	int deleteMember(MemberVO vo);
 }

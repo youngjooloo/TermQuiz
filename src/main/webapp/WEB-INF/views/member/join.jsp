@@ -83,7 +83,7 @@
 					<p id="agreecheck"></p>
 				</div>
 				<div class="form-submit">
-					<button type="submit" name="submit" id="submit" class="submit"
+					<button type="submit" name="submit" id="submit" class="submit confirmBtn2"
 						onClick="return agreecheck();">Sign Up</button>
 					<button type="reset" id="reset" class="submit"
 						onclick="history.back();">Back</button>
@@ -112,6 +112,6 @@
 			});
 		</script>
 	</c:if>
-
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.termquiz.team.service.QuizService;
 import com.termquiz.team.vo.MovieQuizVO;
@@ -147,7 +148,7 @@ public class QuizController {
 	}
 
 	@RequestMapping(value = "/quizupload", method = RequestMethod.POST)
-	public ModelAndView quizupload(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QuizVO vo)
+	public ModelAndView quizupload(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QuizVO vo, RedirectAttributes rttr)
 			throws IOException {
 
 		String realPath = request.getSession().getServletContext().getRealPath("/");
@@ -208,9 +209,15 @@ public class QuizController {
 
 		if (type == "movie" || "movie".equals(type)) {
 			if (service.movieQuizInsert(vo) > 0) {
+				rttr.addFlashAttribute("alertMessage", "영화 퀴즈 업로드에 성공하였습니다");
+			}else {
+				rttr.addFlashAttribute("alertMessage", "영화 퀴즈 업로드에 성공하였습니다");
 			}
 		} else if (type == "music" || "music".equals(type)) {
 			if (service.musicQuizInsert(vo) > 0) {
+				rttr.addFlashAttribute("alertMessage", "음악 퀴즈 업로드에 성공하였습니다");
+			}else {
+				rttr.addFlashAttribute("alertMessage", "음악 퀴즈 업로드에 성공하였습니다");
 			}
 		}
 
@@ -219,7 +226,7 @@ public class QuizController {
 	}
 
 	@RequestMapping(value = "/quizanswer")
-	public ModelAndView quizanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+	public ModelAndView quizanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv ) {
 		mv = new ModelAndView("jsonView");
 		String id = (String) request.getSession().getAttribute("nick");
 		String type = (String) request.getParameter("quizType");

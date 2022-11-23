@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.termquiz.team.service.MemberService;
 import com.termquiz.team.vo.MemberVO;
@@ -46,7 +47,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mlogin", method = RequestMethod.POST)
-	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 
 //      request 처리
 		String email = request.getParameter("email");
@@ -78,7 +79,10 @@ public class MemberController {
 				request.getSession().setAttribute("nick", vo.getNickname());
 				request.getSession().setAttribute("admin", vo.isAdminRight());
 				url = "redirect:" + thisUrl;
+				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
 			}
+		}else {
+			rttr.addFlashAttribute("alertMessage", "로그인에 실패하였습니다");
 		}
 
 		mv.setViewName(url);
@@ -87,10 +91,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mlogout")
-	public ModelAndView mlogout(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+	public ModelAndView mlogout(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr) {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			session.invalidate();
+			rttr.addFlashAttribute("alertMessage", "로그아웃에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage", "로그아웃에 실패하였습니다");
 		}
 
 		mv.setViewName("redirect:home");
@@ -105,7 +112,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mjoin", method = RequestMethod.POST)
-	public ModelAndView mjoin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+	public ModelAndView mjoin(HttpServletRequest request, HttpServletResponse response,RedirectAttributes rttr, ModelAndView mv, MemberVO vo) {
 
 		String uri = "redirect:home";
 
@@ -113,8 +120,10 @@ public class MemberController {
 
 		if (service.insert(vo) > 0) {
 			mv.addObject("join", true);
+			rttr.addFlashAttribute("alertMessage", "회원가입에 성공하였습니다");
 		} else {
 			uri = "member/join";
+			mv.addObject("alertMessage", "회원가입에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -155,7 +164,7 @@ public class MemberController {
 	} // mdetail
 
 	@RequestMapping(value = "/mdetailup", method = RequestMethod.POST)
-	public ModelAndView mdetailup(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+	public ModelAndView mdetailup(HttpServletRequest request, HttpServletResponse response, RedirectAttributes rttr, ModelAndView mv,
 			MemberVO vo) {
 
 		String uri = "/member/mDetail";
@@ -169,6 +178,9 @@ public class MemberController {
 		if (service.update(vo) > 0) {
 			mv.addObject("user", vo);
 			uri = "redirect:home";
+			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "글 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -182,7 +194,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/changepw")
-	public ModelAndView changepw(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+	public ModelAndView changepw(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,RedirectAttributes rttr, MemberVO vo) {
 		vo.setEmail((String)request.getSession().getAttribute("loginID"));
 		String oldPW = vo.getPassword();
 		String newPW = (String)request.getParameter("newPassword");
@@ -192,8 +204,10 @@ public class MemberController {
 		if (passwordEncoder.matches(oldPW,vo.getPassword())) {
 			vo.setPassword(passwordEncoder.encode(newPW));
 			service.changePW(vo);
+			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 성공하였습니다");
 		}else {
 			uri = "redirect:home";
+			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -266,19 +280,27 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/addadmin")
-	public ModelAndView addadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+	public ModelAndView addadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 		vo.setNickname((String)request.getParameter("nickname"));
-		service.addAdmin(vo);
-		
+		if(service.addAdmin(vo)>0) {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 실패하였습니다");
+		}
 		mv.setViewName("redirect:memberlist");
 		return mv;
 	}
 	
 	@RequestMapping(value = "/removeadmin")
-	public ModelAndView removeadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+	public ModelAndView removeadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 		vo.setNickname((String)request.getParameter("nickname"));
-		service.removeAdmin(vo);
-
+		
+		if(service.removeAdmin(vo)>0) {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 실패하였습니다");
+		}
+		
 		mv.setViewName("redirect:memberlist");
 		return mv;
 	}
@@ -348,16 +370,75 @@ public class MemberController {
 	} // 이메일 인증번호 확인
 
 	@RequestMapping(value = "/passwordupdate", method = RequestMethod.POST)
-	public ModelAndView passwordupdate(MemberVO vo, ModelAndView mv, HttpSession session) throws IOException {
+	public ModelAndView passwordupdate(MemberVO vo, ModelAndView mv, HttpSession session, RedirectAttributes rttr) throws IOException {
 		
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		if (service.changePW(vo) > 0) {
 			mv.setViewName("redirect:home?relogin=1");
+			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 실패하였습니다");
 		} else {
 			mv.setViewName("member/newPW");
+			mv.addObject("alertMessage", "비밀번호 변경에 실패하였습니다");
 		}
 
 		return mv;
 	}
+	
+	@RequestMapping(value = "/mdeletef")
+	public ModelAndView mdeletef(ModelAndView mv) throws Exception {
+		mv.setViewName("member/memberDelete");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/mdelete", method = RequestMethod.POST)
+	public ModelAndView mdelete(HttpServletRequest request, HttpServletResponse response, MemberVO vo, ModelAndView mv, RedirectAttributes rttr) throws Exception {
+		HttpSession session = request.getSession(false);
+		String url = "redirect:home";
+		
+		String email = (String)request.getParameter("email");
+		MemberVO vo2 = new MemberVO();
+		vo2.setEmail(email);		
+		vo2 = service.selectOne(vo2);
+		
+		System.out.println(vo2);
+		System.out.println(vo);
+
+		if (vo != null) { // email 확인
+			if (passwordEncoder.matches(vo.getPassword(), vo2.getPassword())) { 
+				if (service.deleteMember(vo)>0) {
+					if (session != null) {
+						session.invalidate();
+					}
+					rttr.addFlashAttribute("alertMessage", "회원 탈퇴에 성공하였습니다");
+				}else {
+					url = "member/memberDelete";
+					mv.addObject("alertMessage", "회원 탈퇴에 실패하였습니다");
+				}
+			}
+		}
+		
+		mv.setViewName(url);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/mdeletea")
+	public ModelAndView mdeletea(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo, RedirectAttributes rttr) {
+		String uri = "redirect:memberlist";
+		HttpSession session = request.getSession(false);
+		
+		if (service.mdeletea(vo)>0) {
+			if (session != null) {
+				session.invalidate();
+			}
+			rttr.addFlashAttribute("alertMessage", "회원 삭제에 성공하였습니다");
+		}else {
+			uri = "/member/memberlist";
+			mv.addObject("alertMessage", "회원 삭제에 실패하였습니다");
+		}
+		
+		mv.setViewName(uri);
+		return mv;
+	}
+
 
 }

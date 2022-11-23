@@ -46,7 +46,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
                 <input type="password" class="joininput" id="newPassword2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Modify</button>
+                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Modify</button>
                 <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
             </div>
         </form>
@@ -91,5 +91,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

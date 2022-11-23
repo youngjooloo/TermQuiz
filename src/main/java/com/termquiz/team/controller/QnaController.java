@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.termquiz.team.common.PageNation;
 import com.termquiz.team.service.QnaService;
@@ -72,7 +73,8 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value = "/qnainsert", method = RequestMethod.POST)
-	public ModelAndView qnainsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+	public ModelAndView qnainsert(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			RedirectAttributes rttr, QnaVO vo) {
 
 		String uri = "qnainsertf";
 		Date nowDate = new Date();
@@ -89,14 +91,18 @@ public class QnaController {
 		
 		if(service.insert(vo) > 0) {
 			uri = "redirect:qnaboardlist";
-		}		
+			rttr.addFlashAttribute("alertMessage", "QnA 등록에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "QnA 등록에 실패하였습니다");
+		}
 		
 		mv.setViewName(uri);
 		return mv;
 	}
 	
 	@RequestMapping(value = "/qnaanswer")
-	public ModelAndView qnaanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+	public ModelAndView qnaanswer(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+			RedirectAttributes rttr, QnaVO vo) {
 
 		String uri = "qnadetail";
 		
@@ -107,6 +113,9 @@ public class QnaController {
 		
 		if( service.qnaAnswer(vo) > 0) {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+			rttr.addFlashAttribute("alertMessage", "답변 등록에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "답변 등록에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -114,19 +123,24 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value = "/qnaanswerdelete")
-	public ModelAndView qnaanswerdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+	public ModelAndView qnaanswerdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr ,QnaVO vo) {
 		
 		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
 		String uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
-
-		service.qnaAnswerDelete(vo);
+		
+		if(service.qnaAnswerDelete(vo)>0) {
+			rttr.addFlashAttribute("alertMessage", "답글 삭제에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage", "답글 삭제에 실패하였습니다");
+		}
 		
 		mv.setViewName(uri);
 		return mv;
 	}
 	
+	
 	@RequestMapping(value = "/qnaupdate", method = RequestMethod.POST)
-	public ModelAndView qnaupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+	public ModelAndView qnaupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr , QnaVO vo) {
 
 		String uri = "qna/qnaUpdate";
 		
@@ -138,6 +152,9 @@ public class QnaController {
 		
 		if(service.qnaUpdate(vo2)>0) {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+			rttr.addFlashAttribute("alertMessage", "QnA 수정에 성공하였습니다");
+		}else {
+			mv.addObject("alertMessage", "QnA 수정에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -145,7 +162,7 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value = "/qnadelete")
-	public ModelAndView qnadelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
+	public ModelAndView qnadelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,RedirectAttributes rttr , QnaVO vo) {
 		
 		String uri = "qna/qnadetail";
 
@@ -154,6 +171,9 @@ public class QnaController {
 	      
 	    if(service.qnadelete(vo)>0) {
 	    	uri = "redirect:qnaboardlist";
+	    	rttr.addFlashAttribute("alertMessage", "QnA 삭제에 성공하였습니다");
+	    }else {
+	    	mv.addObject("alertMessage", "QnA 삭제에 성공하였습니다");
 	    }
 
 	    mv.setViewName(uri);

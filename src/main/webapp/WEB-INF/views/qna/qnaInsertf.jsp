@@ -66,7 +66,7 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 	                <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+	                <li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -106,7 +106,7 @@
 			</table>
 			
 			<div class="wrap_paging">
-				<button type="submit" class="btn_insertf">Submit</button>
+				<button type="submit" class="btn_insertf confirmBtn2">Submit</button>
 				<button type="button" class="btn_insertf" onclick="javascript:history.go(-1);">Back</button>
 			</div>
 		</form>
@@ -140,5 +140,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

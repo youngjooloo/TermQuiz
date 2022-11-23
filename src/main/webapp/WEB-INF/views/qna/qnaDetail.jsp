@@ -70,7 +70,7 @@
         
                         <c:if test="${not empty loginID}">
 	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+	                        <li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
                     </c:if>
 				</ul>
 			</div>
@@ -107,7 +107,7 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<button class="btn_detail answerBtn" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
+								<button class="btn_detail answerBtn confirmBtn" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
@@ -115,7 +115,7 @@
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
 									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required></textarea>
 									<p class="bdtextCount"></p>
-									<button class="btn_answer" type="submit">Submit</button>
+									<button class="btn_answer confirmBtn2" type="submit">Submit</button>
 								</form>
 							</c:if>
 						</c:if>
@@ -126,10 +126,10 @@
 		
 		<div class="wrap_paging qnaWrap">
 			<c:if test="${qna.qnaId == nick && empty qna.qnaAnswer}">
-				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
+				<button type="button" class="btn_detail confirmBtn2" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
 			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
-				<button type="button" class="btn_detail" onclick="location.href='qnadelete?qnaNo=${qna.qnaNo}'">Delete</button>
+				<button type="button" class="btn_detail confirmBtn" onclick="location.href='qnadelete?qnaNo=${qna.qnaNo}'">Delete</button>
 			</c:if>
 			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
@@ -167,5 +167,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

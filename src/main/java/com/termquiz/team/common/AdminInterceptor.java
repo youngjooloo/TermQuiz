@@ -14,12 +14,10 @@ public class AdminInterceptor extends HandlerInterceptorAdapter   {
 		
 		HttpSession session = request.getSession(false);
 		
-		System.out.println(session.getAttribute("admin"));
 		if (session!=null && session.getAttribute("nick")!=null) {
 			return true;
 		}else {
-			request.setAttribute("message", "관리자가 아닙니다");
-			response.sendRedirect("home");
+			response.sendRedirect("home?ic=2");
 			return false;
 		}
 	}

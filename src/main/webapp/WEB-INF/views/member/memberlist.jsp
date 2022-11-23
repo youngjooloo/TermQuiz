@@ -49,7 +49,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link  confirmBtn2" href="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -79,6 +79,9 @@
 						<button id="${list.nickname}" class="addAdmin">Add</button>  
     				</c:if>
     			</li>
+    			<li>
+					<button onclick="location.href=`mdeletea?email=${list.email}`;" class="removeAdmin  confirmBtn">Delete</button>  
+    			</li>
     		</ul>
     	</c:forEach>
 	</main>
@@ -102,5 +105,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

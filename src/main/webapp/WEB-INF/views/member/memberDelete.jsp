@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Password</title>
+<title>Member Delete</title>
 
 <link rel="icon" type="image/x-icon"
 	href="resources/home/assets/favicon.ico" />
@@ -33,10 +33,20 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">	
-					<li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+					<c:if test="${admin}">
+	                	<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+                    </c:if>
+                    	
+                    <c:if test="${!admin }">
+	                     <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    </c:if>
+				
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+					<li class="nav-item"><a class="nav-link  confirmBtn2" href="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -44,19 +54,19 @@
 	
 <div class="main" id="changeMain">
     <div class="container">
-        <form action="sendverifynumber" method="POST" class="appointment-form" id="appointment-form">
-            <h2>Find Password</h2>
+        <form action="mdelete" method="POST" class="appointment-form" id="appointment-form">
+            <h2>Member Delete</h2>
             
             <div class="form-group-1">
   				<label for="email" class="label-agree-term">Email</label>
   				<input id="email" name="email" required type="email" />
-  				
-  				<label for="text" class="label-agree-term">Name</label>
-  				<input id="text" name="name" required type="text" />
+
+  				<label for="password" class="label-agree-term">Password</label>
+  				<input id="password" name="password" required type="password" />
             </div>
             <div class="form-submit">
                 <button type="submit" name="submit" id="submit" class="submit">Submit</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button" id="reset" class="submit" onclick="history.back();">Back</button>
             </div>
         </form>
     </div>
@@ -80,5 +90,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

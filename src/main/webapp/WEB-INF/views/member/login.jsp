@@ -17,7 +17,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="mlogin" method="post" class="login100-form validate-form">
+				<form action="mlogin" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
