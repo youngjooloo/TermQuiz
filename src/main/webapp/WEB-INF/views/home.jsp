@@ -21,7 +21,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/home/css/styles.css" rel="stylesheet" />
         <link href="resources/home/css/main.css" rel="stylesheet" />
-        <link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->

@@ -17,3 +17,19 @@
 .form-submit #mdeletef:hover{
 	background-color: #932828;
 }
+
+.submitBtn{
+	width: auto;
+    background: #4966b1;
+    color: #fff;
+    padding: 16px 17px;
+    font-size: 13px;
+    border: none;
+    border-radius : 5px;
+    cursor: pointer;
+    box-shadow :0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+}
+
+.submitBtn:hover {
+        background: #3a518d;
+    }

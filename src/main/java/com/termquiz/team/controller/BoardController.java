@@ -110,7 +110,7 @@ public class BoardController {
 			uri = "redirect:boardlist";
 			rttr.addFlashAttribute("alertMessage", "글쓰기에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage", "글쓰기에 실패하였습니다");
+			mv.addObject("alertMessage2", "글쓰기에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -132,7 +132,7 @@ public class BoardController {
 			uri = "redirect:boarddetail?bno=" + vo.getBno();
 			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage", "글 수정에 실패하였습니다");
+			mv.addObject("alertMessage2", "글 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -151,7 +151,7 @@ public class BoardController {
 			rttr.addFlashAttribute("alertMessage", "글 삭제에 성공하였습니다");
 		} else {
 			uri = "redirect:/boarddetail?bno=" + vo.getBno();
-			rttr.addFlashAttribute("alertMessage", "글 삭제에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "글 삭제에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -205,6 +205,8 @@ public class BoardController {
 			// 2. Service 처리
 			if (service.rinsert(cvo) > 0) {
 				uri = "redirect:boarddetail?bno=" + cvo.getBno();
+			}else {
+		    	mv.addObject("alertMessage2", "댓글 등록 실패");
 			}
 		}else {
 			
@@ -215,10 +217,9 @@ public class BoardController {
 		    service.stepUpdate(cvo);
 		    
 		    if (service.rrinsert(cvo)>0) {
-		    	rttr.addFlashAttribute("message", "답글 등록 성공");
 		    	uri = "redirect:boarddetail?bno=" + cvo.getBno();
 		    } else {
-		    	mv.addObject("message", "답글 등록 실패");
+		    	mv.addObject("alertMessage2", "댓글 등록 실패");
 		    	uri = "board/boarddetail?bno=" + cvo.getBno();
 		    }
 		}
@@ -228,19 +229,23 @@ public class BoardController {
 	} // rinsert
 	
 	@RequestMapping(value = "/bcommentdelete")
-	public ModelAndView bcommentdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+	public ModelAndView bcommentdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr,
 			BoardCommentsVO cvo) {
 		int bcno = Integer.parseInt((String) request.getParameter("bcno"));
 		int bno = Integer.parseInt((String) request.getParameter("bno"));
 		cvo.setBcNo(bcno);
-		service.bcommentdelete(cvo);
+		if (service.bcommentdelete(cvo)>0) {
+			rttr.addFlashAttribute("alertMessage", "댓글 삭제를 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage2", "댓글 삭제를 실패하였습니다");
+		}
 
 		mv.setViewName("redirect:boarddetail?bno=" + bno);
 		return mv;
 	}
 
 	@RequestMapping(value = "/bcommentupdate", method = RequestMethod.POST)
-	public ModelAndView boardupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+	public ModelAndView boardupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr,
 			BoardCommentsVO cvo) {
 	
 		int bno = Integer.parseInt((String)request.getParameter("bno"));
@@ -252,9 +257,11 @@ public class BoardController {
 
 		String bcomment = cvo.getBcomment().replace("\r\n", "<br>");
 		cvo.setBcomment(bcomment);
-
-		service.bcommentupdate(cvo);
-
+		if (service.bcommentupdate(cvo)>0) {
+			rttr.addFlashAttribute("alertMessage", "댓글 삭제를 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage2", "댓글 삭제를 실패하였습니다");
+		}
 		mv.setViewName(uri);
 		return mv;
 	}

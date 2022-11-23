@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 <link rel="stylesheet" href="resources/changePW/css/changePW.css">
+<link rel="stylesheet" href="resources/memberDetail/css/memberDetail.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -54,19 +55,19 @@
 	
 <div class="main" id="changeMain">
     <div class="container">
-        <form action="mdelete" method="POST" class="appointment-form" id="appointment-form">
+        <form action="mdelete" method="POST" class="appointment-form deleteForm" id="deleteForm">
             <h2>Member Delete</h2>
             
             <div class="form-group-1">
   				<label for="email" class="label-agree-term">Email</label>
-  				<input id="email" name="email" required type="email" />
+  				<input id="email" name="email" required readonly type="email" value="${loginID}"/>
 
   				<label for="password" class="label-agree-term">Password</label>
   				<input id="password" name="password" required type="password" />
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Submit</button>
-                <button type="button" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button" id="submitBtn" class="submitBtn submit_Confirm" >Submit</button>
+                <button type="button" id="resetBtn" class="submitBtn" onclick="history.back();">Back</button>
             </div>
         </form>
     </div>
@@ -86,6 +87,17 @@
 				     icon: 'success',
 				     title: '알림',
 				     text: '${alertMessage}',
+				 });
+			});
+		</script>
+	</c:if>
+	<c:if test="${not empty alertMessage2}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'error',
+				     title: '알림',
+				     text: '${alertMessage2}',
 				 });
 			});
 		</script>

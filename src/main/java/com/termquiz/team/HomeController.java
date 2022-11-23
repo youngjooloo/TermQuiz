@@ -35,16 +35,10 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		String interceptor = (String)request.getParameter("ic");
-		
+		String interceptor = (String)request.getSession().getAttribute("alertMessage");
 		if (interceptor != null && interceptor.length()>0) {
-			int message = Integer.parseInt(interceptor);
-			
-			if (message == 1) {
-				model.addAttribute("alertMessage", "로그인 후 이용 가능합니다");
-			}else if (message == 2) {
-				model.addAttribute("alertMessage", "관리자만 이용 가능합니다");
-			}
+			model.addAttribute("alertMessage2", interceptor);
+			request.getSession().removeAttribute("alertMessage2");
 		}
 		
 		return "home";

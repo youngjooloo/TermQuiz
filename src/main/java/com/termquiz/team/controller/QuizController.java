@@ -211,13 +211,13 @@ public class QuizController {
 			if (service.movieQuizInsert(vo) > 0) {
 				rttr.addFlashAttribute("alertMessage", "영화 퀴즈 업로드에 성공하였습니다");
 			}else {
-				rttr.addFlashAttribute("alertMessage", "영화 퀴즈 업로드에 성공하였습니다");
+				rttr.addFlashAttribute("alertMessage2", "영화 퀴즈 업로드에 실패하였습니다");
 			}
 		} else if (type == "music" || "music".equals(type)) {
 			if (service.musicQuizInsert(vo) > 0) {
 				rttr.addFlashAttribute("alertMessage", "음악 퀴즈 업로드에 성공하였습니다");
 			}else {
-				rttr.addFlashAttribute("alertMessage", "음악 퀴즈 업로드에 성공하였습니다");
+				rttr.addFlashAttribute("alertMessage2", "음악 퀴즈 업로드에 실패하였습니다");
 			}
 		}
 

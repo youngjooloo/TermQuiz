@@ -40,8 +40,8 @@ public class MemberController {
 	@RequestMapping(value = "/mloginf")
 	public ModelAndView mloginf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 		String thisUrl = request.getParameter("thisUrl");
+		thisUrl = thisUrl.split("/team")[1];
 		mv.addObject("thisUrl", thisUrl);
-
 		mv.setViewName("member/login");
 		return mv;
 	}
@@ -50,42 +50,38 @@ public class MemberController {
 	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 
 //      request 처리
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
 		String thisUrl = request.getParameter("thisUrl");
-		System.out.println(thisUrl);
-		thisUrl = thisUrl.split("/team")[0];
-		String url = "redirect:/";
+		thisUrl = thisUrl.replaceAll("relogin=1", "");
+		String password = vo.getPassword();
+		String url = "redirect:";
+	
+		if (thisUrl.contains("?")) {
+			if (thisUrl.contains("&")) {
+				url = url + thisUrl+"&relogin=1";
+			}else {
+				url = url + thisUrl+"relogin=1";
+			}
+		}else if (!thisUrl.contains("?")) {
+			url = url + thisUrl+"?relogin=1";
+		}
+		
+//      service 처리
+		vo = service.selectOne(vo);
 
-//		if (thisUrl == "team" || "team".endsWith(thisUrl)) {
-//			thisUrl = "home";
-//		}
-//
-//		if (!thisUrl.contains("relogin")) {
-//			if (thisUrl.contains("?")) {
-//				url = "redirect:" + thisUrl + "&relogin=1";
-//			} else {
-//				url = "redirect:" + thisUrl + "?relogin=1";
-//			}
-//		}
-//
-////      service 처리
-//		vo.setEmail(email);
-//		vo = service.selectOne(vo);
-//
-//		if (vo != null) { // email 확인
-//			if (passwordEncoder.matches(password, vo.getPassword())) { // email이 일치하면 password 확인\
-//				request.getSession().setAttribute("loginID", email);
-//				request.getSession().setAttribute("loginPW", password);
-//				request.getSession().setAttribute("nick", vo.getNickname());
-//				request.getSession().setAttribute("admin", vo.isAdminRight());
-//				url = "redirect:" + thisUrl;
-//				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
-//			}
-//		}else {
-//			rttr.addFlashAttribute("alertMessage", "로그인에 실패하였습니다");
-//		}
-
+		if (vo != null) { // email 확인
+			if (passwordEncoder.matches(password, vo.getPassword())) { // email이 일치하면 password 확인\
+				request.getSession().setAttribute("loginID", vo.getEmail());
+				request.getSession().setAttribute("loginPW", vo.getPassword());
+				request.getSession().setAttribute("nick", vo.getNickname());
+				request.getSession().setAttribute("admin", vo.isAdminRight());
+				url = "redirect:"+thisUrl;
+				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
+			}else {
+				rttr.addFlashAttribute("alertMessage2", "로그인에 실패하였습니다");
+			}
+		}else {
+			rttr.addFlashAttribute("alertMessage2", "로그인에 실패하였습니다");
+		}
 		mv.setViewName(url);
 		return mv;
 
@@ -98,7 +94,7 @@ public class MemberController {
 			session.invalidate();
 			rttr.addFlashAttribute("alertMessage", "로그아웃에 성공하였습니다");
 		}else {
-			rttr.addFlashAttribute("alertMessage", "로그아웃에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "로그아웃에 실패하였습니다");
 		}
 
 		mv.setViewName("redirect:home");
@@ -120,11 +116,10 @@ public class MemberController {
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 
 		if (service.insert(vo) > 0) {
-			mv.addObject("join", true);
 			rttr.addFlashAttribute("alertMessage", "회원가입에 성공하였습니다");
 		} else {
 			uri = "member/join";
-			mv.addObject("alertMessage", "회원가입에 실패하였습니다");
+			mv.addObject("alertMessage2", "회원가입에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -181,7 +176,7 @@ public class MemberController {
 			uri = "redirect:home";
 			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage", "글 수정에 실패하였습니다");
+			mv.addObject("alertMessage2", "글 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -208,7 +203,7 @@ public class MemberController {
 			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 성공하였습니다");
 		}else {
 			uri = "redirect:home";
-			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "비밀번호 변경에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -286,7 +281,7 @@ public class MemberController {
 		if(service.addAdmin(vo)>0) {
 			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
 		}else {
-			rttr.addFlashAttribute("alertMessage", "관리자 변경에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
 		}
 		mv.setViewName("redirect:memberlist");
 		return mv;
@@ -299,7 +294,7 @@ public class MemberController {
 		if(service.removeAdmin(vo)>0) {
 			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
 		}else {
-			rttr.addFlashAttribute("alertMessage", "관리자 변경에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
 		}
 		
 		mv.setViewName("redirect:memberlist");
@@ -376,10 +371,10 @@ public class MemberController {
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		if (service.changePW(vo) > 0) {
 			mv.setViewName("redirect:home?relogin=1");
-			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 성공하였습니다");
 		} else {
 			mv.setViewName("member/newPW");
-			mv.addObject("alertMessage", "비밀번호 변경에 실패하였습니다");
+			mv.addObject("alertMessage2", "비밀번호 변경에 실패하였습니다");
 		}
 
 		return mv;
@@ -401,9 +396,6 @@ public class MemberController {
 		vo2.setEmail(email);		
 		vo2 = service.selectOne(vo2);
 		
-		System.out.println(vo2);
-		System.out.println(vo);
-
 		if (vo != null) { // email 확인
 			if (passwordEncoder.matches(vo.getPassword(), vo2.getPassword())) { 
 				if (service.deleteMember(vo)>0) {
@@ -413,8 +405,11 @@ public class MemberController {
 					rttr.addFlashAttribute("alertMessage", "회원 탈퇴에 성공하였습니다");
 				}else {
 					url = "member/memberDelete";
-					mv.addObject("alertMessage", "회원 탈퇴에 실패하였습니다");
+					mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
 				}
+			}else {
+				url = "member/memberDelete";
+				mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
 			}
 		}
 		
@@ -434,7 +429,7 @@ public class MemberController {
 			rttr.addFlashAttribute("alertMessage", "회원 삭제에 성공하였습니다");
 		}else {
 			uri = "/member/memberlist";
-			mv.addObject("alertMessage", "회원 삭제에 실패하였습니다");
+			mv.addObject("alertMessage2", "회원 삭제에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
