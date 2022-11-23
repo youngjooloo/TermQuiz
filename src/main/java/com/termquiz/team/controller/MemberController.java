@@ -53,37 +53,38 @@ public class MemberController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String thisUrl = request.getParameter("thisUrl");
-		thisUrl = thisUrl.split("/")[thisUrl.split("/").length - 1];
-		String url = "home";
+		System.out.println(thisUrl);
+		thisUrl = thisUrl.split("/team")[0];
+		String url = "redirect:/";
 
-		if (thisUrl == "team" || "team".endsWith(thisUrl)) {
-			thisUrl = "home";
-		}
-
-		if (!thisUrl.contains("relogin")) {
-			if (thisUrl.contains("?")) {
-				url = "redirect:" + thisUrl + "&relogin=1";
-			} else {
-				url = "redirect:" + thisUrl + "?relogin=1";
-			}
-		}
-
-//      service 처리
-		vo.setEmail(email);
-		vo = service.selectOne(vo);
-
-		if (vo != null) { // email 확인
-			if (passwordEncoder.matches(password, vo.getPassword())) { // email이 일치하면 password 확인\
-				request.getSession().setAttribute("loginID", email);
-				request.getSession().setAttribute("loginPW", password);
-				request.getSession().setAttribute("nick", vo.getNickname());
-				request.getSession().setAttribute("admin", vo.isAdminRight());
-				url = "redirect:" + thisUrl;
-				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
-			}
-		}else {
-			rttr.addFlashAttribute("alertMessage", "로그인에 실패하였습니다");
-		}
+//		if (thisUrl == "team" || "team".endsWith(thisUrl)) {
+//			thisUrl = "home";
+//		}
+//
+//		if (!thisUrl.contains("relogin")) {
+//			if (thisUrl.contains("?")) {
+//				url = "redirect:" + thisUrl + "&relogin=1";
+//			} else {
+//				url = "redirect:" + thisUrl + "?relogin=1";
+//			}
+//		}
+//
+////      service 처리
+//		vo.setEmail(email);
+//		vo = service.selectOne(vo);
+//
+//		if (vo != null) { // email 확인
+//			if (passwordEncoder.matches(password, vo.getPassword())) { // email이 일치하면 password 확인\
+//				request.getSession().setAttribute("loginID", email);
+//				request.getSession().setAttribute("loginPW", password);
+//				request.getSession().setAttribute("nick", vo.getNickname());
+//				request.getSession().setAttribute("admin", vo.isAdminRight());
+//				url = "redirect:" + thisUrl;
+//				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
+//			}
+//		}else {
+//			rttr.addFlashAttribute("alertMessage", "로그인에 실패하였습니다");
+//		}
 
 		mv.setViewName(url);
 		return mv;

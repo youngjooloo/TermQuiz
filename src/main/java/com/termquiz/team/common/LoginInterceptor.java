@@ -16,7 +16,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter   {
 		if (session!=null && session.getAttribute("nick")!=null) {
 			return true;
 		}else {
-			response.sendRedirect("home?ic=1&relogin=1");
+			response.sendRedirect("home");
 			return false;
 		}
 	}

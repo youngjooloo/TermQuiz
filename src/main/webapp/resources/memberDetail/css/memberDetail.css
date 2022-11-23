@@ -5,7 +5,7 @@
 .form-submit #reset{
 	width: 25%;
 }
-.form-submit #delete{
+.form-submit #mdeletef{
 	background-color: #b33131;
     box-shadow: 0px 1px 15px 0px #b33131;
     -moz-box-shadow: 0px 1px 15px 0px #b33131;
@@ -14,6 +14,6 @@
     -ms-box-shadow: 0px 1px 15px 0px #b33131;
 }
 
-.form-submit #delete:hover{
+.form-submit #mdeletef:hover{
 	background-color: #932828;
 }
