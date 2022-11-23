@@ -169,14 +169,12 @@ public class MemberController {
 		vo2.setEmail(vo.getEmail());
 		vo2 = service.selectOne(vo2);
 		vo.setPassword(vo2.getPassword());
-
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
-			mv.addObject("user", vo);
 			uri = "redirect:home";
-			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
+			rttr.addFlashAttribute("alertMessage", "정보 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "글 수정에 실패하였습니다");
+			mv.addObject("alertMessage2", "정보 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -411,6 +409,9 @@ public class MemberController {
 				url = "member/memberDelete";
 				mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
 			}
+		}else {
+			url = "member/memberDelete";
+			mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
 		}
 		
 		mv.setViewName(url);

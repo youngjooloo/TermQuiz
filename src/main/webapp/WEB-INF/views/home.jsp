@@ -145,5 +145,16 @@
 				});
 			</script>
 		</c:if>
+		<c:if test="${not empty alertMessage2}">
+			<script type="text/javascript">
+				$(document).ready(function(){
+					 Swal.fire({
+					     icon: 'error',
+					     title: '알림',
+					     text: '${alertMessage2}',
+					 });
+				});
+			</script>
+		</c:if>
     </body>
 </html>

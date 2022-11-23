@@ -47,7 +47,18 @@ $(function() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				$(this).parents("form").submit();
+
 			}
 		})
+	});
+
+	$('form').on('submit', function() {
+		$(':required', this).parent().show();
+		var invalidInputs = $(":invalid", this);
+		if (invalidInputs.length > 0) {
+			return false;
+		}else{
+			return true
+		}
 	});
 });

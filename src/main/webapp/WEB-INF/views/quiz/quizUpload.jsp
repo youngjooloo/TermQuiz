@@ -84,7 +84,7 @@
 				</div>
 				
 				<div class="form-submit">
-					<button type="submit" name="submit" id="submit" class="submit">Upload</button>
+					<button type="submit" class="submit submit_Confirm">Upload</button>
 					<button type="reset" id="reset" class="submit"
 						onclick="history.back();">Back</button>
 				</div>

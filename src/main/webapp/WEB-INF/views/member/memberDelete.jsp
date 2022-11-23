@@ -67,7 +67,7 @@
             </div>
             <div class="form-submit">
                 <button type="button" id="submitBtn" class="submitBtn submit_Confirm" >Submit</button>
-                <button type="button" id="resetBtn" class="submitBtn" onclick="history.back();">Back</button>
+                <button type="button" id="resetBtn" class="submitBtn" onclick="location.href=`mdetail`">Back</button>
             </div>
         </form>
     </div>

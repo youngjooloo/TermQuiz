@@ -65,7 +65,7 @@
 	                <input type="text" class="joininput nickname" name="nickname" id="${user.nickname}" value="${user.nickname}"
 	                    placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 	
-	  				<label for="" class="label-agree-term">Password</label>          
+	  				<label for="changePW" class="label-agree-term">Password</label>          
 	            	<button type="button" id="changePW" class="submit" onclick="location.href='changepwf'">Password Change</button>
 	
 	  				<label for="name" class="label-agree-term">Name</label>          
@@ -89,7 +89,7 @@
 	                </div>
 	            </div>
 	            <div class="form-submit">
-	                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Modify</button>
+	                <button type="button" class="submit submit_Confirm">Modify</button>
 	                <button type="button" id="mdeletef" class="submit confirmBtn2">Delete</button>
 	                <button type="button" id="reset" class="submit" onclick="history.back();">Back</button>
 	            </div>
@@ -100,6 +100,7 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
+	<script src="resources/join/js/join.js"></script>
 	<script src="resources/memberDetail/js/detailUpdate.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
