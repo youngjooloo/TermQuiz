@@ -124,7 +124,7 @@
 						<div class="commentsId">${nick}</div>
 						<div class="comment_area">
 							<textarea name="bcomment" id="answer_area" maxlength="150" class="boardComment" required></textarea>
-							<p class="bdtextCount2"></p>
+							<p class="boardCommentP"></p>
 							<input type="submit" class="btn_ist"  value="등록하기">
 						</div>
 					</li>

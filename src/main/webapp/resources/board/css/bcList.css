@@ -41,6 +41,7 @@ body {
 }
 
 .bcUpdateF {
+	display:flex;
     padding: 5px;
     width: 100%;
 }
@@ -61,7 +62,10 @@ body {
 }
 
 .comment_area{
-	flex: 1;	
+	display:flex;
+	position:relative;
+	flex: 1;
+	padding:10px;	
 }
 
 .bcommentP {
@@ -88,8 +92,7 @@ body {
 
 .btn_div {
 	display: flex;
-	float: right;
-    margin: 0px 10px 5px;
+    margin: auto 10px;
 }
 
 .answer_table {
@@ -151,22 +154,27 @@ body {
 	height: 100%;
     width: 100%;
     resize: none;
-    border-top:5px #55608f solid;
 }
 
 .reReplyForm {
 	margin: 0px auto;
-    width: 80%;
+    width: 100%;
+}
+
+.reReplyF{
+	display: flex;
+	position: relative;
+	border-bottom:5px #55608f solid;
 }
 
 .btn_ist {
-	width:70px;
 	background-color: #373737;
-	color: white;
-	border-radius: 5px;
-	cursor: pointer;
-	float: right;
-    margin: 5px 20px 5px 0;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    width: 60px;
+    height: 32px;
+    margin: auto 10px;
 }
 
 .backBtn_div {

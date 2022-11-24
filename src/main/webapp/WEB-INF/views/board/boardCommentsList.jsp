@@ -39,28 +39,31 @@
 					<div class="modifyForm  formHidden">
 						<form action="bcommentupdate?bno&#61;${bcomments.bno}&amp;bcNo&#61;${bcomments.bcNo}" class="bcUpdateF" id="bc${bcomments.bcNo}" method="post">
 							<textarea name="bcomment" class="update_area boardComment" maxlength="150" required>${bcomments.bcomment}</textarea>
-							<p class="bdtextCount2"></p>
+							<p class="boardCommentModify"></p>
 							<div class="btn_div">
-							<input type="button" class="commentsTime_btn upBtn submit_Confirm" value="등록">
-							<input type="button" class="commentsTime_btn cancelBtn" value="취소">
+								<input type="button" class="commentsTime_btn upBtn submit_Confirm" value="등록">
+								<input type="button" class="commentsTime_btn cancelBtn" value="취소">
 							</div>
 						</form>
 					</div>
-					<c:if test="${bcomments.indent < 1}">
-						<div class="reReplyForm formHidden">
-							<form action="rinsert?bno&#61;${bcomments.bno}&root&#61;${bcomments.root}&amp;step&#61;${bcomments.step}&amp;indent&#61;${bcomments.indent}" 
-									class="reReplyF" id="bcNo&#61;${bcomments.bcNo}" method="post">
-								<textarea name="bcomment" class="reReply_area boardComment" maxlength="150" required></textarea>
-								<p class="bdtextCount2"></p>
-								<div class="btn_div">
-									<input type="button" class="commentsTime_btn upBtn2" value="등록">
-									<input type="button" class="commentsTime_btn cancelBtn2" value="취소">
-								</div>
-							</form>
-						</div>
-					</c:if>
 				</div>
 			</li>
+			<c:if test="${bcomments.indent < 1}">
+				<li class="comments_List indent_1">
+					<div class="reReplyForm formHidden">
+						<form action="rinsert?bno&#61;${bcomments.bno}&root&#61;${bcomments.root}&amp;step&#61;${bcomments.step}&amp;indent&#61;${bcomments.indent}" 
+							class="reReplyF" id="bcNo&#61;${bcomments.bcNo}" method="post">
+							<div class="commentsId">${nick}</div>
+							<textarea name="bcomment" class="reReply_area boardComment" maxlength="150" required></textarea>
+							<p class="boardReCommentModify"></p>
+							<div class="btn_div">
+								<input type="button" class="commentsTime_btn upBtn2" value="등록">
+								<input type="button" class="commentsTime_btn cancelBtn2" value="취소">
+							</div>
+						</form>
+					</div>
+				</li>
+			</c:if>
 		</c:forEach>
 	</ul>
 </c:if>	

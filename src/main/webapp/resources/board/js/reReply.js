@@ -3,7 +3,7 @@
 $(function(){
 	$('.third_btn').click(function(e){
 		e.stopPropagation();
-		$(this).parents('.list_Form ').children('.reReplyForm').toggleClass('formHidden');
+		$(this).parents('.comments_List').next().children('.reReplyForm').toggleClass('formHidden');
 	});
 	
 	$('.cancelBtn2').click(function(e){

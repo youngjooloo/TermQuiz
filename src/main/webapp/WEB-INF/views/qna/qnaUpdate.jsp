@@ -102,7 +102,7 @@
 					<th>Question</th>
 					<td colspan="3" id="userQuestion">
 						<textarea id="qnaContent" name="qnaContent" class="boardText" maxlength="500" required>${qna.qnaContent}</textarea>
-						<p class="bdtextCount"></p>
+						<p class="qnaCount"></p>
 					</td>
 				</tr>
 				<tr>
