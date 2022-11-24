@@ -3,8 +3,9 @@
 $(function(){
 	$('.third_btn').click(function(e){
 		e.stopPropagation();
-		$(this).parents('li').children('.reReplyForm').toggleClass('formHidden');
+		$(this).parents('.list_Form ').children('.reReplyForm').toggleClass('formHidden');
 	});
+	
 	$('.cancelBtn2').click(function(e){
 		e.stopPropagation();
 		$(this).parents('.reReplyForm').toggleClass('formHidden');

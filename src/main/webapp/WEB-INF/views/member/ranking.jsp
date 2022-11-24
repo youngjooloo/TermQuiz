@@ -65,11 +65,11 @@
 		<ul id="listHead">
 			<li class="headList ListF"><span>Ranking</span></li>
 			<li class="headList ListF"><span>Nickname</span></li>
-			<li class="headList ListE"><span id="total" class="chart">Total Score</span></li>
 			<li class="headList ListE"><span id="movie" class="chart">Movie Score</span></li>
 			<li class="headList ListE"><span id="music" class="chart">Music Score</span></li>
 		</ul>
 		<section id="rankingSection"></section>
+			<li class="headList ListE"><span id="total" class="chart">Total Score</span></li>
 	</main>	
 	
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -81,5 +81,30 @@
     <script src="resources/home/js/scripts.js"></script>
     <script src="resources/home/js/main.js"></script>
     <script src="resources/ranking/js/ranking.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<c:if test="${not empty alertMessage}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'success',
+				     title: '알림',
+				     text: '${alertMessage}'
+				 });
+			});
+		</script>
+	</c:if>
+		<c:if test="${not empty alertMessage2}">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				 Swal.fire({
+				     icon: 'error',
+				     title: '알림',
+				     text: '${alertMessage2}'
+				 });
+			});
+		</script>
+	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

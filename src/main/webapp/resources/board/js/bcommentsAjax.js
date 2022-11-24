@@ -13,8 +13,6 @@ function commentListOn() {
 	const url = new URL(window.location.href);
 	const check = url.searchParams;
 	const bno = check.get("bno");
-	
-	console.log(bno);
 	$.ajax({
 		type: 'Get',
 		url: 'commentlist',

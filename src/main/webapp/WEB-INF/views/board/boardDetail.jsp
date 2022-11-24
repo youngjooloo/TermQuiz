@@ -123,8 +123,7 @@
 					<li class="comments_List">
 						<div class="commentsId">${nick}</div>
 						<div class="comment_area">
-							<textarea name="bcomment" id="answer_area" maxlength="150"
-								required></textarea>
+							<textarea name="bcomment" id="answer_area" maxlength="150" class="boardComment" required></textarea>
 							<p class="bdtextCount2"></p>
 							<input type="submit" class="btn_ist"  value="등록하기">
 						</div>
@@ -159,7 +158,7 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
@@ -170,7 +169,7 @@
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>

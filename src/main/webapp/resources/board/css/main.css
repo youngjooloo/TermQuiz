@@ -278,7 +278,6 @@ header div h3 a:hover{
 .boardNumBox{
 	width: 160px;
 	display: inline-flex;
-	justify-content: space-between;
 	align-items: center;
 }
 

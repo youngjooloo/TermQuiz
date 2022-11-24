@@ -99,7 +99,7 @@
 					<tr>
 						<th>Content</th>
 						<td colspan="3" id="userContent">
-							<textarea id="bContent" name="bcontent" maxlength="500" required>${board.bcontent }</textarea>
+							<textarea id="bContent" name="bcontent" maxlength="500" required class="boardText">${board.bcontent }</textarea>
 							<p class="textCount"></p>
 						</td>
 					</tr>
@@ -136,18 +136,18 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
 	</c:if>
-		<c:if test="${not empty alertMessage2}">
+	<c:if test="${not empty alertMessage2}">
 		<script type="text/javascript">
 			$(document).ready(function(){
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>

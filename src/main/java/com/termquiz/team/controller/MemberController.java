@@ -286,7 +286,7 @@ public class MemberController {
 		vo = service.selectOne(vo);
 		if (vo != null) {
 			Random r = new Random();
-			int checkNum = r.nextInt(999999); // 랜덤난수설정
+			int checkNum = r.nextInt(899999)+100000; // 랜덤난수설정
 
 			if (vo.getName().equals(name)) {
 

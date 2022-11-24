@@ -103,9 +103,10 @@
 				<tbody>
 					<tr>
 						<th>Content</th>
-						<td colspan="3" id="userContent"><textarea id="bContent"
-								name="bcontent" maxlength="500" required></textarea>
-							<p class="textCount"></p></td>
+						<td colspan="3" id="userContent">
+							<textarea id="bContent"name="bcontent" class="boardText" maxlength="500" required></textarea>
+							<p class="textCount"></p>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -142,7 +143,7 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
@@ -153,7 +154,7 @@
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>

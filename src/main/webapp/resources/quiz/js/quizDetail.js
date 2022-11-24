@@ -78,16 +78,20 @@ function loginAnswer(e) {
 	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ", "");
 	let answerList = quizAnswer.split();
 	
+	let answerList = quizAnswer.split(",");
+	
 	for(let i=0; i < answerList.length; i++){
-		console.log(answerList[i]);
+		if(answerList[i]==answer){
+			correct = true;
+		}
 	}
 	
-	const correct = quizAnswer.includes(answer);
 	if (correct) {
 		trueAnswer();
 	} else {
 		falseAnswer(e);
 	}
+	
 	anwerSubmit(e, correct)
 }
 

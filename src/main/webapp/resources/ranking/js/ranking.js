@@ -3,9 +3,6 @@
  */
 
 $(function(){
-	$(document).ready(function(){
-		$('#total').click();
-	});
 	
 	$('.chart').click(function(){
 		let clickOn = $(this);
@@ -14,7 +11,6 @@ $(function(){
 		$(clickOn).addClass("sort");
 		sortUrl = "rankingajax?sortName="+sortType;
 		
-		console.log(sortUrl);
 		$.ajax({
 			type: 'Get',
 			url: sortUrl,
@@ -27,4 +23,8 @@ $(function(){
 			}
 		});
 	});
+});
+
+$(document).ready(function(){
+	$('#total').click();
 });

@@ -101,7 +101,7 @@
 				<tr>
 					<th>Question</th>
 					<td colspan="3" id="userQuestion">
-						<textarea id="qnaContent" name="qnaContent" maxlength="500" required>${qna.qnaContent}</textarea>
+						<textarea id="qnaContent" name="qnaContent" class="boardText" maxlength="500" required>${qna.qnaContent}</textarea>
 						<p class="bdtextCount"></p>
 					</td>
 				</tr>
@@ -143,7 +143,7 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
@@ -154,7 +154,7 @@
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>

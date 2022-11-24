@@ -113,7 +113,7 @@
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
-									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required></textarea>
+									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required class="boardComment"></textarea>
 									<p class="bdtextCount"></p>
 									<button class="btn_answer submit_Confirm" type="button">Submit</button>
 								</form>
@@ -162,7 +162,7 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
@@ -173,7 +173,7 @@
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>

@@ -52,10 +52,10 @@
             
             <div class="form-group-1">
   				<label for="password" class="label-agree-term">New Password</label>
-  				<input id="password" name="password" type="password">
+  				<input id="password" name="password" type="password" required>
             	
             	<label for="password2" class="label-agree-term">New Password Check</label>
-            	<input id="password2" type="password">
+            	<input id="password2" type="password" required>
             </div>
             <div class="form-submit">
                 <button type="button"  id="submitBtn" class="submitBtn submit_Confirm">Submit</button>
@@ -78,7 +78,7 @@
 				 Swal.fire({
 				     icon: 'success',
 				     title: '알림',
-				     text: '${alertMessage}',
+				     text: '${alertMessage}'
 				 });
 			});
 		</script>
@@ -89,7 +89,7 @@
 				 Swal.fire({
 				     icon: 'error',
 				     title: '알림',
-				     text: '${alertMessage2}',
+				     text: '${alertMessage2}'
 				 });
 			});
 		</script>
