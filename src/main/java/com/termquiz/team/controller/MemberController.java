@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -119,7 +118,7 @@ public class MemberController {
 			rttr.addFlashAttribute("alertMessage", "회원가입에 성공하였습니다");
 		} else {
 			uri = "member/join";
-			mv.addObject("alertMessage2", "회원가입에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "회원가입에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -174,7 +173,7 @@ public class MemberController {
 			uri = "redirect:home";
 			rttr.addFlashAttribute("alertMessage", "정보 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "정보 수정에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "정보 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -306,8 +305,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/sendverifynumber")
-	public ModelAndView authPW(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo,
-			ServletRequest session) throws Exception {
+	public ModelAndView authPW(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo, RedirectAttributes rttr,
+			HttpSession session) throws Exception {
 		
 		String email = (String) request.getParameter("email");
 		String name = (String) request.getParameter("name");
@@ -315,17 +314,17 @@ public class MemberController {
 		vo = service.selectOne(vo);
 		if (vo != null) {
 			Random r = new Random();
-			int num = r.nextInt(999999); // 랜덤난수설정
+			int checkNum = r.nextInt(999999); // 랜덤난수설정
 
 			if (vo.getName().equals(name)) {
 
 				session.setAttribute("email", vo.getEmail());
 
-				String setfrom = ""; // naver
+				String setfrom = "littlekimyj@naver.com"; // naver
 				String tomail = email; // 받는사람
 				String title = "비밀번호변경 인증 이메일 입니다";
 				String content = System.getProperty("line.separator") + "안녕하세요 회원님"
-						+ System.getProperty("line.separator") + "비밀번호찾기(변경) 인증번호는 " + num + " 입니다."
+						+ System.getProperty("line.separator") + "비밀번호찾기(변경) 인증번호는 " + checkNum + " 입니다."
 						+ System.getProperty("line.separator");
 
 				try {
@@ -339,24 +338,25 @@ public class MemberController {
 
 					mailsender.send(message);
 				} catch (Exception e) {
+					rttr.addFlashAttribute("alertMessage2","이메일 발송에 실패했습니다");
 				}
 				
 				mv.setViewName("member/authPW");
-				mv.addObject("num", num);
+				session.setAttribute("checkNum", checkNum);
 
 			} else {
 				mv.setViewName("member/findPW");
 			}
-
 		}
 		return mv;
 	}// 인증번호발송
 
 	@RequestMapping(value = "/verifynumber", method = RequestMethod.POST)
-	public String verifynumber(@RequestParam(value = "verifynumber") String verifynumber,
-			@RequestParam(value = "num") String num) throws IOException {
-
-		if (verifynumber.equals(num)) {
+	public String verifynumber(HttpServletRequest request,@RequestParam(value = "verifynumber") String verifynumber) throws IOException {
+		System.out.println(verifynumber);
+		String checkNum = request.getSession().getAttribute("checkNum").toString();
+		System.out.println(checkNum);
+		if (verifynumber.equals(checkNum)) {
 			return "member/newPW";
 		} else {
 			return "member/findPW";
@@ -364,15 +364,16 @@ public class MemberController {
 	} // 이메일 인증번호 확인
 
 	@RequestMapping(value = "/passwordupdate", method = RequestMethod.POST)
-	public ModelAndView passwordupdate(MemberVO vo, ModelAndView mv, HttpSession session, RedirectAttributes rttr) throws IOException {
+	public ModelAndView passwordupdate(MemberVO vo, ModelAndView mv, HttpSession session, RedirectAttributes rttr,HttpServletRequest request) throws IOException {
 		
+		vo.setEmail((String)request.getSession().getAttribute("email"));	
 		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
 		if (service.changePW(vo) > 0) {
 			mv.setViewName("redirect:home?relogin=1");
 			rttr.addFlashAttribute("alertMessage", "비밀번호 변경에 성공하였습니다");
 		} else {
 			mv.setViewName("member/newPW");
-			mv.addObject("alertMessage2", "비밀번호 변경에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "비밀번호 변경에 실패하였습니다");
 		}
 
 		return mv;
@@ -403,15 +404,15 @@ public class MemberController {
 					rttr.addFlashAttribute("alertMessage", "회원 탈퇴에 성공하였습니다");
 				}else {
 					url = "member/memberDelete";
-					mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
+					rttr.addFlashAttribute("alertMessage2", "회원 탈퇴에 실패하였습니다");
 				}
 			}else {
 				url = "member/memberDelete";
-				mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
+				rttr.addFlashAttribute("alertMessage2", "회원 탈퇴에 실패하였습니다");
 			}
 		}else {
 			url = "member/memberDelete";
-			mv.addObject("alertMessage2", "회원 탈퇴에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "회원 탈퇴에 실패하였습니다");
 		}
 		
 		mv.setViewName(url);
@@ -424,13 +425,13 @@ public class MemberController {
 		HttpSession session = request.getSession(false);
 		
 		if (service.mdeletea(vo)>0) {
-			if (session != null) {
+			if (session != null && "loginID".equals(vo.getEmail())) {
 				session.invalidate();
 			}
 			rttr.addFlashAttribute("alertMessage", "회원 삭제에 성공하였습니다");
 		}else {
 			uri = "/member/memberlist";
-			mv.addObject("alertMessage2", "회원 삭제에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "회원 삭제에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);

@@ -17,7 +17,8 @@ public class AdminInterceptor extends HandlerInterceptorAdapter   {
 		if (session!=null && session.getAttribute("nick")!=null) {
 			return true;
 		}else {
-			session.setAttribute("alertMessage", "관리자만 이용 가능합니다");
+			session = request.getSession(); 
+			session.setAttribute("alertMessage2", "관리자만 이용 가능합니다");
 			
 			response.sendRedirect("home");
 			return false;

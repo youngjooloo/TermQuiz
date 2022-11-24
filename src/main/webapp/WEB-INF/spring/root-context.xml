@@ -23,10 +23,10 @@
 	<mybatis-spring:scan base-package="com.termquiz.team.mapperInterface"/>
 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.naver.com" />
-		<property name="port" value="465" />
-		<property name="username" value="" />
-		<property name="password" value="" />
+		<property name="host" value="smtp.naver.com"/>
+		<property name="port" value="465"/>
+		<property name="username" value="littlekimyj@naver.com"/>
+		<property name="password" value="snowice0868"/>
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="javaMailProperties">
 			<props>

@@ -22,7 +22,10 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/ranking/css/list.css" rel="stylesheet" />
-<link href="resources/ranking/css/memberlist.css" rel="stylesheet" />
+<link href="resources/ranking/css/style.css" rel="stylesheet" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="resources/ranking/css/style.css"> -->
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
@@ -55,36 +58,69 @@
 		</div>
 	</nav>
 	
-	<main>
-    	<ul class="listTitle">
-    		<li>Email</li>
-    		<li>Nickname</li>
-    		<li>Name</li>
-    		<li>Phone Number</li>
-    		<li>Birthday</li>
-    		<li>Admin Right</li>
-    	</ul>
-    	<c:forEach var="list" items="${member}">
-    		<ul class="listBody">
-    			<li><span>${list.email}</span></li>
-    			<li><span>${list.nickname}</span></li>
-    			<li><span>${list.name}</span></li>
-    			<li><span>${list.phoneNumber}</span></li>
-    			<li><span>${list.scNumF}-${list.scNumL}</span></li>
-    			<li>
-    				<c:if test="${list.adminRight}">
-						<button id="${list.nickname}" class="removeAdmin">Remove</button>  
-    				</c:if>
-    				<c:if test="${!list.adminRight}">
-						<button id="${list.nickname}" class="addAdmin">Add</button>  
-    				</c:if>
-    			</li>
-    			<li>
-					<button onclick="location.href=`mdeletea?email=${list.email}`;" class="removeAdmin  confirmBtn">Delete</button>  
-    			</li>
-    		</ul>
-    	</c:forEach>
-	</main>
+	<section class="ftco-section2">
+		<div class="container2">
+			<div class="row2">
+				<div class="col-md-11">
+					<div class="table-wrap2">
+						<table class="table2 table-dark2">
+						  <thead>
+						    <tr class="bg-dark2">
+						      <th>Email</th>
+						      <th>Nickname</th>
+						      <th>Name</th>
+						      <th>Phone Number</th>
+						      <th>Birthday</th>
+						      <th>Admin</th>
+						      <th>Delete</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+							<c:forEach var="list" items="${member}" varStatus="listNo">
+								<c:choose>
+									<c:when test="${listNo.count%5 == 1}">
+										<tr class="bg-primary2">
+									</c:when>
+									<c:when test="${listNo.count%5 == 2}">
+			 						    <tr class="bg-success2">
+									</c:when>
+									<c:when test="${listNo.count%5 == 3}">
+									    <tr class="bg-warning2">
+									</c:when>
+									<c:when test="${listNo.count%5 == 4}">
+									    <tr class="bg-danger2">
+									</c:when>
+									<c:otherwise>
+									    <tr class="bg-info2">
+									</c:otherwise>
+								</c:choose> 
+							      <th scope="row">${list.email}</th>
+							      <td>${list.nickname}</td>
+							      <td>${list.name}</td>
+							      <td>${list.phoneNumber}</td>
+							      <td>${list.scNumF}-${list.scNumL}</td>
+							      <td>
+							      	<c:if test="${list.adminRight and !(nick eq list.nickname)}">
+										<button id="${list.nickname}" class="removeAdmin">Remove</button>  
+				    				</c:if>
+				    				<c:if test="${!list.adminRight and !(nick eq list.nickname)}">
+										<button id="${list.nickname}" class="addAdmin">Add</button>  
+				    				</c:if>
+							      </td>
+							      <td>
+							    	<c:if test="${!(nick eq list.nickname)}">
+										<button onclick="location.href=`mdeletea?email=${list.email}`;" class="removeAdmin  confirmBtn">Delete</button>  
+					    			</c:if>
+							      </td>
+							    </tr>
+						    </c:forEach>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -92,6 +128,7 @@
     <script src="resources/home/js/scripts.js"></script>
     <script src="resources/home/js/main.js"></script>
     <script src="resources/ranking/js/memberList.js"></script>
+	<script src="resources/ranking/js/main.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<c:if test="${not empty alertMessage}">

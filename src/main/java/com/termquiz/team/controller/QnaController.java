@@ -93,7 +93,7 @@ public class QnaController {
 			uri = "redirect:qnaboardlist";
 			rttr.addFlashAttribute("alertMessage", "QnA 등록에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "QnA 등록에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "QnA 등록에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -115,7 +115,7 @@ public class QnaController {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
 			rttr.addFlashAttribute("alertMessage", "답변 등록에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "답변 등록에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "답변 등록에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -154,7 +154,7 @@ public class QnaController {
 			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
 			rttr.addFlashAttribute("alertMessage", "QnA 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "QnA 수정에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "QnA 수정에 실패하였습니다");
 		}
 		
 		mv.setViewName(uri);
@@ -173,7 +173,7 @@ public class QnaController {
 	    	uri = "redirect:qnaboardlist";
 	    	rttr.addFlashAttribute("alertMessage", "QnA 삭제에 성공하였습니다");
 	    }else {
-	    	mv.addObject("alertMessage2", "QnA 삭제에 성공하였습니다");
+	    	rttr.addFlashAttribute("alertMessage2", "QnA 삭제에 성공하였습니다");
 	    }
 
 	    mv.setViewName(uri);

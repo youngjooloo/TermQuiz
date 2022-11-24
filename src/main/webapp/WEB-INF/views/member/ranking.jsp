@@ -24,7 +24,7 @@
 <link href="resources/ranking/css/list.css" rel="stylesheet" />
 <link href="resources/ranking/css/ranking.css" rel="stylesheet" />
 </head>
-<body>
+<body id="page-top">
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 mlcheck" id="mainNav">
 		<div class="container px-4 px-lg-5">
 			<a class="navbar-brand " href="home">Term Quiz on a Bus</a>

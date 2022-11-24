@@ -1,10 +1,10 @@
-/**
- * 
- */
-
-$(function(){
-	$('.answerBtn').click(function(){
-		location.href = `qnaanswerdelete?${this.id}`;
-	});
-	
-});
+///**
+// * 
+// */
+//
+//$(function(){
+//	$('.answerBtn').click(function(){
+//		location.href = `qnaanswerdelete?${this.id}`;
+//	});
+//	
+//});

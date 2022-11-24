@@ -110,7 +110,7 @@ public class BoardController {
 			uri = "redirect:boardlist";
 			rttr.addFlashAttribute("alertMessage", "글쓰기에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "글쓰기에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "글쓰기에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -132,7 +132,7 @@ public class BoardController {
 			uri = "redirect:boarddetail?bno=" + vo.getBno();
 			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
 		}else {
-			mv.addObject("alertMessage2", "글 수정에 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "글 수정에 실패하였습니다");
 		}
 
 		mv.setViewName(uri);
@@ -206,7 +206,7 @@ public class BoardController {
 			if (service.rinsert(cvo) > 0) {
 				uri = "redirect:boarddetail?bno=" + cvo.getBno();
 			}else {
-		    	mv.addObject("alertMessage2", "댓글 등록 실패");
+				rttr.addFlashAttribute("alertMessage2", "댓글 등록 실패");
 			}
 		}else {
 			
@@ -219,7 +219,7 @@ public class BoardController {
 		    if (service.rrinsert(cvo)>0) {
 		    	uri = "redirect:boarddetail?bno=" + cvo.getBno();
 		    } else {
-		    	mv.addObject("alertMessage2", "댓글 등록 실패");
+		    	rttr.addFlashAttribute("alertMessage2", "댓글 등록 실패");
 		    	uri = "board/boarddetail?bno=" + cvo.getBno();
 		    }
 		}

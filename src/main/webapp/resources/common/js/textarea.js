@@ -20,7 +20,7 @@ $('#bContent').keyup(function() {
 $('#bContent').keydown(function() {
 	var rows = $('#bContent').val().split('\n').length;
 	var maxRows = 10;
-	if (rows >= maxRows) {
+	if (rows > maxRows) {
 		alert('10줄 까지만 가능합니다');
 		modifiedText = $('#bContent').val().split("\n").slice(0, maxRows);
 		$('#bContent').val(modifiedText.join("\n"));
@@ -50,7 +50,7 @@ $('#answer_area').keyup(function() {
 $('#answer_area').keydown(function() {
 	var rows = $('#answer_area').val().split('\n').length;
 	var maxRows = 3;
-	if (rows >= maxRows) {
+	if (rows > maxRows) {
 		alert('3줄 까지만 가능합니다');
 		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
 		$('#answer_area').val(modifiedText.join("\n"));
@@ -78,12 +78,12 @@ $('#qnaContent').keyup(function() {
 }); //keyup
 // textarea 줄바꿈 제한
 $('#qnaContent').keydown(function() {
-	var rows = $('#answer_area').val().split('\n').length;
+	var rows = $('#qnaContent').val().split('\n').length;
 	var maxRows = 10;
-	if (rows >= maxRows) {
+	if (rows > maxRows) {
 		alert('10줄 까지만 가능합니다');
-		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
-		$('#answer_area').val(modifiedText.join("\n"));
+		modifiedText = $('#qnaContent').val().split("\n").slice(0, maxRows);
+		$('#qnaContent').val(modifiedText.join("\n"));
 	} //if
 });
 
@@ -107,12 +107,12 @@ $('#qnaAnswer').keyup(function() {
 }); //keyup
 // textarea 줄바꿈 제한
 $('#qnaAnswer').keydown(function() {
-	var rows = $('#answer_area').val().split('\n').length;
+	var rows = $('#qnaAnswer').val().split('\n').length;
 	var maxRows = 3;
-	if (rows >= maxRows) {
+	if (rows > maxRows) {
 		alert('3줄 까지만 가능합니다');
-		modifiedText = $('#answer_area').val().split("\n").slice(0, maxRows);
-		$('#answer_area').val(modifiedText.join("\n"));
+		modifiedText = $('#qnaAnswer').val().split("\n").slice(0, maxRows);
+		$('#qnaAnswer').val(modifiedText.join("\n"));
 	} //if
 });
 
@@ -135,11 +135,12 @@ $('.answer_area2').keyup(function() {
 		alert('글자수는 150자까지 입력 가능합니다.');
 	}; //if
 }); //keyup
+
 // textarea 줄바꿈 제한
 $('.answer_area2').keydown(function() {
 	var rows = $('.answer_area2').val().split('\n').length;
 	var maxRows = 3;
-	if (rows >= maxRows) {
+	if (rows > maxRows) {
 		alert('3줄 까지만 가능합니다');
 		modifiedText = $('.answer_area2').val().split("\n").slice(0, maxRows);
 		$('.answer_area2').val(modifiedText.join("\n"));

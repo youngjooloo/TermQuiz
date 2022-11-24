@@ -35,7 +35,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		String interceptor = (String)request.getSession().getAttribute("alertMessage");
+		String interceptor = (String)request.getSession().getAttribute("alertMessage2");
 		if (interceptor != null && interceptor.length()>0) {
 			model.addAttribute("alertMessage2", interceptor);
 			request.getSession().removeAttribute("alertMessage2");

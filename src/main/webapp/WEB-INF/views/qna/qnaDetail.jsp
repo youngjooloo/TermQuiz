@@ -107,7 +107,7 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<button class="btn_detail answerBtn confirmBtn" id="qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
+								<button class="btn_detail answerBtn confirmBtn" id="qnaanswerdelete?qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
@@ -129,7 +129,7 @@
 				<button type="button" class="btn_detail confirmBtn2" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
 			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
-				<button type="button" class="btn_detail confirmBtn" onclick="location.href='qnadelete?qnaNo=${qna.qnaNo}'">Delete</button>
+				<button type="button" class="btn_detail confirmBtn" id="qnadelete?qnaNo=${qna.qnaNo}">Delete</button>
 			</c:if>
 			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
