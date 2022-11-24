@@ -100,7 +100,6 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
-	<script src="resources/join/js/join.js"></script>
 	<script src="resources/memberDetail/js/detailUpdate.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

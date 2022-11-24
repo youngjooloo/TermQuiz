@@ -55,11 +55,8 @@ public class MemberController {
 		String url = "redirect:";
 	
 		if (thisUrl.contains("?")) {
-			if (thisUrl.contains("&")) {
-				url = url + thisUrl+"&relogin=1";
-			}else {
-				url = url + thisUrl+"relogin=1";
-			}
+			url = url + thisUrl+"&relogin=1";
+//			url = url + thisUrl+"relogin=1";
 		}else if (!thisUrl.contains("?")) {
 			url = url + thisUrl+"?relogin=1";
 		}

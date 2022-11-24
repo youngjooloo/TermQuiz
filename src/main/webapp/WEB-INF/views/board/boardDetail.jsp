@@ -126,7 +126,7 @@
 							<textarea name="bcomment" id="answer_area" maxlength="150"
 								required></textarea>
 							<p class="bdtextCount2"></p>
-							<input type="button" class="btn_ist" value="등록하기">
+							<input type="submit" class="btn_ist"  value="등록하기">
 						</div>
 					</li>
 				</ul>

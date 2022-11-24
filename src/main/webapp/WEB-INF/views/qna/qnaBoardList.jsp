@@ -161,7 +161,7 @@
 		<!-- board seach area -->
 		<div id="board-search">
 			<div class="search-window">
-				<div class="search-wrap">
+				<form action="qnaboardlist" method="post" class="search-wrap">
 					<select class="search-wrap" name="searchType" id="searchType">
 						<option value="n" ${maker.searchType==null ? 'selected' : ''}>검색 조건</option>
 						<option value="all" ${maker.searchType=='all' ? 'selected' : ''}>전체</option>
@@ -172,7 +172,7 @@
 						id="keyword" type="search" name="keyword"
 						placeholder="검색어를 입력해주세요." value="${maker.keyword}">
 					<button type="submit" id="searchBtn" class="btn btn-dark">검색</button>
-				</div>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -199,7 +199,6 @@
 
 	<script>
 		$(function() {
-
 			$('#searchType').change(function() {
 				if ($(this).val() == 'n')
 					$('#keyword').val('');

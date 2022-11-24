@@ -7,5 +7,4 @@ $(function(){
 		location.href = `qnadetail?${this.id}`;
 	});
 	
-	
 });

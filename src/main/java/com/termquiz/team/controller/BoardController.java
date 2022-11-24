@@ -164,7 +164,6 @@ public class BoardController {
 
 		String uri = "/board/boardCommentsList";
 		int bno = Integer.parseInt((String) request.getParameter("bno"));
-		
 		cvo.setBno(bno);
 		List<BoardCommentsVO> cvoList = new ArrayList<BoardCommentsVO>();
 

@@ -76,7 +76,8 @@
 
 	<select id="commentList" resultType="com.termquiz.team.vo.BoardCommentsVO">
 		SELECT * FROM termquiz.bcomments
-		order by root asc,(case when step = 0 then 1 else 2 end), step desc;
+		where bno = #{bno}
+		order by root asc,(case when step = 0 then 1 else 2 end), step desc
 	</select>
 
 	<update id="bcommentdelete">

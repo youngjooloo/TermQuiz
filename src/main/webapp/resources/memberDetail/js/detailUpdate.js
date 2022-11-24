@@ -1,25 +1,49 @@
-/**
- * 
- */
 
-$(function(){
-	$('.nickname').focusout(function() {
+"use strict"
+
+$(function() {
+
+	$('.joininput').keydown(function(e) {
+		if (e.which == 13) {
+			e.preventDefault();
+			$('#submit').click();
+		}
+	});
+
+	$('#nickname').focusout(function() {
 		let nicknameCheck = /^[가-힣|a-z|A-Z|0-9|]+$/;
-		let nickname = $('.nickname').val();
-		let nick = this.id;
-		nickname = nickname.toUpperCase();
-		nick = nick.toUpperCase()
+		let nickname = $('#nickname').val();
 		if (nickname != '') {
 			if (!nickname.match(nicknameCheck)) {
-				$('.nickname').val('');
-				$('.nickname').attr('placeholder', '한글, 영문자, 숫자만 작성 가능');
-				$('.nickname').focus();
-			}else if(!nickname.match(nick)){
+				$('#nickname').val('');
+				$('#nickname').attr('placeholder', '한글, 영문자, 숫자만 작성 가능');
+				$('#nickname').focus();
+			}else{
 				nicknameDupCheck();
 			}
 		}
 	});
-});
+	$(".submit_Confirm2").click(function(e) {
+		e.preventDefault();
+		if(agreecheck()){
+			Swal.fire({
+				title: '알림',
+				text: "이대로 하시겠습니까?",
+				icon: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: '확인',
+				cancelButtonText: '취소'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$(this).parents("form").submit();
+				}
+			})
+		}
+	});
+
+}); //ready	
 
 
 function nicknameDupCheck(){
