@@ -74,6 +74,26 @@ $(function() {
 			}
 		}
 	});
+	
+	$(".submit_Confirm2").click(function(e) {
+		e.preventDefault();
+		if(agreecheck()){
+			Swal.fire({
+				title: '알림',
+				text: "이대로 하시겠습니까?",
+				icon: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: '확인',
+				cancelButtonText: '취소'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$(this).parents("form").submit();
+				}
+			})
+		}
+	});
 
 }); //ready	
 
@@ -137,7 +157,7 @@ function agreecheck() {
 		$('#agreecheck').text("* 이용약관에 동의해주세요 *");
 		return false;
 	} else {
-		$('#agreecheck').text("");
+		return true;
 	}
 }
 

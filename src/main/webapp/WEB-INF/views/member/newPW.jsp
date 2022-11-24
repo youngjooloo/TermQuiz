@@ -37,6 +37,9 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<c:if test="${empty loginID}">
+    	            	<li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -55,8 +58,8 @@
             	<input id="password2" type="password">
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Submit</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button"  id="submitBtn" class="submitBtn submit_Confirm">Submit</button>
+                <button type="reset" id="reset" class="submitBtn">Reset</button>
             </div>
         </form>
     </div>

@@ -37,6 +37,9 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<c:if test="${empty loginID}">
+    	            	<li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -55,8 +58,8 @@
   				<input id="text" name="name" required type="text" />
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Submit</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button" class="submitBtn submit_Confirm">Submit</button>
+                <button type="reset" id="reset" class="submitBtn" onclick="history.back();">Back</button>
             </div>
         </form>
     </div>
@@ -80,5 +83,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

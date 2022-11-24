@@ -52,7 +52,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link  confirmBtn2" href="mlogout">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link  confirmBtn2" id="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -109,7 +109,7 @@
 							      </td>
 							      <td>
 							    	<c:if test="${!(nick eq list.nickname)}">
-										<button onclick="location.href=`mdeletea?email=${list.email}`;" class="removeAdmin  confirmBtn">Delete</button>  
+										<button id="mdeletea?email=${list.email}" class="confirmBtn">Delete</button>  
 					    			</c:if>
 							      </td>
 							    </tr>

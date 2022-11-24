@@ -46,7 +46,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout ">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 	                    placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 	
 	  				<label for="changePW" class="label-agree-term">Password</label>          
-	            	<button type="button" id="changePW" class="submit" onclick="location.href='changepwf'">Password Change</button>
+	            	<button type="button" id="changepwf" class="submitBtn changePW confirmBtn2">Password Change</button>
 	
 	  				<label for="name" class="label-agree-term">Name</label>          
 	                <input type="text" class="joininput" name="name" id="name" value="${user.name}"  required readonly />
@@ -89,9 +89,9 @@
 	                </div>
 	            </div>
 	            <div class="form-submit">
-	                <button type="button" class="submit submit_Confirm">Modify</button>
-	                <button type="button" id="mdeletef" class="submit confirmBtn2">Delete</button>
-	                <button type="button" id="reset" class="submit" onclick="history.back();">Back</button>
+	                <button type="button" class="submitBtn submit_Confirm">Modify</button>
+	                <button type="button" id="mdeletef" class="submitBtn confirmBtn">Delete</button>
+	                <button type="button" id="reset" class="submitBtn" onclick="history.back();">Back</button>
 	            </div>
 	        </form>
 	    </div>

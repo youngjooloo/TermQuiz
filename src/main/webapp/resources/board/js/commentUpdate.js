@@ -9,11 +9,11 @@ $(function(){
 	
 	$('.upBtn').click(function(e){
 		e.stopPropagation();
-		let updateText = $(this).parents('.bcUpdateF').children('.update_area');
+		let updateText = $(this).parents('form').children('textarea');
 		$(updateText).val($(updateText).val().trim());
-		if($(updateText).val().length > 0) {
-			$(this).parents('.bcUpdateF').submit();
-		}
+//		if($(updateText).val().length > 0) {
+//			$(this).parents('.bcUpdateF').submit();
+//		}
 	});
 	
 });

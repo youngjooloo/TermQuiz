@@ -272,31 +272,6 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/addadmin")
-	public ModelAndView addadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
-		vo.setNickname((String)request.getParameter("nickname"));
-		if(service.addAdmin(vo)>0) {
-			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
-		}else {
-			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
-		}
-		mv.setViewName("redirect:memberlist");
-		return mv;
-	}
-	
-	@RequestMapping(value = "/removeadmin")
-	public ModelAndView removeadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
-		vo.setNickname((String)request.getParameter("nickname"));
-		
-		if(service.removeAdmin(vo)>0) {
-			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
-		}else {
-			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
-		}
-		
-		mv.setViewName("redirect:memberlist");
-		return mv;
-	}
 	
 	@RequestMapping(value = "/findpwf")
 	public ModelAndView findpwf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
@@ -435,6 +410,32 @@ public class MemberController {
 		}
 		
 		mv.setViewName(uri);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/addadmin")
+	public ModelAndView addadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
+		vo.setNickname((String)request.getParameter("nickname"));
+		if(service.addAdmin(vo)>0) {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
+		}
+		mv.setViewName("redirect:memberlist");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/removeadmin")
+	public ModelAndView removeadmin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
+		vo.setNickname((String)request.getParameter("nickname"));
+		
+		if(service.removeAdmin(vo)>0) {
+			rttr.addFlashAttribute("alertMessage", "관리자 변경에 성공하였습니다");
+		}else {
+			rttr.addFlashAttribute("alertMessage2", "관리자 변경에 실패하였습니다");
+		}
+		
+		mv.setViewName("redirect:memberlist");
 		return mv;
 	}
 

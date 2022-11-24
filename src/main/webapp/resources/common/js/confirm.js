@@ -36,9 +36,9 @@ $(function() {
 	$(".submit_Confirm").click(function(e) {
 		e.preventDefault();
 		Swal.fire({
-			title: '경고',
-			text: "정말로 하시겠습니까?",
-			icon: 'warning',
+			title: '알림',
+			text: "이대로 하시겠습니까?",
+			icon: 'question',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
@@ -53,12 +53,30 @@ $(function() {
 	});
 
 	$('form').on('submit', function() {
-		$(':required', this).parent().show();
 		var invalidInputs = $(":invalid", this);
 		if (invalidInputs.length > 0) {
+			Swal.fire({
+				icon: 'error',
+				title: '경고',
+				text: '양식에 맞지 않습니다.',
+			});
+			$(invalidInputs).val('');
 			return false;
 		}else{
 			return true
 		}
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 });

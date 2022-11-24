@@ -35,7 +35,6 @@
 <link href="resources/board/css/boardDetail.css" rel="stylesheet" />
 <link href="resources/common/css/textarea.css" rel="stylesheet" />
 <link href="resources/board/css/bcList.css" rel="stylesheet" />
-<link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
@@ -65,7 +64,7 @@
 
 					<c:if test="${not empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-						<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
+						<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -104,8 +103,8 @@
 			<button id="commentList" type="button" class="btn_bcomments"
 				onclick="bcommentsList();">댓글</button>
 			<c:if test="${board.bid == nick || admin}">
-				<button type="button" class="btn_detail confirmBtn2"
-					id="boarddetail?jCode=U&bno=${board.bno}">Modify</button>
+				<button type="button" class="btn_detail"
+					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
 			</c:if>
 			<c:if test="${board.bid == nick || admin}">
 				<button type="button" class="btn_detail confirmBtn"
@@ -127,8 +126,7 @@
 							<textarea name="bcomment" id="answer_area" maxlength="150"
 								required></textarea>
 							<p class="bdtextCount2"></p>
-							<input type="button" class="btn_ist" onclick="trimCheck();"
-								value="등록하기">
+							<input type="button" class="btn_ist" value="등록하기">
 						</div>
 					</li>
 				</ul>

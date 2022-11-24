@@ -70,7 +70,7 @@
         
                         <c:if test="${not empty loginID}">
 	                        <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                        <li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
+	                        <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
                     </c:if>
 				</ul>
 			</div>
@@ -115,7 +115,7 @@
 								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
 									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required></textarea>
 									<p class="bdtextCount"></p>
-									<button class="btn_answer confirmBtn2" type="submit">Submit</button>
+									<button class="btn_answer submit_Confirm" type="button">Submit</button>
 								</form>
 							</c:if>
 						</c:if>
@@ -126,7 +126,7 @@
 		
 		<div class="wrap_paging qnaWrap">
 			<c:if test="${qna.qnaId == nick && empty qna.qnaAnswer}">
-				<button type="button" class="btn_detail confirmBtn2" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
+				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
 			</c:if>
 			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
 				<button type="button" class="btn_detail confirmBtn" id="qnadelete?qnaNo=${qna.qnaNo}">Delete</button>

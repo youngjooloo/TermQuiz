@@ -258,9 +258,9 @@ public class BoardController {
 		String bcomment = cvo.getBcomment().replace("\r\n", "<br>");
 		cvo.setBcomment(bcomment);
 		if (service.bcommentupdate(cvo)>0) {
-			rttr.addFlashAttribute("alertMessage", "댓글 삭제를 성공하였습니다");
+			rttr.addFlashAttribute("alertMessage", "댓글 수정을 성공하였습니다");
 		}else {
-			rttr.addFlashAttribute("alertMessage2", "댓글 삭제를 실패하였습니다");
+			rttr.addFlashAttribute("alertMessage2", "댓글 수정을 실패하였습니다");
 		}
 		mv.setViewName(uri);
 		return mv;

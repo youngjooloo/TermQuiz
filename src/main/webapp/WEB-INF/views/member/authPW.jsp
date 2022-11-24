@@ -37,6 +37,9 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
+					<c:if test="${empty loginID}">
+    	            	<li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                    </c:if>
 				</ul>
 			</div>
 		</div>
@@ -50,11 +53,11 @@
             <div class="form-group-1">
   				
   				<label for="auNum" class="label-agree-term">Authentication Number</label>
-  				<input id="auNum" type="text" name="verifynumber" placeholder="인증번호를 입력하세요">
+  				<input id="auNum" type="text" name="verifynumber" placeholder="인증번호를 입력하세요" required maxlength="6">
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit">Submit</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button" id="submitBtn" class="submitBtn submit_Confirm">Submit</button>
+                <button type="button" id="reset" class="submitBtn" onclick="location.href='findpwf'">Back</button>
             </div>
         </form>
     </div>
@@ -77,5 +80,6 @@
 			});
 		</script>
 	</c:if>
+	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>

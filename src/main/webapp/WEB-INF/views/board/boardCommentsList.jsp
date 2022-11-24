@@ -30,7 +30,7 @@
 									<input type="button" class="commentsTime_btn third_btn" id="bcNo&#61;${bcomments.bcNo}" value="답글">
 								</c:if>
 								<c:if test="${bcomments.bcId == nick}">
-									<input type="button" class="commentsTime_btn first_btn " id="bcNo&#61;${bcomments.bcNo}" value="수정">
+									<input type="button" class="commentsTime_btn first_btn" id="bcNo&#61;${bcomments.bcNo}" value="수정">
 									<input type="button" class="commentsTime_btn second_btn confirmBtn" value="삭제" id="bcommentdelete?bno=${bcomments.bno}&bcno=${bcomments.bcNo}">
 								</c:if>
 							</c:if>
@@ -41,7 +41,7 @@
 							<textarea name="bcomment" class="update_area" maxlength="150" required>${bcomments.bcomment}</textarea>
 							<p class="bdtextCount2"></p>
 							<div class="btn_div">
-							<input type="button" class="commentsTime_btn upBtn" value="등록">
+							<input type="button" class="commentsTime_btn upBtn submit_Confirm" value="등록">
 							<input type="button" class="commentsTime_btn cancelBtn" value="취소">
 							</div>
 						</form>

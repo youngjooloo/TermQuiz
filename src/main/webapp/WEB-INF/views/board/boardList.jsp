@@ -32,7 +32,6 @@
 <link href="resources/home/css/styles.css" rel="stylesheet" />
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/main.css" rel="stylesheet" />
-<link href="resources/common/css/alertConfirm.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -69,7 +68,7 @@
 
 					<c:if test="${not empty loginID}">
 						<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-						<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log
+						<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log
 								Out</a></li>
 					</c:if>
 				</ul>

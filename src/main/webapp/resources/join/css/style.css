@@ -182,7 +182,7 @@ input[type=checkbox]:not(old) {
 input[type=checkbox]:not(old) + label {
   display: inline-block;
   margin-top: 7px;
-  margin-bottom: 25px; }
+  margin-bottom: 10px; }
 
 input[type=checkbox]:not(old) + label > span {
   display: inline-block;
@@ -222,7 +222,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
 .term-service {
   color: #222; }
 
-.submit {
+.submitBtn {
   width: auto;
   background: #4966b1;
   color: #fff;
@@ -240,7 +240,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
   -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
   -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
   -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7); }
-  .submit:hover {
+  .submitBtn:hover {
     background: #3a518d; }
 
 .main ul {
@@ -377,14 +377,11 @@ input[type=checkbox]:not(old):checked + label > span:before {
 }
 
 #agreecheck{
-	position: absolute;
-	top: 35%;
-	left: 6%;
 	color: #ff1313;
 	font-weight: bold;
 }
 
-#changePW{
+.changePW.submitBtn{
 	display: block;
 	margin: 15px 0;
 	background-color: #8760e3;

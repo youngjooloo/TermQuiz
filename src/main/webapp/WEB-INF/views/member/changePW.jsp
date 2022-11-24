@@ -46,7 +46,7 @@
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-					<li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
+					<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -60,15 +60,15 @@
             <div class="form-group-1">
   				
   				<label for="password" class="label-agree-term">Current Password</label>          
-  				<input type="password" class="joininput" name="password" id="password" placeholder="Password (현재 비밀번호)" required onclick="this.value='';" autoComplete="off" />
+  				<input type="password" class="joininput" name="password" id="passwordOld" placeholder="Password (현재 비밀번호)" required onclick="this.value='';" autoComplete="off" maxlength="20"/>
 
   				<label for="" class="label-agree-term">New Password</label>          
-  				<input type="password" class="joininput" name="newPassword" id="newPassword" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" />
-                <input type="password" class="joininput" id="newPassword2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" />
+  				<input type="password" class="joininput" name="newPassword" id="password" placeholder="Password (숫자, 영문자 포함, 8글자 이상, 20글자 이하)" required onclick="this.value='';" autoComplete="off" maxlength="20" />
+                <input type="password" class="joininput" id="password2" placeholder="Password Check" required onclick="this.value='';" autoComplete="off" maxlength="20"/>
             </div>
             <div class="form-submit">
-                <button type="submit" name="submit" id="submit" class="submit confirmBtn2">Modify</button>
-                <button type="reset" id="reset" class="submit" onclick="history.back();">Back</button>
+                <button type="button" class="submitBtn submit_Confirm">Modify</button>
+                <button type="reset" id="reset" class="submitBtn" onclick="history.back();">Back</button>
             </div>
         </form>
     </div>
@@ -78,6 +78,7 @@
 	<!-- JS -->
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
+	<script src="resources/join/js/join.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<c:if test="${not empty alertMessage}">

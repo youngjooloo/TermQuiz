@@ -45,7 +45,7 @@
 	
 	                <c:if test="${not empty loginID}">
 	                    <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                    <li class="nav-item"><a class="nav-link" href="mlogout">Log Out</a></li>
+	                    <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 	                </c:if>
 	            </ul>
 	        </div>
@@ -84,8 +84,8 @@
 				</div>
 				
 				<div class="form-submit">
-					<button type="submit" class="submit submit_Confirm">Upload</button>
-					<button type="reset" id="reset" class="submit"
+					<button type="button" class="submitBtn submit_Confirm">Upload</button>
+					<button type="reset" id="reset" class="submitBtn"
 						onclick="history.back();">Back</button>
 				</div>
 			</form>

@@ -66,7 +66,7 @@
 	
 	                <c:if test="${not empty loginID}">
 	                    <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
-	                    <li class="nav-item"><a class="nav-link confirmBtn2" href="mlogout">Log Out</a></li>
+	                    <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 	                </c:if>
 	            </ul>
 	        </div>
@@ -107,7 +107,7 @@
 			</table>
 			
 			<div class="wrap_paging">
-				<button type="submit" class="btn_insertf">Submit</button>
+				<button type="button" class="btn_insertf submit_Confirm">Submit</button>
 				<button type="button" class="btn_insertf" onclick="javascript:history.go(-1);">Back</button>
 			</div>
 		</form>
