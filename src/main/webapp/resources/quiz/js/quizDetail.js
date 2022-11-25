@@ -76,8 +76,8 @@ function justAnswer(e) {
 function loginAnswer(e) {
 	let answer = (($(e).prev().val()).toLowerCase()).replaceAll(" ", "");
 	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ", "");
-	let answerList = quizAnswer.split();
-	
+	let correct = false;
+
 	let answerList = quizAnswer.split(",");
 	
 	for(let i=0; i < answerList.length; i++){

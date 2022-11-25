@@ -13,7 +13,7 @@ $(function() {
 			url: 'mloginf',
 			dataType: "text",
 			data:{
-				'thisUrl' : window.location.href
+				loginUrl : window.location.href
 			},
 			success: function(resultPage) {
 				$('#mainlogin2').html(resultPage);

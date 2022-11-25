@@ -38,9 +38,9 @@ public class MemberController {
 
 	@RequestMapping(value = "/mloginf")
 	public ModelAndView mloginf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
-		String thisUrl = request.getParameter("thisUrl");
-		thisUrl = thisUrl.split("/team")[1];
-		mv.addObject("thisUrl", thisUrl);
+		String loginUrl = request.getParameter("loginUrl");
+		loginUrl = loginUrl.split("/")[loginUrl.split("/").length-1];
+		mv.addObject("loginUrl", loginUrl);
 		mv.setViewName("member/login");
 		return mv;
 	}
@@ -49,7 +49,7 @@ public class MemberController {
 	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 
 //      request 처리
-		String thisUrl = request.getParameter("thisUrl");
+		String thisUrl = request.getParameter("loginUrl");
 		thisUrl = thisUrl.replaceAll("relogin=1", "");
 		String password = vo.getPassword();
 		String url = "redirect:";
