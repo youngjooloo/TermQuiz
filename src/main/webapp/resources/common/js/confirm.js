@@ -37,7 +37,7 @@ $(function() {
 		e.preventDefault();
 		Swal.fire({
 			title: '알림',
-			text: "이대로 등록 하시겠습니까?",
+			text: "이대로 제출 하시겠습니까?",
 			icon: 'question',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',

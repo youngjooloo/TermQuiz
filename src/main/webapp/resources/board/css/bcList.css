@@ -114,7 +114,6 @@ body {
 
 .modifyForm {
 	width: 100%;
-	border-bottom:5px #55608f solid;
 }
 
 .update_area {
@@ -165,6 +164,11 @@ body {
 	display: flex;
 	position: relative;
 	border-bottom:5px #55608f solid;
+	height: 95px;
+}
+
+.reReplyF input {
+	margin: 5px;
 }
 
 .btn_ist {

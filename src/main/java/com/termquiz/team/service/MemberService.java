@@ -33,4 +33,6 @@ public interface MemberService {
 	
 	int mdeletea(MemberVO vo);
 	
+	int levelCheck(MemberVO vo);
+	
 }

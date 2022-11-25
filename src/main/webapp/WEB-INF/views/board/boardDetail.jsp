@@ -84,11 +84,11 @@
 		<table class="content_table">
 			<thead>
 				<tr>
-					<th>번호 : ${board.bno}</th>
-					<th>작성자 : ${board.bid}</th>
+					<th>${board.bno}</th>
+					<th>${board.bid}</th>
 					<th>${board.btitle}</th>
 					<th>${board.btime}</th>
-					<th>조회 수 : ${board.bcount}</th>
+					<th>조회 수 ${board.bcount}</th>
 				</tr>
 			</thead>
 			<tbody>

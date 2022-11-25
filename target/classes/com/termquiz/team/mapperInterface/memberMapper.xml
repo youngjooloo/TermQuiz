@@ -78,4 +78,9 @@
 	<delete id="deleteMember">
 		delete from member where email = #{email}
 	</delete>
+	
+	<select id="levelCheck" resultType="int">
+		select totalScore from member 
+		where nickname = #{nickname}
+	</select>
 </mapper>

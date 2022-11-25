@@ -52,6 +52,10 @@ function loginCheck(){
 	}
 }
 
+function levelCheck(){
+	
+}
+
 
 
 	

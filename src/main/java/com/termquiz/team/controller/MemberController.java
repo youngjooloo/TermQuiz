@@ -39,7 +39,15 @@ public class MemberController {
 	@RequestMapping(value = "/mloginf")
 	public ModelAndView mloginf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 		String loginUrl = request.getParameter("loginUrl");
-		loginUrl = loginUrl.split("/")[loginUrl.split("/").length-1];
+		System.out.println(loginUrl);
+		if ("/".equals(loginUrl.substring(loginUrl.length()-1, loginUrl.length()))) {
+			loginUrl = "home";
+		}else {
+			loginUrl = loginUrl.split("/")[loginUrl.split("/").length-1];
+		}
+		System.out.println(loginUrl);
+		loginUrl = loginUrl.replaceAll("&relogin=1","");
+		loginUrl = loginUrl.replaceAll("\\?relogin=1","");
 		mv.addObject("loginUrl", loginUrl);
 		mv.setViewName("member/login");
 		return mv;
@@ -49,13 +57,10 @@ public class MemberController {
 	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
 //      request 처리
 		String loginUrl = request.getParameter("loginUrl");
-		loginUrl = loginUrl.replaceAll("relogin=1","");
 		String password = vo.getPassword();
 		String url = "redirect:";
-	
 		if (loginUrl.contains("?")) {
 			url = url + loginUrl+"&relogin=1";
-//			url = url + thisUrl+"relogin=1";
 		}else if (!loginUrl.contains("?")) {
 			url = url + loginUrl+"?relogin=1";
 		}

@@ -83,4 +83,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.deleteMember(vo);
 	}
 	
+	@Override
+	public int levelCheck(MemberVO vo) {
+		return dao.levelCheck(vo);
+	}
+	
 }
