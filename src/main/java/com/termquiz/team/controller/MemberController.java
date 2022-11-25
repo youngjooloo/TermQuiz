@@ -47,18 +47,17 @@ public class MemberController {
 
 	@RequestMapping(value = "/mlogin", method = RequestMethod.POST)
 	public ModelAndView mlogin(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr, MemberVO vo) {
-
 //      request 처리
-		String thisUrl = request.getParameter("loginUrl");
-		thisUrl = thisUrl.replaceAll("relogin=1", "");
+		String loginUrl = request.getParameter("loginUrl");
+		loginUrl = loginUrl.replaceAll("relogin=1","");
 		String password = vo.getPassword();
 		String url = "redirect:";
 	
-		if (thisUrl.contains("?")) {
-			url = url + thisUrl+"&relogin=1";
+		if (loginUrl.contains("?")) {
+			url = url + loginUrl+"&relogin=1";
 //			url = url + thisUrl+"relogin=1";
-		}else if (!thisUrl.contains("?")) {
-			url = url + thisUrl+"?relogin=1";
+		}else if (!loginUrl.contains("?")) {
+			url = url + loginUrl+"?relogin=1";
 		}
 		
 //      service 처리
@@ -70,7 +69,7 @@ public class MemberController {
 				request.getSession().setAttribute("loginPW", vo.getPassword());
 				request.getSession().setAttribute("nick", vo.getNickname());
 				request.getSession().setAttribute("admin", vo.isAdminRight());
-				url = "redirect:"+thisUrl;
+				url = "redirect:"+loginUrl;
 				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
 			}else {
 				rttr.addFlashAttribute("alertMessage2", "로그인에 실패하였습니다");

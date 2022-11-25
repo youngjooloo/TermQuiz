@@ -67,7 +67,7 @@
 							Sign Up
 						</a>
 					</div>
-					<input type="text" name="thisUrl" value="${thisUrl}"  id="urlInput">
+					<input type="text" name="loginUrl" value="${loginUrl}"  id="urlInput">
 				</form>
 			</div>
 		</div>

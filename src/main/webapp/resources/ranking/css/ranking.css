@@ -28,11 +28,13 @@
 }
 
 .chart:hover{
+	color:#f7bd52;
 	cursor: pointer;
 }
 
 #listHead{
-	background-color: white;
+	background-color: #262626;;
+    color: #ffe7bb;
 	height: 70px;
 	margin-bottom: 20px;
 	border-radius: 20px;
