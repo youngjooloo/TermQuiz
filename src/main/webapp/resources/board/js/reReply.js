@@ -3,6 +3,7 @@
 $(function(){
 	$('.third_btn').click(function(e){
 		e.stopPropagation();
+		
 		$(this).parents('.comments_List').next().children('.reReplyForm').toggleClass('formHidden');
 	});
 	

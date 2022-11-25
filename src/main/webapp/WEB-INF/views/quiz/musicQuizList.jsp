@@ -89,6 +89,10 @@
 					<th scope="col" class="quizHint">Hint</th>
 					<th scope="col" class="quizSolve">Score</th>
 					<th scope="col" class="quizStart">Start</th>
+					<c:if test="${admin }">
+						<th scope="col" class="quizStart">Modify</th>
+						<th scope="col" class="quizStart">Delete</th>
+					</c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -161,6 +165,14 @@
 								<button type="button" class="btn btn-primary btn-m" onclick="location.href='quizafter?type=music&qNo=${music.musicqNo}'">Answer</button>
 							</c:if>							
 						</td>
+						<c:if test="${admin}">
+							<td class="quizStart">
+								<button type="button" class="btn btn-primary btn-m confirmBtn2" id="quizupdate?type=music&qNo=${movie.movieqNo}">Modify</button>
+							</td>
+							<td class="quizStart">
+								<button type="button" class="btn btn-primary btn-m confirmBtn" id="quizdelete?type=music&qNo=${movie.movieqNo}">Delete</button>
+							</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
