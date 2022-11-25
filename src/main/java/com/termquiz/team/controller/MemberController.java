@@ -39,13 +39,11 @@ public class MemberController {
 	@RequestMapping(value = "/mloginf")
 	public ModelAndView mloginf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 		String loginUrl = request.getParameter("loginUrl");
-		System.out.println(loginUrl);
 		if ("/".equals(loginUrl.substring(loginUrl.length()-1, loginUrl.length()))) {
 			loginUrl = "home";
 		}else {
 			loginUrl = loginUrl.split("/")[loginUrl.split("/").length-1];
 		}
-		System.out.println(loginUrl);
 		loginUrl = loginUrl.replaceAll("&relogin=1","");
 		loginUrl = loginUrl.replaceAll("\\?relogin=1","");
 		mv.addObject("loginUrl", loginUrl);
