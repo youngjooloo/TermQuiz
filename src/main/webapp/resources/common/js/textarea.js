@@ -18,7 +18,6 @@ $(function(){
 				text: '30줄 까지만 가능합니다'
 			});
 			let modifiedText = $(this).val().split("\n").slice(0, maxRows);
-			console.log(modifiedText)
 			$(this).val(modifiedText.join("\n"));
 		} //if
 	});

@@ -125,7 +125,7 @@
 						<div class="comment_area">
 							<textarea name="bcomment" id="answer_area" maxlength="150" class="boardComment" required></textarea>
 							<p class="boardCommentP"></p>
-							<input type="submit" class="btn_ist"  value="등록하기">
+							<input type="button" class="btn_ist commentAjax"  value="등록하기">
 						</div>
 					</li>
 				</ul>

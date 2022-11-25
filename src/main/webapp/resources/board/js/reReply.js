@@ -11,14 +11,24 @@ $(function(){
 		$(this).parents('.reReplyForm').toggleClass('formHidden');
 	});
 	
-	$('.upBtn2').click(function(e){
-		e.stopPropagation();
-		let reReply_area = $(this).parents('.reReplyF').children('.reReply_area');
-		if($(reReply_area).val().length > 0){
-			$(reReply_area).val($(reReply_area).val().trim());
-			if($(reReply_area).val().length > 0) {
-				$(this).parents('.reReplyF').submit();
-			}
+	$('.commentAjax2').click(function(){
+		let form = $(this).parents('form');
+		let formUrl = $(form).attr("action");
+		let formData = $(form).serialize();
+		let textArea = $(this).parent().prevAll("textarea");
+		$(textArea).val($(textArea).val().trim());
+		
+		if($(textArea).val() != ""){
+			$.ajax({
+	            cache : false,
+	            url : formUrl, // 요기에
+	            type : 'POST', 
+	            data : formData, 
+	            success : function() {
+					$(textArea).val("");
+	                commentListOn();
+	            }
+	        });
 		}
 	});
 });

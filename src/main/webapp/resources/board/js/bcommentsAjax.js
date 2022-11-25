@@ -20,6 +20,7 @@ function commentListOn() {
 			bno: bno
 		},
 		success: function(resultPage) {
+			$('.bcommentsList').html("");
 			$('.bcommentsList').html(resultPage);
 			commentLoad = 1;
 		},
@@ -30,5 +31,28 @@ function commentListOn() {
 }
 
 
+$(function(){
+	$('.commentAjax').click(function(){
+		let form = $(this).parents('form');
+		let formUrl = $(form).attr("action");
+		let formData = $(form).serialize();
+		let textArea = $(this).prevAll("textarea");
+		$(textArea).val($(textArea).val().trim());
+		
+		if($(textArea).val()!=""){
+			$.ajax({
+	            cache : false,
+	            url : formUrl, // 요기에
+	            type : 'POST', 
+	            data : formData, 
+	            success : function() {
+					$(textArea).val("");
+	                commentListOn();
+	            }
+	        });
+			
+		}
+	});
+});
 
 //	

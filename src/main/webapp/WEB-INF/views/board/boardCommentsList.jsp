@@ -57,7 +57,7 @@
 							<textarea name="bcomment" class="reReply_area boardComment" maxlength="150" required></textarea>
 							<p class="boardReCommentModify"></p>
 							<div class="btn_div">
-								<input type="button" class="commentsTime_btn upBtn2" value="등록">
+								<input type="button" class="commentsTime_btn commentAjax2" value="등록">
 								<input type="button" class="commentsTime_btn cancelBtn2" value="취소">
 							</div>
 						</form>
