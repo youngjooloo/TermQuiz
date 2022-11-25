@@ -118,5 +118,15 @@ public class QuizServiceImpl implements QuizService {
 	public int musicScoreUpdate(MusicQuizVO vo) {
 		return mapper.musicScoreUpdate(vo);
 	}
+	
+	@Override
+	public int movieQuizDelete(MovieQuizVO vo) {
+		return mapper.movieQuizDelete(vo);
+	}
+	
+	@Override
+	public int musicQuizDelete(MusicQuizVO vo) {
+		return mapper.musicQuizDelete(vo);
+	}
 
 }

@@ -92,4 +92,11 @@
 		where musicqNo = #{musicqNo} and musicqId = #{mqId}
 	</update>
 	
+	<delete id="movieQuizDelete">
+		delete from movieq where movieqNo = #{movieqNo}
+	</delete>
+	
+	<delete id="musicQuizDelete">
+		delete from musicq where musicqNo = #{musicqNo}
+	</delete>
 </mapper>

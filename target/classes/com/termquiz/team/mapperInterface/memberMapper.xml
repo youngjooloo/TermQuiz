@@ -15,8 +15,8 @@
 	</insert>
 	
     <update id="update">
-    	update member set nickname=#{nickname}, password=#{password}, name=#{name},
-   		phoneNumber=#{phoneNumber}, scNumF=#{scNumF}, scNumL=#{scNumL}  where email=#{email}
+    	update member set nickname=#{nickname}, phoneNumber=#{phoneNumber}
+    	where email=#{email}
     </update>
     
     <select id="emailCheck" parameterType="com.termquiz.team.vo.MemberVO" resultType="int">

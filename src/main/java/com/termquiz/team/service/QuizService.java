@@ -38,5 +38,8 @@ public interface QuizService {
 	int musicScoreInsert(MusicQuizVO vo);
 	
 	int musicScoreUpdate(MusicQuizVO vo);
-
+	
+	int movieQuizDelete(MovieQuizVO vo);
+	
+	int musicQuizDelete(MusicQuizVO vo);
 }

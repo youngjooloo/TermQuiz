@@ -77,7 +77,6 @@
 			<mvc:mapping path="/removeadmin"/>
 			<mvc:mapping path="/quizuploadf"/>
 			<mvc:mapping path="/quizupload"/>
-			<mvc:mapping path="/quizupdate"/>
 			<mvc:mapping path="/quizdelete"/>
 			
 			<beans:ref bean="AdminInterceptor"/>

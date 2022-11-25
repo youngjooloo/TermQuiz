@@ -230,9 +230,9 @@ public class QuizController {
 		mv = new ModelAndView("jsonView");
 		String id = (String) request.getSession().getAttribute("nick");
 		String type = (String) request.getParameter("quizType");
-		int quizNo = Integer.parseInt((String) request.getParameter("quizNo"));
-		int score = Integer.parseInt((String) request.getParameter("score"));
-		boolean correct = "true".equals((String) request.getParameter("quizCorrect"));
+		int quizNo = Integer.parseInt((String)request.getParameter("quizNo"));
+		int score = Integer.parseInt((String)request.getParameter("score"));
+		boolean correct = "true".equals((String)request.getParameter("quizCorrect"));
 		if (!correct) {
 			score = 1;
 		}
@@ -259,6 +259,35 @@ public class QuizController {
 			}
 		}
 		mv.setViewName("home");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/quizdelete")
+	public ModelAndView quizdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr) {
+		String type = (String) request.getParameter("type");
+		int qno = Integer.parseInt((String)request.getParameter("qNo"));
+		String uri = "home";
+		
+		if ("movie".equals(type)) {
+			MovieQuizVO vo = new MovieQuizVO();
+			vo.setMovieqNo(qno);
+			uri = "moviequiz";
+			if (service.movieQuizDelete(vo)>0) {
+				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
+			}else {
+				rttr.addAttribute("alertMessage2", "퀴즈 삭제에 실패하였습니다");
+			}
+		}else if("music".equals(type)){
+			MusicQuizVO vo = new MusicQuizVO();
+			vo.setMusicqNo(qno);
+			uri = "musicquiz";
+			if (service.musicQuizDelete(vo)>0) {
+				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
+			}else {
+				rttr.addAttribute("alertMessage2", "퀴즈 삭제에 실패하였습니다");
+			}
+		}
+		mv.setViewName(uri);
 		return mv;
 	}
 

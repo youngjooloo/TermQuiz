@@ -90,15 +90,14 @@
 					<th scope="col" class="quizSolve">Score</th>
 					<th scope="col" class="quizStart">Start</th>
 					<c:if test="${admin }">
-						<th scope="col" class="quizStart">Modify</th>
 						<th scope="col" class="quizStart">Delete</th>
 					</c:if>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="movie" items="${movieq}">
+				<c:forEach var="movie" items="${movieq}" varStatus="movieList">
 					<tr class="quizRow">
-						<th scope="row" class="quizNo">No.${movie.movieqNo}</th>
+						<th scope="row" class="quizNo">No.${movieList.count}</th>
 						<td class="quizHint">
 							<div class="hintDiv">
 								<c:if test="${movie.score == 0}">
@@ -167,9 +166,6 @@
 						</td>
 						<c:if test="${admin}">
 							<td class="quizStart">
-								<button type="button" class="btn btn-primary btn-m confirmBtn2" id="quizupdate?type=movie&qNo=${movie.movieqNo}">Modify</button>
-							</td>
-							<td class="quizStart">
 								<button type="button" class="btn btn-primary btn-m confirmBtn" id="quizdelete?type=movie&qNo=${movie.movieqNo}">Delete</button>
 							</td>
 						</c:if>
@@ -194,7 +190,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
-	<script src="resources/quiz/js/quizList.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<c:if test="${not empty alertMessage}">
