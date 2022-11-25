@@ -47,7 +47,6 @@ $(function() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				$(this).parents("form").submit();
-
 			}
 		})
 	});
@@ -63,7 +62,7 @@ $(function() {
 			$(invalidInputs).val('');
 			return false;
 		}else{
-			return true
+			return true;
 		}
 	});
 	

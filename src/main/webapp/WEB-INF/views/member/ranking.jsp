@@ -64,7 +64,7 @@
 	<main id="main">
 		<ul id="listHead">
 			<li class="headList ListF"><span>Ranking</span></li>
-			<li class="headList ListF"><span>Nickname</span></li>
+			<li class="headList ListN"><span>Nickname</span></li>
 			<li class="headList ListE"><span id="total" class="chart">Total Score</span></li>
 			<li class="headList ListE"><span id="movie" class="chart">Movie Score</span></li>
 			<li class="headList ListE"><span id="music" class="chart">Music Score</span></li>

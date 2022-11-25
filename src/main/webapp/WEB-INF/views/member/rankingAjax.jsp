@@ -19,8 +19,11 @@
 						<li class="bodyList ListF">
 							<span>${status.count}</span>
 						</li>
-						<li class="bodyList ListF">
-							<span>${memberList.nickname }</span>
+						<li class="bodyList ListN">
+							<span>
+								<span class="levelIcon level${memberList.level}"></span>
+								${memberList.nickname}
+							</span>
 						</li>
 						<li class="bodyList ListE">
 							<span>${memberList.totalScore }</span>

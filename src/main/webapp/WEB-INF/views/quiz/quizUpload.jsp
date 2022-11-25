@@ -16,6 +16,7 @@
 
 <!-- Main css -->
 <link rel="stylesheet" href="resources/home/css/styles.css">
+<link rel="stylesheet" href="resources/home/css/main.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 <link rel="stylesheet" href="resources/quiz/css/quizUpload.css">
 </head>
@@ -44,7 +45,7 @@
 	                </c:if>
 	
 	                <c:if test="${not empty loginID}">
-	                    <li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="mdetail"><span class="levelIcon level${level}"></span> ${nick}</a></li>
 	                    <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 	                </c:if>
 	            </ul>

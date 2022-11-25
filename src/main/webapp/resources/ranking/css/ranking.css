@@ -22,6 +22,9 @@
 .ListF{
 	width:100px;
 }
+.ListN{
+	width:200px;
+}
 
 .ListE{
 	flex: 1;

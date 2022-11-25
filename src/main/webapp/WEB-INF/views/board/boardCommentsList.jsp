@@ -53,7 +53,7 @@
 					<div class="reReplyForm formHidden">
 						<form action="rinsert?bno&#61;${bcomments.bno}&root&#61;${bcomments.root}&amp;step&#61;${bcomments.step}&amp;indent&#61;${bcomments.indent}" 
 							class="reReplyF" id="bcNo&#61;${bcomments.bcNo}" method="post">
-							<div class="commentsId">${nick}</div>
+							<div class="commentsId"><span class="levelIcon level${level}"></span> ${nick}</div>
 							<textarea name="bcomment" class="reReply_area boardComment" maxlength="150" required></textarea>
 							<p class="boardReCommentModify"></p>
 							<div class="btn_div">

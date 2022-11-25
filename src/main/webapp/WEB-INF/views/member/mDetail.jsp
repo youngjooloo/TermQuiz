@@ -17,6 +17,7 @@
 	href="resources/join/fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
+<link rel="stylesheet" href="resources/home/css/main.css">
 <link rel="stylesheet" href="resources/home/css/styles.css">
 <link rel="stylesheet" href="resources/join/css/style.css">
 <link rel="stylesheet" href="resources/memberDetail/css/memberDetail.css">
@@ -45,7 +46,7 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-					<li class="nav-item"><a class="nav-link" href="mdetail">${nick}</a></li>
+					<li class="nav-item"><a class="nav-link" href="mdetail"><span class="levelIcon level${level}"></span>${nick}</a></li>
 					<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 				</ul>
 			</div>
