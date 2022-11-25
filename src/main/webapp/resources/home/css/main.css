@@ -53,5 +53,98 @@ textarea{
 }
 
 .levelIcon{
-	
+	display:inline-block;
+	width: 15px;
+	height: 15px;
+}
+
+.level1{
+	background: url("../assets/level/level1.png");
+}
+.level2{
+	background: url("../assets/level/level2.png");
+}
+.level3{
+	background: url("../assets/level/level3.png");
+}
+.level4{
+	background: url("../assets/level/level4.png");
+}
+.level5{
+	background: url("../assets/level/level5.png");
+}
+.level6{
+	background: url("../assets/level/level6.png");
+}
+.level7{
+	background: url("../assets/level/level7.png");
+}
+.level8{
+	background: url("../assets/level/level8.png");
+}
+.level9{
+	background: url("../assets/level/level9.png");
+}
+.level10{
+	background: url("../assets/level/level10.png");
+}
+.level11{
+	background: url("../assets/level/level11.png");
+}
+.level12{
+	background: url("../assets/level/level12.png");
+}
+.level13{
+	background: url("../assets/level/level13.png");
+}
+.level14{
+	background: url("../assets/level/level14.png");
+}
+.level15{
+	background: url("../assets/level/level15.png");
+}
+.level16{
+	background: url("../assets/level/level16.png");
+}
+.level17{
+	background: url("../assets/level/level17.png");
+}
+.level18{
+	background: url("../assets/level/level18.png");
+}
+.level19{
+	background: url("../assets/level/level19.png");
+}
+.level20{
+	background: url("../assets/level/level20.png");
+}
+.level21{
+	background: url("../assets/level/level21.png");
+}
+.level22{
+	background: url("../assets/level/level22.png");
+}
+.level23{
+	background: url("../assets/level/level23.png");
+}
+.level24{
+	background: url("../assets/level/level24.png");
+}
+.level25{
+	background: url("../assets/level/level25.png");
+}
+.level26{
+	background: url("../assets/level/level26.png");
+}
+.level27{
+	background: url("../assets/level/level27.png");
+}
+.level28{
+	background: url("../assets/level/level28.png");
+}
+.level29{
+	background: url("../assets/level/level29.png");
+}
+.level30{
+	background: url("../assets/level/level30.png");
 }

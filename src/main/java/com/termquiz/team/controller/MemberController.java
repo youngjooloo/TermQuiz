@@ -72,6 +72,8 @@ public class MemberController {
 				request.getSession().setAttribute("loginPW", vo.getPassword());
 				request.getSession().setAttribute("nick", vo.getNickname());
 				request.getSession().setAttribute("admin", vo.isAdminRight());
+				int level = vo.getTotalScore() / 5;
+				request.getSession().setAttribute("level", level);
 				url = "redirect:"+loginUrl;
 				rttr.addFlashAttribute("alertMessage", "로그인에 성공하였습니다");
 			}else {
