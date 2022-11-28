@@ -267,26 +267,49 @@ public class QuizController {
 		String type = (String)request.getParameter("type");
 		int qno = Integer.parseInt((String)request.getParameter("qNo"));
 		String uri = "home";
-		
+		String path = "";
+		boolean delete = false;
 		if ("movie".equals(type)) {
 			MovieQuizVO vo = new MovieQuizVO();
 			vo.setMovieqNo(qno);
 			uri = "redirect:moviequiz";
+			path = "resources/quizhint/movie/movie"+qno;
 			if (service.movieQuizDelete(vo)>0) {
-				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
-			}else {
-				rttr.addAttribute("alertMessage2", "퀴즈 삭제에 실패하였습니다");
+				delete = true;
 			}
 		}else if("music".equals(type)){
 			MusicQuizVO vo = new MusicQuizVO();
 			vo.setMusicqNo(qno);
 			uri = "redirect:musicquiz";
+			path = "resources/quizhint/music/music"+qno;
 			if (service.musicQuizDelete(vo)>0) {
-				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
-			}else {
-				rttr.addAttribute("alertMessage2", "퀴즈 삭제에 실패하였습니다");
+				delete = true;
 			}
 		}
+		
+		if (delete) {
+			rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
+
+			File folder = new File(path);
+			try {
+				while(folder.exists()) {
+					File[] folder_list = folder.listFiles(); //파일리스트 얻어오기
+							
+					for (int i = 0; i < folder_list.length; i++) {
+						folder_list[i].delete(); //파일 삭제 
+					}
+					if(folder_list.length == 0 && folder.isDirectory()){ 
+						folder.delete(); //대상폴더 삭제
+					}
+				}
+			}catch(Exception e) {
+				e.getStackTrace();
+			}
+		}else {
+			rttr.addAttribute("alertMessage2", "퀴즈 삭제에 실패하였습니다");
+		}
+		
+		
 		mv.setViewName(uri);
 		return mv;
 	}
