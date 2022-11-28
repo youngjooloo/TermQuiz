@@ -43,12 +43,13 @@ $(function() {
 			location.href = '#' + url;
 		}
 	});
-	
-	$('.innerBox').click(function(){
+
+	$('.innerBox').click(function() {
 		let playNo = $(this).html();
 		playNo *= 1;
 		audioOn(playNo);
 	});
+
 
 });
 
@@ -57,15 +58,15 @@ function justAnswer(e) {
 	let answer = (($(e).prev().val()).toLowerCase()).replaceAll(" ", "");
 	let quizAnswer = (($('#correctAnswer').html()).toLowerCase()).replaceAll(" ", "");
 	let correct = false;
-	
+
 	let answerList = quizAnswer.split(",");
-	
-	for(let i=0; i < answerList.length; i++){
-		if(answerList[i]==answer){
+
+	for (let i = 0; i < answerList.length; i++) {
+		if (answerList[i] == answer) {
 			correct = true;
 		}
 	}
-	
+
 	if (correct) {
 		trueAnswer();
 	} else {
@@ -79,19 +80,19 @@ function loginAnswer(e) {
 	let correct = false;
 
 	let answerList = quizAnswer.split(",");
-	
-	for(let i=0; i < answerList.length; i++){
-		if(answerList[i]==answer){
+
+	for (let i = 0; i < answerList.length; i++) {
+		if (answerList[i] == answer) {
 			correct = true;
 		}
 	}
-	
+
 	if (correct) {
 		trueAnswer();
 	} else {
 		falseAnswer(e);
 	}
-	
+
 	anwerSubmit(e, correct)
 }
 
@@ -110,7 +111,7 @@ function anwerSubmit(e, correct) {
 	};
 
 	$.ajax({
-		tpye: "POST",
+		type: "POST",
 		url: formAction,
 		data: params,
 		success: function() {
@@ -182,9 +183,9 @@ function falseAnswer(e) {
 
 function audioOn(no) {
 	audioOff()
-	
+
 	let audio;
-	
+
 	switch (no) {
 		case 1:
 			audio = $('#hintAudio1');
@@ -195,29 +196,27 @@ function audioOn(no) {
 		case 3:
 			audio = $('#hintAudio3');
 			break;
-		case 4: 
+		case 4:
 			audio = $('#hintAudio4');
 			break;
 		case 5:
 			audio = $('#hintAudio5');
 			break;
-		default :
+		default:
 			break;
 	};
-	
-	if(!$(audio).hasClass("hiddenBtn")){
+
+	if (!$(audio).hasClass("hiddenBtn")) {
 		$(audio).trigger('play');
 	}
 }
-function audioOff(){
-	let audioNo = [$('#hintAudio1'),$('#hintAudio2'),$('#hintAudio3'),$('#hintAudio4'),$('#hintAudio5')];
-	
-	for(var i = 0; i < audioNo.length; ++i ){
+function audioOff() {
+	let audioNo = [$('#hintAudio1'), $('#hintAudio2'), $('#hintAudio3'), $('#hintAudio4'), $('#hintAudio5')];
+
+	for (var i = 0; i < audioNo.length; ++i) {
 		let check = $(audioNo[i]).get(0).paused;
-		if(!check){
+		if (!check) {
 			$(audioNo[i]).trigger('pause');
 		}
 	}
 }
-
-

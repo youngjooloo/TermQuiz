@@ -154,6 +154,8 @@ public class MemberController {
 			if ("U".equals(request.getParameter("jCode")))
 				uri = "/member/updateForm";
 		}
+		
+		request.getSession().setAttribute("level", vo.getMlevel());
 		mv.setViewName(uri);
 		return mv;
 	} // mdetail
@@ -295,7 +297,7 @@ public class MemberController {
 
 				session.setAttribute("email", vo.getEmail());
 
-				String setfrom = "littlekimyj@naver.com"; // naver
+				String setfrom = ""; // naver
 				String tomail = email; // 받는사람
 				String title = "비밀번호변경 인증 이메일 입니다";
 				String content = System.getProperty("line.separator") + "안녕하세요 회원님"
@@ -320,17 +322,19 @@ public class MemberController {
 				session.setAttribute("checkNum", checkNum);
 
 			} else {
-				mv.setViewName("member/findPW");
+				mv.setViewName("redirect:findpwf");
+				rttr.addFlashAttribute("alertMessage2","이메일과 이름이 일치하지않습니다");
 			}
+		}else {
+			mv.setViewName("redirect:findpwf");
+			rttr.addFlashAttribute("alertMessage2","없는 이메일입니다");
 		}
 		return mv;
 	}// 인증번호발송
 
 	@RequestMapping(value = "/verifynumber", method = RequestMethod.POST)
 	public String verifynumber(HttpServletRequest request,@RequestParam(value = "verifynumber") String verifynumber) throws IOException {
-		System.out.println(verifynumber);
 		String checkNum = request.getSession().getAttribute("checkNum").toString();
-		System.out.println(checkNum);
 		if (verifynumber.equals(checkNum)) {
 			return "member/newPW";
 		} else {
@@ -438,6 +442,4 @@ public class MemberController {
 		mv.setViewName("redirect:memberlist");
 		return mv;
 	}
-
-
 }

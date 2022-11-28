@@ -53,6 +53,14 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
+					<c:if test="${admin}">
+	                    <li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
+                 	</c:if>
+                   
+                    <c:if test="${!admin }">
+	                    <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
+                    </c:if>
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
@@ -93,7 +101,15 @@
 			<thead>
 				<tr>
 					<th>No.${board.bno}</th>
-					<th>${board.bid}</th>
+					<th>	
+						<c:if test="${board.adminRight}">
+							<span class="levelIcon levelAdmin"></span>
+						</c:if>
+						<c:if test="${!board.adminRight}">
+							<span class="levelIcon level${board.mlevel}"></span>
+						</c:if>
+						${board.bid}
+					</th>
 					<th>${board.btitle}</th>
 					<th>${board.btime}</th>
 					<th>조회 수 ${board.bcount}</th>
@@ -129,7 +145,15 @@
 			<form action="rinsert?bno=${board.bno}" method="post" id="answerForm">
 				<ul class="reply">
 					<li class="comments_List">
-						<div class="commentsId">${nick}</div>
+						<div class="commentsId">
+							<c:if test="${admin}">
+								<span class="levelIcon levelAdmin"></span>
+							</c:if>
+							<c:if test="${!admin}">
+								<span class="levelIcon level${level}"></span>
+							</c:if>
+							${nick}
+						</div>
 						<div class="comment_area">
 							<textarea name="bcomment" id="answer_area" maxlength="150" class="boardComment" required></textarea>
 							<p class="boardCommentP"></p>

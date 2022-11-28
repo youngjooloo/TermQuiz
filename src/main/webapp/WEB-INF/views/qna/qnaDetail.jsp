@@ -65,12 +65,20 @@
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
 
 					<c:if test="${empty loginID}">
-    	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
-                        </c:if>
+    	            	<li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
+                    </c:if>
         
-                        <c:if test="${not empty loginID}">
-	                        <li class="nav-item"><a class="nav-link" href="mdetail"><span class="levelIcon level${level}"></span> ${nick}</a></li>
-	                        <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
+                    <c:if test="${not empty loginID}">
+	               		<li class="nav-item"><a class="nav-link" href="mdetail">
+							<c:if test="${admin}">
+								<span class="levelIcon levelAdmin"></span> 
+							</c:if>
+							<c:if test="${!admin}">
+								<span class="levelIcon level${level}"></span> 
+							</c:if>
+	                   		${nick}
+	              		</a></li>
+	              		<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
                     </c:if>
 				</ul>
 			</div>
@@ -91,7 +99,15 @@
 			<thead>
 				<tr>
 					<th>No.${qna.qnaNo}</th>
-					<th>${qna.qnaId}</th>
+					<th>
+						<c:if test="${qna.adminRight}">
+							<span class="levelIcon levelAdmin"></span>
+						</c:if>
+						<c:if test="${!qna.adminRight}">
+							<span class="levelIcon level${qna.mlevel}"></span>
+						</c:if>
+						${qna.qnaId}
+					</th>
 					<th>${qna.qnaTitle}</th>
 					<th>${qna.qnaTime}</th>
 				</tr>

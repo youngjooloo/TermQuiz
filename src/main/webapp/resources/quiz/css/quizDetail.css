@@ -195,3 +195,7 @@ a.innerBox:hover{
     overflow: scroll;
     overflow-wrap: break-word; 
 }
+
+#scoreUpdate{
+	display: none;
+}

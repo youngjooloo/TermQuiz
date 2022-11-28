@@ -165,7 +165,7 @@
 			</div>
 
 			<button type="button" id="endBtn"
-				class="btn btn-primary btn-m endBtn hiddenBox">List</button>
+				class="btn btn-primary btn-m endBtn hiddenBox scoreUpdate">List</button>
 		</section>
 
 		<div class="moveBox hiddenBox">
@@ -180,6 +180,7 @@
 	
 	<div id="mainlogin" class="mlhidden mlcheck"></div>
 	<div id="mainlogin2" class="mlhidden"></div>
+	<div id="scoreUpdate"></div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

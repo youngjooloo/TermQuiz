@@ -19,7 +19,15 @@
 		<c:forEach var="bcomments" items="${commentList}">
 			
 			<li class="comments_List indent_${bcomments.indent}">
-				<div class="commentsId">${bcomments.bcId}</div>
+				<div class="commentsId">
+					<c:if test="${bcomments.adminRight}">
+						<span class="levelIcon levelAdmin"></span>
+					</c:if>
+					<c:if test="${!bcomments.adminRight}">
+						<span class="levelIcon level${bcomments.mlevel}"></span>
+					</c:if>
+					${bcomments.bcId}
+				</div>
 				<div class="list_Form">
 					<div class="bcommentP">
 						<p class="contentp">${bcomments.bcomment}</p>
@@ -53,7 +61,15 @@
 					<div class="reReplyForm formHidden">
 						<form action="rinsert?bno&#61;${bcomments.bno}&root&#61;${bcomments.root}&amp;step&#61;${bcomments.step}&amp;indent&#61;${bcomments.indent}" 
 							class="reReplyF" id="bcNo&#61;${bcomments.bcNo}" method="post">
-							<div class="commentsId"><span class="levelIcon level${level}"></span> ${nick}</div>
+							<div class="commentsId2">
+								<c:if test="${admin}">
+									<span class="levelIcon levelAdmin"></span>
+								</c:if>
+								<c:if test="${!admin}">
+									<span class="levelIcon level${level}"></span>
+								</c:if>
+								${nick}
+							</div>
 							<textarea name="bcomment" class="reReply_area boardComment" maxlength="150" required></textarea>
 							<p class="boardReCommentModify"></p>
 							<div class="btn_div">

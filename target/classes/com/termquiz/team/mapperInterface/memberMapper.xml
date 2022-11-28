@@ -47,13 +47,14 @@
 	</update>
 
 	<select id="selectList" resultType="com.termquiz.team.vo.MemberVO">
-		select email, nickname, name, phoneNumber, scNumF, scNumL, adminRight 
+		select email, nickname, name, phoneNumber, scNumF, scNumL, adminRight, mlevel
 		from member 
 		order by adminRight desc
 	</select>
 
 	<select id="rankingSort" resultType="com.termquiz.team.vo.MemberVO">
-		select nickname,movieScore,musicScore,totalScore from member
+		select nickname,movieScore,musicScore,totalScore,mlevel
+		from member 
 		order by ${sortName} desc
 	</select>
 

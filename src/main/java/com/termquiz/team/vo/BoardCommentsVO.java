@@ -13,4 +13,5 @@ public class BoardCommentsVO {
 	private int step;
 	private int indent;
 	private int mlevel;
+	private boolean adminRight;
 }

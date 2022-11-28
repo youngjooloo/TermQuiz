@@ -11,4 +11,5 @@ public class QnaVO {
 	private String qnaAnswer;
 	private String qnaTime;
 	private int mlevel;
+	private boolean adminRight;
 }

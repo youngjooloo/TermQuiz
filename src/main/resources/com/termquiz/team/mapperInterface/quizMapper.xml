@@ -89,7 +89,7 @@
 	<update id="musicScoreUpdate">
 		update musics
 		set score = #{score}
-		where musicqNo = #{musicqNo} and musicqId = #{mqId}
+		where musicqNo = #{musicqNo} and musicqId = #{musicqId}
 	</update>
 	
 	<delete id="movieQuizDelete">

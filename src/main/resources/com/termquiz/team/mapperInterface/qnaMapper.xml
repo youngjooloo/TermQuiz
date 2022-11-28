@@ -28,7 +28,7 @@
 	</sql>
 	
 	<select id="searchList" resultType="com.termquiz.team.vo.QnaVO">
-		select qnaNo,qnaId,qnaTitle,qnaTime,qnaAnswer,mlevel
+		select qnaNo,qnaId,qnaTitle,qnaTime,mlevel, adminRight
 		from qna inner join member
 		where ( qnaId = nickname
 		<include refid="search"></include>
@@ -42,7 +42,9 @@
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.QnaVO">
-		select * from qna where qnaNo=#{qnaNo}
+		select qnaNo, qnaId, qnaTitle, qnaTime, qnaContent, qnaAnswer, mlevel, adminRight 
+		from qna inner join member
+		where qnaNo=#{qnaNo} and qnaId=nickname
 	</select>
 	
 	<insert id="insert">

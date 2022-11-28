@@ -34,7 +34,7 @@
 
 	<select id="searchList"
 		resultType="com.termquiz.team.vo.BoardVO">
-		select bNo,bId,bTime,bTitle,bContent,bcount,mlevel
+		select bNo,bId,bTime,bTitle,bcount,mlevel,adminRight
 		from board inner join member
 		where (bid = nickname
 		<include refid="search"></include>
@@ -49,9 +49,9 @@
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.BoardVO">
-		select * 
-		from board 
-		where bno=#{bno}
+		select bno, bid, bTime, bTitle, bContent,bcount, mlevel, adminRight
+		from board inner join member
+		where bno=#{bno} and bid = nickname
 	</select>
 
 	<update id="countUp">
@@ -76,8 +76,9 @@
 	</delete>
 
 	<select id="commentList" resultType="com.termquiz.team.vo.BoardCommentsVO">
-		SELECT * FROM termquiz.bcomments
-		where bno = #{bno}
+		SELECT bcNo, bno, bcId, bcomment, bcommentTime, root, step, indent, mlevel, adminRight
+		FROM termquiz.bcomments inner join member
+		where bno = #{bno} and bcId = nickname
 		order by root asc,(case when step = 0 then 1 else 2 end), step desc
 	</select>
 

@@ -21,7 +21,7 @@
 						</li>
 						<li class="bodyList ListN">
 							<span>
-								<span class="levelIcon level${memberList.level}"></span>
+								<span class="levelIcon level${memberList.mlevel}"></span>
 								${memberList.nickname}
 							</span>
 						</li>

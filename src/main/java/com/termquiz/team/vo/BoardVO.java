@@ -11,4 +11,5 @@ public class BoardVO {
 	private String btime;			
 	private int bcount;
 	private int mlevel;
+	private boolean adminRight;
 }

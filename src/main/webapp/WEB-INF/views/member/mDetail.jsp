@@ -46,7 +46,15 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-					<li class="nav-item"><a class="nav-link" href="mdetail"><span class="levelIcon level${level}"></span>${nick}</a></li>
+					<li class="nav-item"><a class="nav-link" href="mdetail">
+						<c:if test="${admin}">
+		                	<span class="levelIcon levelAdmin"></span> 
+	                    </c:if>
+	                    <c:if test="${!admin}">
+		                     <span class="levelIcon level${level}"></span> 
+	                     </c:if>
+	                	${nick}
+	                </a></li>
 					<li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 				</ul>
 			</div>
