@@ -264,14 +264,14 @@ public class QuizController {
 	
 	@RequestMapping(value = "/quizdelete")
 	public ModelAndView quizdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr) {
-		String type = (String) request.getParameter("type");
+		String type = (String)request.getParameter("type");
 		int qno = Integer.parseInt((String)request.getParameter("qNo"));
 		String uri = "home";
 		
 		if ("movie".equals(type)) {
 			MovieQuizVO vo = new MovieQuizVO();
 			vo.setMovieqNo(qno);
-			uri = "moviequiz";
+			uri = "redirect:moviequiz";
 			if (service.movieQuizDelete(vo)>0) {
 				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
 			}else {
@@ -280,7 +280,7 @@ public class QuizController {
 		}else if("music".equals(type)){
 			MusicQuizVO vo = new MusicQuizVO();
 			vo.setMusicqNo(qno);
-			uri = "musicquiz";
+			uri = "redirect:musicquiz";
 			if (service.musicQuizDelete(vo)>0) {
 				rttr.addAttribute("alertMessage", "퀴즈 삭제에 성공하였습니다");
 			}else {
