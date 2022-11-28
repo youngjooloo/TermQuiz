@@ -101,7 +101,10 @@
 					<c:forEach var="qnaList" items="${qna}">
 						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}">
 							<td>${qnaList.qnaNo}</td>
-							<td>${qnaList.qnaId}</td>
+							<td>
+								<span class="levelIcon level${qnaList.mlevel}"></span>
+								${qnaList.qnaId}
+							</td>
 							<td>${qnaList.qnaTitle}<c:if
 									test="${not empty qnaList.qnaAnswer }">
 									<b>&nbsp;[답변 완료]</b>

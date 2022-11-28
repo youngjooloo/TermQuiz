@@ -28,9 +28,9 @@
 	</sql>
 	
 	<select id="searchList" resultType="com.termquiz.team.vo.QnaVO">
-		select qnaNo,qnaId,qnaTitle,qnaTime,qnaAnswer
-		from qna
-		where ( qnaNo>0
+		select qnaNo,qnaId,qnaTitle,qnaTime,qnaAnswer,mlevel
+		from qna inner join member
+		where ( qnaId = nickname
 		<include refid="search"></include>
 		order by qnaNo desc, qnaTime desc
 		limit #{sno}, #{rowsPerPage}

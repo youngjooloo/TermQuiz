@@ -3942,7 +3942,7 @@ textarea.form-control-lg {
 }
 
 .nav-link {
-  display: block;
+  display: flex;
   padding: 0.5rem 1rem;
   color: #f4623a;
   text-decoration: none;

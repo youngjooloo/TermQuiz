@@ -102,7 +102,10 @@
 					<c:forEach var="blist" items="${boardList}">
 						<tr class="board_list" id="bno&#61;${blist.bno }">
 							<td>${blist.bno}</td>
-							<td>${blist.bid}</td>
+							<td>
+								<span class="levelIcon level${blist.mlevel}"></span>
+								${blist.bid}
+							</td>
 							<td>${blist.btitle}</td>
 							<td>${blist.btime}</td>
 							<td>${blist.bcount}</td>

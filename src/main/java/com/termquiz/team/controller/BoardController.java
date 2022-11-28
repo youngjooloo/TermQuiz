@@ -36,6 +36,7 @@ public class BoardController {
 		}
 
 		mv.addObject("boardList", service.searchList(maker));
+		
 		maker.setTotalRowsCount((service.searchCount(maker)));
 
 		mv.addObject("maker", maker);

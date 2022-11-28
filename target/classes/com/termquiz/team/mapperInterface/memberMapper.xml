@@ -43,7 +43,7 @@
 
 	<update id="totalScoreUpdate">
 		update member
-		set totalScore = movieScore + musicScore
+		set totalScore = movieScore + musicScore, mlevel = (totalScore/5)
 	</update>
 
 	<select id="selectList" resultType="com.termquiz.team.vo.MemberVO">

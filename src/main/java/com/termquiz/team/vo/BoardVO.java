@@ -10,4 +10,5 @@ public class BoardVO {
 	private String bcontent;	
 	private String btime;			
 	private int bcount;
+	private int mlevel;
 }

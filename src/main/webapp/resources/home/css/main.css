@@ -53,11 +53,15 @@ textarea{
 }
 
 .levelIcon{
+	margin: auto 0;
 	display:inline-block;
 	width: 15px;
 	height: 15px;
 }
 
+.level0{
+	background: url("../assets/level/level0.png");
+}
 .level1{
 	background: url("../assets/level/level1.png");
 }
@@ -147,4 +151,7 @@ textarea{
 }
 .level30{
 	background: url("../assets/level/level30.png");
+}
+.levelAdmin{
+	background: url("../assets/level/admin.png");
 }

@@ -91,7 +91,7 @@
 			<thead>
 				<tr>
 					<th>No.${qna.qnaNo}</th>
-					<th>ID : ${qna.qnaId}</th>
+					<th>${qna.qnaId}</th>
 					<th>${qna.qnaTitle}</th>
 					<th>${qna.qnaTime}</th>
 				</tr>

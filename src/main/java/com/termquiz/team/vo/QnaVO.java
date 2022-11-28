@@ -10,4 +10,5 @@ public class QnaVO {
 	private String qnaContent;
 	private String qnaAnswer;
 	private String qnaTime;
+	private int mlevel;
 }

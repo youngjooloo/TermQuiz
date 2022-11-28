@@ -34,9 +34,9 @@
 
 	<select id="searchList"
 		resultType="com.termquiz.team.vo.BoardVO">
-		select bNo,bId,bTime,bTitle,bContent,bcount
-		from board
-		where ( bno>0
+		select bNo,bId,bTime,bTitle,bContent,bcount,mlevel
+		from board inner join member
+		where (bid = nickname
 		<include refid="search"></include>
 		order by bNo desc, bTime desc
 		limit #{sno}, #{rowsPerPage}
@@ -49,8 +49,9 @@
 	</select>
 
 	<select id="selectOne" resultType="com.termquiz.team.vo.BoardVO">
-		select * from board where
-		bno=#{bno}
+		select * 
+		from board 
+		where bno=#{bno}
 	</select>
 
 	<update id="countUp">

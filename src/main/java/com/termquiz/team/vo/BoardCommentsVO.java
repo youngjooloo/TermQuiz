@@ -12,4 +12,5 @@ public class BoardCommentsVO {
 	private int root;
 	private int step;
 	private int indent;
+	private int mlevel;
 }
