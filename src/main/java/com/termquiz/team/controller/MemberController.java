@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.service.MemberService;
 import com.termquiz.team.vo.MemberVO;
 
@@ -239,18 +240,25 @@ public class MemberController {
 
 	@RequestMapping(value = "/rankingajax")
 	public ModelAndView rankingajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
-			MemberVO vo) {
+			MemberVO vo, PageNation maker) {
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		service.scoreUpdate();
 		String sortName = (String)request.getParameter("sortName");
 		
 		if (sortName != null) {
-			vo.setSortName(sortName+"Score");
+			maker.setSortName(sortName+"Score");
 		} else {
-			vo.setSortName("totalScore");
+			maker.setSortName("totalScore");
 		}
+		
+		maker.setRowsPerPage(15);
+		
+		list = service.rankingSort(maker);
+		
+		maker.setTotalRowsCount((service.rankingCount(maker)));
 
-		list = service.rankingSort(vo);
+		mv.addObject("maker", maker);
+		
 		if (list != null) {
 			mv.addObject("member", list);
 			mv.setViewName("member/rankingAjax");

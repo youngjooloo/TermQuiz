@@ -59,7 +59,7 @@
             </div>
             <div class="form-submit">
                 <button type="button" class="submitBtn submit_Confirm">Submit</button>
-                <button type="reset" id="reset" class="submitBtn" onclick="history.back();">Back</button>
+                <button type="reset" id="reset" class="submitBtn" onclick="location.href='home?relogin=1'">Back</button>
             </div>
         </form>
     </div>

@@ -10,9 +10,8 @@
 		</if>
 		<choose>
 			<when test="searchType=='all'.toString()">
-				and bId like #{keyVal}
-				or bTitle like #{keyVal}
-				or
+				and bId like #{keyVal} or 
+				bTitle like #{keyVal} or
 				bTime like #{keyVal} )
 			</when>
 			<when test="searchType=='i'.toString()">
@@ -32,8 +31,7 @@
 		</choose>
 	</sql>
 
-	<select id="searchList"
-		resultType="com.termquiz.team.vo.BoardVO">
+	<select id="searchList" resultType="com.termquiz.team.vo.BoardVO">
 		select bNo,bId,bTime,bTitle,bcount,mlevel,adminRight
 		from board inner join member
 		where (bid = nickname

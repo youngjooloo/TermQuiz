@@ -17,5 +17,5 @@ public class MemberVO {
 	private int musicScore;
 	private int mlevel;
 
-	private String sortName;
+//	private String sortName;
 }

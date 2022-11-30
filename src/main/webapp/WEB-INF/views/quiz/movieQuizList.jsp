@@ -71,10 +71,22 @@
 	<header>
 		<div id="quizCategory">
 			<h3>Movie Quiz</h3>
-			<span>Sunt eiusmod ea magna incididunt nisi labore mollit
-				voluptate mollit labore labore duis anim. Ut dolor labore qui
-				excepteur pariatur magna aute laboris culpa. Et aliquip nostrud duis
-				deserunt dolore irure cillum aliqua et deserunt.</span>
+			<br><br>
+			<span>퀴즈에 대한 힌트는 총 5개로 구성되며,<br>
+			       한 번에 정답을 맞추면 10점을 얻고
+			       <br>
+			       하나의 힌트를 얻을 때마다 정답을 맞췄을 때 받는 점수는 줄어듭니다.
+				   <br><br>
+				   다양한 장르의 영화 퀴즈가 준비 되어있습니다.
+				   <br>
+				   정답을 맞추고 점수를 획득하여 랭킹에 합류하세요!
+				   <br><br>
+				   ※ 비회원의 경우에는 퀴즈만 풀 수 있으며,
+				   <br>
+				   점수 획득 및 랭킹 합류가 되지 않습니다.
+				   <br><br>
+ 				   점수 획득을 원하신다면, 회원가입을 부탁드립니다!
+ 			</span>
 		</div>
 		<div id="quizcImage">
 			<img alt="movie" src="resources/home/assets/img/portfolio/thumbnails/movie.jpg">

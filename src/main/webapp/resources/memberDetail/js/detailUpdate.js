@@ -4,7 +4,7 @@ $(function() {
 		if (e.which == 13) {
 			e.preventDefault();
 			if($(this).val() != ''){
-				$('.submit_Confirm2').click();
+				$('.submit_Confirm2').focus();
 			}
 		}
 	});

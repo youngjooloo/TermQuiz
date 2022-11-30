@@ -195,6 +195,9 @@ a.innerBox:hover{
     overflow: scroll;
     overflow-wrap: break-word; 
 }
+#correctAnswer::-webkit-scrollbar{
+	display: none;
+}
 
 #scoreUpdate{
 	display: none;

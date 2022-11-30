@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.mapperInterface.MemberMapper;
 import com.termquiz.team.vo.MemberVO;
 
@@ -55,8 +56,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public List<MemberVO> rankingSort(MemberVO vo) {
-		return dao.rankingSort(vo);
+	public List<MemberVO> rankingSort(PageNation maker) {
+		return dao.rankingSort(maker);
+	}
+	
+	@Override
+	public int rankingCount(PageNation maker) {
+		return dao.rankingCount(maker);
 	}
 	
 	@Override

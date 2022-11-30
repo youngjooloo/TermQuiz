@@ -79,6 +79,7 @@
 			<li class="headList ListE"><span id="music" class="chart">Music Score</span></li>
 		</ul>
 		<section id="rankingSection"></section>
+		
 	</main>	
 	
 	<div id="mainlogin" class="mlhidden mlcheck"></div>

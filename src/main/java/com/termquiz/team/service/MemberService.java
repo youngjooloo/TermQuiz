@@ -3,6 +3,7 @@ package com.termquiz.team.service;
 
 import java.util.List;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.vo.MemberVO;
 
 public interface MemberService {
@@ -21,7 +22,9 @@ public interface MemberService {
 	
 	void scoreUpdate();
 	
-	List<MemberVO> rankingSort(MemberVO vo);
+	List<MemberVO> rankingSort(PageNation maker);
+	
+	int rankingCount(PageNation maker);
 	
 	int addAdmin(MemberVO vo);
 

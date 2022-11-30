@@ -23,6 +23,8 @@ public class PageNation {
 	private String searchType;
 	private String keyword;
 	
+	private String sortName;
+	
 	public PageNation() {
 		this.rowsPerPage = 5;
 		this.currPage = 1;

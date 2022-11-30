@@ -2,6 +2,7 @@ package com.termquiz.team.mapperInterface;
 
 import java.util.List;
 
+import com.termquiz.team.common.PageNation;
 import com.termquiz.team.vo.MemberVO;
 
 public interface MemberMapper {
@@ -24,7 +25,9 @@ public interface MemberMapper {
 	
 	void totalScoreUpdate();
 	
-	List<MemberVO> rankingSort(MemberVO vo);
+	List<MemberVO> rankingSort(PageNation maker);
+	
+	int rankingCount(PageNation maker);
 	
 	int addAdmin(MemberVO vo);
 

@@ -56,6 +56,11 @@
 		select nickname,movieScore,musicScore,totalScore,mlevel
 		from member 
 		order by ${sortName} desc
+		limit #{sno}, #{rowsPerPage}
+	</select>
+	
+	<select id="rankingCount" resultType="int">
+		select count(*) from member
 	</select>
 
 	<update id="addAdmin">

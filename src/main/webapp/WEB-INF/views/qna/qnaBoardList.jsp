@@ -88,7 +88,7 @@
 			<h3 class="board_container_intro">
 				<a href="qnaboardlist">QnA</a>
 			</h3>
-			<p class="board_container_p">궁금했던 질문을 관리자에게 질문하세요!</p>
+			<p class="board_container_p">궁금한 점을 관리자에게 질문하세요!</p>
 		</div>
 	</header>
 
