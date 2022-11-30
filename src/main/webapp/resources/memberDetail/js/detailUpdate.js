@@ -18,7 +18,7 @@ $(function() {
 				$('#nickname').attr('placeholder', '한글, 영문자, 숫자만 작성 가능');
 				$('#nickname').focus();
 			} else {
-				nicknameDupCheck();
+				nicknameDupCheck2();
 			}
 		}
 	});
@@ -43,21 +43,26 @@ $(function() {
 }); //ready	
 
 
-function nicknameDupCheck() {
+function nicknameDupCheck2() {
 	$.ajax({
 		type: 'POST',
 		url: 'rest/nicknamecheck',
-		dataType: 'test',
+		dataType: 'text',
 		data: {
 			'nickname': $('.nickname').val()
 		},
 		success: function(result) {
+			console.log("t");
 			if (result != 0) {
 				$('.nickname').val('');
 				$('.nickname').attr('placeholder', '중복된 닉네임입니다');
 				$('.nickname').focus();
 			}
 		},
+		error: function(result){
+			
+			console.log(result);
+		}
 	});
 }
 
