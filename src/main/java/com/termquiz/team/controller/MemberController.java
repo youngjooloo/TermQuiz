@@ -209,23 +209,27 @@ public class MemberController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/emailcheck", method = RequestMethod.POST)
-	public ModelAndView emailcheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
-			MemberVO vo) {
-		mv = new ModelAndView("jsonView");
-		int dup = service.emailCheck(vo);
-		mv.addObject("dup", dup);
-		return mv;
-	}
-
-	@RequestMapping(value = "/nicknamecheck", method = RequestMethod.POST)
-	public ModelAndView nicknamecheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
-			MemberVO vo) {
-		mv = new ModelAndView("jsonView");
-		int dup = service.nicknameCheck(vo);
-		mv.addObject("dup", dup);
-		return mv;
-	}
+//	@RequestMapping(value = "/emailcheck", method = RequestMethod.POST)
+//	public ModelAndView emailcheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+//			MemberVO vo) {
+//		mv = new ModelAndView("jsonView");
+//		int dup = service.emailCheck(vo);
+//		mv.addObject("dup", dup);
+//		return mv;
+//	}
+//
+//	@RequestMapping(value = "/nicknamecheck", method = RequestMethod.POST)
+//	public ModelAndView nicknamecheck(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
+//			MemberVO vo) {
+//		mv = new ModelAndView("jsonView");
+//		int dup = 0;
+//		String check = (String)request.getSession().getAttribute("nick");
+//		if (!check.equals(vo.getNickname())) {
+//			dup = service.nicknameCheck(vo);
+//		}
+//		mv.addObject("dup", dup);
+//		return mv;
+//	}
 
 	@RequestMapping(value = "/ranking")
 	public ModelAndView ranking(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {

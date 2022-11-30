@@ -71,7 +71,7 @@
 	                <input type="email" class="joininput" name="email" id="email" value="${user.email}" required readonly />
 	
 	  				<label for="nickname" class="label-agree-term">Nickname</label> 
-	                <input type="text" class="joininput nickname" name="nickname" id="${user.nickname}" value="${user.nickname}"
+	                <input type="text" class="joininput nickname" name="nickname" id="nickname" value="${user.nickname}"
 	                    placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 	
 	  				<label for="changePW" class="label-agree-term">Password</label>          
@@ -98,7 +98,7 @@
 	                </div>
 	            </div>
 	            <div class="form-submit">
-	                <button type="button" class="submitBtn submit_Confirm">Modify</button>
+	                <button type="button" class="submitBtn submit_Confirm2">Modify</button>
 	                <button type="button" id="mdeletef" class="submitBtn confirmBtn">Delete</button>
 	                <button type="button" id="reset" class="submitBtn" onclick="history.back();">Back</button>
 	            </div>

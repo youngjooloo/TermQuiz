@@ -48,6 +48,7 @@ $(function(){
 	            success : function() {
 					$(textArea).val("");
 	                commentListOn();
+					$(".boardCommentP").text("");
 	            }
 	        });
 			

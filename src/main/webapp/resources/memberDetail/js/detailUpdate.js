@@ -1,12 +1,11 @@
 
-"use strict"
-
 $(function() {
-
 	$('.joininput').keydown(function(e) {
 		if (e.which == 13) {
 			e.preventDefault();
-			$('#submit').click();
+			if($(this).val() != ''){
+				$('.submit_Confirm2').click();
+			}
 		}
 	});
 
@@ -18,46 +17,44 @@ $(function() {
 				$('#nickname').val('');
 				$('#nickname').attr('placeholder', '한글, 영문자, 숫자만 작성 가능');
 				$('#nickname').focus();
-			}else{
+			} else {
 				nicknameDupCheck();
 			}
 		}
 	});
 	$(".submit_Confirm2").click(function(e) {
 		e.preventDefault();
-		if(agreecheck()){
-			Swal.fire({
-				title: '알림',
-				text: "이대로 하시겠습니까?",
-				icon: 'question',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: '확인',
-				cancelButtonText: '취소'
-			}).then((result) => {
-				if (result.isConfirmed) {
-					$(this).parents("form").submit();
-				}
-			})
-		}
+		Swal.fire({
+			title: '알림',
+			text: "이대로 하시겠습니까?",
+			icon: 'question',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: '확인',
+			cancelButtonText: '취소'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				$(this).parents("form").submit();
+			}
+		})
 	});
 
 }); //ready	
 
 
-function nicknameDupCheck(){
+function nicknameDupCheck() {
 	$.ajax({
 		type: 'POST',
-		url: 'nicknamecheck',
-		dataType : 'JSON',
+		url: 'rest/nicknamecheck',
+		dataType: 'test',
 		data: {
-			'nickname' : $('.nickname').val()
+			'nickname': $('.nickname').val()
 		},
 		success: function(result) {
-			if(result.dup != 0){
+			if (result != 0) {
 				$('.nickname').val('');
-				$('.nickname').attr('placeholder','중복된 닉네임입니다');								
+				$('.nickname').attr('placeholder', '중복된 닉네임입니다');
 				$('.nickname').focus();
 			}
 		},

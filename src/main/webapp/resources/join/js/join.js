@@ -164,38 +164,35 @@ function agreecheck() {
 function emailDupCheck(){
 	$.ajax({
 		type: 'POST',
-		url: 'emailcheck',
-		dataType : 'JSON',
+		url: 'rest/emailcheck',
+		dataType : 'text',
 		data: {
 			'email' : $('#email').val()
 		},
 		success: function(result) {
-			if(result.dup != 0){
+			if(result != "0"){
 				$('#email').val('');
 				$('#email').attr('placeholder','중복된 이메일입니다');								
 				$('#email').focus();
 			}
-		},
+		}
 	});
 }
 
 function nicknameDupCheck(){
 	$.ajax({
 		type: 'POST',
-		url: 'nicknamecheck',
-		dataType : 'JSON',
+		url: 'rest/nicknamecheck',
+		dataType : 'text',
 		data: {
 			'nickname' : $('#nickname').val()
 		},
 		success: function(result) {
-			if(result.dup != 0){
+			if(result != 0){
 				$('#nickname').val('');
 				$('#nickname').attr('placeholder','중복된 닉네임입니다');								
 				$('#nickname').focus();
 			}
-		},
-		error: function(){
-			console.log("on");
 		}
 	});
 }
