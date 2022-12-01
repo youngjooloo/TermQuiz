@@ -10,9 +10,9 @@
 		</if>
 		<choose>
 			<when test="searchType=='all'.toString()">
-				and bId like #{keyVal} or 
+				and (bId like #{keyVal} or 
 				bTitle like #{keyVal} or
-				bTime like #{keyVal} )
+				bTime like #{keyVal}) )
 			</when>
 			<when test="searchType=='i'.toString()">
 				and bId like #{keyVal} )
@@ -24,8 +24,8 @@
 				and bContent like #{keyVal} )
 			</when>
 			<when test="searchType=='cc'.toString()">
-				and bId like #{keyVal}
-				or bTitle like #{keyVal} )
+				and (bId like #{keyVal}
+				or bTitle like #{keyVal}) )
 			</when>
 			<otherwise> )</otherwise>
 		</choose>

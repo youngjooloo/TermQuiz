@@ -10,9 +10,9 @@
 	</if>
 	<choose>
 		<when test="searchType=='all'.toString()">
-			and qnaTitle like #{keyVal} 
+			and (qnaTitle like #{keyVal} 
 			or qnaContent like #{keyVal}
-			or qnaAnswer like #{keyVal} )
+			or qnaAnswer like #{keyVal}) )
 		</when>
 		<when test="searchType=='t'.toString()">
 			and qnaTitle like #{keyVal} )
