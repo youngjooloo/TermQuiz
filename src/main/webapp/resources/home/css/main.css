@@ -1,157 +1,239 @@
 @charset "UTF-8";
 
 #page-top::-webkit-scrollbar {
-    display: none; 
+	display: none;
 }
 
 #mainlogin {
 	position: fixed;
-	left:0;
-	top:0;
+	left: 0;
+	top: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.5); 
+	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1;
 }
 
-.mlhidden{
+.mlhidden {
 	visibility: hidden;
-	top:200% !important;
+	top: 200% !important;
 }
 
-#mainlogin2{
+#mainlogin2 {
 	position: fixed;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-	
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
 	z-index: 2;
 }
 
-#afterJoin{
+#afterJoin {
 	position: absolute;
 	top: 30%;
 	left: 50%;
-	transform: translate(-50%,0);
-	
-    flex: 0 0 auto;
-    width: 400px;
+	transform: translate(-50%, 0);
+
+	flex: 0 0 auto;
+	width: 400px;
 }
 
-.ajhidden{
-	display:none;
+.ajhidden {
+	display: none;
 }
 
-#startBtn{
+#startBtn {
 	position: absolute;
-    bottom: 100px;
-    transform: translate(-43%, -82%);
+	bottom: 100px;
+	transform: translate(-43%, -82%);
 }
 
-textarea{
-	padding : 10px;
+textarea {
+	padding: 10px;
 }
 
-.levelIcon{
-	margin: auto 0;
-	display:inline-block;
+.levelIcon {
+	display: inline-block;
 	width: 15px;
 	height: 15px;
+	align-self: center;
 }
 
-.level0{
-	background: url("../assets/level/level0.png");
+.level0 {
+	background: url("../assets/level/level0.png") 100%/cover;
 }
-.level1{
-	background: url("../assets/level/level1.png");
+
+.level1 {
+	background: url("../assets/level/level1.png") 100%/cover;
 }
-.level2{
-	background: url("../assets/level/level2.png");
+
+.level2 {
+	background: url("../assets/level/level2.png") 100%/cover;
 }
-.level3{
-	background: url("../assets/level/level3.png");
+
+.level3 {
+	background: url("../assets/level/level3.png") 100%/cover;
 }
-.level4{
-	background: url("../assets/level/level4.png");
+
+.level4 {
+	background: url("../assets/level/level4.png") 100%/cover;
 }
-.level5{
-	background: url("../assets/level/level5.png");
+
+.level5 {
+	background: url("../assets/level/level5.png") 100%/cover;
 }
-.level6{
-	background: url("../assets/level/level6.png");
+
+.level6 {
+	background: url("../assets/level/level6.png") 100%/cover;
 }
-.level7{
-	background: url("../assets/level/level7.png");
+
+.level7 {
+	background: url("../assets/level/level7.png") 100%/cover;
 }
-.level8{
-	background: url("../assets/level/level8.png");
+
+.level8 {
+	background: url("../assets/level/level8.png") 100%/cover;
 }
-.level9{
-	background: url("../assets/level/level9.png");
+
+.level9 {
+	background: url("../assets/level/level9.png") 100%/cover;
 }
-.level10{
-	background: url("../assets/level/level10.png");
+
+.level10 {
+	background: url("../assets/level/level10.png") 100%/cover;
 }
-.level11{
-	background: url("../assets/level/level11.png");
+
+.level11 {
+	background: url("../assets/level/level11.png") 100%/cover;
 }
-.level12{
-	background: url("../assets/level/level12.png");
+
+.level12 {
+	background: url("../assets/level/level12.png") 100%/cover;
 }
-.level13{
-	background: url("../assets/level/level13.png");
+
+.level13 {
+	background: url("../assets/level/level13.png") 100%/cover;
 }
-.level14{
-	background: url("../assets/level/level14.png");
+
+.level14 {
+	background: url("../assets/level/level14.png") 100%/cover;
 }
-.level15{
-	background: url("../assets/level/level15.png");
+
+.level15 {
+	background: url("../assets/level/level15.png") 100%/cover;
 }
-.level16{
-	background: url("../assets/level/level16.png");
+
+.level16 {
+	background: url("../assets/level/level16.png") 100%/cover;
 }
-.level17{
-	background: url("../assets/level/level17.png");
+
+.level17 {
+	background: url("../assets/level/level17.png") 100%/cover;
 }
-.level18{
-	background: url("../assets/level/level18.png");
+
+.level18 {
+	background: url("../assets/level/level18.png") 100%/cover;
 }
-.level19{
-	background: url("../assets/level/level19.png");
+
+.level19 {
+	background: url("../assets/level/level19.png") 100%/cover;
 }
-.level20{
-	background: url("../assets/level/level20.png");
+
+.level20 {
+	background: url("../assets/level/level20.png") 100%/cover;
 }
-.level21{
-	background: url("../assets/level/level21.png");
+
+.level21 {
+	background: url("../assets/level/level21.png") 100%/cover;
 }
-.level22{
-	background: url("../assets/level/level22.png");
+
+.level22 {
+	background: url("../assets/level/level22.png") 100%/cover;
 }
-.level23{
-	background: url("../assets/level/level23.png");
+
+.level23 {
+	background: url("../assets/level/level23.png") 100%/cover;
 }
-.level24{
-	background: url("../assets/level/level24.png");
+
+.level24 {
+	background: url("../assets/level/level24.png") 100%/cover;
 }
-.level25{
-	background: url("../assets/level/level25.png");
+
+.level25 {
+	background: url("../assets/level/level25.png") 100%/cover;
 }
-.level26{
-	background: url("../assets/level/level26.png");
+
+.level26 {
+	background: url("../assets/level/level26.png") 100%/cover;
 }
-.level27{
-	background: url("../assets/level/level27.png");
+
+.level27 {
+	background: url("../assets/level/level27.png") 100%/cover;
 }
-.level28{
-	background: url("../assets/level/level28.png");
+
+.level28 {
+	background: url("../assets/level/level28.png") 100%/cover;
 }
-.level29{
-	background: url("../assets/level/level29.png");
+
+.level29 {
+	background: url("../assets/level/level29.png") 100%/cover;
 }
-.level30{
-	background: url("../assets/level/level30.png");
+
+.level30 {
+	background: url("../assets/level/level30.png") 100%/cover;
 }
-.levelAdmin{
-	background: url("../assets/level/admin.png");
+
+.levelAdmin {
+	background: url("../assets/level/admin.png") 100%/cover;
+	;
+}
+
+.questionIcon {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url("../assets/img/question-mark.png") 100%/cover;
+}
+
+.questionIcon:hover {
+	cursor: pointer;
+}
+
+.levelBar {
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;
+}
+
+#levelIcon,
+.questionIcon {
+	margin: 0 5px;
+}
+
+#levelIcon{
+	width: 20px;
+	height: 20px;
+}
+
+.proBar{
+	flex: 1;
+	height: 25px;
+}
+
+.infoBox{
+	position: relative;
+}
+
+.levelInfo{
+	background: #2a2a2a;
+    position: absolute;
+    width: 300px;
+    padding: 30px;
+    box-shadow: 10px 10px 10px #00000085;
+    border-radius: 40px;
+    top: 0;
+    left: 50px;
+    visibility: hidden;
+    opacity:0;
+    transition: all 0.5s;
 }

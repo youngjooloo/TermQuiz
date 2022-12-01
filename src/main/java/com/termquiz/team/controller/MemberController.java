@@ -70,7 +70,6 @@ public class MemberController {
 		if (vo != null) { // email 확인
 			if (passwordEncoder.matches(password, vo.getPassword())) { // email이 일치하면 password 확인\
 				request.getSession().setAttribute("loginID", vo.getEmail());
-				request.getSession().setAttribute("loginPW", vo.getPassword());
 				request.getSession().setAttribute("nick", vo.getNickname());
 				request.getSession().setAttribute("admin", vo.isAdminRight());
 				request.getSession().setAttribute("level", vo.getMlevel());
@@ -173,6 +172,7 @@ public class MemberController {
 		vo2.setEmail(vo.getEmail());
 		vo2 = service.selectOne(vo2);
 		vo.setPassword(vo2.getPassword());
+		
 		// 2. Service 처리
 		if (service.update(vo) > 0) {
 			uri = "redirect:home";

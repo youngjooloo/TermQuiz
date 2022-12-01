@@ -19,7 +19,6 @@ public class MemberVO {
 	private int gage;
 	
 	public void level(){
-		this.mlevel = this.totalScore/10;
 		this.gage = this.totalScore%10;
 	}
 	

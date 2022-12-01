@@ -74,9 +74,17 @@
 	                <input type="text" class="joininput nickname" name="nickname" id="nickname" value="${user.nickname}"
 	                    placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
 					
-					<label class="label-agree-term">Level</label>  
-	  				<p>${user.mlevel}</p>    <p>${user.gage} </p>   
-	
+					<div class="levelBar infoBox">
+						<label class="label-agree-term">Level</label>  
+		  				<span class="questionIcon"></span>
+		  				<span class="levelInfo">레벨은 LV. 0 부터 LV. 30 까지 구성되어 있으며 Total Score가 10점씩 늘어날 때마다 레벨은 1씩 증가합니다.</span>
+					</div>
+					
+	  				<div class="levelBar">
+		  				<span id="levelIcon" class="levelIcon level${user.mlevel}"></span>
+		  				<progress class="proBar" id="file" max="10" value="${user.gage}">${user.gage*10}%</progress> 
+	  				</div>			
+
 	  				<label for="changePW" class="label-agree-term">Password</label>          
 	            	<button type="button" id="changepwf" class="submitBtn changePW confirmBtn2">Password Change</button>
 	
@@ -113,6 +121,7 @@
 	<script src="resources/join/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/join/js/main.js"></script>
 	<script src="resources/memberDetail/js/detailUpdate.js"></script>
+	<script src="resources/memberDetail/js/mdetail.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<c:if test="${not empty alertMessage}">
