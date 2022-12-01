@@ -79,13 +79,17 @@
 		  				<span class="questionIcon"></span>
 		  				<span class="levelInfo">레벨은 LV. 0 부터 LV. 30 까지 구성되어 있으며 Total Score가 10점씩 늘어날 때마다 레벨은 1씩 증가합니다.</span>
 					</div>
-					
-	  				<div class="levelBar">
-		  				<span id="levelIcon" class="levelIcon level${user.mlevel}"></span>
-		  				<progress class="proBar" id="file" max="10" value="${user.gage}">${user.gage*10}%</progress> 
-	  				</div>			
 
-	  				<label for="changePW" class="label-agree-term">Password</label>          
+					<div class="levelBar">
+						<span id="levelIcon" class="levelIcon level${user.mlevel}"></span>
+						<div class="progress proBar">
+							<div class="progress-bar progress-bar-striped active"
+								role="progressbar" aria-valuenow="40" aria-valuemin="0"
+								aria-valuemax="100" style="width: 0%">${user.gage*10}%</div>
+						</div>
+					</div>
+
+					<label for="changePW" class="label-agree-term">Password</label>          
 	            	<button type="button" id="changepwf" class="submitBtn changePW confirmBtn2">Password Change</button>
 	
 	  				<label for="name" class="label-agree-term">Name</label>          
@@ -146,6 +150,12 @@
 			});
 		</script>
 	</c:if>
+	<script>
+		$(document).ready(function(){
+			$('.progress-bar').css("width","${user.gage*10}%")
+			
+		});	
+	</script>
 	<script src="resources/common/js/confirm.js"></script>
 </body>
 </html>
