@@ -256,6 +256,10 @@ public class MemberController {
 		
 		list = service.rankingSort(maker);
 		
+		for (MemberVO vo2 : list) {
+			vo2.level();
+		}
+		
 		maker.setTotalRowsCount((service.rankingCount(maker)));
 		mv.addObject("maker", maker);
 		
