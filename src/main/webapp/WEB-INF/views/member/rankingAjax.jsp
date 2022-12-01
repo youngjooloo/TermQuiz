@@ -11,13 +11,13 @@
 <link href="resources/ranking/css/ranking.css" rel="stylesheet" />
 </head>
 <body>
-	<main>
+	<main id="listMain">
 		<ul id="listBody">
 			<c:forEach var="memberList" items="${member}" varStatus="status">
 				<li>
 					<ul class="bodyUl">
 						<li class="bodyList ListF">
-							<span>${status.count}</span>
+							<span>${((maker.currPage-1)*maker.rowsPerPage)+status.count}</span>
 						</li>
 						<li class="bodyList ListN">
 							<span>
@@ -42,41 +42,45 @@
 			<div class="boardBtnBox">
 				<div class="boardBtnLeft">
 					<c:if test="${maker.prev && maker.spageNo>1}">
-						<a href="boardlist${maker.searchQuery(1)}">&Lt;</a>
+						<a href="javascript:;" id="rankingajax${maker.searchQuery(1)}" class="rankingPage">&Lt;</a>
 					</c:if>
 
 					<c:if test="${maker.prev}">
-						<a href="boardlist${maker.searchQuery(maker.spageNo-1)}"
-							class="pageBtn">&lt;</a>
+						<a href="javascript:;" id="rankingajax${maker.searchQuery(maker.spageNo-1)}"
+							class="pageBtn rankingPage">&lt;</a>
 					</c:if>
 				</div>
 
-				<div class="boardNumBox">
-					<c:forEach var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
+			<div class="boardNumBox">
+				<c:forEach var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
 						<c:if test="${i==maker.currPage}">
-							<a href="boardlist${maker.searchQuery(i)}" class="paging_num_on">
+							<a href="javascript:;" id="rankingajax${maker.searchQuery(i)}" class="paging_num_on rankingPage">
 								<span class="screen_out">현재페이지</span>${i}
 							</a>
 
 						</c:if>
 						<c:if test="${i !=maker.currPage}">
-							<a href="boardlist${maker.searchQuery(i)}">${i}</a>
+							<a href="javascript:;" id="rankingajax${maker.searchQuery(i)}" class="rankingPage">${i}</a>
 						</c:if>
 					</c:forEach>
 				</div>
 
 				<div class="boardBtnRight">
 					<c:if test="${maker.next}">
-						<a href="boardlist${maker.searchQuery(maker.epageNo+1)}"
-							class="pageBtn">&gt;</a>
+						<a href="javascript:;" id="rankingajax${maker.searchQuery(maker.epageNo+1)}"
+							class="pageBtn rankingPage">&gt;</a>
 					</c:if>
 
 					<c:if test="${maker.next && maker.epageNo>0}">
-						<a href="boardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
+						<a href="javascript:;" id="rankingajax${maker.searchQuery(maker.lastPageNo)}" class="rankingPage">&Gt;</a>
 					</c:if>
 				</div>
 			</div>
+			<input type="text" name="sortName" id="sortName" value="${maker.sortName}">
 		</div>
 	</main>	
+	
+	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/ranking/js/rankingPage.js"></script>
 </body>
 </html>

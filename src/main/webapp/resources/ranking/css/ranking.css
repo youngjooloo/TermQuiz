@@ -10,7 +10,7 @@
 #main {
 	width: 80%;
 	margin: 0 auto;
-	margin-top: 120px;	
+	padding-top: 120px;	
 }
 
 .bodyUl,
@@ -67,4 +67,82 @@
 }
 #listBody>li:not(:first-child) {
 	border-bottom: 3px solid rgb(224, 224, 224);
+}
+
+
+.boardNumBox{
+	width: 160px;
+	display: inline-flex;
+	align-items: center;
+}
+
+.boardNumBox a{
+	display: inline-block;
+	width: 32px;
+}
+
+#main main .boardBtnBox{
+	display: inline-flex;
+	margin-top: 20px;
+}
+
+
+.boardBtnLeft,
+.boardBtnRight{
+	display:inline-flex;
+	align-items:center;
+	width:50px; 
+}
+
+.boardBtnLeft{
+	justify-content: left;
+}
+
+.boardBtnRight{
+	justify-content: right;
+}
+
+.pageBtn{
+	flex:1;
+}
+
+.wrap_paging .boardBtnBox a{
+	text-decoration: none;
+	color:black;
+}
+
+.wrap_paging .boardBtnBox a:hover {
+    color: #f4623a;
+}
+
+.wrap_paging .boardBtnBox .boardNumBox .paging_num_on {
+	background-color: #333;
+    border-radius: 16px;
+    color: #fff;
+    line-height: 32px;
+}
+
+.wrap_paging .boardBtnBox .boardNumBox .paging_num_on:hover{
+    color: #f4623a;
+}
+.wrap_paging {
+	display: block;
+	text-align: center;
+	padding: 20px 0;
+	position: relative;
+}
+
+
+.screen_out {
+	position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;
+    color: #fff;
+    cursor: pointer;
+}
+#sortName{
+	display: none;
 }

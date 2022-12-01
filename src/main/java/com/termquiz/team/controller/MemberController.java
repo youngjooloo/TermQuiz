@@ -251,12 +251,12 @@ public class MemberController {
 			maker.setSortName("totalScore");
 		}
 		
-		maker.setRowsPerPage(15);
+		maker.setSnoEno();
+		maker.setRowsPerPage(10);
 		
 		list = service.rankingSort(maker);
 		
 		maker.setTotalRowsCount((service.rankingCount(maker)));
-
 		mv.addObject("maker", maker);
 		
 		if (list != null) {
