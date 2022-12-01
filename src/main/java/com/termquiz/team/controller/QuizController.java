@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.termquiz.team.service.MemberService;
 import com.termquiz.team.service.QuizService;
 import com.termquiz.team.vo.MovieQuizVO;
 import com.termquiz.team.vo.MusicQuizVO;
@@ -29,6 +30,8 @@ public class QuizController {
 
 	@Autowired
 	QuizService service;
+	@Autowired
+	MemberService mService;
 
 	@RequestMapping(value = "/moviequiz")
 	public ModelAndView moviequiz(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
@@ -258,6 +261,8 @@ public class QuizController {
 				service.musicScoreInsert(vo);
 			}
 		}
+		
+		mService.scoreUpdate();
 		mv.setViewName("home");
 		return mv;
 	}

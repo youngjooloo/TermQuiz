@@ -244,7 +244,6 @@ public class MemberController {
 	public ModelAndView rankingajax(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			MemberVO vo, PageNation maker) {
 		List<MemberVO> list = new ArrayList<MemberVO>();
-		service.scoreUpdate();
 		String sortName = (String)request.getParameter("sortName");
 		
 		if (sortName != null) {
@@ -276,7 +275,6 @@ public class MemberController {
 			MemberVO vo) {
 
 		List<MemberVO> list = new ArrayList<MemberVO>();
-		service.scoreUpdate();
 		list = service.selectList();
 
 		if (list != null) {

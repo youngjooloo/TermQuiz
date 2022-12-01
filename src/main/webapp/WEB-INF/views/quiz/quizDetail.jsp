@@ -165,7 +165,7 @@
 			</div>
 
 			<button type="button" id="endBtn"
-				class="btn btn-primary btn-m endBtn hiddenBox scoreUpdate">List</button>
+				class="btn btn-primary btn-m endBtn hiddenBox">List</button>
 		</section>
 
 		<div class="moveBox hiddenBox">
