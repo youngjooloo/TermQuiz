@@ -73,6 +73,9 @@
 	  				<label for="nickname" class="label-agree-term">Nickname</label> 
 	                <input type="text" class="joininput nickname" name="nickname" id="nickname" value="${user.nickname}"
 	                    placeholder="Nick Name (4글자 이상, 10글자 이하)" maxlength="10" minlength="4" required />
+					
+					<label class="label-agree-term">Level</label>  
+	  				<p>${user.mlevel}</p>    <p>${user.gage} </p>   
 	
 	  				<label for="changePW" class="label-agree-term">Password</label>          
 	            	<button type="button" id="changepwf" class="submitBtn changePW confirmBtn2">Password Change</button>

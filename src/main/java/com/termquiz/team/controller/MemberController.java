@@ -149,6 +149,8 @@ public class MemberController {
 		// 2. Service 처리
 		// => Service 에서 selectOne
 		vo = service.selectOne(vo);
+		vo.level();
+		
 		if (vo != null) {
 			mv.addObject("user", vo);
 			// ** Update 요청이면 updateForm.jsp 로
@@ -255,11 +257,7 @@ public class MemberController {
 		maker.setRowsPerPage(10);
 		
 		list = service.rankingSort(maker);
-		
-		for (MemberVO vo2 : list) {
-			vo2.level();
-		}
-		
+
 		maker.setTotalRowsCount((service.rankingCount(maker)));
 		mv.addObject("maker", maker);
 		
