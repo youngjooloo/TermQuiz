@@ -7,6 +7,7 @@ function bcommentsList() {
 
 $(document).ready(function() {
 	commentListOn();
+	boardListOn();
 });
 
 function commentListOn() {
@@ -29,29 +30,45 @@ function commentListOn() {
 		}
 	}); //ajax
 }
+function boardListOn() {
+	const url = new URL(window.location.href);
+	const check = url.searchParams;
+	const pageno = check.get("currPage");
+	$.ajax({
+		type: 'Get',
+		url: 'boardlist',
+		data: {
+			currPage:pageno
+		},
+		success: function(result) {
+			$('.board_List').html("");
+			$('.board_List').html($(result).filter('.notice').html());
+		}
+	}); //ajax
+}
 
 
-$(function(){
-	$('.commentAjax').click(function(){
+$(function() {
+	$('.commentAjax').click(function() {
 		let form = $(this).parents('form');
 		let formUrl = $(form).attr("action");
 		let formData = $(form).serialize();
 		let textArea = $(this).prevAll("textarea");
 		$(textArea).val($(textArea).val().trim());
-		
-		if($(textArea).val()!=""){
+
+		if ($(textArea).val() != "") {
 			$.ajax({
-	            cache : false,
-	            url : formUrl, // 요기에
-	            type : 'POST', 
-	            data : formData, 
-	            success : function() {
+				cache: false,
+				url: formUrl, // 요기에
+				type: 'POST',
+				data: formData,
+				success: function() {
 					$(textArea).val("");
-	                commentListOn();
+					commentListOn();
 					$(".boardCommentP").text("");
-	            }
-	        });
-			
+				}
+			});
+
 		}
 	});
 });

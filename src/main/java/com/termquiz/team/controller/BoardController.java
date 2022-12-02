@@ -42,9 +42,8 @@ public class BoardController {
 		mv.addObject("maker", maker);
 		mv.setViewName("board/boardList");
 		return mv;
-
 	}// boardpagenation
-
+	
 	@RequestMapping(value = "/boarddetail")
 	public ModelAndView boarddetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			BoardVO vo, BoardCommentsVO cvo) {

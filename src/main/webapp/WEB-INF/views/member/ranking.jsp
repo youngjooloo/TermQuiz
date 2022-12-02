@@ -53,7 +53,7 @@
 	                </c:if>
 	        
 	                <c:if test="${not empty loginID}">
-		                <li class="nav-item"><a class="nav-link" href="mdetail">
+		                <li class="nav-item"><a class="nav-link nick-level" href="mdetail">
 							<c:if test="${admin}">
 								<span class="levelIcon levelAdmin"></span> 
 							</c:if>

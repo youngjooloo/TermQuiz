@@ -27,27 +27,21 @@
 	        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 	        <div class="collapse navbar-collapse" id="navbarResponsive">
 	            <ul class="navbar-nav ms-auto my-2 my-lg-0">
-	            	
-	            	<c:if test="${admin}">
-	                    <li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
-	                    <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
-	            	</c:if>
-	            	
-	            	<c:if test="${!admin }">
-	                    <li class="nav-item"><a class="nav-link" href="ranking">Ranking</a></li>
-	            	</c:if>
+					<li class="nav-item"><a class="nav-link" href="memberlist">Member</a></li>
+	                <li class="nav-item"><a class="nav-link" href="quizuploadf">QuizUpload</a></li>
 	                <li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 	                <li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 	                <li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-	
-	                <c:if test="${empty loginID}">
-	                    <li class="nav-item"><a class="nav-link" href="javascript:;" id="loginB">LogIn</a></li>
-	                </c:if>
-	
-	                <c:if test="${not empty loginID}">
-	                    <li class="nav-item"><a class="nav-link" href="mdetail"><span class="levelIcon level${level}"></span> ${nick}</a></li>
-	                    <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
-	                </c:if>
+	                <li class="nav-item"><a class="nav-link nick-level" href="mdetail">
+		                <c:if test="${admin}">
+		                    <span class="levelIcon levelAdmin"></span> 
+	                    </c:if>
+	                    <c:if test="${!admin}">
+		                    <span class="levelIcon level${level}"></span> 
+	                    </c:if>
+		                ${nick}
+	                </a></li>
+	                <li class="nav-item"><a class="nav-link confirmBtn2" id="mlogout">Log Out</a></li>
 	            </ul>
 	        </div>
 	    </div>

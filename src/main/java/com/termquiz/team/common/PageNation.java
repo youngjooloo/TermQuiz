@@ -26,7 +26,7 @@ public class PageNation {
 	private String sortName;
 	
 	public PageNation() {
-		this.rowsPerPage = 5;
+		this.rowsPerPage = 10;
 		this.currPage = 1;
 	}
 	

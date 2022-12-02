@@ -24,12 +24,19 @@ public class CommonController {
 	}
 
 	@PostMapping(value = "/nicknamecheck")
-	public String nicknamecheck(HttpServletRequest request, MemberVO vo) {
+	public String nicknamecheck(HttpServletRequest request,MemberVO vo) {
 		String check = (String)request.getSession().getAttribute("nick");
 		int dup = 0;
+		System.out.println(vo);
+		System.out.println(check);
 		if (!(vo.getNickname()).equals(check)) {
 			dup = service.nicknameCheck(vo);
 		}
 		return dup+"";
+	}
+	
+	@PostMapping(value = "/test")
+	public String test() {
+		return "test";
 	}
 }

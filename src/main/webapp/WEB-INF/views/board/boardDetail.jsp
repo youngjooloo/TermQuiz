@@ -71,7 +71,7 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">
+						<li class="nav-item"><a class="nav-link nick-level" href="mdetail">
 	                       	<c:if test="${admin}">
 		                   		<span class="levelIcon levelAdmin"></span> 
 	                       	</c:if>
@@ -102,13 +102,15 @@
 				<tr>
 					<th>No.${board.bno}</th>
 					<th>	
-						<c:if test="${board.adminRight}">
-							<span class="levelIcon levelAdmin"></span>
-						</c:if>
-						<c:if test="${!board.adminRight}">
-							<span class="levelIcon level${board.mlevel}"></span>
-						</c:if>
-						${board.bid}
+						<span class="nick-level">
+							<c:if test="${board.adminRight}">
+								<span class="levelIcon levelAdmin"></span>
+							</c:if>
+							<c:if test="${!board.adminRight}">
+								<span class="levelIcon level${board.mlevel}"></span>
+							</c:if>
+							${board.bid}
+					 	</span>
 					</th>
 					<th>${board.btitle}</th>
 					<th>${board.btime}</th>
@@ -145,7 +147,7 @@
 			<form action="rinsert?bno=${board.bno}" method="post" id="answerForm">
 				<ul class="reply">
 					<li class="comments_List">
-						<div class="commentsId">
+						<div class="commentsId nick-level">
 							<c:if test="${admin}">
 								<span class="levelIcon levelAdmin"></span>
 							</c:if>
@@ -163,10 +165,10 @@
 				</ul>
 			</form>
 		</c:if>
-
+		<div class="board_List"></div>
 	</article>
 
-	<footer class="bg-light py-5">
+	<footer class="bg-light py-4">
 		<div class="container px-4 px-lg-5">
 			<div class="small text-center text-muted">Copyright &copy; 2022
 				- Company Name</div>

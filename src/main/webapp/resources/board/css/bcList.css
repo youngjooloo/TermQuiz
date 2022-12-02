@@ -1,5 +1,5 @@
 @charset "UTF-8";
- 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -20,18 +20,21 @@ body {
 	border-collapse: collapse;
 	border-radius: 10px;
 	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1);
 	padding: 0;
 }
+.answer_list li {
+	margin-bottom: 3px;
+}
 
-.reply{
+.reply {
 	margin: 100px auto 0;
 	width: 90%;
 	border-collapse: collapse;
 	border-radius: 10px;
 	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	border-bottom:5px #55608f solid;
+	box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1);
+	border-bottom: 5px #55608f solid;
 	padding: 0;
 }
 
@@ -41,41 +44,43 @@ body {
 }
 
 .bcUpdateF {
-	display:flex;
-    padding: 5px;
-    width: 100%;
+	display: flex;
+	padding: 5px;
+	width: 100%;
 }
 
 .comments_List {
 	display: flex;
+	
 }
 
 .commentsId {
 	width: 10%;
 	background-color: #55608f;
-	 color: #fff;
-	 text-align: center;
-	 padding: 15px;
-	 display: flex;
-    justify-content: center;
-    align-items: center;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
 .commentsId2 {
 	width: 10%;
 	background-color: #195591;
-	 color: #fff;
-	 text-align: center;
-	 padding: 15px;
-	 display: flex;
-    justify-content: center;
-    align-items: center;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.comment_area{
-	display:flex;
-	position:relative;
+.comment_area {
+	display: flex;
+	position: relative;
 	flex: 1;
-	padding:10px;	
+	padding: 10px;
 }
 
 .bcommentP {
@@ -83,6 +88,8 @@ body {
 	width: 100%;
 	padding: 15px;
 	flex-wrap: wrap;
+	min-height: 100px;
+	border-bottom:1px solid #b0b0b0;
 }
 
 .commentsTime {
@@ -91,18 +98,18 @@ body {
 }
 
 .btn_detail {
-    background-color: #373737;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    width: 60px;
-    height: 32px;
-    margin: 0 1%;
+	background-color: #373737;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	width: 60px;
+	height: 32px;
+	margin: 0 1%;
 }
 
 .btn_div {
 	display: flex;
-    margin: auto 10px;
+	margin: auto 10px;
 }
 
 .answer_table {
@@ -115,7 +122,7 @@ body {
 	text-align: center;
 	background-color: #55608f;
 	width: 100%;
-    color: #fff;
+	color: #fff;
 }
 
 #userContent {
@@ -128,16 +135,16 @@ body {
 
 .update_area {
 	width: 100%;
-    height: 80px;
-    resize: none;
+	height: 80px;
+	resize: none;
 }
 
 #answer_area {
-    width: 100%;
-    height: 100px;
-    resize: none;
-    padding: 10px;
-    margin: 0 auto;
+	width: 100%;
+	height: 100px;
+	resize: none;
+	padding: 10px;
+	margin: 0 auto;
 }
 
 
@@ -146,35 +153,34 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	border-bottom:5px #55608f solid;
 }
 
 .commentsTime_btn {
 	background-color: #373737;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    width: 45px;
-    height: 32px;
-    margin: 0 1%;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	width: 45px;
+	height: 32px;
+	margin: 0 1%;
 }
 
 .reReply_area {
 	height: 100%;
-    width: 100%;
-    resize: none;
+	width: 100%;
+	resize: none;
 }
 
 .reReplyForm {
 	margin: 0px auto;
-    width: 100%;
+	width: 100%;
 }
 
-.reReplyF{
+.reReplyF {
 	display: flex;
 	position: relative;
-	border-bottom:5px #55608f solid;
 	height: 95px;
+	border-bottom:1px solid #b0b0b0;
 }
 
 .reReplyF input {
@@ -183,12 +189,12 @@ body {
 
 .btn_ist {
 	background-color: #373737;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    width: 60px;
-    height: 32px;
-    margin: auto 10px;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	width: 60px;
+	height: 32px;
+	margin: auto 10px;
 }
 
 .backBtn_div {
@@ -196,15 +202,18 @@ body {
 	margin: 100px auto;
 }
 
-.indent_1{
+.indent_1 {
 	padding-left: 60px;
 }
-.indent_2{
+
+.indent_2 {
 	padding-left: 120px;
 }
-.indent_3{
+
+.indent_3 {
 	padding-left: 180px;
 }
-.indent_4{
+
+.indent_4 {
 	padding-left: 240px;
 }

@@ -173,3 +173,12 @@ article{
 #commentList{
 	float: left;	
 }
+
+.board_List {
+   width: 90%;
+   margin: 70px auto 20px;
+}
+
+.board_List td {
+   color: black;
+}

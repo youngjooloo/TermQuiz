@@ -67,7 +67,7 @@
 					</c:if>
 
 					<c:if test="${not empty loginID}">
-						<li class="nav-item"><a class="nav-link" href="mdetail">
+						<li class="nav-item"><a class="nav-link nick-level" href="mdetail">
 							<c:if test="${admin}">
 			                	<span class="levelIcon levelAdmin"></span> 
 		                    </c:if>
@@ -95,7 +95,7 @@
 
 	<section class="notice">
 		<!-- board list area -->
-		<div id="board-list">
+		<div id="board-list" class="listAjax">
 			<table class="board-table">
 				<thead>
 					<tr>
@@ -108,16 +108,18 @@
 				</thead>
 				<tbody>
 					<c:forEach var="blist" items="${boardList}">
-						<tr class="board_list" id="bno&#61;${blist.bno }">
+						<tr class="board_list" id="bno&#61;${blist.bno}&currPage=${maker.currPage}">
 							<td>${blist.bno}</td>
 							<td>
-								<c:if test="${blist.adminRight}">
-									<span class="levelIcon levelAdmin"></span>
-								</c:if>
-								<c:if test="${!blist.adminRight}">
-									<span class="levelIcon level${blist.mlevel}"></span>
-								</c:if>
-								<span>${blist.bid}</span> 
+								<span class="nick-level">
+									<c:if test="${blist.adminRight}">
+										<span class="levelIcon levelAdmin"></span>
+									</c:if>
+									<c:if test="${!blist.adminRight}">
+										<span class="levelIcon level${blist.mlevel}"></span>
+									</c:if>
+									${blist.bid} 
+								</span>
 							</td>
 							<td>${blist.btitle}</td>
 							<td>${blist.btime}</td>
@@ -199,21 +201,12 @@
 	<div id="mainlogin2" class="mlhidden"></div>
 
 	<!-- Footer-->
-	<footer class="bg-light py-5">
+	<footer class="bg-light py-4">
 		<div class="container px-4 px-lg-5">
 			<div class="small text-center text-muted">Copyright &copy; 2022
 				- Company Name</div>
 		</div>
 	</footer>
-	
-	<c:if test="${not empty alertMessage}">
-		<div class="alertBox noneBox">
-			<div class="messageBox">${alertMessage}</div>
-			<div class="buttonBox">
-				<button type="button" id="alertBtn">확인</button>
-			</div>
-		</div>
-	</c:if>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

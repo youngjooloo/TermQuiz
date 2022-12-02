@@ -51,7 +51,7 @@
 					<li class="nav-item"><a class="nav-link" href="home#about">Quiz</a></li>
 					<li class="nav-item"><a class="nav-link" href="boardlist">Board</a></li>
 					<li class="nav-item"><a class="nav-link" href="qnaboardlist">QnA</a></li>
-					<li class="nav-item"><a class="nav-link" href="mdetail">
+					<li class="nav-item"><a class="nav-link nick-level" href="mdetail">
 						<c:if test="${admin}">
 		                	<span class="levelIcon levelAdmin"></span> 
 	                    </c:if>
@@ -103,13 +103,15 @@
 								</c:choose> 
 							      <th scope="row">${list.email}</th>
 							      <td>
-							   		<c:if test="${list.adminRight}">
-		                       			<span class="levelIcon levelAdmin"></span> 
-	                       			</c:if>
-	                       			<c:if test="${!list.adminRight}">
-		                       			<span class="levelIcon level${list.mlevel}"></span> 
-	                       			</c:if>
-							     	 ${list.nickname}
+								      <span class="nick-level">
+								   		<c:if test="${list.adminRight}">
+			                       			<span class="levelIcon levelAdmin"></span> 
+		                       			</c:if>
+		                       			<c:if test="${!list.adminRight}">
+			                       			<span class="levelIcon level${list.mlevel}"></span> 
+		                       			</c:if>
+								     	 ${list.nickname}
+								      </span>
 							      </td>
 							      <td>${list.name}</td>
 							      <td>${list.phoneNumber}</td>

@@ -69,7 +69,7 @@
                     </c:if>
         
                     <c:if test="${not empty loginID}">
-	               		<li class="nav-item"><a class="nav-link" href="mdetail">
+	               		<li class="nav-item"><a class="nav-link nick-level" href="mdetail">
 							<c:if test="${admin}">
 								<span class="levelIcon levelAdmin"></span> 
 							</c:if>
@@ -100,13 +100,15 @@
 				<tr>
 					<th>No.${qna.qnaNo}</th>
 					<th>
-						<c:if test="${qna.adminRight}">
-							<span class="levelIcon levelAdmin"></span>
-						</c:if>
-						<c:if test="${!qna.adminRight}">
-							<span class="levelIcon level${qna.mlevel}"></span>
-						</c:if>
-						${qna.qnaId}
+						<span class="nick-level">
+							<c:if test="${qna.adminRight}">
+								<span class="levelIcon levelAdmin"></span>
+							</c:if>
+							<c:if test="${!qna.adminRight}">
+								<span class="levelIcon level${qna.mlevel}"></span>
+							</c:if>
+							${qna.qnaId}
+						</span>
 					</th>
 					<th>${qna.qnaTitle}</th>
 					<th>${qna.qnaTime}</th>
@@ -151,7 +153,7 @@
 		</div>
 	</article>
 	
-	<footer class="bg-light py-5">
+	<footer class="bg-light py-4">
 		<div class="container px-4 px-lg-5">
 			<div class="small text-center text-muted">Copyright &copy; 2022
 				- Company Name</div>

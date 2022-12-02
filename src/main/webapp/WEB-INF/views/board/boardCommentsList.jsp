@@ -10,16 +10,15 @@
 <link href="resources/home/css/main.css" rel="stylesheet" />
 <link href="resources/board/css/bcList.css" rel="stylesheet" />
 <link href="resources/common/css/textarea.css" rel="stylesheet" />
-<link href="resources/board/css/bcList.css" rel="stylesheet" />
 </head>
 <body>
 
 <c:if test="${not empty commentList}">
 	<ul class="answer_list">
 		<c:forEach var="bcomments" items="${commentList}">
-			
-			<li class="comments_List indent_${bcomments.indent}">
-				<div class="commentsId">
+			<li>
+			<div class="comments_List indent_${bcomments.indent}">
+				<div class="commentsId nick-level">
 					<c:if test="${bcomments.adminRight}">
 						<span class="levelIcon levelAdmin"></span>
 					</c:if>
@@ -55,13 +54,14 @@
 						</form>
 					</div>
 				</div>
-			</li>
+			</div>
+			
 			<c:if test="${bcomments.indent < 1}">
-				<li class="comments_List indent_1">
+				<div class="comments_List indent_1">
 					<div class="reReplyForm formHidden">
 						<form action="rinsert?bno&#61;${bcomments.bno}&root&#61;${bcomments.root}&amp;step&#61;${bcomments.step}&amp;indent&#61;${bcomments.indent}" 
 							class="reReplyF" id="bcNo&#61;${bcomments.bcNo}" method="post">
-							<div class="commentsId2">
+							<div class="commentsId2 nick-level">
 								<c:if test="${admin}">
 									<span class="levelIcon levelAdmin"></span>
 								</c:if>
@@ -78,8 +78,9 @@
 							</div>
 						</form>
 					</div>
-				</li>
+				</div>
 			</c:if>
+			</li>
 		</c:forEach>
 	</ul>
 </c:if>	
@@ -88,8 +89,7 @@
 <script src="resources/home/js/scripts.js"></script>
 <script src="resources/home/js/main.js"></script>
 <script src="resources/board/js/boardDetail.js"></script>
-<script src="resources/board/js/commentUpdate.js"></script>
-<script src="resources/board/js/reReply.js"></script>
+<script src="resources/board/js/bcomment.js"></script>
 <script src="resources/common/js/textarea.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
