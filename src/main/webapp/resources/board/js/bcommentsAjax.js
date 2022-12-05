@@ -71,6 +71,27 @@ $(function() {
 
 		}
 	});
+	
+	$('.board_List').click(function(e){
+		if($(e.target).hasClass("blistBtn")){
+			e.preventDefault();
+			let hrefUrl = $(e.target).prop('href');
+			if(hrefUrl != undefined || hrefUrl!=""){
+				$.ajax({
+					url: hrefUrl,
+					type: 'GET',
+					success: function(result) {
+						$('.board_List').html('');
+						$('.board_List').html($(result).filter('.notice').html());
+					}
+				});
+			}
+		}
+		if(e.target.tagName == "TD"){
+			let idUrl = $(e.target).parents('.board_list').prop('id');
+			location.href=`boarddetail?${idUrl}`;
+		}
+	});
 });
 
 //	

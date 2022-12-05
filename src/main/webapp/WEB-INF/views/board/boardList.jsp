@@ -149,25 +149,25 @@
 				<div class="boardNumBox">
 					<c:forEach var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
 						<c:if test="${i==maker.currPage}">
-							<a href="boardlist${maker.searchQuery(i)}" class="paging_num_on">
+							<a href="boardlist${maker.searchQuery(i)}" class="paging_num_on  blistBtn">
 								<span class="screen_out">현재페이지</span>${i}
 							</a>
 
 						</c:if>
 						<c:if test="${i !=maker.currPage}">
-							<a href="boardlist${maker.searchQuery(i)}">${i}</a>
+							<a href="boardlist${maker.searchQuery(i)}"  class="blistBtn">${i}</a>
 						</c:if>
 					</c:forEach>
 				</div>
 
 				<div class="boardBtnRight">
 					<c:if test="${maker.next}">
-						<a href="boardlist${maker.searchQuery(maker.epageNo+1)}"
+						<a id="boardlist${maker.searchQuery(maker.epageNo+1)}"
 							class="pageBtn">&gt;</a>
 					</c:if>
 
 					<c:if test="${maker.next && maker.epageNo>0}">
-						<a href="boardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
+						<a id="boardlist${maker.searchQuery(maker.lastPageNo)}" class="">&Gt;</a>
 					</c:if>
 				</div>
 			</div>

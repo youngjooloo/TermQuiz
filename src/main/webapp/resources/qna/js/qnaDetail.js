@@ -25,9 +25,23 @@ function qnaListOn() {
 
 $(function(){
 	$('.qna_List').click(function(e){
-		let url = $(e.target).parents('.qna_list').attr('id');
-		if(url != undefined){
-			location.href = `qnadetail?${url}`;
+		if($(e.target).hasClass("qnaListAjax")){
+			e.preventDefault();
+			let hrefUrl = $(e.target).prop('href');
+			if(hrefUrl != undefined || hrefUrl!=""){
+				$.ajax({
+					url: hrefUrl,
+					type: 'GET',
+					success: function(result) {
+						$('.qna_List').html('');
+						$('.qna_List').html($(result).filter('.notice').html());
+					}
+				});
+			}
+		}
+		if(e.target.tagName == "TD"){
+			let idUrl = $(e.target).parents('.qna_list').prop('id');
+			location.href=`qnadetail?${idUrl}`;
 		}
 	});
 });
