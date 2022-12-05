@@ -24,18 +24,10 @@ function qnaListOn() {
 
 
 $(function(){
-	$(window).click(function(e){
-//		console.log(e.target);
-	});
-	
-	$('.qna_List').click(function(){
-		console.log($(this).parents('.qna_list').attr('id'));
-//		location.href = `qnadetail?${$(this).parents('.qna_list').attr('id')}`;
-	});
-	
-	$('.qnaListAjax').click(function(e){
-		e.preventDefault();
-		console.log($(this).attr('href'));
-		return false;
+	$('.qna_List').click(function(e){
+		let url = $(e.target).parents('.qna_list').attr('id');
+		if(url != undefined){
+			location.href = `qnadetail?${url}`;
+		}
 	});
 });
