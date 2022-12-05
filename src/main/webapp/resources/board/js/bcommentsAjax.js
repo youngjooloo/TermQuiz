@@ -24,9 +24,6 @@ function commentListOn() {
 			$('.bcommentsList').html("");
 			$('.bcommentsList').html(resultPage);
 			commentLoad = 1;
-		},
-		error: function() {
-			$('#resultArea2').html('~~ 서버 오류 !! 잠시후 다시 하세요 ~~');
 		}
 	}); //ajax
 }
@@ -34,6 +31,9 @@ function boardListOn() {
 	const url = new URL(window.location.href);
 	const check = url.searchParams;
 	const pageno = check.get("currPage");
+	if(pageno == "" || pageno == null || pageno == undefined){
+		pageno = 1;
+	}
 	$.ajax({
 		type: 'Get',
 		url: 'boardlist',

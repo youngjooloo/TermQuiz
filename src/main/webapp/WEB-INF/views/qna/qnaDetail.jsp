@@ -151,6 +151,8 @@
 			</c:if>
 			<button type="button" class="btn_detail" onclick="location.href='qnaboardlist'">Back</button>
 		</div>
+		
+		<div class="qna_List"></div>
 	</article>
 	
 	<footer class="bg-light py-4">

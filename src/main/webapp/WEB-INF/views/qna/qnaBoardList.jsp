@@ -106,7 +106,7 @@
 				</thead>
 				<tbody>
 					<c:forEach var="qnaList" items="${qna}">
-						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}">
+						<tr class="qna_list" id="qnaNo&#61;${qnaList.qnaNo}&currPage=${maker.currPage}">
 							<td>${qnaList.qnaNo}</td>
 							<td>
 								<span class="nick-level">
@@ -149,13 +149,13 @@
 				<div class="boardNumBox" >
 					<c:forEach  var="i" begin="${maker.spageNo}" end="${maker.epageNo}">
 					   	<c:if test="${i==maker.currPage}">
-							 <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on">
+							 <a href="qnaboardlist${maker.searchQuery(i)}" class="paging_num_on qnaListAjax">
 								<span class="screen_out">현재페이지</span>${i}
 							 </a>
 							
 				       	</c:if>
 					    <c:if test="${i !=maker.currPage}">
-					        <a href="qnaboardlist${maker.searchQuery(i)}" >${i}</a>
+					        <a href="qnaboardlist${maker.searchQuery(i)}" class="qnaListAjax">${i}</a>
 					    </c:if>
 					</c:forEach>
 				</div> 

@@ -96,3 +96,12 @@ tbody td {
 	height: 32px;
 	margin: auto 10px;
 }
+
+.board-table {
+   width: 90%;
+   margin: 70px auto 20px;
+}
+
+.board-table td {
+   color: black;
+}

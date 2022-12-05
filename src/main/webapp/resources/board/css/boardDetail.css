@@ -182,3 +182,8 @@ article{
 .board_List td {
    color: black;
 }
+
+.board_List thead {
+   background-color: #55608f;
+    color: #fff;
+}

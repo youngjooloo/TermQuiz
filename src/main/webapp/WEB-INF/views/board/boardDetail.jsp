@@ -181,7 +181,6 @@
 	<script src="resources/home/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/home/js/scripts.js"></script>
 	<script src="resources/home/js/main.js"></script>
-	<script src="resources/board/js/boardDetail.js"></script>
 	<script src="resources/common/js/textarea.js"></script>
 	<script src="resources/board/js/bcommentsAjax.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
