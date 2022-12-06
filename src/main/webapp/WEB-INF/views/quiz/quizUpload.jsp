@@ -62,20 +62,32 @@
 					
 					<input name="answer" type="text" placeholder="Answer" required>
 					
-					<label for="hint1">Hint1</label>
-					<input class="fileInput" name="hint1up" id="hint1" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
-					
-					<label for="hint2">Hint2</label>
-					<input class="fileInput" name="hint2up" id="hint2" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
-					
-					<label for="hint3">Hint3</label>
-					<input class="fileInput" name="hint3up" id="hint3" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
-					
-					<label for="hint4">Hint4</label>
-					<input class="fileInput" name="hint4up" id="hint4" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
-					
-					<label for="hint5">Hint5</label>
-					<input class="fileInput" name="hint5up" id="hint5" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+					<label class="hints">Hint Upload</label>
+					<div class="filebox"> 
+						<label for="hint1" class="hintLabel">Hint 1</label>
+						<input class="fileInput" name="hint1up" id="hint1" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+						<input class="upload-name" value="파일선택" readonly>
+					</div>
+					<div class="filebox"> 
+						<label for="hint2" class="hintLabel">Hint 2</label>
+						<input class="fileInput" name="hint2up" id="hint2" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+						<input class="upload-name" value="파일선택" readonly>
+					</div>
+					<div class="filebox"> 
+						<label for="hint3" class="hintLabel">Hint 3</label>
+						<input class="fileInput" name="hint3up" id="hint3" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+						<input class="upload-name" value="파일선택" readonly>
+					</div>
+					<div class="filebox"> 
+						<label for="hint4" class="hintLabel">Hint 4</label>
+						<input class="fileInput" name="hint4up" id="hint4" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+						<input class="upload-name" value="파일선택" readonly>
+					</div>
+					<div class="filebox"> 
+						<label for="hint5" class="hintLabel">Hint 5</label>
+						<input class="fileInput" name="hint5up" id="hint5" multiple="multiple" type="file" accept=".gif, .jpg, .jpeg, .png, .mp3" required>
+						<input class="upload-name" value="파일선택" readonly>
+					</div>
 				</div>
 				
 				<div class="form-submit">

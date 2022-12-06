@@ -42,6 +42,7 @@ tbody td {
 }
 
 #userQuestion{
+	vertical-align: top;
 	height: 300px;
 }
 

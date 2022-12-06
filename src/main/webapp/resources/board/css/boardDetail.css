@@ -42,6 +42,7 @@ table {
 
 .content_area {
 	height: 400px;
+	vertical-align: top;
 }
 
 .content_table tbody tr th {

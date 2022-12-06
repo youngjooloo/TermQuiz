@@ -91,7 +91,7 @@
 	</header>
 
 	<article>
-		<form action="boardupdate?bno=${board.bno}" method="post">
+		<form action="boardupdate?bno=${board.bno}&currPage=${board.currPage}" method="post">
 			<table>
 				<thead>
 					<tr>

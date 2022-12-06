@@ -49,8 +49,7 @@ public class BoardController {
 			BoardVO vo, BoardCommentsVO cvo) {
 
 		String uri = "/board/boardDetail";
-		int bno = Integer.parseInt((String) request.getParameter("bno"));
-		vo.setBno(bno);
+		int currPage = vo.getCurrPage();
 		vo = service.selectOne(vo);
 
 		if (vo != null) {
@@ -62,14 +61,16 @@ public class BoardController {
 				}
 			}
 			if ("U".equals(request.getParameter("jCode"))) {
+				String content = vo.getBcontent().replace("<br>","\r\n");
+				vo.setBcontent(content);
 				uri = "/board/boardUpdate";
 			}
+			vo.setCurrPage(currPage);
 			mv.addObject("board", vo);
 			
 			cvo.setBno(vo.getBno());
 
 			List<BoardCommentsVO> cvoList = new ArrayList<BoardCommentsVO>();
-
 			cvoList = service.commentList(cvo);
 
 			mv.addObject("commentList", cvoList);
@@ -122,14 +123,11 @@ public class BoardController {
 			RedirectAttributes rttr, BoardVO vo) {
 		String uri = "board/boardUpdate";
 
-		int bno = Integer.parseInt((String) request.getParameter("bno"));
-		vo.setBno(bno);
-
 		String content = vo.getBcontent().replace("\r\n", "<br>");
 		vo.setBcontent(content);
 
 		if (service.update(vo) > 0) {
-			uri = "redirect:boarddetail?bno=" + vo.getBno();
+			uri = "redirect:boarddetail?bno=" + vo.getBno() + "&currPage=" + vo.getCurrPage();
 			rttr.addFlashAttribute("alertMessage", "글 수정에 성공하였습니다");
 		}else {
 			rttr.addFlashAttribute("alertMessage2", "글 수정에 실패하였습니다");
@@ -161,13 +159,18 @@ public class BoardController {
 	@RequestMapping(value = "/commentlist")
 	public ModelAndView commentlist(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 			 BoardCommentsVO cvo) {
-
 		String uri = "/board/boardCommentsList";
+		int currPage = cvo.getCurrPage();
 		int bno = Integer.parseInt((String) request.getParameter("bno"));
 		cvo.setBno(bno);
 		List<BoardCommentsVO> cvoList = new ArrayList<BoardCommentsVO>();
-
 		cvoList = service.commentList(cvo);
+		for (BoardCommentsVO cList : cvoList) {
+			String content = cList.getBcomment().replace("<br>","\r\n");
+			cList.setBcomment(content);
+			cList.setCurrPage(currPage);
+		}
+
 		mv.addObject("commentList", cvoList);
 
 		mv.setViewName(uri);
@@ -230,29 +233,21 @@ public class BoardController {
 	@RequestMapping(value = "/bcommentdelete")
 	public ModelAndView bcommentdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr,
 			BoardCommentsVO cvo) {
-		int bcno = Integer.parseInt((String) request.getParameter("bcno"));
-		int bno = Integer.parseInt((String) request.getParameter("bno"));
-		cvo.setBcNo(bcno);
+		System.out.println(cvo);
 		if (service.bcommentdelete(cvo)>0) {
 			rttr.addFlashAttribute("alertMessage", "댓글 삭제를 성공하였습니다");
 		}else {
 			rttr.addFlashAttribute("alertMessage2", "댓글 삭제를 실패하였습니다");
 		}
 
-		mv.setViewName("redirect:boarddetail?bno=" + bno);
+		mv.setViewName("redirect:boarddetail?bno=" + cvo.getBno()+"&currPage="+cvo.getCurrPage());
 		return mv;
 	}
 
 	@RequestMapping(value = "/bcommentupdate", method = RequestMethod.POST)
 	public ModelAndView boardupdate(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr,
 			BoardCommentsVO cvo) {
-	
-		int bno = Integer.parseInt((String)request.getParameter("bno"));
-		
-		String uri = "redirect:boarddetail?bno="+bno;
-
-		int bcno = Integer.parseInt((String) request.getParameter("bcNo"));
-		cvo.setBcNo(bcno);
+		String uri = "redirect:boarddetail?bno="+cvo.getBno()+"&currPage="+cvo.getCurrPage();
 
 		String bcomment = cvo.getBcomment().replace("\r\n", "<br>");
 		cvo.setBcomment(bcomment);

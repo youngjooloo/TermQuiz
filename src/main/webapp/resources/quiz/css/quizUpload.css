@@ -1,5 +1,28 @@
 @charset "UTF-8";
 
-label {
-	color: #222222ad;
+.hints{
+	color: #767676;
+	margin-bottom: 10px;
+}
+
+.hintLabel {
+	background: #eb6d23;
+	color:white;
+	box-shadow: 0px 0px 5px 0px #eb6d23;
+    margin-right: 10px;
+    width: 70px;
+    line-height: 30px;
+    text-align: center;
+}
+.hintLabel:hover {
+	cursor: pointer;
+}
+
+.filebox{
+	display: flex;
+	align-items: baseline;
+}
+
+.fileInput{
+	display: none;
 }

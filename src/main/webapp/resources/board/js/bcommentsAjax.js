@@ -14,11 +14,13 @@ function commentListOn() {
 	const url = new URL(window.location.href);
 	const check = url.searchParams;
 	const bno = check.get("bno");
+	const currPage = check.get("currPage");
 	$.ajax({
 		type: 'Get',
 		url: 'commentlist',
 		data: {
-			bno: bno
+			bno: bno,
+			currPage: currPage			
 		},
 		success: function(resultPage) {
 			$('.bcommentsList').html("");

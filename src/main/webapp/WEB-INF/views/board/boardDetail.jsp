@@ -130,7 +130,7 @@
 				onclick="bcommentsList();">댓글</button>
 			<c:if test="${board.bid == nick || admin}">
 				<button type="button" class="btn_detail"
-					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}'">Modify</button>
+					onclick="location.href='boarddetail?jCode=U&bno=${board.bno}&currPage=${board.currPage}'">Modify</button>
 			</c:if>
 			<c:if test="${board.bid == nick || admin}">
 				<button type="button" class="btn_detail confirmBtn"
@@ -144,7 +144,7 @@
 		<div id="resultArea2"></div>
 
 		<c:if test="${not empty nick}">
-			<form action="rinsert?bno=${board.bno}" method="post" id="answerForm">
+			<form action="rinsert?bno=${board.bno}&currPage=${board.currPage}" method="post" id="answerForm">
 				<ul class="reply">
 					<li class="comments_List">
 						<div class="commentsId nick-level">

@@ -125,12 +125,12 @@
 						<c:if test="${not empty qna.qnaAnswer}">
 							<b> ${qna.qnaAnswer}</b>
 							<c:if test="${admin}">
-								<button class="btn_detail answerBtn confirmBtn" id="qnaanswerdelete?qnaNo&#61;${qna.qnaNo}" type="button">Delete</button>
+								<button class="btn_detail answerBtn confirmBtn" id="qnaanswerdelete?qnaNo&#61;${qna.qnaNo}&currPage=${qna.currPage}" type="button">Delete</button>
 							</c:if>
 						</c:if>
 						<c:if test="${empty qna.qnaAnswer}">
 							<c:if test="${admin}">
-								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}" method="post" id="qnaAnswer">
+								<form action="qnaanswer?qnaNo&#61;${qna.qnaNo}&currPage=${qna.currPage}" method="post" id="qnaAnswer">
 									<textarea name="qnaAnswer" id="qnaAnswer" maxlength="150" required class="boardComment"></textarea>
 									<p class="qnaAnswerCount"></p>
 									<button class="btn_answer submit_Confirm" type="button">Submit</button>
@@ -144,7 +144,7 @@
 		
 		<div class="wrap_paging qnaWrap">
 			<c:if test="${qna.qnaId == nick && empty qna.qnaAnswer}">
-				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}'">Modify</button>
+				<button type="button" class="btn_detail" onclick="location.href='qnadetail?jCode=U&qnaNo=${qna.qnaNo}&currPage=${qna.currPage}'">Modify</button>
 			</c:if>
 			<c:if test="${(qna.qnaId == nick && empty qna.qnaAnswer)|| admin}">
 				<button type="button" class="btn_detail confirmBtn" id="qnadelete?qnaNo=${qna.qnaNo}">Delete</button>

@@ -33,9 +33,10 @@ $(function(){
  
 		if(!checkFileName(fileName)){
 			$(this).val("");
+		}else{
+			console.log(fileName)
+			$(this).next("input").val(fileName);
 		} 
-			
-
     });
 });
 

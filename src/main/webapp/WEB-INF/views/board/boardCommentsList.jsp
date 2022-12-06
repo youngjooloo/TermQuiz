@@ -39,17 +39,17 @@
 										</c:if>
 										<c:if test="${bcomments.bcId == nick}">
 											<input type="button" class="commentsTime_btn first_btn"
-												id="bcNo&#61;${bcomments.bcNo}" value="수정">
+												id="bcNo&#61;${bcomments.bcNo}&currPage=${bcomments.currPage}" value="수정">
 											<input type="button"
 												class="commentsTime_btn second_btn confirmBtn" value="삭제"
-												id="bcommentdelete?bno=${bcomments.bno}&bcno=${bcomments.bcNo}">
+												id="bcommentdelete?bno=${bcomments.bno}&currPage=${bcomments.currPage}&bcNo=${bcomments.bcNo}">
 										</c:if>
 									</c:if>
 								</div>
 							</div>
 							<div class="modifyForm  formHidden">
 								<form
-									action="bcommentupdate?bno&#61;${bcomments.bno}&amp;bcNo&#61;${bcomments.bcNo}"
+									action="bcommentupdate?bno&#61;${bcomments.bno}&currPage=${bcomments.currPage}&amp;bcNo&#61;${bcomments.bcNo}"
 									class="bcUpdateF" id="bc${bcomments.bcNo}" method="post">
 									<textarea name="bcomment" class="update_area boardComment"
 										maxlength="150" required>${bcomments.bcomment}</textarea>

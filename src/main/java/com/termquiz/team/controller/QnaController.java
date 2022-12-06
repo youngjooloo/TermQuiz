@@ -45,15 +45,15 @@ public class QnaController {
 	public ModelAndView qnadetail(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnaVO vo) {
 
 		String uri = "/qna/qnaDetail";
-		int qno = Integer.parseInt((String)request.getParameter("qnaNo"));
-		vo.setQnaNo(qno);
-		
+
 		vo = service.selectOne(vo);
 		
 		if (vo != null) {
 			mv.addObject("qna", vo);
 		
 			if ("U".equals(request.getParameter("jCode"))){
+				String content = vo.getQnaContent().replace("<br>","\r\n");
+				vo.setQnaContent(content);
 				uri = "qna/qnaUpdate";
 			}
 		} else {
@@ -105,14 +105,11 @@ public class QnaController {
 			RedirectAttributes rttr, QnaVO vo) {
 
 		String uri = "qnadetail";
-		
-		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
-		
 		String content = vo.getQnaAnswer().replace("\r\n","<br>");
 		vo.setQnaAnswer(content);
 		
 		if( service.qnaAnswer(vo) > 0) {
-			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo()+"&currPage="+vo.getCurrPage();
 			rttr.addFlashAttribute("alertMessage", "답변 등록에 성공하였습니다");
 		}else {
 			rttr.addFlashAttribute("alertMessage2", "답변 등록에 실패하였습니다");
@@ -126,7 +123,7 @@ public class QnaController {
 	public ModelAndView qnaanswerdelete(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, RedirectAttributes rttr ,QnaVO vo) {
 		
 		vo.setQnaNo(Integer.parseInt((String)request.getParameter("qnaNo")));
-		String uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+		String uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo()+"&currPage="+vo.getCurrPage();
 		
 		if(service.qnaAnswerDelete(vo)>0) {
 			rttr.addFlashAttribute("alertMessage", "답글 삭제에 성공하였습니다");
@@ -150,8 +147,11 @@ public class QnaController {
 		vo2.setQnaTitle(vo.getQnaTitle());
 		vo2.setQnaContent(vo.getQnaContent());
 		
+		String content = vo2.getQnaContent().replace("\r\n","<br>");
+		vo2.setQnaContent(content);
+		
 		if(service.qnaUpdate(vo2)>0) {
-			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo();
+			uri = "redirect:qnadetail?qnaNo="+vo.getQnaNo()+"&currPage="+vo.getCurrPage();
 			rttr.addFlashAttribute("alertMessage", "QnA 수정에 성공하였습니다");
 		}else {
 			rttr.addFlashAttribute("alertMessage2", "QnA 수정에 실패하였습니다");
